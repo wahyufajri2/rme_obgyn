@@ -25,4 +25,4 @@
 
 </head>
 
-<body class="bg-secondary">
+<body class="bg-info">
