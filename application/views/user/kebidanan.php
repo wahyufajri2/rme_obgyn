@@ -1,9 +1,17 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+    <div class="row mb-2">
+        <div class="col-sm">
+            <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item text-right"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </div>
+    </div>
 
+    <!-- Content Row -->
     <div class="row">
         <div class="col-lg">
             <?php if (validation_errors()) : ?>
@@ -37,9 +45,9 @@
                             <td><?= $kbd['alamat']; ?></td>
                             <td><?= $kbd['status']; ?></td>
                             <td>
-                                <button type="button" class="btn btn-primary btn-sm border border-dark" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
-                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> History</button>
-                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</button>
+                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
+                                <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> History</button>
+                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</button>
                             </td>
                         </tr>
                         <?php $i++; ?>
@@ -61,11 +69,8 @@
                     </li>
                 </ul>
             </nav>
-
-
         </div>
     </div>
-
 </div>
 <!-- /.container-fluid -->
 

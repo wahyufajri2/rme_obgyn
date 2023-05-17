@@ -20,6 +20,9 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- Icon -->
+    <link rel="shortcut icon" href="<?= base_url('assets/'); ?>img/pku.png">
+
 </head>
 
-<body class="bg-image('assets/img/rs-pku-gamping1.jpg')">
+<body class="bg-secondary">

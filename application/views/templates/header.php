@@ -9,7 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?= $title; ?></title>
+    <title>RS PKU Gamping | <?= $title; ?></title>
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="<?= base_url('assets/'); ?>img/pku.png">
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
