@@ -17,16 +17,24 @@
                                 <?= $this->session->flashdata('message') ?>
                                 <form class="user" method="post" action="<?= base_url('auth'); ?>">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." value="<?= set_value('email'); ?>">
+                                        <input type="text" class="form-control form-control-user" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." value="<?php if (isset($_COOKIE["email"])) {
+                                                                                                                                                                                                        echo $_COOKIE["email"];
+                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                        echo set_value('email');
+                                                                                                                                                                                                    }  ?>">
                                         <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
+                                        <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password" value="<?php if (isset($_COOKIE["password"])) {
+                                                                                                                                                                        echo $_COOKIE["password"];
+                                                                                                                                                                    } ?>">
                                         <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
-                                            <input type="checkbox" class="custom-control-input" id="save_id" name="save_id">
+                                            <input type="checkbox" class="custom-control-input" id="save_id" name="save_id" <?php if (isset($_COOKIE["email"])) {
+                                                                                                                                echo "checked";
+                                                                                                                            } ?>>
                                             <label class="custom-control-label" for="save_id">
                                                 Remember Me</label>
                                         </div>
