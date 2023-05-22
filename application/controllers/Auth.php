@@ -66,8 +66,8 @@ class Auth extends CI_Controller
                             setcookie('email', $email, time() + 60 * 60 * 24 * 30);
                             setcookie('password', $password, time() + 60 * 60 * 24 * 30);
                         } else {
-                            setcookie('email', '', time() - 3600);
-                            setcookie('password', '', time() - 3600);
+                            setcookie('email', '');
+                            setcookie('password', '');
                         }
                         redirect('admin');
                     } else {
@@ -75,8 +75,8 @@ class Auth extends CI_Controller
                             setcookie('email', $email, time() + 60 * 60 * 24 * 30);
                             setcookie('password', $password, time() + 60 * 60 * 24 * 30);
                         } else {
-                            setcookie('email', '', time() - 3600);
-                            setcookie('password', '', time() - 3600);
+                            setcookie('email', '');
+                            setcookie('password', '');
                         }
                         redirect('user');
                     }
