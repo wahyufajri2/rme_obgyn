@@ -24,6 +24,13 @@
                                         <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
                                         <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox small">
+                                            <input type="checkbox" class="custom-control-input" id="save_id" name="save_id">
+                                            <label class="custom-control-label" for="save_id">
+                                                Remember Me</label>
+                                        </div>
+                                    </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
                                         <i class="fa-solid fa-right-to-bracket"></i> Login
                                     </button>
