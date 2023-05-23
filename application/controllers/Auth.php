@@ -78,7 +78,7 @@ class Auth extends CI_Controller
                             setcookie('email', '');
                             setcookie('password', '');
                         }
-                        redirect('user');
+                        redirect('user/pasien');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
