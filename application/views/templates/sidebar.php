@@ -6,7 +6,7 @@
          <div class="sidebar-brand-icon">
              <img class="img-profile rounded-circle" width="45 px" src="<?= base_url('assets/img/pku.png') ?>" alt="RS PKU Gamping ">
          </div>
-         <div class="font-weight-bolder">RS PKU Gamping</div>
+         <div class="sidebar-brand-text mx-3">RS PKU Gamping</div>
      </a>
 
      <!-- Divider -->
