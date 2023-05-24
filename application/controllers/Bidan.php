@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class User extends CI_Controller
+class Bidan extends CI_Controller
 {
 
     public function __construct()
@@ -19,21 +19,7 @@ class User extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('user/pasien', $data);
-        $this->load->view('templates/footer');
-    }
-
-    public function tranfusi()
-    {
-        $data['title'] = 'Tranfusi Darah';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        // $data['tranfusi'] = $this->db->get('tranfusi')->result_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/tranfusi', $data);
+        $this->load->view('pasien/index', $data);
         $this->load->view('templates/footer');
     }
 
@@ -49,7 +35,7 @@ class User extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('user/kebidanan', $data);
+        $this->load->view('bidan/kebidanan', $data);
         $this->load->view('templates/footer');
     }
 
@@ -63,7 +49,7 @@ class User extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('user/persalinan', $data);
+        $this->load->view('bidan/persalinan', $data);
         $this->load->view('templates/footer');
     }
 }

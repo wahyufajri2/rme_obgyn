@@ -70,6 +70,15 @@ class Auth extends CI_Controller
                             setcookie('password', '');
                         }
                         redirect('admin');
+                    } elseif ($user['role_id'] == 2) {
+                        if ($this->input->post('save_id')) {
+                            setcookie('email', $email, time() + 60 * 60 * 24 * 30);
+                            setcookie('password', $password, time() + 60 * 60 * 24 * 30);
+                        } else {
+                            setcookie('email', '');
+                            setcookie('password', '');
+                        }
+                        redirect('bidan/kebidanan');
                     } else {
                         if ($this->input->post('save_id')) {
                             setcookie('email', $email, time() + 60 * 60 * 24 * 30);
@@ -78,7 +87,7 @@ class Auth extends CI_Controller
                             setcookie('email', '');
                             setcookie('password', '');
                         }
-                        redirect('user/pasien');
+                        redirect('perawat/tranfusi');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Wrong password!</div>');
