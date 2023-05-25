@@ -41,6 +41,9 @@
  <!-- Bootstrap core JavaScript-->
  <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
  <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
 
  <!-- Core plugin JavaScript-->
  <script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -48,26 +51,62 @@
  <!-- Custom scripts for all pages-->
  <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
 
+ <!-- Vendor adminlte -->
+
+ <!-- jQuery -->
+ <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/jquery/jquery.min.js"></script> -->
+ <!-- Bootstrap 4 -->
+ <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+ <!-- DataTables  & Plugins -->
+ <script src="<?= base_url('assets/vendor/') ?>plugins/datatables/jquery.dataTables.min.js"></script>
+ <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+ <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script> -->
+ <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script> -->
+ <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+ <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script> -->
+ <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/jszip/jszip.min.js"></script>
+ <script src="<?= base_url('assets/vendor/') ?>plugins/pdfmake/pdfmake.min.js"></script>
+ <script src="<?= base_url('assets/vendor/') ?>plugins/pdfmake/vfs_fonts.js"></script> -->
+ <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+ <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
+ <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script> -->
+ <!-- AdminLTE App -->
+ <script src="<?= base_url('assets/vendor/') ?>dist/js/adminlte.min.js"></script>
+ <!-- AdminLTE for demo purposes -->
+ <!-- <script src="<?= base_url('assets/vendor/') ?>dist/js/demo.js"></script> -->
+ <!-- Page specific script -->
  <script>
+     $(function() {
+         $('#example2').DataTable({
+             "paging": true,
+             "lengthChange": false,
+             "searching": false,
+             "ordering": true,
+             "info": true,
+             "autoWidth": false,
+             "responsive": true,
+         });
+     });
+ </script>
 
-    $('.form-check-input').on('click', function() {
-        const menuId = $(this).data('menu');
-        const roleId = $(this).data('role');
+ <script>
+     $('.form-check-input').on('click', function() {
+         const menuId = $(this).data('menu');
+         const roleId = $(this).data('role');
 
-        $.ajax({
-            url: "<?= base_url('admin/changeaccess'); ?>",
-            type: 'post',
-            data: {
-                menuId: menuId,
-                roleId: roleId
-            },
-            success: function() {
-                document.location.href = "<?= base_url('admin/roleaccess/'); ?>" + roleId;
-            }
-        });
+         $.ajax({
+             url: "<?= base_url('admin/changeaccess'); ?>",
+             type: 'post',
+             data: {
+                 menuId: menuId,
+                 roleId: roleId
+             },
+             success: function() {
+                 document.location.href = "<?= base_url('admin/roleaccess/'); ?>" + roleId;
+             }
+         });
 
-    });
-
+     });
  </script>
 
  </body>
