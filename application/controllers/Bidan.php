@@ -11,18 +11,6 @@ class Bidan extends CI_Controller
         is_logged_in();
     }
 
-    public function pasien()
-    {
-        $data['title'] = 'Master Data Pasien';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('pasien/index', $data);
-        $this->load->view('templates/footer');
-    }
-
     public function kebidanan()
     {
         $data['title'] = 'Asesment Kebidanan';
