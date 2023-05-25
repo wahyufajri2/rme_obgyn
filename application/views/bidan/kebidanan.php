@@ -1,78 +1,88 @@
-<!-- Begin Page Content -->
-<div class="container-fluid">
-    <!-- Page Heading -->
-    <div class="row mb-2">
-        <div class="col-sm">
-            <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item text-right"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Library</li>
-            </ol>
-        </div>
-    </div>
-
-    <!-- Content Row -->
-    <div class="row">
-        <div class="col-lg">
-            <?php if (validation_errors()) : ?>
-                <div class="alert alert-danger" role="alert">
-                    <?= validation_errors(); ?>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
                 </div>
-            <?php endif; ?>
-
-            <?= $this->session->flashdata('message'); ?>
-
-            <table class="table table-hover text-center">
-                <thead>
-                    <tr class="table-active">
-                        <!-- <th scope="col">No</th> -->
-                        <th scope="col">No Rg</th>
-                        <th scope="col">No MR</th>
-                        <th scope="col">Nama Pasien</th>
-                        <th scope="col">Alamat</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($Kebidanan as $kbd) : ?>
-                        <tr>
-                            <!-- <th scope="row"><?= $i; ?></th> -->
-                            <td><?= $kbd['no_rg']; ?></td>
-                            <td><?= $kbd['no_rm']; ?></td>
-                            <td><?= $kbd['nama_pasien']; ?></td>
-                            <td><?= $kbd['alamat']; ?></td>
-                            <td><?= $kbd['status']; ?></td>
-                            <td>
-                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> History</button>
-                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</button>
-                            </td>
-                        </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-            <nav aria-label="...">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <span class="page-link">Previous</span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">2</span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">DataTables</li>
+                    </ol>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <?php if (validation_errors()) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= validation_errors(); ?>
+                    </div>
+                <?php endif; ?>
+
+                <?= $this->session->flashdata('message'); ?>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6"></div>
+                    <div class="col-sm-12 col-md-6">
+                        <div id="example2_filter" class="dataTables_filter">
+                            <label class="col-md-6 d-flex float-right">Search:
+                                <input type="search" class="form-control form-control-sm" placeholder="Search for..." aria-controls="example2">
+                            </label>
+                            <label for="search"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover text-center">
+                            <thead>
+                                <tr class="table-active">
+                                    <th>No</th>
+                                    <th>No Rg</th>
+                                    <th>No MR</th>
+                                    <th>Nama Pasien</th>
+                                    <th>Alamat</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $i = 1; ?>
+                                <?php foreach ($Kebidanan as $kbd) : ?>
+                                    <tr>
+                                        <th scope="row"><?= $i; ?></th>
+                                        <td><?= $kbd['no_rg']; ?></td>
+                                        <td><?= $kbd['no_rm']; ?></td>
+                                        <td><?= $kbd['nama_pasien']; ?></td>
+                                        <td><?= $kbd['alamat']; ?></td>
+                                        <td><?= $kbd['status']; ?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
+                                            <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> History</button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</button>
+                                        </td>
+                                    </tr>
+                                    <?php $i++; ?>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
 </div>
 <!-- /.container-fluid -->
+</section>
 
 </div>
 <!-- End of Main Content -->
