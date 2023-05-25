@@ -9,7 +9,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">DataTables</li>
+                        <li class="breadcrumb-item active"><?= $title; ?></li>
                     </ol>
                 </div>
             </div>
@@ -28,13 +28,13 @@
 
                 <?= $this->session->flashdata('message'); ?>
                 <div class="row">
-                    <div class="col-sm-12 col-md-6"></div>
+                    <div class="col-sm-12 col-md-6">
+                    </div>
                     <div class="col-sm-12 col-md-6">
                         <div id="example2_filter" class="dataTables_filter">
                             <label class="col-md-6 d-flex float-right">Search:
                                 <input type="search" class="form-control form-control-sm" placeholder="Search for..." aria-controls="example2">
                             </label>
-                            <label for="search"></label>
                         </div>
                     </div>
                 </div>
