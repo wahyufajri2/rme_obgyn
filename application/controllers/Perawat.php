@@ -15,8 +15,10 @@ class Perawat extends CI_Controller
     {
         $data['title'] = 'Tranfusi Darah';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Kasus_model', 'kasus');
 
-        // $data['tranfusi'] = $this->db->get('tranfusi')->result_array();
+
+        $data['Tranfusi'] = $this->kasus->getTranfusi();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

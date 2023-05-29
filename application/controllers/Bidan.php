@@ -31,8 +31,10 @@ class Bidan extends CI_Controller
     {
         $data['title'] = 'Catatan Persalinan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Kasus_model', 'kasus');
 
-        // $data['persalinan'] = $this->db->get('persalinan')->result_array();
+
+        $data['Persalinan'] = $this->kasus->getPersalinan();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
