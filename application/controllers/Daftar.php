@@ -15,7 +15,10 @@ class Daftar extends CI_Controller
     {
         $data['title'] = 'Entri Kunjungan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Daftar_model', 'daftar');
 
+
+        $data['Pendaftaran'] = $this->daftar->getPendaftaran();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
