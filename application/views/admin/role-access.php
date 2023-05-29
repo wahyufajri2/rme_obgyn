@@ -14,9 +14,9 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Menu</th>
-                        <th scope="col">Access</th>
+                        <th scope="col" class="text-center">Access</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,7 +25,7 @@
                         <tr>
                             <th scope="row"><?= $i; ?></th>
                             <td><?= $m['menu']; ?></td>
-                            <td>
+                            <td class="text-center">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" <?= check_access($role['id'], $m['id']); ?> data-role="<?= $role['id']; ?>" data-menu="<?= $m['id']; ?>">
                                 </div>
@@ -39,6 +39,7 @@
 
         </div>
     </div>
+    <a href="<?= base_url('admin/role/'); ?>" class="btn btn-outline-info btn-sm"><i class="fas fa-solid fa-arrow-left"></i> Back</a>
 
 </div>
 <!-- /.container-fluid -->

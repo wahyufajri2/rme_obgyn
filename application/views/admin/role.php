@@ -10,14 +10,14 @@
 
             <!-- <?= $this->session->flashdata('message'); ?> -->
 
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newRoleModal">Add New Role</a>
+            <a href="" class="btn btn-outline-primary mb-3" data-toggle="modal" data-target="#newRoleModal">Add New Role</a>
 
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Role</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,10 +26,10 @@
                         <tr>
                             <th scope="row"><?= $i; ?></th>
                             <td><?= $r['role']; ?></td>
-                            <td>
-                                <a href="<?= base_url('admin/roleaccess/') . $r['id']; ?>" class="badge badge-warning">access</a>
-                                <a href="" class="badge badge-success">edit</a>
-                                <a href="" class="badge badge-danger">delete</a>
+                            <td class="text-center">
+                                <a href="<?= base_url('admin/roleaccess/') . $r['id']; ?>" class="btn btn-outline-warning btn-sm"><i class="fas fa-solid fa-arrows-turn-to-dots"></i> Access</a>
+                                <a class="btn btn-outline-success btn-sm"><i class=" fas fa-solid fa-pen-to-square"></i> Edit</a>
+                                <a class="btn btn-outline-danger btn-sm"><i class=" fas fa-solid fa-trash-can"></i> Delete</a>
                             </td>
                         </tr>
                         <?php $i++; ?>
