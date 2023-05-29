@@ -15,9 +15,9 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Menu</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,9 +26,9 @@
                         <tr>
                             <th scope="row"><?= $i; ?></th>
                             <td><?= $m['menu']; ?></td>
-                            <td>
-                                <a href="" class="badge badge-success">edit</a>
-                                <a href="" class="badge badge-danger">delete</a>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-outline-success btn-sm"><i class=" fas fa-solid fa-pen-to-square"></i> Edit</button>
+                                <button type="button" class="btn btn-outline-danger btn-sm"><i class=" fas fa-solid fa-trash-can"></i> Delete</button>
                             </td>
                         </tr>
                         <?php $i++; ?>
