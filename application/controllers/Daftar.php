@@ -13,15 +13,25 @@ class Daftar extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Data Rekam Medis';
+        $data['title'] = 'Entri Kunjungan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        // $data['tranfusi'] = $this->db->get('tranfusi')->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('daftar/index', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function data_pasien()
+    {
+        $data['title'] = 'Master Data Pasien';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('daftar/data_pasien', $data);
         $this->load->view('templates/footer');
     }
 }
