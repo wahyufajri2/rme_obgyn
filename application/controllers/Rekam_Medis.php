@@ -13,7 +13,7 @@ class Rekam_Medis extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Data Rekam Medis';
+        $data['title'] = 'Master Data Pasien*';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         // $data['tranfusi'] = $this->db->get('tranfusi')->result_array();
