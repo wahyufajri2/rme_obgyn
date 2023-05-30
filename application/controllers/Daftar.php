@@ -30,7 +30,10 @@ class Daftar extends CI_Controller
     {
         $data['title'] = 'Master Data Pasien';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Daftar_model', 'dpd');
 
+
+        $data['DataPasienDaftar'] = $this->dpd->getDataPasienDaftar();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);

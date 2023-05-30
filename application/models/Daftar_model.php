@@ -13,4 +13,13 @@ class Daftar_model extends CI_Model
 
         return $query->result_array();
     }
+
+    public function getDataPasienDaftar()
+    {
+        $this->db->select('id_pasien, no_rm, nama_pasien, alamat, tgl_lahir');
+        $this->db->from('tb_pasien');
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 }
