@@ -44,24 +44,24 @@
               <thead>
                 <tr class="table-active">
                   <th>No</th>
-                  <th>No Rg</th>
+                  <th>ID Pasien</th>
                   <th>No MR</th>
                   <th>Nama Pasien</th>
+                  <th>Tanggal Lahir</th>
                   <th>Alamat</th>
-                  <th>Status</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
                 <?php $i = 1; ?>
-                <?php foreach ($Kebidanan as $kbd) : ?>
+                <?php foreach ($DataPasienRM as $dprm) : ?>
                   <tr>
                     <th scope="row"><?= $i; ?></th>
-                    <td><?= $kbd['no_rg']; ?></td>
-                    <td><?= $kbd['no_rm']; ?></td>
-                    <td><?= $kbd['nama_pasien']; ?></td>
-                    <td><?= $kbd['alamat']; ?></td>
-                    <td><?= $kbd['status']; ?></td>
+                    <td><?= $dprm['id_pasien']; ?></td>
+                    <td><?= $dprm['no_rm']; ?></td>
+                    <td><?= $dprm['nama_pasien']; ?></td>
+                    <td><?= $dprm['tgl_lahir']; ?></td>
+                    <td><?= $dprm['alamat']; ?></td>
                     <td>
                       <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
                       <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> History</button>

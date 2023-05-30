@@ -15,9 +15,10 @@ class Rekam_Medis extends CI_Controller
     {
         $data['title'] = 'Master Data Pasien*';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('RekamMedis_model', 'rm');
 
-        // $data['tranfusi'] = $this->db->get('tranfusi')->result_array();
 
+        $data['DataPasienRM'] = $this->rm->getDataPasienRM();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
