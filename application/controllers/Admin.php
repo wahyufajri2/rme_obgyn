@@ -40,7 +40,7 @@ class Admin extends CI_Controller
         } else {
             $this->db->insert('user_menu', ['menu' => $this->input->post('menu')]);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
-            redirect('menu');
+            redirect('admin');
         }
     }
 
@@ -74,7 +74,7 @@ class Admin extends CI_Controller
             ];
             $this->db->insert('user_sub_menu', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New submenu added!</div>');
-            redirect('menu/submenu');
+            redirect('admin/submenu');
         }
     }
 
@@ -108,6 +108,53 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view('admin/role-access', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function addAccount()
+    {
+        // if ($this->session->userdata('email')) {
+        //     redirect('admin/addAccount');
+        // }
+
+        $this->form_validation->set_rules('name', 'Name', 'required|trim');
+        $this->form_validation->set_rules(
+            'email',
+            'Email',
+            'required|trim|valid_email|is_unique[user.email]',
+            [
+                'is_unique' => 'This email has already registered!'
+            ]
+        );
+        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
+            'matches' => 'Password dont match!',
+            'min_length' => 'Password too short!'
+        ]);
+        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]', [
+            'matches' => 'Password dont match!',
+        ]);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['title'] = 'Tambah Akun Baru';
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/addAccount', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'name' => htmlspecialchars($this->input->post('name', true)),
+                'email' => htmlspecialchars($this->input->post('email', true)),
+                'image' => 'default.jpg',
+                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                'role_id' => 2,
+                'is_active' => 1,
+                'date_created' => time()
+            ];
+
+            $this->db->insert('user', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">The account has been added, please notify the user</div>');
+            redirect('admin/addAccount');
+        }
     }
 
 

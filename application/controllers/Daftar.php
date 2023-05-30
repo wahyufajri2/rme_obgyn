@@ -26,7 +26,7 @@ class Daftar extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function data_pasien()
+    public function dataPasien()
     {
         $data['title'] = 'Master Data Pasien';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -34,7 +34,7 @@ class Daftar extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('daftar/data_pasien', $data);
+        $this->load->view('daftar/dataPasien', $data);
         $this->load->view('templates/footer');
     }
 }
