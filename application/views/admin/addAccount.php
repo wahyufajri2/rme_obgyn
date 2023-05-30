@@ -47,7 +47,7 @@
                                 <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                        <button type="submit" class="btn btn-outline-primary btn-user btn-block">
                             <i class="fas fa-solid fa-arrow-right"></i> Register Account
                         </button>
                     </form>

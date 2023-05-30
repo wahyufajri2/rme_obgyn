@@ -62,7 +62,7 @@
                                         <td><?= $dft['no_rg']; ?></td>
                                         <td><?= $dft['nama_pasien']; ?></td>
                                         <td><?= $dft['alamat']; ?></td>
-                                        <td><?= $dft['dokter_id']; ?></td>
+                                        <td><?= $dft['nama_dokter']; ?></td>
                                         <td><?= $dft['periksa_tgl']; ?></td>
                                         <td>
                                             <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
