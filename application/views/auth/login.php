@@ -39,7 +39,7 @@
                                                 Remember Me</label>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    <button type="submit" class="btn btn-outline-primary btn-user btn-block">
                                         <i class="fa-solid fa-right-to-bracket"></i> Login
                                     </button>
                                     <hr>
