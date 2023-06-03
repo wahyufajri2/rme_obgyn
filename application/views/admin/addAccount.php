@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<div class="content-wrapper bg-gray-200">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
