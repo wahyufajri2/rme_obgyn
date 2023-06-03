@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Daftar extends CI_Controller
+class Pendaftaran extends CI_Controller
 {
 
     public function __construct()
@@ -22,7 +22,7 @@ class Daftar extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('daftar/index', $data);
+        $this->load->view('pendaftaran/index', $data);
         $this->load->view('templates/footer');
     }
 
@@ -37,7 +37,7 @@ class Daftar extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('daftar/dataPasien', $data);
+        $this->load->view('pendaftaran/dataPasien', $data);
         $this->load->view('templates/footer');
     }
 }

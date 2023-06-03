@@ -29,7 +29,7 @@
         <?= $this->session->flashdata('message'); ?>
         <div class="row">
           <div class="col-sm-12 col-md-6">
-            <button type="button" class="btn btn-outline-primary btn-lg mb-3 ml-3" data-toggle="modal" data-target="#newTambahPasienModal">Added the Patient</button>
+            <button type="button" class="btn btn-outline-primary mb-3 ml-3" data-toggle="modal" data-target="#newTambahPasienModal">Tambah Pasien</button>
           </div>
           <div class="col-sm-12 col-md-6">
             <div id="example2_filter" class="dataTables_filter">
@@ -124,8 +124,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-outline-primary">Add</button>
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark"></i> Tutup</button>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-solid fa-circle-plus"></i> Tambah</button>
         </div>
       </form>
     </div>

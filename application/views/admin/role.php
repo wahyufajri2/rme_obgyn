@@ -1,9 +1,17 @@
 <div class="content-wrapper bg-gray-200">
     <!-- Begin Page Content -->
     <div class="container-fluid">
-
-        <!-- Page Heading -->
-        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+    <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active"><?= $title; ?></li>
+                </ol>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-lg">
@@ -15,7 +23,7 @@
 
                 <table class="table table-hover">
                     <thead>
-                        <tr>
+                        <tr class="table-active">
                             <th scope="col">No</th>
                             <th scope="col">Role</th>
                             <th scope="col" class="text-center">Action</th>
@@ -66,8 +74,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark"></i> Tutup</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-solid fa-circle-plus"></i> Tambah</button>
                 </div>
             </form>
         </div>
