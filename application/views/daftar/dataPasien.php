@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<div class="content-wrapper bg-gray-200">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
@@ -29,7 +29,7 @@
         <?= $this->session->flashdata('message'); ?>
         <div class="row">
           <div class="col-sm-12 col-md-6">
-            <button type="button" class="btn btn-outline-primary btn-lg mb-3 ml-3" data-toggle="modal" data-target="#newTambahPasienModal">Tambah Pasien</button>
+            <button type="button" class="btn btn-outline-primary btn-lg mb-3 ml-3" data-toggle="modal" data-target="#newTambahPasienModal">Added the Patient</button>
           </div>
           <div class="col-sm-12 col-md-6">
             <div id="example2_filter" class="dataTables_filter">

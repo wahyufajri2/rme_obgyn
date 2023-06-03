@@ -1,59 +1,61 @@
-<!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="content-wrapper bg-gray-200">
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+        <!-- Page Heading -->
+        <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
-    <div class="row">
-        <div class="col-lg">
-            <?php if (validation_errors()) : ?>
-                <div class="alert alert-danger" role="alert">
-                    <?= validation_errors(); ?>
-                </div>
-            <?php endif; ?>
+        <div class="row">
+            <div class="col-lg">
+                <?php if (validation_errors()) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= validation_errors(); ?>
+                    </div>
+                <?php endif; ?>
 
-            <?= $this->session->flashdata('message'); ?>
+                <?= $this->session->flashdata('message'); ?>
 
-            <a href="" class="btn btn-outline-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Add New Submenu</a>
+                <a href="" class="btn btn-outline-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Add New Submenu</a>
 
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col" class="text-center">No</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Menu</th>
-                        <th scope="col">Url</th>
-                        <th scope="col">Icon</th>
-                        <th scope="col" class="text-center">Active</th>
-                        <th scope="col" class="text-center">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($subMenu as $sm) : ?>
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <th scope="row" class="text-center"><?= $i; ?></th>
-                            <td><?= $sm['title']; ?></td>
-                            <td><?= $sm['menu']; ?></td>
-                            <td><?= $sm['url']; ?></td>
-                            <td><?= $sm['icon']; ?></td>
-                            <td class="text-center"><?= $sm['is_active']; ?></td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-outline-success btn-sm"><i class=" fas fa-solid fa-pen-to-square"></i> Edit</button>
-                                <button type="button" class="btn btn-outline-danger btn-sm"><i class=" fas fa-solid fa-trash-can"></i> Delete</button>
-                            </td>
+                            <th scope="col" class="text-center">No</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Menu</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Icon</th>
+                            <th scope="col" class="text-center">Active</th>
+                            <th scope="col" class="text-center">Action</th>
                         </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ($subMenu as $sm) : ?>
+                            <tr>
+                                <th scope="row" class="text-center"><?= $i; ?></th>
+                                <td><?= $sm['title']; ?></td>
+                                <td><?= $sm['menu']; ?></td>
+                                <td><?= $sm['url']; ?></td>
+                                <td><?= $sm['icon']; ?></td>
+                                <td class="text-center"><?= $sm['is_active']; ?></td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-outline-success btn-sm"><i class=" fas fa-solid fa-pen-to-square"></i> Edit</button>
+                                    <button type="button" class="btn btn-outline-danger btn-sm"><i class=" fas fa-solid fa-trash-can"></i> Delete</button>
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
 
 
+            </div>
         </div>
-    </div>
 
+    </div>
+    <!-- /.container-fluid -->
 </div>
-<!-- /.container-fluid -->
 
 </div>
 <!-- End of Main Content -->
