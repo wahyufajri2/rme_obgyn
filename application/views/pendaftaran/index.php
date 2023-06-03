@@ -29,6 +29,7 @@
                 <?= $this->session->flashdata('message'); ?>
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
+                        <button type="button" class="btn btn-outline-primary mb-3 ml-3" data-toggle="modal" data-target="#newTambahKunjunganModal">Tambah Kunjungan</button>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <div id="example2_filter" class="dataTables_filter">
@@ -92,44 +93,50 @@
 <!-- End of Main Content -->
 
 <!-- Modal -->
-<div class="modal fade" id="newSubMenuModal" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade" id="newTambahKunjunganModal" tabindex="-1" aria-labelledby="TambahKunjunganModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newSubMenuModalLabel">Add New Sub Menu</h5>
+                <h5 class="modal-title" id="TambahKunjunganModal">Tambah Data Kunjungan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('menu/submenu'); ?>" method="post">
+            <form action="<?= base_url('daftar/create'); ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="title" class="form-control" id="title" name='title' placeholder="Submenu title">
+                        <label for="id_pasien">No Rekam Medis</label>
+                        <input type="number" class="form-control form-control-sm" id="id_pasien" name='id_pasien'>
                     </div>
                     <div class="form-group">
-                        <select name="menu_id" id="menu_id" class="form_control">
-                            <option value="">Select Menu</option>
-                            <?php foreach ($menu as $m) : ?>
-                                <option value="<?= $m['id']; ?>"><?= $m['menu']; ?></option>
+                        <label for="no_rm">No Registrasi</label>
+                        <input type="number" class="form-control form-control-sm" id="no_rm" name='no_rm'>
+                    </div>
+                    <div class="form-group">
+                        <label for="nama_pasien">Nama Pasien</label>
+                        <input type="text" class="form-control form-control-sm" id="nama_pasien" name='nama_pasien'>
+                    </div>
+                    <div class="form-group">
+                        <label for="alamat">Alamat</label>
+                        <input type="text" class="form-control form-control-sm" id="alamat" name='alamat'>
+                    </div>
+                    <div class="form-group">
+                        <label for="dokter_id">Dokter</label>
+                        <select name="id_dokter" id="id_dokter" class="form-control">
+                            <option value="">Pilih Dokter</option>
+                            <?php foreach ($dokter as $dk) : ?>
+                                <option value="<?= $dk['id_dokter']; ?>"><?= $dk['nama_dokter']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="title" class="form-control" id="url" name='url' placeholder="Submenu url">
-                    </div>
-                    <div class="form-group">
-                        <input type="title" class="form-control" id="icon" name='icon' placeholder="Submenu icon">
-                    </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" value="1" name='is_active' id="is_active" checked>
-                            <label for="is_active" class="form-check-label">Active?</label>
-                        </div>
+                        <label for="periksa_tgl">Tanggal Periksa</label>
+                        <input type="date" class="form-control form-control-sm" id="periksa_tgl" name='periksa_tgl'>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark"></i> Tutup</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-solid fa-circle-plus"></i> Tambah</button>
                 </div>
             </form>
         </div>
