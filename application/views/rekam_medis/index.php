@@ -29,6 +29,7 @@
         <?= $this->session->flashdata('message'); ?>
         <div class="row">
           <div class="col-sm-12 col-md-6">
+            <a href="" class="btn btn-outline-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Tambah Pasien</a>
           </div>
           <div class="col-sm-12 col-md-6">
             <div id="example2_filter" class="dataTables_filter">
