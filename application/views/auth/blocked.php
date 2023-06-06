@@ -11,6 +11,9 @@
 
     <title>Access Blocked</title>
 
+    <!-- Icon -->
+    <link rel="shortcut icon" href="<?= base_url('assets/'); ?>img/pku.png">
+
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -26,7 +29,7 @@
     <div id="wrapper">
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper">
 
             <!-- Main Content -->
             <div id="content">
@@ -37,11 +40,11 @@
                     <!-- 404 Error Text -->
                     <div class="text-center">
                         <div class="error mx-auto" data-text="403">403</div>
-                        <p class="lead text-gray-800 mb-5">Access Forbiden</p>
-                        <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
+                        <p class="lead text-gray-800 mb-5">Akses Terlarang</p>
+                        <p class="text-gray-700 mb-0">Sepertinya Anda menemukan kesalahan dalam matriks. <strong class="text-danger">Jangan masuk ke dalam tempat yang bukan hak Anda...</strong></p>
                         <a class="nav-link" href="<?= base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
                             <i class="fas fa-fw fa-sign-out-alt"></i>
-                            <span>You have to logout!</span>
+                            <span><strong>Anda harus keluar dulu!</strong></span>
                     </div>
 
                 </div>
@@ -71,15 +74,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Anda harus keluar!</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Pilih "Keluar" untuk mengakhiri sesi Anda di sini.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>">Keluar</a>
                 </div>
             </div>
         </div>

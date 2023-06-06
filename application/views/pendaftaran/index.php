@@ -37,7 +37,7 @@
                                 <thead>
                                     <tr class="table-active">
                                         <th>No</th>
-                                        <th>No MR</th>
+                                        <th>No RM</th>
                                         <th>No RG</th>
                                         <th>Nama Pasien</th>
                                         <th>Alamat</th>

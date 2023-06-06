@@ -38,7 +38,7 @@
                                     <tr class="table-active">
                                         <th>No</th>
                                         <th>No Rg</th>
-                                        <th>No MR</th>
+                                        <th>No RM</th>
                                         <th>Nama Pasien</th>
                                         <th>Alamat</th>
                                         <th>Status</th>

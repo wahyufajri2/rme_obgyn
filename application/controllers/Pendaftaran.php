@@ -111,8 +111,17 @@ class Pendaftaran extends CI_Controller
                 'tgl_lahir' => htmlspecialchars($this->input->post('tgl_lahir', true)),
                 'alamat' => htmlspecialchars($this->input->post('alamat', true))
             ]);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Patient Data successfully added!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pasien berhasil <strong>ditambahkan!</strong></div>');
             redirect('pendaftaran/dataPasien');
         }
+    }
+
+    public function deletePasien($id_pasien)
+    {
+        $this->load->model('Daftar_model');
+
+        $this->Daftar_model->deleteDataPasien($id_pasien);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pasien berhasil <strong>dihapus!</strong></div>');
+        redirect('pendaftaran/dataPasien');
     }
 }
