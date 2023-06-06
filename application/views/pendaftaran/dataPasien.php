@@ -100,7 +100,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= base_url('rekam_medis/create'); ?>" method="post">
+      <form action="<?= base_url('pendaftaran/createPasien'); ?>" method="post">
         <div class="modal-body">
           <div class="form-group">
             <label for="id_pasien">ID Pasien</label>

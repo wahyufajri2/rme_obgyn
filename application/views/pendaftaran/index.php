@@ -102,7 +102,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('daftar/create'); ?>" method="post">
+            <form action="<?= base_url('pendaftaran/createKunjungan'); ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="id_pasien">No Rekam Medis</label>
@@ -124,8 +124,8 @@
                         <label for="dokter_id">Dokter</label>
                         <select name="id_dokter" id="id_dokter" class="form-control">
                             <option value="">Pilih Dokter</option>
-                            <?php foreach ($dokter as $dk) : ?>
-                                <option value="<?= $dk['id_dokter']; ?>"><?= $dk['nama_dokter']; ?></option>
+                            <?php foreach ($dokter as $dr) : ?>
+                                <option value="<?= $dr['id_dokter']; ?>"><?= $dr['nama_dokter']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
