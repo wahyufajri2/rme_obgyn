@@ -27,64 +27,57 @@
                 <?php endif; ?>
 
                 <?= $this->session->flashdata('message'); ?>
-                <div class="row">
-                    <div class="col-sm-12 col-md-6">
+                <div class="card shadow mb-4">
+                    <div class="card-header">
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newTambahPasienModal">Tambah Pasien</button>
                     </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div id="example2_filter" class="dataTables_filter">
-                            <label class="col-md-6 d-flex float-right">Search:
-                                <input type="search" class="form-control form-control-sm" placeholder="Search for..." aria-controls="example2">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
                     <div class="card-body">
-                        <table id="example2" class="table table-bordered table-hover text-center">
-                            <thead>
-                                <tr class="table-active">
-                                    <th>No</th>
-                                    <th>No Rg</th>
-                                    <th>No MR</th>
-                                    <th>Nama Pasien</th>
-                                    <th>Alamat</th>
-                                    <th>Status</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $i = 1; ?>
-                                <?php foreach ($Tranfusi as $trf) : ?>
-                                    <tr>
-                                        <th scope="row"><?= $i; ?></th>
-                                        <td><?= $trf['no_rg']; ?></td>
-                                        <td><?= $trf['no_rm']; ?></td>
-                                        <td><?= $trf['nama_pasien']; ?></td>
-                                        <td><?= $trf['alamat']; ?></td>
-                                        <td><?= $trf['status']; ?></td>
-                                        <td>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
-                                            <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> History</button>
-                                            <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</button>
-                                            <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-pdf"></i> pdf</button>
-                                            <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-excel"></i> excel</button>
-                                        </td>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-sm text-center" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr class="table-active">
+                                        <th>No</th>
+                                        <th>No Rg</th>
+                                        <th>No MR</th>
+                                        <th>Nama Pasien</th>
+                                        <th>Alamat</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
                                     </tr>
-                                    <?php $i++; ?>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($Tranfusi as $trf) : ?>
+                                        <tr>
+                                            <th scope="row"><?= $i; ?></th>
+                                            <td><?= $trf['no_rg']; ?></td>
+                                            <td><?= $trf['no_rm']; ?></td>
+                                            <td><?= $trf['nama_pasien']; ?></td>
+                                            <td><?= $trf['alamat']; ?></td>
+                                            <td><?= $trf['status']; ?></td>
+                                            <td>
+                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> History</button>
+                                                <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</button>
+                                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-pdf"></i> pdf</button>
+                                                <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-excel"></i> excel</button>
+                                            </td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card-body -->
+                    <!-- /.card -->
                 </div>
-                <!-- /.card -->
+                <!-- /.col -->
             </div>
-            <!-- /.col -->
+            <!-- /.row -->
         </div>
-        <!-- /.row -->
-</div>
-<!-- /.container-fluid -->
-</section>
+        <!-- /.container-fluid -->
+    </section>
 
 </div>
 <!-- End of Main Content -->

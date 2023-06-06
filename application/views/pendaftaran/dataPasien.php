@@ -2,9 +2,9 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
+      <div class="row">
         <div class="col-sm-6">
-          <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+          <h1 class="h3 text-gray-800"><?= $title; ?></h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -27,65 +27,57 @@
         <?php endif; ?>
 
         <?= $this->session->flashdata('message'); ?>
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <button type="button" class="btn btn-outline-primary mb-3 ml-3" data-toggle="modal" data-target="#newTambahPasienModal">Tambah Pasien</button>
+        <div class="card shadow mb-4">
+          <div class="card-header">
+            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newTambahPasienModal">Tambah Pasien</button>
           </div>
-          <div class="col-sm-12 col-md-6">
-            <div id="example2_filter" class="dataTables_filter">
-              <label class="col-md-6 d-flex float-right">Search:
-                <input type="search" class="form-control form-control-sm" placeholder="Search for..." aria-controls="example2">
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="card">
           <div class="card-body">
-            <table id="example2" class="table table-bordered table-hover table-sm text-center">
-              <thead>
-                <tr class="table-active">
-                  <th>No</th>
-                  <th>ID Pasien</th>
-                  <th>No MR</th>
-                  <th>Nama Pasien</th>
-                  <th>Tanggal Lahir</th>
-                  <th>Alamat</th>
-                  <th>Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php $i = 1; ?>
-                <?php foreach ($DataPasienDaftar as $dpd) : ?>
-                  <tr>
-                    <th scope="row"><?= $i; ?></th>
-                    <td><?= $dpd['id_pasien']; ?></td>
-                    <td><?= $dpd['no_rm']; ?></td>
-                    <td><?= $dpd['nama_pasien']; ?></td>
-                    <td><?= $dpd['tgl_lahir']; ?></td>
-                    <td><?= $dpd['alamat']; ?></td>
-                    <td>
-                      <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
-                      <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-trash-can"></i> History</button>
-                      <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</button>
-                      <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-pdf"></i> pdf</button>
-                      <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-excel"></i> excel</button>
-                    </td>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover table-sm text-center" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr class="table-active">
+                    <th>No</th>
+                    <th>ID Pasien</th>
+                    <th>No MR</th>
+                    <th>Nama Pasien</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Alamat</th>
+                    <th>Aksi</th>
                   </tr>
-                  <?php $i++; ?>
-                <?php endforeach; ?>
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <?php $i = 1; ?>
+                  <?php foreach ($DataPasienDaftar as $dpd) : ?>
+                    <tr>
+                      <th scope="row"><?= $i; ?></th>
+                      <td><?= $dpd['id_pasien']; ?></td>
+                      <td><?= $dpd['no_rm']; ?></td>
+                      <td><?= $dpd['nama_pasien']; ?></td>
+                      <td><?= $dpd['tgl_lahir']; ?></td>
+                      <td><?= $dpd['alamat']; ?></td>
+                      <td>
+                        <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-trash-can"></i> History</button>
+                        <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</button>
+                        <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-pdf"></i> pdf</button>
+                        <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-excel"></i> excel</button>
+                      </td>
+                    </tr>
+                    <?php $i++; ?>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
           </div>
-          <!-- /.card-body -->
+          <!-- /.card -->
         </div>
-        <!-- /.card -->
+        <!-- /.col -->
       </div>
-      <!-- /.col -->
+      <!-- /.row -->
     </div>
-    <!-- /.row -->
-</div>
-<!-- /.container-fluid -->
-</section>
+    <!-- /.container-fluid -->
+  </section>
 
 </div>
 <!-- End of Main Content -->
