@@ -38,7 +38,7 @@
                   <tr class="table-active">
                     <th>No</th>
                     <th>ID Pasien</th>
-                    <th>No MR</th>
+                    <th>No RM</th>
                     <th>Nama Pasien</th>
                     <th>Tanggal Lahir</th>
                     <th>Alamat</th>
@@ -56,11 +56,12 @@
                       <td><?= $dpd['tgl_lahir']; ?></td>
                       <td><?= $dpd['alamat']; ?></td>
                       <td>
-                        <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
-                        <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-trash-can"></i> History</button>
-                        <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</button>
-                        <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-pdf"></i> pdf</button>
-                        <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-excel"></i> excel</button>
+                        <a href="" alt="Entri Data" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entri</a>
+                        <a href="" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> Riwayat</a>
+                        <a href="<?= base_url(); ?>pendaftaran/deletePasien/<?= $dpd['id_pasien']; ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah yakin menghapus data ini?');"><i class="fas fa-solid fa-trash-can"></i> Hapus</a>
+                        <!-- <a href="" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</a>
+                        <a href="" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-pdf"></i> pdf</a>
+                        <a href="" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-excel"></i> excel</a> -->
                       </td>
                     </tr>
                     <?php $i++; ?>
@@ -82,7 +83,7 @@
 </div>
 <!-- End of Main Content -->
 
-<!-- Modal -->
+<!-- Create Modal -->
 <div class="modal fade" id="newTambahPasienModal" tabindex="-1" aria-labelledby="TambahPasienModal" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -123,3 +124,4 @@
     </div>
   </div>
 </div>
+<!-- End of Create Modal -->

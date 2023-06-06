@@ -87,7 +87,7 @@ class Auth extends CI_Controller
                             setcookie('email', '');
                             setcookie('password', '');
                         }
-                        redirect('daftar');
+                        redirect('pendaftaran');
                     } elseif ($user['role_id'] == 4) {
                         if ($this->input->post('save_id')) {
                             setcookie('email', $email, time() + 60 * 60 * 24 * 30);
