@@ -51,29 +51,13 @@
  <!-- Custom scripts for all pages-->
  <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
 
- <!-- Vendor adminlte -->
+ <!-- Page level plugins -->
+ <script src="<?= base_url('assets/'); ?>vendor/datatables/jquery.dataTables.min.js"></script>
+ <script src="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
- <!-- jQuery -->
- <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/jquery/jquery.min.js"></script> -->
- <!-- Bootstrap 4 -->
- <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
- <!-- DataTables  & Plugins -->
- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables/jquery.dataTables.min.js"></script>
- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
- <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script> -->
- <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script> -->
- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
- <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script> -->
- <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/jszip/jszip.min.js"></script>
- <script src="<?= base_url('assets/vendor/') ?>plugins/pdfmake/pdfmake.min.js"></script>
- <script src="<?= base_url('assets/vendor/') ?>plugins/pdfmake/vfs_fonts.js"></script> -->
- <!-- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
- <script src="<?= base_url('assets/vendor/') ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script> -->
- <!-- AdminLTE App -->
- <script src="<?= base_url('assets/vendor/') ?>dist/js/adminlte.min.js"></script>
- <!-- AdminLTE for demo purposes -->
- <!-- <script src="<?= base_url('assets/vendor/') ?>dist/js/demo.js"></script> -->
+ <!-- Page level custom scripts -->
+ <script src="<?= base_url('assets/'); ?>js/demo/datatables-demo.js"></script>
+
  <!-- Page specific script -->
  <script>
      $(function() {
