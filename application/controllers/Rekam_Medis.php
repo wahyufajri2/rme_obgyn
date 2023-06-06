@@ -43,8 +43,8 @@ class Rekam_Medis extends CI_Controller
             $data['title'] = 'Tambah Data Pasien*';
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
-            // $this->load->view('templates/topbar', $data);
-            $this->load->view('rekam_medis/create', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('rekam_medis/index', $data);
             $this->load->view('templates/footer');
         } else {
             $this->db->insert('tb_pasien', [
