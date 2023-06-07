@@ -85,7 +85,7 @@
 <!-- End of Main Content -->
 
 <!-- Modal -->
-<div class="modal fade" id="newTambahKunjunganModal" tabindex="-1" aria-labelledby="TambahKunjunganModal" aria-hidden="true">
+<div class="modal fade" id="newTambahKunjunganModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="TambahKunjunganModal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
