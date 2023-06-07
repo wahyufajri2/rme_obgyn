@@ -58,7 +58,7 @@
                       <td>
                         <a href="" alt="Entri Data" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newModal"><i class="fas fa-solid fa-pen-to-square"></i> Entri</a>
                         <!-- <a href="" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> Riwayat</a> -->
-                        <a href="<?= base_url(); ?>pendaftaran/deletePasien/<?= $dpd['id_pasien']; ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah yakin menghapus data ini?');"><i class="fas fa-solid fa-trash-can"></i> Hapus</a>
+                        <a href="<?= base_url(); ?>pendaftaran/editMasterPasien/<?= $dpd['id_pasien']; ?>" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#newEditPasienModal"><i class="fas fa-solid fa-clock-rotate-left"></i> Riwayat</a>
                         <a href="<?= base_url(); ?>pendaftaran/deleteMasterPasien/<?= $dpd['id_pasien']; ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah yakin menghapus data ini?');"><i class="fas fa-solid fa-trash-can"></i> Hapus</a>
 
 
@@ -128,3 +128,50 @@
   </div>
 </div>
 <!-- End of Create Modal -->
+
+
+<!-- Edit Modal -->
+<div class="modal fade" id="newEditPasienModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="EditPasienModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="EditPasienModal">Edit Master Data Pasien</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <?php foreach ($EditMasterPasien as $emp) : ?>
+        <form action="<?= base_url(); ?>pendaftaran/editMasterPasien/<?= $emp['id_pasien']; ?>" method="post">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="id_pasien">ID Pasien</label>
+              <input type="number" class="form-control form-control-sm" id="id_pasien" name="id_pasien" value="<?= $emp['id_pasien']; ?>">
+            </div>
+            <div class="form-group">
+              <label for="no_rm">No Rekam Medis</label>
+              <input type="number" class="form-control form-control-sm" id="no_rm" name="no_rm" value="<?= $emp['no_rm']; ?>">
+            </div>
+            <div class="form-group">
+              <label for="nama_pasien">Nama Pasien</label>
+              <input type="text" class="form-control form-control-sm" id="nama_pasien" name="nama_pasien" value="<?= $emp['nama_pasien']; ?>">
+            </div>
+            <div class="form-group">
+              <label for="tgl_lahir">Tanggal Lahir</label>
+              <input type="date" class="form-control form-control-sm" id="tgl_lahir" name="tgl_lahir" value="<?= $emp['tgl_lahir']; ?>">
+            </div>
+            <div class="form-group">
+              <label for="alamat">Alamat</label>
+              <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="<?= $emp['alamat']; ?>">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark"></i> Tutup</button>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-solid fa-circle-plus"></i> Ubah</button>
+          </div>
+        </form>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</div>
+
+<!-- End of Edit Modal -->

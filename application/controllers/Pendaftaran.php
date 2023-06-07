@@ -74,7 +74,6 @@ class Pendaftaran extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->model('Pendaftaran_model', 'dpd');
 
-
         $data['DataPasienDaftar'] = $this->dpd->getMasterPasien();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -83,9 +82,9 @@ class Pendaftaran extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function createMasterPasien() //Untuk menambahkan data rekam medis pasien di menu pendaftaran
+    public function createMasterPasien() //Untuk menambahkan data master pasien di menu pendaftaran
     {
-        $data['title'] = 'Master Data Pasien';
+        $data['title'] = 'Tambah Master Data Pasien';
         $this->form_validation->set_rules('id_pasien', 'ID Pasien', 'required|trim|is_unique[tb_pasien.id_pasien]', [
             'is_unique' => 'Patient ID already registered!'
         ]);
@@ -98,7 +97,7 @@ class Pendaftaran extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Coba ulangi dengan mengklik tombol <strong>Tambah Master Data Pasien</strong></div>');
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'Master Data Pasien';
+            $data['title'] = 'Tambah Master Data Pasien';
             $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
             $this->load->model('Pendaftaran_model', 'dpd');
 
@@ -121,11 +120,40 @@ class Pendaftaran extends CI_Controller
         }
     }
 
-    public function deleteMasterPasien($id_pasien) //Untuk menghapus data rekam medis pasien di menu pendaftaran
+    public function editMasterPasien($id_pasien) //Untuk mengubah data master pasien di menu pendaftaran
     {
-        $this->load->model('Pendaftaran_model');
+        $data['title'] = 'Edit Master Data Pasien';
 
-        $this->Pendaftaran_model->getDeleteMasterPasien($id_pasien);
+        $this->load->model('Pendaftaran_model', 'emp');
+
+        $data['EditMasterPasien'] = $this->emp->getMasterPasienById($id_pasien);
+
+        $this->form_validation->set_rules('id_pasien', 'ID Pasien', 'required|trim');
+        $this->form_validation->set_rules('no_rm', 'No RM', 'required|trim');
+        $this->form_validation->set_rules('nama_pasien', 'Nama Pasien', 'required|trim');
+        $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Edit Master Data Pasien';
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('pendaftaran/masterPasien', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->load->model('Pendaftaran_model');
+
+            $this->Pendaftaran_model->getEditMasterPasien($id_pasien);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pasien berhasil <strong>diubah!</strong></div>');
+            redirect('pendaftaran/masterPasien');
+        }
+    }
+
+    public function deleteMasterPasien($id_pasien) //Untuk menghapus data master pasien di menu pendaftaran
+    {
+        $this->load->model('Pendaftaran_model', 'delete');
+
+        $this->delete->getDeleteMasterPasien($id_pasien);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pasien berhasil <strong>dihapus!</strong></div>');
         redirect('pendaftaran/masterPasien');
     }
