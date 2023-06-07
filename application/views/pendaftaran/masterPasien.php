@@ -29,7 +29,7 @@
         <?= $this->session->flashdata('message'); ?>
         <div class="card shadow mb-4">
           <div class="card-header">
-            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newTambahPasienModal">Tambah Pasien</button>
+            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newTambahPasienModal">Tambah Master Data Pasien</button>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -57,8 +57,11 @@
                       <td><?= $dpd['alamat']; ?></td>
                       <td>
                         <a href="" alt="Entri Data" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newModal"><i class="fas fa-solid fa-pen-to-square"></i> Entri</a>
-                        <a href="" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> Riwayat</a>
+                        <!-- <a href="" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> Riwayat</a> -->
                         <a href="<?= base_url(); ?>pendaftaran/deletePasien/<?= $dpd['id_pasien']; ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah yakin menghapus data ini?');"><i class="fas fa-solid fa-trash-can"></i> Hapus</a>
+                        <a href="<?= base_url(); ?>pendaftaran/deleteMasterPasien/<?= $dpd['id_pasien']; ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah yakin menghapus data ini?');"><i class="fas fa-solid fa-trash-can"></i> Hapus</a>
+
+
                         <!-- <a href="" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</a>
                         <a href="" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-pdf"></i> pdf</a>
                         <a href="" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-excel"></i> excel</a> -->
@@ -93,7 +96,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="<?= base_url('pendaftaran/createPasien'); ?>" method="post">
+      <form action="<?= base_url('pendaftaran/createMasterPasien'); ?>" method="post">
         <div class="modal-body">
           <div class="form-group">
             <label for="id_pasien">ID Pasien</label>

@@ -48,15 +48,15 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    <?php foreach ($Pendaftaran as $dft) : ?>
+                                    <?php foreach ($Kunjungan as $kjg) : ?>
                                         <tr>
                                             <th scope="row"><?= $i; ?></th>
-                                            <td><?= $dft['no_rm']; ?></td>
-                                            <td><?= $dft['no_rg']; ?></td>
-                                            <td><?= $dft['nama_pasien']; ?></td>
-                                            <td><?= $dft['alamat']; ?></td>
-                                            <td><?= $dft['nama_dokter']; ?></td>
-                                            <td><?= $dft['periksa_tgl']; ?></td>
+                                            <td><?= $kjg['no_rm']; ?></td>
+                                            <td><?= $kjg['no_rg']; ?></td>
+                                            <td><?= $kjg['nama_pasien']; ?></td>
+                                            <td><?= $kjg['alamat']; ?></td>
+                                            <td><?= $kjg['nama_dokter']; ?></td>
+                                            <td><?= $kjg['periksa_tgl']; ?></td>
                                             <td>
                                                 <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
                                                 <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> History</button>

@@ -11,14 +11,14 @@ class Pendaftaran extends CI_Controller
         is_logged_in();
     }
 
-    public function index()
+    public function index() //Untuk menampilkan data kunjungan di menu pendaftaran
     {
         $data['title'] = 'Entri Kunjungan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('Daftar_model', 'daftar');
+        $this->load->model('Pendaftaran_model', 'daftar');
 
 
-        $data['Pendaftaran'] = $this->daftar->getPendaftaran();
+        $data['Kunjungan'] = $this->daftar->getDataKunjungan();
         $data['dokter'] = $this->db->get('tb_dokter')->result_array();
 
         $this->load->view('templates/header', $data);
@@ -28,24 +28,9 @@ class Pendaftaran extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function dataPasien()
+    public function createKunjungan() //Untuk menambahkan data kunjungan di menu pendaftaran
     {
-        $data['title'] = 'Master Data Pasien';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('Daftar_model', 'dpd');
-
-
-        $data['DataPasienDaftar'] = $this->dpd->getDataPasienDaftar();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('pendaftaran/dataPasien', $data);
-        $this->load->view('templates/footer');
-    }
-
-    public function createKunjungan()
-    {
-        $data['title'] = 'Entri Kunjungan';
+        $data['title'] = 'Tambah Kunjungan';
         $this->form_validation->set_rules('no_rm', 'No RM', 'required|trim|is_unique[tb_kunjungan.no_rm]', [
             'is_unique' => 'RM number already registered!'
         ]);
@@ -58,12 +43,12 @@ class Pendaftaran extends CI_Controller
         $this->form_validation->set_rules('periksa_tgl', 'Tanggal Periksa', 'required|trim');
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'Entri Kunjungan';
+            $data['title'] = 'Tambah Kunjungan';
             $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-            $this->load->model('Kunjungan_model', 'kunjungan');
+            $this->load->model('Pendaftaran_model', 'kunjungan');
 
 
-            $data['Pendaftaran'] = $this->kunjungan->getKunjungan();
+            $data['Pendaftaran'] = $this->kunjungan->getCreateKunjungan();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
@@ -83,9 +68,24 @@ class Pendaftaran extends CI_Controller
         }
     }
 
-    public function createPasien()
+    public function masterPasien() //Untuk menampilkan data master pasien di menu Pendaftaran
     {
-        $data['title'] = 'Tambah Data Pasien';
+        $data['title'] = 'Master Data Pasien';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Pendaftaran_model', 'dpd');
+
+
+        $data['DataPasienDaftar'] = $this->dpd->getMasterPasien();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('pendaftaran/masterPasien', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function createMasterPasien() //Untuk menambahkan data rekam medis pasien di menu pendaftaran
+    {
+        $data['title'] = 'Master Data Pasien';
         $this->form_validation->set_rules('id_pasien', 'ID Pasien', 'required|trim|is_unique[tb_pasien.id_pasien]', [
             'is_unique' => 'Patient ID already registered!'
         ]);
@@ -95,13 +95,18 @@ class Pendaftaran extends CI_Controller
         $this->form_validation->set_rules('nama_pasien', 'Nama Pasien', 'required|trim');
         $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Coba ulangi dengan mengklik tombol <strong>Tambah Master Data Pasien</strong></div>');
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'Tambah Data Pasien';
+            $data['title'] = 'Master Data Pasien';
+            $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+            $this->load->model('Pendaftaran_model', 'dpd');
+
+            $data['DataPasienDaftar'] = $this->dpd->getMasterPasien();
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('pendaftaran/dataPasien', $data);
+            $this->load->view('pendaftaran/masterPasien', $data);
             $this->load->view('templates/footer');
         } else {
             $this->db->insert('tb_pasien', [
@@ -112,16 +117,16 @@ class Pendaftaran extends CI_Controller
                 'alamat' => htmlspecialchars($this->input->post('alamat', true))
             ]);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pasien berhasil <strong>ditambahkan!</strong></div>');
-            redirect('pendaftaran/dataPasien');
+            redirect('pendaftaran/masterPasien');
         }
     }
 
-    public function deletePasien($id_pasien)
+    public function deleteMasterPasien($id_pasien) //Untuk menghapus data rekam medis pasien di menu pendaftaran
     {
-        $this->load->model('Daftar_model');
+        $this->load->model('Pendaftaran_model');
 
-        $this->Daftar_model->deleteDataPasien($id_pasien);
+        $this->Pendaftaran_model->getDeleteMasterPasien($id_pasien);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pasien berhasil <strong>dihapus!</strong></div>');
-        redirect('pendaftaran/dataPasien');
+        redirect('pendaftaran/masterPasien');
     }
 }
