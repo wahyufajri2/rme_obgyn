@@ -56,7 +56,7 @@
                       <td><?= $dpd['tgl_lahir']; ?></td>
                       <td><?= $dpd['alamat']; ?></td>
                       <td>
-                        <a href="" alt="Entri Data" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entri</a>
+                        <a href="" alt="Entri Data" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newModal"><i class="fas fa-solid fa-pen-to-square"></i> Entri</a>
                         <a href="" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> Riwayat</a>
                         <a href="<?= base_url(); ?>pendaftaran/deletePasien/<?= $dpd['id_pasien']; ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah yakin menghapus data ini?');"><i class="fas fa-solid fa-trash-can"></i> Hapus</a>
                         <!-- <a href="" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</a>

@@ -11,4 +11,10 @@ class RekamMedis_model extends CI_Model
 
         return $query->result_array();
     }
+
+    public function deleteDataPasienRM($id_pasien)
+    {
+        $this->db->where('id_pasien', $id_pasien);
+        $this->db->delete('tb_pasien');
+    }
 }
