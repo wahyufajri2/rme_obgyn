@@ -78,7 +78,7 @@ class Pendaftaran extends CI_Controller
                 'id_dokter' => htmlspecialchars($this->input->post('id_dokter', true)),
                 'periksa_tgl' => htmlspecialchars($this->input->post('periksa_tgl', true))
             ]);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Patient Data successfully added!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Kunjungan berhasil <strong>ditambahkan!</strong></div>');
             redirect('pendaftaran');
         }
     }
