@@ -54,7 +54,7 @@ class Rekam_Medis extends CI_Controller
                 'tgl_lahir' => htmlspecialchars($this->input->post('tgl_lahir', true)),
                 'alamat' => htmlspecialchars($this->input->post('alamat', true))
             ]);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Patient Data successfully added!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data pasien berhasil <strong>ditambahkan!</strong></div>');
             redirect('rekam_medis');
         }
     }
