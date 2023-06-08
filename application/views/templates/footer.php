@@ -20,7 +20,7 @@
  </a>
 
  <!-- Logout Modal-->
- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="logoutModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
          <div class="modal-content">
              <div class="modal-header">
@@ -29,16 +29,27 @@
                      <span aria-hidden="true">×</span>
                  </button>
              </div>
-             <div class="modal-body">Pilih "Keluar" di bawah jika Anda siap untuk mengakhiri sesi Anda saat ini.</div>
+             <div class="modal-body text-gray-700">Pilih "<strong>Keluar</strong>" di bawah jika Anda siap untuk mengakhiri sesi Anda saat ini.</div>
              <div class="modal-footer">
-                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                 <a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>">Keluar</a>
+                 <button class="btn btn-outline-secondary" type="button" data-dismiss="modal"><i class="fas fa-solid fa-xmark"></i> Batal</button>
+                 <a class="btn btn-outline-primary" href="<?= base_url('auth/logout'); ?>"><i class="fas fa-solid fa-right-from-bracket"></i> Keluar</a>
              </div>
          </div>
      </div>
  </div>
 
+ <!-- Bootstrap core JavaScript-->
+ <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+ <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
+
+ <!-- Core plugin JavaScript-->
+ <script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
+
+ <!-- Custom scripts for all pages-->
+ <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
 
  <!-- Page level plugins -->
  <script src="<?= base_url('assets/'); ?>vendor/datatables/jquery.dataTables.min.js"></script>
