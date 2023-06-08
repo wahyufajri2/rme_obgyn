@@ -92,7 +92,7 @@
                                  "Jadilah pelangi di awan orang lain!"
                              </div>
                          </a>
-                         <a class="dropdown-item text-center small text-gray-500" href="#">Show All Notification</a>
+                         <a class="dropdown-item text-center small text-gray-500" href="https://quran.com/id" target="_blank">Show All Notification</a>
                      </div>
                  </li>
 
@@ -112,16 +112,16 @@
                          </a>
                          <a class="dropdown-item" href="#">
                              <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                             Add User
+                             Tambah Akun Baru
                          </a>
                          <a class="dropdown-item" href="#">
                              <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                             Activity Log
+                             Aktivitas Masuk
                          </a>
                          <div class="dropdown-divider"></div>
                          <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
                              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                             Logout
+                             Keluar
                          </a>
                      </div>
                  </li>
