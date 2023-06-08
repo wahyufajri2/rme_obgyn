@@ -2,7 +2,7 @@
  <ul class="navbar-nav sb-sidenav-dark bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
      <!-- Sidebar - Brand -->
-     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('admin'); ?>">
+     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="https://pkugamping.com/" target="_blank">
          <div class="sidebar-brand-icon">
              <img class="img-profile rounded-circle" width="45 px" src="<?= base_url('assets/img/pku.png') ?>" alt="RS PKU Gamping ">
          </div>
