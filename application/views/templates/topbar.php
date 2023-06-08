@@ -92,7 +92,7 @@
                                  "Jadilah pelangi di awan orang lain!"
                              </div>
                          </a>
-                         <a class="dropdown-item text-center small text-gray-500" href="https://quran.com/id" target="_blank">Show All Notification</a>
+                         <a class="dropdown-item text-center small text-gray-500" href="https://quran.com/id" target="_blank">Tampilkan semua notivikasi!</a>
                      </div>
                  </li>
 
