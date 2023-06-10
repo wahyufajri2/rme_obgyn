@@ -48,7 +48,7 @@
 
             </div>
         </div>
-        <a href="<?= base_url('admin/role/'); ?>" class="btn btn-outline-info btn-sm"><i class="fas fa-solid fa-arrow-left"></i> Back</a>
+        <a href="<?= base_url('admin/role/'); ?>" class="btn btn-info btn-sm  fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-arrow-left"></i> Kembali</a>
 
     </div>
     <!-- /.container-fluid -->

@@ -39,8 +39,8 @@
                                                 Remember Me</label>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-outline-primary btn-user btn-block">
-                                        <i class="fa-solid fa-right-to-bracket"></i> Login
+                                    <button type="submit" class="btn btn-outline-primary btn-user btn-block fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;">
+                                        <i class="fa-solid fa-right-to-bracket"></i> Masuk
                                     </button>
                                     <hr>
                                 </form>
