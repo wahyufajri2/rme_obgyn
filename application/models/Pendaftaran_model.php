@@ -5,7 +5,7 @@ class Pendaftaran_model extends CI_Model
 {
     public function getDataKunjungan() //Mengambil data hasil join tabel pasien, kunjungan, dan dokter untuk ditampilkan di halaman kunjungan pada menu pendaftaran
     {
-        $this->db->select('a.no_rm, b.no_rg, a.nama_pasien, a.alamat, c.nama_dokter, b.periksa_tgl');
+        $this->db->select('id_kunjungan, a.no_rm, b.no_rg, a.nama_pasien, a.alamat, c.nama_dokter, b.periksa_tgl');
         $this->db->from('tb_pasien AS a');
         $this->db->join('tb_kunjungan AS b', 'a.id_pasien = b.pasien_id');
         $this->db->join('tb_dokter AS c', 'b.dokter_id = c.id_dokter');
@@ -16,15 +16,23 @@ class Pendaftaran_model extends CI_Model
 
     public function getCreateKunjungan()
     {
-        // $data = [
-        //     'no_rm' => htmlspecialchars($this->input->post('no_rm', true)),
-        //     'no_rg' => htmlspecialchars($this->input->post('no_rg', true)),
-        //     'pasien_id' => htmlspecialchars($this->input->post('id_pasien', true)),
-        //     'dokter_id' => htmlspecialchars($this->input->post('id_dokter', true)),
-        //     'periksa_tgl' => htmlspecialchars($this->input->post('periksa_tgl', true))
-        // ];
+        $data = [
+            'id_kunjungan' => htmlspecialchars($this->input->post('id_kunjungan', true)),
+            'no_rm' => htmlspecialchars($this->input->post('no_rm', true)),
+            'no_rg' => htmlspecialchars($this->input->post('no_rg', true)),
+            'nama_pasien' => htmlspecialchars($this->input->post('pasien_id', true)),
+            'alamat' => htmlspecialchars($this->input->post('alamat', true)),
+            'nama_dokter' => htmlspecialchars($this->input->post('dokter_id', true)),
+            'periksa_tgl' => htmlspecialchars($this->input->post('periksa_tgl', true))
+        ];
 
-        // $this->db->insert('tb_kunjungan', $data);
+        $this->db->insert('tb_kunjungan', $data);
+    }
+
+    public function getDeleteKunjungan($id_kunjungan)
+    {
+        $this->db->where('id_kunjungan', $id_kunjungan);
+        $this->db->delete('tb_kunjungan');
     }
 
     public function getMasterPasien() //Mengambil data tabel pasien untuk ditampilkan di master pasien pada menu pendaftaran

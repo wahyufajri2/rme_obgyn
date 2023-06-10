@@ -17,7 +17,6 @@ class Pendaftaran extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->model('Pendaftaran_model', 'daftar');
 
-
         $data['Kunjungan'] = $this->daftar->getDataKunjungan();
         $data['dokter'] = $this->db->get('tb_dokter')->result_array();
 
@@ -66,6 +65,15 @@ class Pendaftaran extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Kunjungan berhasil <strong>ditambahkan!</strong></div>');
             redirect('pendaftaran');
         }
+    }
+
+    public function deleteKunjungan($id_kunjungan)
+    {
+        $this->load->model('Pendaftaran_model', 'delete');
+
+        $this->delete->getDeleteKunjungan($id_kunjungan);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Kunjungan berhasil <strong>dihapus!</strong></div>');
+        redirect('pendaftaran');
     }
 
     public function masterPasien() //Untuk menampilkan data master pasien di menu Pendaftaran

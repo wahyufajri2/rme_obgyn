@@ -29,14 +29,14 @@
                 <?= $this->session->flashdata('message'); ?>
                 <div class="card shadow mb-4">
                     <div class="card-header">
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newTambahKunjunganModal">Tambah Kunjungan</button>
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newTambahKunjunganModal"><i class="fas fa-solid fa-circle-plus fa-beat"></i> Tambah Kunjungan</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover table-sm text-center" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr class="table-active">
-                                        <th>No</th>
+                                        <th>ID Kunjungan</th>
                                         <th>No RM</th>
                                         <th>No RG</th>
                                         <th>Nama Pasien</th>
@@ -50,7 +50,8 @@
                                     <?php $i = 1; ?>
                                     <?php foreach ($Kunjungan as $kjg) : ?>
                                         <tr>
-                                            <th scope="row"><?= $i; ?></th>
+                                            <!-- <th scope="row"><?= $i; ?></th> -->
+                                            <td><?= $kjg['id_kunjungan']; ?></td>
                                             <td><?= $kjg['no_rm']; ?></td>
                                             <td><?= $kjg['no_rg']; ?></td>
                                             <td><?= $kjg['nama_pasien']; ?></td>
@@ -58,11 +59,15 @@
                                             <td><?= $kjg['nama_dokter']; ?></td>
                                             <td><?= $kjg['periksa_tgl']; ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entry</button>
-                                                <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> History</button>
-                                                <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</button>
-                                                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-pdf"></i> pdf</button>
-                                                <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-excel"></i> excel</button>
+                                                <a href="" alt="Entri Data" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square fa-shake"></i> Entri</a>
+                                                <!-- <a href="" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> Riwayat</a> -->
+                                                <a href="<?= base_url(); ?>Pendaftaran/editPasienRM/<?= $kjg['id_kunjungan']; ?>" class="btn btn-outline-success btn-sm"><i class="fas fa-solid fa-clock-rotate-left fa-spin fa-spin-reverse"></i> Riwayat</a>
+                                                <a href="<?= base_url(); ?>Pendaftaran/deleteKunjungan/<?= $kjg['id_kunjungan']; ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah yakin menghapus data ini?');"><i class="fas fa-solid fa-trash-can fa-beat-fade"></i> Hapus</a>
+
+
+                                                <!-- <a href="" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</a>
+                                                <a href="" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-pdf"></i> pdf</a>
+                                                <a href="" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-excel"></i> excel</a> -->
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
@@ -97,12 +102,16 @@
             <form action="<?= base_url('pendaftaran/createKunjungan'); ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id_pasien">No Rekam Medis</label>
-                        <input type="number" class="form-control form-control-sm" id="id_pasien" name='id_pasien'>
+                        <label for="id_kunjungan">ID Kunjungan</label>
+                        <input type="number" class="form-control form-control-sm" id="id_kunjungan" name='id_kunjungan'>
                     </div>
                     <div class="form-group">
-                        <label for="no_rm">No Registrasi</label>
+                        <label for="no_rm">No Rekam Medis</label>
                         <input type="number" class="form-control form-control-sm" id="no_rm" name='no_rm'>
+                    </div>
+                    <div class="form-group">
+                        <label for="no_rg">No Registrasi</label>
+                        <input type="number" class="form-control form-control-sm" id="no_rg" name='no_rg'>
                     </div>
                     <div class="form-group">
                         <label for="nama_pasien">Nama Pasien</label>
