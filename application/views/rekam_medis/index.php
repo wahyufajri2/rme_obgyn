@@ -29,7 +29,7 @@
         <?= $this->session->flashdata('message'); ?>
         <div class="card shadow mb-4">
           <div class="card-header">
-            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newTambahPasienModal">Tambah Pasien</button>
+            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newTambahPasienModal"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Pasien</button>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -56,10 +56,10 @@
                       <td><?= $dprm['tgl_lahir']; ?></td>
                       <td><?= $dprm['alamat']; ?></td>
                       <td>
-                        <a href="" alt="Entri Data" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square"></i> Entri</a>
+                        <a href="" alt="Entri Data" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Entri</a>
                         <!-- <a href="" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> Riwayat</a> -->
-                        <a href="<?= base_url(); ?>Rekam_Medis/editPasienRM/<?= $dprm['id_pasien']; ?>" class="btn btn-outline-success btn-sm"><i class="fas fa-solid fa-clock-rotate-left"></i> Riwayat</a>
-                        <a href="<?= base_url(); ?>Rekam_Medis/deletePasienRM/<?= $dprm['id_pasien']; ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah yakin menghapus data ini?');"><i class="fas fa-solid fa-trash-can"></i> Hapus</a>
+                        <a href="<?= base_url(); ?>Rekam_Medis/editPasienRM/<?= $dprm['id_pasien']; ?>" class="btn btn-outline-success btn-sm"><i class="fas fa-solid fa-clock-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Riwayat</a>
+                        <a href="<?= base_url(); ?>Rekam_Medis/deletePasienRM/<?= $dprm['id_pasien']; ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah yakin menghapus data ini?');"><i class="fas fa-solid fa-trash-can fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Hapus</a>
 
 
                         <!-- <a href="" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print"></i> Print</a>
@@ -120,8 +120,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark"></i> Tutup</button>
-          <button type="submit" class="btn btn-primary"><i class="fas fa-solid fa-circle-plus"></i> Tambah</button>
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+          <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-circle-plus"></i> Tambah</button>
         </div>
       </form>
     </div>
