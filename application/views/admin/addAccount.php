@@ -47,8 +47,8 @@
                                 <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-outline-primary btn-user btn-block">
-                            <i class="fas fa-solid fa-arrow-right"></i> Register Account
+                        <button type="submit" class="btn btn-outline-primary btn-user btn-block  fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;">
+                            <i class="fas fa-solid fa-arrow-right"></i> Daftarkan Akun
                         </button>
                     </form>
                 </div>

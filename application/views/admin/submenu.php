@@ -23,7 +23,7 @@
 
                 <?= $this->session->flashdata('message'); ?>
 
-                <a href="" class="btn btn-outline-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Add New Submenu</a>
+                <a href="" class="btn btn-outline-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Submenu Baru</a>
 
                 <table class="table table-hover">
                     <thead>
@@ -48,8 +48,8 @@
                                 <td><?= $sm['icon']; ?></td>
                                 <td class="text-center"><?= $sm['is_active']; ?></td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-outline-success btn-sm"><i class=" fas fa-solid fa-pen-to-square"></i> Edit</button>
-                                    <button type="button" class="btn btn-outline-danger btn-sm"><i class=" fas fa-solid fa-trash-can"></i> Delete</button>
+                                    <button type="button" class="btn btn-outline-success btn-sm"><i class=" fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Edit</button>
+                                    <button type="button" class="btn btn-outline-danger btn-sm"><i class=" fas fa-solid fa-trash-can fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Delete</button>
                                 </td>
                             </tr>
                             <?php $i++; ?>
@@ -73,7 +73,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newSubMenuModalLabel">Add New Sub Menu</h5>
+                <h5 class="modal-title" id="newSubMenuModalLabel">Tambah Submenu Baru</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -81,7 +81,7 @@
             <form action="<?= base_url('menu/submenu'); ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="title" class="form-control" id="title" name='title' placeholder="Submenu title">
+                        <input type="title" class="form-control" id="title" name='title' placeholder="Judul submenu">
                     </div>
                     <div class="form-group">
                         <select name="menu_id" id="menu_id" class="form_control">
@@ -92,10 +92,10 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="title" class="form-control" id="url" name='url' placeholder="Submenu url">
+                        <input type="title" class="form-control" id="url" name='url' placeholder="Url submenu">
                     </div>
                     <div class="form-group">
-                        <input type="title" class="form-control" id="icon" name='icon' placeholder="Submenu icon">
+                        <input type="title" class="form-control" id="icon" name='icon' placeholder="Ikon submenu">
                     </div>
                     <div class="form-group">
                         <div class="form-check">
@@ -105,8 +105,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark"></i> Tutup</button>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-solid fa-circle-plus"></i> Tambah</button>
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+                    <button type="submit" class="btn btn-primary  fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-circle-plus"></i> Tambah</button>
                 </div>
             </form>
         </div>

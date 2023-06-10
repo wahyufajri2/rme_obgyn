@@ -4,7 +4,7 @@
      <!-- Sidebar - Brand -->
      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="https://pkugamping.com/" target="_blank">
          <div class="sidebar-brand-icon">
-             <img class="img-profile rounded-circle fa-beat" width="45 px" src="<?= base_url('assets/img/pku.png') ?>" alt="RS PKU Gamping ">
+             <img class="img-profile rounded-circle fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6;" width="45 px" src="<?= base_url('assets/img/pku.png') ?>" alt="RS PKU Gamping ">
          </div>
          <div class="sidebar-brand-text mx-3">RS PKU Gamping</div>
      </a>
