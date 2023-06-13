@@ -131,10 +131,11 @@ class Pendaftaran extends CI_Controller
     public function editMasterPasien($id_pasien) //Untuk mengubah data master pasien di menu pendaftaran
     {
         $data['title'] = 'Edit Master Data Pasien';
-
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->model('Pendaftaran_model', 'emp');
 
-        $data['EditMasterPasien'] = $this->emp->getMasterPasienById($id_pasien);
+        $data['DataPasienDaftar'] = $this->emp->getMasterPasien();
+        // $data['EditMasterPasien'] = $this->emp->getMasterPasienById($id_pasien);
 
         $this->form_validation->set_rules('id_pasien', 'ID Pasien', 'required|trim');
         $this->form_validation->set_rules('no_rm', 'No RM', 'required|trim');
@@ -146,6 +147,7 @@ class Pendaftaran extends CI_Controller
             $data['title'] = 'Edit Master Data Pasien';
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
             $this->load->view('pendaftaran/masterPasien', $data);
             $this->load->view('templates/footer');
         } else {
