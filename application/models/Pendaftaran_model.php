@@ -44,10 +44,10 @@ class Pendaftaran_model extends CI_Model
         return $query->result_array();
     }
 
-    public function getMasterPasienById($id_pasien)
-    {
-        return $this->db->get_where('tb_pasien', ['id_pasien' => $id_pasien])->row_array();
-    }
+    // public function getMasterPasienById($id_pasien)
+    // {
+    //     return $this->db->get_where('tb_pasien', ['id_pasien' => $id_pasien])->row_array();
+    // }
 
     public function getDeleteMasterPasien($id_pasien) //Menghapus data master pasien pada menu pendaftaran
     {
