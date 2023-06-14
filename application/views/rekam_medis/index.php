@@ -96,8 +96,8 @@
                                   </div>
                                 </div>
                                 <div class="modal-footer">
-                                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark"></i> Tutup</button>
-                                  <button type="submit" class="btn btn-primary"><i class="fas fa-solid fa-circle-plus"></i> Ubah</button>
+                                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+                                  <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-circle-plus"></i> Ubah</button>
                                 </div>
                             </form>
                           </div>
