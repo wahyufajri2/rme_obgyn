@@ -31,8 +31,8 @@
              </div>
              <div class="modal-body text-gray-700">Pilih "<strong>Keluar</strong>" di bawah jika Anda siap untuk mengakhiri sesi Anda saat ini.</div>
              <div class="modal-footer">
-                 <button class="btn btn-outline-secondary" type="button" data-dismiss="modal"><i class="fas fa-solid fa-xmark"></i> Batal</button>
-                 <a class="btn btn-outline-primary" href="<?= base_url('auth/logout'); ?>"><i class="fas fa-solid fa-right-from-bracket"></i> Keluar</a>
+                 <button class="btn btn-outline-secondary" type="button" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Batal</button>
+                 <a class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;" href="<?= base_url('auth/logout'); ?>"><i class="fas fa-solid fa-right-from-bracket"></i> Keluar</a>
              </div>
          </div>
      </div>
@@ -59,20 +59,6 @@
  <script src="<?= base_url('assets/'); ?>js/demo/datatables-demo.js"></script>
 
  <!-- Page specific script -->
- <script>
-     $(function() {
-         $('#example2').DataTable({
-             "paging": true,
-             "lengthChange": false,
-             "searching": false,
-             "ordering": true,
-             "info": true,
-             "autoWidth": false,
-             "responsive": true,
-         });
-     });
- </script>
-
  <script>
      $('.form-check-input').on('click', function() {
          const menuId = $(this).data('menu');
