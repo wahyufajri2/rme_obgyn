@@ -11,14 +11,14 @@ class Rekam_Medis extends CI_Controller
         is_logged_in();
     }
 
-    public function index()
+    public function index() //Untuk menampilkan data pasien di menu rekam medis
     {
         $data['title'] = 'Master Data Pasien*';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('RekamMedis_model', 'rm');
+        $this->load->model('RekamMedis_model', 'dataRM');
 
 
-        $data['DataPasienRM'] = $this->rm->getDataPasienRM();
+        $data['DataPasienRM'] = $this->dataRM->getPasienRM();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -26,7 +26,7 @@ class Rekam_Medis extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function create()
+    public function createPasienRM() //Untuk menambahkan data pasien di menu rekam medis
     {
         $data['title'] = 'Tambah Data Pasien*';
         $this->form_validation->set_rules('id_pasien', 'ID Pasien', 'required|trim|is_unique[tb_pasien.id_pasien]', [
@@ -59,50 +59,42 @@ class Rekam_Medis extends CI_Controller
         }
     }
 
-    public function deletePasienRM($id_pasien)
+    public function deletePasienRM($id_pasien) //Untuk menghapus data master pasien di menu Rekam Medis
     {
         $this->load->model('RekamMedis_model');
 
-        $this->RekamMedis_model->deleteDataPasienRM($id_pasien);
+        $this->RekamMedis_model->getDeletePasienRM($id_pasien);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pasien berhasil <strong>dihapus!</strong></div>');
         redirect('rekam_medis');
     }
 
-    // public function edit($id_pasien)
-    // {
-    //     $data['title'] = 'Edit Data Pasien*';
-    //     $data['pasien'] = $this->db->get_where('tb_pasien', ['id_pasien' => $id_pasien])->row_array();
+    public function editPasienRM($id_pasien) //Untuk mengubah data master pasien di menu Rekam Medis
+    {
+        $data['title'] = 'Edit Master Data Pasien';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('RekamMedis_model', 'praEdit');
 
-    //     $this->form_validation->set_rules('id_pasien', 'ID Pasien', 'required|trim');
-    //     $this->form_validation->set_rules('no_rm', 'No RM', 'required|trim');
-    //     $this->form_validation->set_rules('nama_pasien', 'Nama Pasien', 'required|trim');
-    //     $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required|trim');
-    //     $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $data['DataPasienRM'] = $this->praEdit->getPasienRM();
 
-    //     if ($this->form_validation->run() == false) {
-    //         $data['title'] = 'Edit Data Pasien*';
-    //         $this->load->view('templates/header', $data);
-    //         $this->load->view('templates/sidebar', $data);
-    //         $this->load->view('rekam_medis/index', $data);
-    //         $this->load->view('templates/footer');
-    //     } else {
-    //         $id_pasien = $this->input->post('id_pasien');
-    //         $no_rm = $this->input->post('no_rm');
-    //         $nama_pasien = $this->input->post('nama_pasien');
-    //         $tgl_lahir = $this->input->post('tgl_lahir');
-    //         $alamat = $this->input->post('alamat');
+        $this->form_validation->set_rules('id_pasien', 'ID Pasien', 'required|trim');
+        $this->form_validation->set_rules('no_rm', 'No RM', 'required|trim');
+        $this->form_validation->set_rules('nama_pasien', 'Nama Pasien', 'required|trim');
+        $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
 
-    //         $this->db->set('id_pasien', $id_pasien);
-    //         $this->db->set('no_rm', $no_rm);
-    //         $this->db->set('nama_pasien', $nama_pasien);
-    //         $this->db->set('tgl_lahir', $tgl_lahir);
-    //         $this->db->set('alamat', $alamat);
-    //         $this->db->where('id_pasien', $id_pasien);
-    //         $this->db->update('tb_pasien');
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Edit Master Data Pasien';
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('rekam_medis/index', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->load->model('RekamMedis_model', 'edit');
 
-    //         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Patient Data successfully edited!</div>');
-    //         redirect('rekam_medis');
-    //     }
-    // }
-
+            $this->edit->getEditPasienRM($id_pasien);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pasien berhasil <strong>diubah!</strong></div>');
+            redirect('pendaftaran/masterPasien');
+        }
+    }
 }
