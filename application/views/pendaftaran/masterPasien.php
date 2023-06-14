@@ -56,13 +56,11 @@
                       <td class="text-center"><?= $dpd['tgl_lahir']; ?></td>
                       <td class="text-center"><?= $dpd['alamat']; ?></td>
                       <td>
-                        <a href="" alt="Entri Data" class="btn btn-outline-primary btn-sm text-center" data-toggle="modal" data-target="#newModal"><i class="fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Entri</a>
-                        <!-- <a href="" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left"></i> Riwayat</a> -->
-                        <a href="#" class="btn btn-outline-success btn-sm text-center" data-toggle="modal" data-target="#EditPasienModal<?php echo $dpd['id_pasien']; ?>"><i class="fas fa-solid fa-clock-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Riwayat</a>
-
-
-                        <a href="<?= base_url(); ?>pendaftaran/deleteMasterPasien/<?= $dpd['id_pasien']; ?>" class="btn btn-outline-danger btn-sm text-center" onclick="return confirm('Apakah yakin menghapus data dari <?php echo $dpd['nama_pasien'] ?>?');"><i class="fas fa-solid fa-trash-can fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Hapus</a>
-
+                        <div class="text-center">
+                          <a href="" alt="Entri Data" class="btn btn-outline-primary btn-sm text-center" data-toggle="modal" data-target="#newModal"><i class="fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Entri</a>
+                          <a href="#" class="btn btn-outline-success btn-sm text-center" data-toggle="modal" data-target="#EditPasienModal<?php echo $dpd['id_pasien']; ?>"><i class="fas fa-solid fa-clock-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Riwayat</a>
+                          <a href="<?= base_url(); ?>pendaftaran/deleteMasterPasien/<?= $dpd['id_pasien']; ?>" class="btn btn-outline-danger btn-sm text-center" onclick="return confirm('Apakah yakin menghapus data dari <?php echo $dpd['nama_pasien'] ?>?');"><i class="fas fa-solid fa-trash-can fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Hapus</a>
+                        </div>
                         <!-- Edit Modal -->
                         <div class="modal fade" id="EditPasienModal<?php echo $dpd['id_pasien']; ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="EditPasienModal" aria-hidden="true">
                           <div class="modal-dialog modal-lg">
