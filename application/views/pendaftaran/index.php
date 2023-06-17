@@ -115,11 +115,21 @@
                     </div>
                     <div class="form-group">
                         <label for="nama_pasien">Nama Pasien</label>
-                        <input type="text" class="form-control form-control-sm" id="nama_pasien" name='nama_pasien'>
+                        <select name="nama_pasien" id="nama_pasien" class="form-control">
+                            <option value="">Pilih Pasien</option>
+                            <?php foreach ($pasien as $psn) : ?>
+                                <option value="<?= $psn['id_pasien']; ?>"><?= $psn['nama_pasien']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <input type="text" class="form-control form-control-sm" id="alamat" name='alamat'>
+                        <select name="alamat" id="alamat" class="form-control">
+                            <option value="">Pilih Pasien</option>
+                            <?php foreach ($pasien as $psn) : ?>
+                                <option value="<?= $psn['id_pasien']; ?>"><?= $psn['alamat']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="dokter_id">Dokter</label>

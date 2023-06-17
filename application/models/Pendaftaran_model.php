@@ -35,6 +35,10 @@ class Pendaftaran_model extends CI_Model
         $this->db->delete('tb_kunjungan');
     }
 
+
+
+    //Model untuk submenu Master Data Pasien
+
     public function getMasterPasien() //Mengambil data tabel pasien untuk ditampilkan di master pasien pada menu pendaftaran
     {
         $this->db->select('id_pasien, no_rm, nama_pasien, alamat, tgl_lahir');
