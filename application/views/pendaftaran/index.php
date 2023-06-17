@@ -107,7 +107,12 @@
                     </div>
                     <div class="form-group">
                         <label for="no_rm">No Rekam Medis</label>
-                        <input type="number" class="form-control form-control-sm" id="no_rm" name='no_rm'>
+                        <select name="no_rm" id="no_rm" class="form-control form-control-sm">
+                            <option value="">Pilih No RM</option>
+                            <?php foreach ($pasien as $psn) : ?>
+                                <option value="<?= $psn['id_pasien']; ?>"><?= $psn['no_rm']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="no_rg">No Registrasi</label>
@@ -115,7 +120,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nama_pasien">Nama Pasien</label>
-                        <select name="nama_pasien" id="nama_pasien" class="form-control">
+                        <select name="nama_pasien" id="nama_pasien" class="form-control form-control-sm">
                             <option value="">Pilih Pasien</option>
                             <?php foreach ($pasien as $psn) : ?>
                                 <option value="<?= $psn['id_pasien']; ?>"><?= $psn['nama_pasien']; ?></option>
@@ -124,8 +129,8 @@
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <select name="alamat" id="alamat" class="form-control">
-                            <option value="">Pilih Pasien</option>
+                        <select name="alamat" id="alamat" class="form-control form-control-sm">
+                            <option value="">Pilih Alamat</option>
                             <?php foreach ($pasien as $psn) : ?>
                                 <option value="<?= $psn['id_pasien']; ?>"><?= $psn['alamat']; ?></option>
                             <?php endforeach; ?>
@@ -133,7 +138,7 @@
                     </div>
                     <div class="form-group">
                         <label for="dokter_id">Dokter</label>
-                        <select name="id_dokter" id="id_dokter" class="form-control">
+                        <select name="id_dokter" id="id_dokter" class="form-control form-control-sm">
                             <option value="">Pilih Dokter</option>
                             <?php foreach ($dokter as $dr) : ?>
                                 <option value="<?= $dr['id_dokter']; ?>"><?= $dr['nama_dokter']; ?></option>
