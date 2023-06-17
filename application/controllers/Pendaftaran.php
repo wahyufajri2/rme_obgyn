@@ -58,9 +58,9 @@ class Pendaftaran extends CI_Controller
             $this->db->insert('tb_kunjungan', [
                 'no_rm' => htmlspecialchars($this->input->post('no_rm', true)),
                 'no_rg' => htmlspecialchars($this->input->post('no_rg', true)),
-                'nama_pasien' => htmlspecialchars($this->input->post('nama_pasien', true)),
-                'alamat' => htmlspecialchars($this->input->post('alamat', true)),
-                'id_dokter' => htmlspecialchars($this->input->post('id_dokter', true)),
+                // 'nama_pasien' => htmlspecialchars($this->input->post('nama_pasien', true)),
+                // 'alamat' => htmlspecialchars($this->input->post('alamat', true)),
+                'dokter_id' => htmlspecialchars($this->input->post('dokter_id', true)),
                 'periksa_tgl' => htmlspecialchars($this->input->post('periksa_tgl', true))
             ]);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Kunjungan berhasil <strong>ditambahkan!</strong></div>');
