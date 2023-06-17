@@ -19,6 +19,7 @@ class Pendaftaran extends CI_Controller
 
         $data['Kunjungan'] = $this->daftar->getDataKunjungan();
         $data['dokter'] = $this->db->get('tb_dokter')->result_array();
+        $data['pasien'] = $this->db->get('tb_pasien')->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -75,6 +76,10 @@ class Pendaftaran extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Kunjungan berhasil <strong>dihapus!</strong></div>');
         redirect('pendaftaran');
     }
+
+
+
+    //Controller untuk submenu Master Data Pasien
 
     public function masterPasien() //Untuk menampilkan data master pasien di menu Pendaftaran
     {
@@ -151,7 +156,7 @@ class Pendaftaran extends CI_Controller
             $this->load->view('pendaftaran/masterPasien', $data);
             $this->load->view('templates/footer');
         } else {
-            $this->load->model('Pendaftaran_model','edit');
+            $this->load->model('Pendaftaran_model', 'edit');
 
             $this->edit->getEditMasterPasien($id_pasien);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pasien berhasil <strong>diubah!</strong></div>');
