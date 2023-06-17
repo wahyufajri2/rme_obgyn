@@ -27,6 +27,21 @@ class Bidan extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function entriKebidanan()
+    {
+        
+    }
+
+
+
+
+
+
+
+
+
+    //Controller untuk kasus persalinan
+
     public function persalinan()
     {
         $data['title'] = 'Catatan Persalinan';
