@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+    <style>
+        #intro {
+            background-image: url("assets/img/rs-pku-gamping.jpg");
+            height: 100vh;
+        }
+    </style>
 
 
     <meta charset="utf-8">
@@ -25,4 +31,5 @@
 
 </head>
 
-<body class="bg-info">
+<body id="intro" class="bg-image shadow-2">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
