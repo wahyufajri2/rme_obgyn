@@ -66,13 +66,13 @@
                           <div class="modal-dialog modal-lg">
                             <form action="<?php echo base_url(); ?>Rekam_Medis/editPasienRM/<?php echo $dprm['id_pasien']; ?>" method="post">
                               <div class="modal-content">
-                                <div class="modal-header">
+                                <div class="modal-header bg-gradient-secondary">
                                   <h5 class="modal-title" id="EditPasienModal">Edit Master Data Pasien <strong><?php echo $dprm['nama_pasien']; ?></strong></h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body bg-gray-500">
                                   <input type="hidden" name="id_pasien" value="<?php echo $dprm['id_pasien']; ?>">
                                   <div class="form-group">
                                     <label for="id_pasien">ID Pasien</label>
@@ -95,8 +95,11 @@
                                     <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="<?php echo $dprm['alamat']; ?>">
                                   </div>
                                 </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+                                <div class="modal-footer justify-content-between bg-gray-600">
+                                  <div>
+                                    <button type="button" class="btn btn-dark" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+                                    <button type="reset" class="btn btn-warning"><i class="fas fa-solid fa-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Reset</button>
+                                  </div>
                                   <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-circle-plus"></i> Ubah</button>
                                 </div>
                             </form>
@@ -131,14 +134,14 @@
 <div class="modal fade" id="newTambahPasienModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="TambahPasienModal" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-gradient-secondary">
         <h5 class="modal-title" id="TambahPasienModal">Tambah Data Pasien</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <form action="<?= base_url('rekam_medis/createPasienRM'); ?>" method="post">
-        <div class="modal-body">
+        <div class="modal-body bg-gray-500">
           <div class="form-group">
             <label for="id_pasien">ID Pasien</label>
             <input type="number" class="form-control form-control-sm" id="id_pasien" name='id_pasien'>
@@ -160,8 +163,11 @@
             <input type="text" class="form-control form-control-sm" id="alamat" name='alamat'>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+        <div class="modal-footer justify-content-between bg-gray-600">
+          <div>
+            <button type="button" class="btn btn-dark" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+            <button type="reset" class="btn btn-warning"><i class="fas fa-solid fa-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Reset</button>
+          </div>
           <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-circle-plus"></i> Tambah</button>
         </div>
       </form>
