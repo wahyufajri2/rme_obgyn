@@ -93,14 +93,14 @@
 <div class="modal fade" id="newTambahKunjunganModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="TambahKunjunganModal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-gradient-secondary">
                 <h5 class="modal-title" id="TambahKunjunganModal">Tambah Data Kunjungan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form action="<?= base_url('pendaftaran/createKunjungan'); ?>" method="post">
-                <div class="modal-body">
+                <div class="modal-body bg-gray-500">
                     <div class="form-group">
                         <label for="id_kunjungan">ID Kunjungan</label>
                         <input type="number" class="form-control form-control-sm" id="id_kunjungan" name='id_kunjungan'>
@@ -150,8 +150,11 @@
                         <input type="date" class="form-control form-control-sm" id="periksa_tgl" name='periksa_tgl'>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+                <div class="modal-footer justify-content-between bg-gray-600">
+                    <div>
+                        <button type="button" class="btn btn-dark" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+                        <button type="reset" class="btn btn-warning"><i class="fas fa-solid fa-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Reset</button>
+                    </div>
                     <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-circle-plus"></i> Tambah</button>
                 </div>
             </form>

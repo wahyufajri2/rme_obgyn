@@ -94,7 +94,7 @@ class Rekam_Medis extends CI_Controller
 
             $this->edit->getEditPasienRM($id_pasien);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Pasien berhasil <strong>diubah!</strong></div>');
-            redirect('pendaftaran/masterPasien');
+            redirect('rekam_medis');
         }
     }
 }
