@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                    <h1 class="h3 text-gray-800"><?= $title; ?></h1>
+                    <h3 class="text-gray-800"><?= $title; ?></h3>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -56,7 +56,7 @@
                                             <td><?= $kbd['alamat']; ?></td>
                                             <td><?= $kbd['status']; ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#EntriPasienAsesment"><i class="fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Entry</button>
+                                                <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#entriPasienAsesment"><i class="fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Entry</button>
                                                 <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-clock-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Riwayat</button>
                                                 <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-print fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Print</button>
                                                 <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-file-pdf fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> pdf</button>
@@ -83,11 +83,11 @@
 <!-- End of Main Content -->
 
 <!-- Modal Entri -->
-<div class="modal fade" id="EntriPasienAsesment" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="EntriPasienAsesmentLabel" aria-hidden="true">
+<div class="modal fade" id="entriPasienAsesment" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="entriPasienAsesmentLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header bg-gradient-secondary">
-                <h5 class="modal-title text-white" id="EntriPasienAsesmentLabel">Entri Pasien Asesment Kebidanan</h5>
+                <h5 class="modal-title text-white" id="entriPasienAsesmentLabel">Entri Pasien Asesment Kebidanan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
