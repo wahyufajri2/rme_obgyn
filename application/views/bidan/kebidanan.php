@@ -94,7 +94,7 @@
             </div>
             <form action="<?= base_url('bidan/entriKebidanan'); ?>" method="post">
                 <div class="modal-body bg-gray-500">
-                    <p style="text-align:center;"><strong>Kop Surat</strong></p>
+                    <p style="text-align:center; margin-bottom:auto;"><strong>Kop Surat</strong></p>
                     <div class="form-row">
                         <div class="col">
                             <label for="nama_pasien">Nama Pasien</label>
@@ -118,6 +118,158 @@
                         <div class="col">
                             <label for="alamat">Alamat</label>
                             <input type="text" class="form-control form-control-sm" id="alamat" name="alamat">
+                        </div>
+                    </div>
+                    <hr>
+                    <p style="text-align:center; margin-bottom:auto;"><strong>Alasan Masuk</strong></p>
+                    <div class="form-group">
+                        <label for="keluhanPasien">Keluhan Utama / Riwayat Keluhan saat ini</label>
+                        <textarea class="form-control form-control-sm" id="keluhanPasien" rows="1"></textarea>
+                    </div>
+                    <hr>
+                    <p style="text-align:center; margin-bottom:auto;"><strong>Riwayat Kesehatan</strong></p>
+                    <div class="form-row">
+                        <div class="col form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Tidak pernah opname</label>
+                        </div>
+                        <div class="col-md-5 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Pernah Opname dengan sakit :</label>
+                        </div>
+                        <div class="col-md-4 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Di RS :</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Pernah Operasi</label>
+                        </div>
+                        <div class="col-md-5 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                        </div>
+                        <div class="col-md-4 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Pasca Operasi Hari Ke :</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Obat yang di bawa :</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <p style="text-align:center; margin-bottom:auto;"><strong>Riwayat Alergi</strong></p>
+                    <div class="form-row">
+                        <div class="col form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Tidak ada</label>
+                        </div>
+                        <div class="col-md-9 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Ada, sebutkan! :</label>
+                        </div>
+                    </div>
+                    <hr>
+                    <p style="text-align:center; margin-bottom:auto;"><strong>Nyeri</strong></p>
+                    <div class="form-row">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label" for="inlineRadio1">Nyeri</label>
+                        </div>
+                        <div class="col form-check form-check-inline">
+                            <label class="form-check-label" for="inlineRadio1">:</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                        </div>
+                        <div class="col-md-7 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Ya , bila ya lanjutkan dengan deskripsi:</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label" for="inlineRadio1">Provoke</label>
+                        </div>
+                        <div class="col form-check form-check-inline">
+                            <label class="form-check-label" for="inlineRadio1">:</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Ruda paksa</label>
+                        </div>
+                        <div class="col-md-7 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Lainnya :</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label" for="inlineRadio1">Quality</label>
+                        </div>
+                        <div class="col form-check form-check-inline">
+                            <label class="form-check-label" for="inlineRadio1">:</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Seperti ditusuk-tusuk</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Seperti terbakar</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Seperti tertimpa beban</label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Ngilu</label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2"></label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label" for="inlineRadio1">Region</label>
+                        </div>
+                        <div class="col form-check form-check-inline">
+                            <label class="form-check-label" for="inlineRadio1">:</label>
+                        </div>
+                        <label for="inputEmail2" class="col-md-1 col-form-label">Lokasi nyeri</label>
+                        <div class="col-md-4">
+                            <input type="email" class="form-control form-control-sm" id="inputEmail2">
+                        </div>
+                        <label for="inputEmail3" class="col-md-1 col-form-label">menjalar ke</label>
+                        <div class="col-md-4">
+                            <input type="email" class=" form-control form-control-sm" id="inputEmail3">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label" for="inlineRadio1">Time</label>
+                        </div>
+                        <div class="col form-check form-check-inline">
+                            <label class="form-check-label" for="inlineRadio1">:</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Kadang-kadang</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Sering</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Menetap</label>
                         </div>
                     </div>
                 </div>
