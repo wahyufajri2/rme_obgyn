@@ -178,10 +178,7 @@
                     <p style="text-align:center; margin-bottom:auto;"><strong>Nyeri</strong></p>
                     <div class="form-row">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">Nyeri</label>
-                        </div>
-                        <div class="col form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">:</label>
+                            <label class="form-check-label" for="inlineRadio1">Nyeri :</label>
                         </div>
                         <div class="col-md-3 form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
@@ -194,10 +191,7 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">Provoke</label>
-                        </div>
-                        <div class="col form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">:</label>
+                            <label class="form-check-label" for="inlineRadio1">Provoke :</label>
                         </div>
                         <div class="col-md-3 form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
@@ -210,16 +204,13 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">Quality</label>
-                        </div>
-                        <div class="col form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">:</label>
+                            <label class="form-check-label" for="inlineRadio1">Quality :</label>
                         </div>
                         <div class="col-md-3 form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                             <label class="form-check-label" for="inlineRadio2">Seperti ditusuk-tusuk</label>
                         </div>
-                        <div class="col-md-3 form-check form-check-inline">
+                        <div class="col-md-2 form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
                             <label class="form-check-label" for="inlineRadio2">Seperti terbakar</label>
                         </div>
@@ -238,26 +229,20 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">Region</label>
-                        </div>
-                        <div class="col form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">:</label>
+                            <label class="form-check-label" for="inlineRadio1">Region :</label>
                         </div>
                         <label for="inputEmail2" class="col-md-1 col-form-label">Lokasi nyeri</label>
                         <div class="col-md-4">
-                            <input type="email" class="form-control form-control-sm" id="inputEmail2">
+                            <input type="text" class="form-control form-control-sm" id="inputEmail2">
                         </div>
                         <label for="inputEmail3" class="col-md-1 col-form-label">menjalar ke</label>
                         <div class="col-md-4">
-                            <input type="email" class=" form-control form-control-sm" id="inputEmail3">
+                            <input type="text" class="form-control form-control-sm" id="inputEmail3">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">Time</label>
-                        </div>
-                        <div class="col form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">:</label>
+                            <label class="form-check-label" for="inlineRadio1">Time :</label>
                         </div>
                         <div class="col-md-3 form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
@@ -272,6 +257,48 @@
                             <label class="form-check-label" for="inlineRadio2">Menetap</label>
                         </div>
                     </div>
+                    <table class="table table-bordered table-sm mt-3">
+                        <thead>
+                            <tr class="text-center">
+                                <td scope="col">WONG BAKER</td>
+                                <td scope="col">NUMERIC SCALE</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="col-inline">
+                                        <div class="col-md-2 form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">2</label>
+                                        </div>
+                                        <div class="col-md-2 form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option2">
+                                            <label class="form-check-label" for="inlineRadio4">4</label>
+                                        </div>
+                                        <div class="col-md-2 form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option3">
+                                            <label class="form-check-label" for="inlineRadio6">6</label>
+                                        </div>
+                                        <div class="col-md-2 form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio8" value="option2">
+                                            <label class="form-check-label" for="inlineRadio8">8</label>
+                                        </div>
+                                        <div class="col-md-2 form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio20" value="option3">
+                                            <label class="form-check-label" for="inlineRadio10">10</label>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <label for="customRange2">Example range</label>
+                                    <input type="range" class="custom-range" min="0" max="10" step="1" id="customRange2">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr>
+                    <p style="text-align:center; margin-bottom:auto;"><strong>Skrining Gizi</strong></p>
                 </div>
                 <div class="modal-footer justify-content-between bg-gray-600">
                     <div>
