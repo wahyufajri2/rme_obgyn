@@ -109,7 +109,9 @@
                             <input type="date" class="form-control form-control-sm" id="tgl_lahir" name="tgl_lahir">
                         </div>
                     </div>
-                    <hr color="gray">
+                    <hr color="blue">
+                    <p style="font-size:20px; text-align:center; margin-bottom: -15px; margin-top: -15px;"><strong>ASESMEN ASUHAN KEBIDANAN GINEKOLOGI</strong></p>
+                    <hr color="blue">
                     <div class="form-row">
                         <div class="col">
                             <label for="suami">Nama Suami</label>
@@ -372,7 +374,7 @@
                         <p style="margin-bottom:auto;">Diisi oleh Dietisien :</p>
                         <p>Sudah dibaca dan diketahui oleh Dietisien, diberitahukan ke Dokter (coret slah satu)</p>
                     </strong>
-                    <div class="form-inline">
+                    <div class="form-inline mb-5">
                         <div class="input-group input-group-sm">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
@@ -390,6 +392,9 @@
                             <label class="form-check-label" for="inlineCheckbox2">Tidak</label>
                         </div>
                     </div>
+                    <hr color="blue">
+                    <p style="font-size:20px; text-align:center; margin-bottom: -15px; margin-top: -15px;"><strong>PENGKAJIAN KHUSUS ASUHAN KEBIDANAN</strong></p>
+                    <hr color="blue">
                 </div>
                 <div class="modal-footer justify-content-between bg-gray-600">
                     <div>
