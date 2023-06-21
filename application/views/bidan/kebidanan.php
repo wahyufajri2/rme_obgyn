@@ -93,7 +93,7 @@
                 </button>
             </div>
             <form action="<?= base_url('bidan/entriKebidanan'); ?>" method="post">
-                <div class="modal-body bg-gray-500">
+                <div style="font-size:14px;" class="modal-body bg-gray-500">
                     <p style="text-align:center; margin-bottom:auto;"><strong>Kop Surat</strong></p>
                     <div class="form-row">
                         <div class="col">
@@ -109,7 +109,7 @@
                             <input type="date" class="form-control form-control-sm" id="tgl_lahir" name="tgl_lahir">
                         </div>
                     </div>
-                    <hr>
+                    <hr color="gray">
                     <div class="form-row">
                         <div class="col">
                             <label for="suami">Nama Suami</label>
@@ -120,13 +120,13 @@
                             <input type="text" class="form-control form-control-sm" id="alamat" name="alamat">
                         </div>
                     </div>
-                    <hr>
+                    <hr color="gray">
                     <p style="text-align:center; margin-bottom:auto;"><strong>Alasan Masuk</strong></p>
                     <div class="form-group">
                         <label for="keluhanPasien">Keluhan Utama / Riwayat Keluhan saat ini</label>
                         <textarea class="form-control form-control-sm" id="keluhanPasien" rows="1"></textarea>
                     </div>
-                    <hr>
+                    <hr color="gray">
                     <p style="text-align:center; margin-bottom:auto;"><strong>Riwayat Kesehatan</strong></p>
                     <div class="form-row">
                         <div class="col form-check form-check-inline">
@@ -162,7 +162,7 @@
                             <label class="form-check-label" for="inlineRadio1">Obat yang di bawa :</label>
                         </div>
                     </div>
-                    <hr>
+                    <hr color="gray">
                     <p style="text-align:center; margin-bottom:auto;"><strong>Riwayat Alergi</strong></p>
                     <div class="form-row">
                         <div class="col form-check form-check-inline">
@@ -174,7 +174,7 @@
                             <label class="form-check-label" for="inlineRadio2">Ada, sebutkan! :</label>
                         </div>
                     </div>
-                    <hr>
+                    <hr color="gray">
                     <p style="text-align:center; margin-bottom:auto;"><strong>Nyeri</strong></p>
                     <div class="form-row">
                         <div class="col-md-1 form-check form-check-inline">
@@ -297,8 +297,99 @@
                             </tr>
                         </tbody>
                     </table>
-                    <hr>
+                    <hr color="gray">
                     <p style="text-align:center; margin-bottom:auto;"><strong>Skrining Gizi</strong></p>
+                    <table class="table table-bordered table-sm mt-3">
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">Apakah Pasien mengalami penurunan BB dalam 6 bulan terakhir?</td>
+                                <td colspan="2">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">Tidak ada penurunan BB</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">Tidak yakin /Tidak tahu/ Baju terasa longgar</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="form-row">
+                                        <div class="col-md-2 form-check form-check-inline">
+                                            <label class="form-check-label">Ya, penurunan BB tersebut</label>
+                                        </div>
+                                        <div class="col-md-2 form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio3" value="option2">
+                                            <label class="form-check-label" for="inlineRadio3">1-5 kg</label>
+                                        </div>
+                                        <div class="col-md-2 form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio4" value="option2">
+                                            <label class="form-check-label" for="inlineRadio4">6-10 kg</label>
+                                        </div>
+                                        <div class="col-md-2 form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio5" value="option2">
+                                            <label class="form-check-label" for="inlineRadio5">11-15 kg</label>
+                                        </div>
+                                        <div class="col-md-2 form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio6" value="option2">
+                                            <label class="form-check-label" for="inlineRadio6"> >15 kg</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Apakah Asupan makanan berkurang karena tidak ada nafsu makan?</td>
+                                <td>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                        <label class="form-check-label" for="inlineCheckbox1">Tidak</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                        <label class="form-check-label" for="inlineCheckbox2">Ya</label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Pasien dengan diagnosis khusus (DM, kemoterapi, hemodialisa, geriatri, immunosupressed)</td>
+                                <td>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                        <label class="form-check-label" for="inlineCheckbox1">Tidak</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                        <label class="form-check-label" for="inlineCheckbox2">Ya</label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr color="gray">
+                    <strong>
+                        <p style="margin-bottom:auto;">Diisi oleh Dietisien :</p>
+                        <p>Sudah dibaca dan diketahui oleh Dietisien, diberitahukan ke Dokter (coret slah satu)</p>
+                    </strong>
+                    <div class="form-inline">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" aria-label="Checkbox for following text input">&nbspYa
+                                </div>
+                            </div>
+                            <span>&nbspTanggal:&nbsp&nbsp</span>
+                            <input type="date" class="form-control" aria-label="Text input with checkbox">
+                            <span>&nbspJam:&nbsp&nbsp</span>
+                            <input type="time" class="form-control" aria-label="Text input with checkbox">
+                        </div>
+                        <span>&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">Tidak</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer justify-content-between bg-gray-600">
                     <div>
