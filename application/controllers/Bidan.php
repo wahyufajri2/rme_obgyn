@@ -33,6 +33,8 @@ class Bidan extends CI_Controller
 
     public function print()
     {
+        $data['title'] = 'Cetak Laporan Asesmen Kebidanan';
+
         $this->load->model('Kasus_model', 'print');
 
         $data['Kebidanan'] = $this->print->getKebidanan();
@@ -42,6 +44,8 @@ class Bidan extends CI_Controller
 
     public function pdf()
     {
+        $data['title'] = 'Export Laporan Asesmen Kebidanan';
+
         $this->load->library('dompdf_gen');
         $this->load->model('Kasus_model', 'pdf');
 
@@ -57,7 +61,7 @@ class Bidan extends CI_Controller
         $this->dompdf->set_paper($paper_size, $orientation);
         $this->dompdf->load_html($html);
         $this->dompdf->render();
-        $this->dompdf->stream('Laporan Kebidanan.pdf', array('Attachment' => 0));
+        $this->dompdf->stream('Laporan Asesmen Kebidanan.pdf', array('Attachment' => 0));
     }
 
 
