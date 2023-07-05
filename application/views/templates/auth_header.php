@@ -5,7 +5,7 @@
     <style>
         #intro {
             background-image: url("assets/img/rs-pku-gamping.jpg");
-            height: 100vh;
+            height: 10vh;
         }
     </style>
 
@@ -32,4 +32,4 @@
 </head>
 
 <body id="intro" class="bg-image shadow-2">
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.8);">
+    <div class="mask-fluid" style="background-color: rgba(0, 0, 0, 0.7);">
