@@ -395,6 +395,56 @@
                     <hr color="blue">
                     <p style="font-size:20px; text-align:center; margin-bottom: -15px; margin-top: -15px;"><strong>PENGKAJIAN KHUSUS ASUHAN KEBIDANAN</strong></p>
                     <hr color="blue">
+                    <p style="text-align:center;"><strong>Riwayat Menstruasi</strong></p>
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-control-label" for="basic-addon1">Umur menarche</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Umur menarche..." aria-label="Umur menarche..." aria-describedby="basic-addon1">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="basic-addon1">Tahun</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label class="form-control-label" for="basic-addon1">Umur menarche</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Lamanya Haid..." aria-label="Lamanya Haid..." aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="basic-addon2">Hari</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label class="form-control-label" for="basic-addon1">Umur menarche</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Ganti pembalut..." aria-label="Ganti pembalut..." aria-describedby="basic-addon3">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon3">Kali</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <label class="form-control-label" for="basic-addon1">HPHT</label>
+                            <div class="input-group input-group-sm">
+                                <input type="date" class="form-control" placeholder="Hari Pertama Haid Terakhir..." aria-label="Hari Pertama Haid Terakhir..." aria-describedby="basic-addon1">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="basic-addon1">Tanggal</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label class="form-control-label" for="basic-addon1">HPL</label>
+                            <div class="input-group input-group-sm">
+                                <input type="date" class="form-control" placeholder="Hari Perkiraan Lahir..." aria-label="Hari Perkiraan Lahir..." aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="basic-addon2">Tanggal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer justify-content-between bg-gray-600">
                     <div>
