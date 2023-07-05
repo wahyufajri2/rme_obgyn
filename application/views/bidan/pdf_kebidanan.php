@@ -4,6 +4,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Export PDF</title>
 
+    <style>
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 12px;
+        }
+
+        .table th {
+            border: 1px solid #000;
+            padding: 3px;
+            font-weight: bold;
+        }
+
+        .table td {
+            border: 1px solid #000;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .table-sm th,
+        .table-sm td {
+            padding: 1px;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #000;
+        }
+
+        .table-bordered th {
+            background-color: #f0f0f0;
+        }
+</style>
 </head><body>
     <table class="table table-bordered table-hover table-sm text-center">
         <thead>
