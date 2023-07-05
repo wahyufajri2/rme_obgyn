@@ -29,7 +29,15 @@ class Bidan extends CI_Controller
 
     public function entriKebidanan()
     {
-        
+    }
+
+    public function print()
+    {
+        $this->load->model('Kasus_model', 'print');
+
+        $data['Kebidanan'] = $this->print->getKebidanan();
+        $this->load->view('templates/header', $data);
+        $this->load->view('bidan/print_kebidanan', $data);
     }
 
 
