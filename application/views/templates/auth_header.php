@@ -31,5 +31,5 @@
 
 </head>
 
-<body id="intro" class="bg-image shadow-2">
+<body id="intro" class="bg-image shadow-2" style="overflow-y: hidden;">
     <div class="mask-fluid" style="background-color: rgba(0, 0, 0, 0.7);">
