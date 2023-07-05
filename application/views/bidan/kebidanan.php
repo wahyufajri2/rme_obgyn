@@ -445,6 +445,108 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-row mt-2">
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio3" value="option2">
+                            <label class="form-check-label" for="inlineRadio3">Dismenorhoe</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio4" value="option2">
+                            <label class="form-check-label" for="inlineRadio4">Spotting</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio5" value="option2">
+                            <label class="form-check-label" for="inlineRadio5">Menorrhagia</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio6" value="option2">
+                            <label class="form-check-label" for="inlineRadio6">Metrorhagia</label>
+                        </div>
+                    </div>
+                    <hr color="gray">
+                    <p style="text-align:center; margin-bottom:auto;"><strong>Riwayat Perkawinan</strong></p>
+                    <div class="form-row mt-3">
+                        <div class="col-md-2 form-check form-check-inline">
+                            <label class="form-check-label">Status Perkawinan</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="kawin" id="kawin" value="option2">
+                            <label class="form-check-label" for="kawin">Kawin</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="belumKawin" id="belumKawin" value="option2">
+                            <label class="form-check-label" for="belumKawin">Belum Kawin</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="janda" id="janda" value="option2">
+                            <label class="form-check-label" for="janda">Janda</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col-md-2 form-check form-check-inline">
+                            <label class="form-check-label">Jumlah Perkawinan</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Istri</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="kawin" id="kawin" value="option2">
+                            <label class="form-check-label" for="kawin">1x</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="belumKawin" id="belumKawin" value="option2">
+                            <label class="form-check-label" for="belumKawin">2x</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="janda" id="janda" value="option2">
+                            <label class="form-check-label" for="janda">>2x</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col-md-2 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Suami</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="sekali" id="sekali" value="option2">
+                            <label class="form-check-label" for="sekali">1x</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="duaKali" id="duaKali" value="option2">
+                            <label class="form-check-label" for="duaKali">2x</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="lebihDua" id="lebihDua" value="option2">
+                            <label class="form-check-label" for="lebihDua">>2x</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col-md-2 form-check form-check-inline">
+                            <label class="form-check-label">Usia Perkawinan</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Usia pernikahan..." aria-label="Usia pernikahan..." aria-describedby="basic-addon1">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="basic-addon1">Tahun</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr color="gray">
+                    <p style="text-align:center; margin-bottom:auto;"><strong>Riwayat Kehamilan, Persalinan dan Nifas yang Lalu</strong></p>
                 </div>
                 <div class="modal-footer justify-content-between bg-gray-600">
                     <div>
