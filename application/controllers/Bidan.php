@@ -47,7 +47,6 @@ class Bidan extends CI_Controller
 
         $data['Kebidanan'] = $this->pdf->getKebidanan();
 
-        $this->load->view('templates/header', $data);
         $this->load->view('bidan/pdf_kebidanan', $data);
 
         $paper_size = 'A4';
@@ -58,6 +57,13 @@ class Bidan extends CI_Controller
         $this->dompdf->load_html($html);
         $this->dompdf->render();
         $this->dompdf->stream('Laporan Kebidanan.pdf', array('Attachment' => 0));
+    }
+
+    public function excel()
+    {
+        $this->load->model('Kasus_model', 'excel');
+
+        $data['Kebidanan'] = $this->excel->getKebidanan();
     }
 
 
