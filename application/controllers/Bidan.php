@@ -74,8 +74,9 @@ class Bidan extends CI_Controller
 
         $Kebidanan = $this->excel->getKebidanan();
 
-        header("Content-Type: application/vnd.ms-excel");
-        header("Content-Disposition: attachment; filename=Asesmen Kebidanan.xls");
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="Asesmen Kebidanan.xlsx"');
+        header('Cache-Control: max-age=0');
 
         $spreadsheet = new Spreadsheet();
         $activeWorksheet = $spreadsheet->getActiveSheet();
@@ -99,8 +100,8 @@ class Bidan extends CI_Controller
             $kolom++;
         }
 
-        $writer = new Xlsx($spreadsheet);
-        $writer->save("php://output");
+        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $writer->save('php://output');
     }
 
 
