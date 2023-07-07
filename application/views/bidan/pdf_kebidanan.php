@@ -44,7 +44,7 @@
         .table-bordered th {
             background-color: #f0f0f0;
         }
-</style>
+    </style>
 </head><body>
     <table class="table table-bordered table-hover table-sm text-center">
         <thead>
