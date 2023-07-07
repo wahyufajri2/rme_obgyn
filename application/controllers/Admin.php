@@ -5,7 +5,6 @@ class Admin extends CI_Controller
 {
     public function __construct()
     {
-        // Load file model User_model.php
         parent::__construct();
         is_logged_in();
     }

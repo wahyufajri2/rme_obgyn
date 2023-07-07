@@ -1,12 +1,15 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+require FCPATH . 'vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Bidan extends CI_Controller
 {
 
     public function __construct()
     {
-        // Load file model User_model.php
         parent::__construct();
         is_logged_in();
     }
@@ -31,8 +34,10 @@ class Bidan extends CI_Controller
     {
     }
 
-    public function print()
+    public function printKebidanan()
     {
+        $data['title'] = 'Print Laporan Asesmen Kebidanan';
+
         $this->load->model('Kasus_model', 'print');
 
         $data['Kebidanan'] = $this->print->getKebidanan();
@@ -40,8 +45,10 @@ class Bidan extends CI_Controller
         $this->load->view('bidan/print_kebidanan', $data);
     }
 
-    public function pdf()
+    public function pdfKebidanan()
     {
+        $data['title'] = 'Export Laporan Asesmen Kebidanan';
+
         $this->load->library('dompdf_gen');
         $this->load->model('Kasus_model', 'pdf');
 
@@ -56,14 +63,44 @@ class Bidan extends CI_Controller
         $this->dompdf->set_paper($paper_size, $orientation);
         $this->dompdf->load_html($html);
         $this->dompdf->render();
-        $this->dompdf->stream('Laporan Kebidanan.pdf', array('Attachment' => 0));
+        $this->dompdf->stream('Laporan Asesmen Kebidanan.pdf', array('Attachment' => 0));
     }
 
-    public function excel()
+    public function excelKebidanan()
     {
+        $data['title'] = 'Export Laporan Asesmen Kebidanan';
+
         $this->load->model('Kasus_model', 'excel');
 
-        $data['Kebidanan'] = $this->excel->getKebidanan();
+        $Kebidanan = $this->excel->getKebidanan();
+
+        header("Content-Type: application/vnd.ms-excel");
+        header("Content-Disposition: attachment; filename=Asesmen Kebidanan.xls");
+
+        $spreadsheet = new Spreadsheet();
+        $activeWorksheet = $spreadsheet->getActiveSheet();
+        $activeWorksheet->setCellValue('A1', 'No');
+        $activeWorksheet->setCellValue('B1', 'No Rg');
+        $activeWorksheet->setCellValue('C1', 'No RM');
+        $activeWorksheet->setCellValue('D1', 'Nama Pasien');
+        $activeWorksheet->setCellValue('E1', 'Alamat');
+        $activeWorksheet->setCellValue('F1', 'Status');
+
+        $kolom = 2;
+        $nomor = 1;
+
+        foreach ($Kebidanan as $kbd) {
+            $activeWorksheet->setCellValue('A' . $kolom, $nomor++);
+            $activeWorksheet->setCellValue('B' . $kolom, $kbd['no_rg']);
+            $activeWorksheet->setCellValue('C' . $kolom, $kbd['no_rm']);
+            $activeWorksheet->setCellValue('D' . $kolom, $kbd['nama_pasien']);
+            $activeWorksheet->setCellValue('E' . $kolom, $kbd['alamat']);
+            $activeWorksheet->setCellValue('F' . $kolom, $kbd['status']);
+            $kolom++;
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $writer->save("php://output");
     }
 
 
