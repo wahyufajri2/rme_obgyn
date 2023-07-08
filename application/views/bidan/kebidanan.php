@@ -94,7 +94,7 @@
             </div>
             <form action="<?= base_url('bidan/entriKebidanan'); ?>" method="post">
                 <div style="font-size:14px;" class="modal-body bg-gray-500">
-                    <p style="text-align:center; margin-bottom:auto;"><strong>Kop Surat</strong></p>
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Kop Surat</strong></p>
                     <div class="form-row">
                         <div class="col">
                             <label for="nama_pasien">Nama Pasien</label>
@@ -121,13 +121,13 @@
                         </div>
                     </div>
                     <hr color="gray">
-                    <p style="text-align:center; margin-bottom:auto;"><strong>Alasan Masuk</strong></p>
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Alasan Masuk</strong></p>
                     <div class="form-group">
                         <label for="keluhanPasien">Keluhan Utama / Riwayat Keluhan saat ini</label>
                         <textarea class="form-control form-control-sm" id="keluhanPasien" rows="1"></textarea>
                     </div>
                     <hr color="gray">
-                    <p style="text-align:center; margin-bottom:auto;"><strong>Riwayat Kesehatan</strong></p>
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat Kesehatan</strong></p>
                     <div class="form-row">
                         <div class="col form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                     <hr color="gray">
-                    <p style="text-align:center; margin-bottom:auto;"><strong>Riwayat Alergi</strong></p>
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat Alergi</strong></p>
                     <div class="form-row">
                         <div class="col form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
@@ -175,7 +175,7 @@
                         </div>
                     </div>
                     <hr color="gray">
-                    <p style="text-align:center; margin-bottom:auto;"><strong>Nyeri</strong></p>
+                    <p style="text-align:center; margin-bottom:10px; margin-top:-10px;"><strong>Nyeri</strong></p>
                     <div class="form-row">
                         <div class="col-md-1 form-check form-check-inline">
                             <label class="form-check-label" for="inlineRadio1">Nyeri :</label>
@@ -298,7 +298,7 @@
                         </tbody>
                     </table>
                     <hr color="gray">
-                    <p style="text-align:center; margin-bottom:auto;"><strong>Skrining Gizi</strong></p>
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Skrining Gizi</strong></p>
                     <table class="table table-bordered table-sm mt-3">
                         <tbody>
                             <tr>
@@ -391,6 +391,17 @@
                         </div>
                     </div>
                     <div class="p-1 bg-gray-800 text-gray-200 text-center rounded" style="font-size:20px; margin-bottom: 15px; margin-top: 15px; "><strong>PENGKAJIAN KHUSUS ASUHAN KEBIDANAN</strong></div>
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">
+                                    <div class="py-0.5 bg-gray-700 text-gray-300 rounded border border-secondary" style="display:flex; justify-content:center; font-size:14px; margin-bottom: -13px; margin-top: -10px; "><strong>SUBJEKTIF</strong></div>
+                                </th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                    </table>
                     <p style="text-align:center;"><strong>Riwayat Menstruasi</strong></p>
                     <div class="row">
                         <div class="col">
@@ -460,7 +471,7 @@
                         </div>
                     </div>
                     <hr color="gray">
-                    <p style="text-align:center; margin-bottom:auto;"><strong>Riwayat Perkawinan</strong></p>
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat Perkawinan</strong></p>
                     <div class="form-row mt-3">
                         <div class="col-md-2 form-check form-check-inline">
                             <label class="form-check-label">Status Perkawinan</label>
@@ -542,7 +553,7 @@
                         </div>
                     </div>
                     <hr color="gray">
-                    <p style="text-align:center; margin-bottom:auto;"><strong>Riwayat Kehamilan, Persalinan dan Nifas yang Lalu</strong></p>
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat Kehamilan, Persalinan dan Nifas yang Lalu</strong></p>
                     <table class="table table-bordered mt-3">
                         <thead>
                             <tr class="table-active">
@@ -584,7 +595,7 @@
                         </tbody>
                     </table>
                     <hr color="gray">
-                    <p style="text-align:center; margin-bottom:auto;"><strong>Riwayat Kehamilan Sekarang</strong></p>
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat Kehamilan Sekarang</strong></p>
                     <p style="text-align:center; margin-top:-5px; margin-bottom:auto;"><i>( Khusus diisi untuk pasien obstetric )</i></p>
                     <div class="form-row mt-3">
                         <div class="col-md-1 form-check form-check-inline">
@@ -641,7 +652,7 @@
                         </div>
                     </div>
                     <hr color="gray">
-                    <p style="text-align:center; margin-bottom:auto;"><strong>Riwayat Penyakit Keluarga</strong></p>
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat Penyakit Keluarga</strong></p>
                     <div class="form-row mt-3">
                         <div class="col-md form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="muntah" id="muntah" value="option2">
@@ -697,6 +708,107 @@
                             <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
                         </div>
                     </div>
+                    <hr color="gray">
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat Gynekologi</strong></p>
+                    <div class="form-row mt-3">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="muntah" id="muntah" value="option2">
+                            <label class="form-check-label" for="muntah">Infertilitas</label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="muntah" id="muntah" value="option2">
+                            <label class="form-check-label" for="muntah">Infeksi Virus</label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="muntah" id="muntah" value="option2">
+                            <label class="form-check-label" for="muntah">PMS</label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="muntah" id="muntah" value="option2">
+                            <label class="form-check-label" for="muntah">Cervisitis Cronis</label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="muntah" id="muntah" value="option2">
+                            <label class="form-check-label" for="muntah">Endometriosis</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="muntah" id="muntah" value="option2">
+                            <label class="form-check-label" for="muntah">Myoma</label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="muntah" id="muntah" value="option2">
+                            <label class="form-check-label" for="muntah">Polip Servix</label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="muntah" id="muntah" value="option2">
+                            <label class="form-check-label" for="muntah">Kanker Kandungan</label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="muntah" id="muntah" value="option2">
+                            <label class="form-check-label" for="muntah">Operasi kandungan</label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="muntah" id="muntah" value="option2">
+                            <label class="form-check-label" for="muntah">Perkosaan</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="muntah" id="muntah" value="option2">
+                            <label class="form-check-label" for="muntah">Myoma</label>
+                        </div>
+                        <div class="col-md-7 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Flour Albus (Gatal ya / Tidak, Berbau ya / Tidak, Warna?):&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Lain-lain:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                    </div>
+                    <hr color="gray">
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat KB</strong></p>
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <label class="form-control-label" for="basic-addon1">Metode KB yang pernah dipakai</label>
+                            <div class="input-group input-group-sm">
+                                <input type="text" class="form-control" placeholder="Nama metode KB yang pernah dipakai..." aria-label="Nama metode KB yang pernah dipakai..." aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label class="form-control-label" for="basic-addon1">Lama</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Lama pemakaian..." aria-label="Lama pemakaian..." aria-describedby="basic-addon1">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="basic-addon1">Tahun</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col-md-1.5 form-check form-check-inline">
+                            <label class="form-check-label">Komplikasi dari KB :</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="janda" id="janda" value="option2">
+                            <label class="form-check-label" for="janda">Pendarahan</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="janda" id="janda" value="option2">
+                            <label class="form-check-label" for="janda">PID / Radang Panggul</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Lain-lain:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                    </div>
+                    <hr color="gray">
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Pola Eliminasi / Istirahat</strong></p>
                 </div>
                 <div class="modal-footer justify-content-between bg-gray-600">
                     <div>
