@@ -29,7 +29,7 @@
                 <?= $this->session->flashdata('message'); ?>
                 <div class="card shadow mb-4">
                     <div class="card-header">
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#TambahPasienAsesment"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Pasien</button>
+                        <!-- <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#TambahPasienAsesment"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Pasien</button> -->
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
