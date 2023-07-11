@@ -38,14 +38,23 @@
                             <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Email Address" value="<?= set_value('email'); ?>">
                             <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
-                        <div class="form-group row">
-                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Password">
-                                <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
+                        <div class="form-group input-group">
+                            <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Password">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2" style="border-top-left-radius: 0px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 0px;">
+                                    <a href="#" id="show_password1" class="text-decoration-none text-gray-700"><i class="fa-solid fa-eye" id="icon"></i></a>
+                                </span>
                             </div>
-                            <div class="col-sm-6">
-                                <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
+                            <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                        <div class="form-group input-group">
+                            <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2" style="border-top-left-radius: 0px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 0px;">
+                                    <a href="#" id="show_password2" class="text-decoration-none text-gray-700"><i class="fa-solid fa-eye" id="icon"></i></a>
+                                </span>
                             </div>
+                            <?= form_error('password2', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <button type="submit" class="btn btn-outline-primary btn-user btn-block  fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;">
                             <i class="fas fa-solid fa-arrow-right"></i> Daftarkan Akun
