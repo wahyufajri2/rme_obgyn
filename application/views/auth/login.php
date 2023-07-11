@@ -22,10 +22,15 @@
                                                                                                                                                                                                                                                         }  ?>">
                                             <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group input-group">
                                             <input type="password" class="form-control form-control-user border-0.5 border-dark shadow-lg bg-transparent" id="password" name="password" placeholder="Password" value="<?php if (isset($_COOKIE["password"])) {
                                                                                                                                                                                                                             echo $_COOKIE["password"];
                                                                                                                                                                                                                         } ?>">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text bg-transparent border-0.5 border-dark shadow-lg" id="basic-addon2" style="border-top-left-radius: 0px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 0px;">
+                                                    <a href="#" id="show_password" class="text-decoration-none text-gray-500"><i class="fa-solid fa-eye" id="icon"></i></a>
+                                                </span>
+                                            </div>
                                             <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>
                                         <div class="form-group">
