@@ -111,11 +111,11 @@
                     </div>
                     <div class="p-1 bg-gray-800 text-gray-200 text-center rounded" style="font-size:20px; margin-bottom: 15px; margin-top: 15px; "><strong>ASESMEN ASUHAN KEBIDANAN GINEKOLOGI</strong></div>
                     <div class="form-row">
-                        <div class="col">
+                        <div class="col-md">
                             <label for="suami">Nama Suami</label>
                             <input type="text" class="form-control form-control-sm" id="suami" name="suami">
                         </div>
-                        <div class="col">
+                        <div class="col-md">
                             <label for="alamat">Alamat</label>
                             <input type="text" class="form-control form-control-sm" id="alamat" name="alamat">
                         </div>
@@ -809,6 +809,171 @@
                     </div>
                     <hr color="gray">
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Pola Eliminasi / Istirahat</strong></p>
+                    <div class="form-row mt-3">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <label class="form-check-label"><strong>Pola Eliminasi : </strong></label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col-md">
+                            <label for="suami">BAK</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Buang Air Kecil..." aria-label="Buang Air Kecil..." aria-describedby="bak">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="bak">cc/hari</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="warnaBAK">Warna</label>
+                            <input type="text" class="form-control form-control-sm" id="warnaBAK" name="warnaBAK">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md">
+                            <label for="suami">BAB</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Buang Air Besar..." aria-label="Buang Air Besar..." aria-describedby="bab">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="bab">kali/hari</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="karaktekBAB">Karakteristik</label>
+                            <input type="text" class="form-control form-control-sm" id="karaktekBAB" name="karaktekBAB">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md">
+                            <label for="keluhanEliminasi">Keluhan</label>
+                            <input type="text" class="form-control form-control-sm" id="keluhanEliminasi" name="keluhanEliminasi">
+                        </div>
+                    </div>
+                    <div class="form-row mt-3">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <label class="form-check-label"><strong>Pola Istirahat : </strong></label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-3">
+                            <label for="suami">Tidur Malam</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Durasi tidur malam..." aria-label="Durasi tidur malam..." aria-describedby="durasiTidurMalam">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="durasiTidurMalam">jam/hari</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="suami">Tidur Siang</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Durasi tidur siang..." aria-label="Durasi tidur siang..." aria-describedby="durasiTidurSiang">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="durasiTidurSiang">jam/hari</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md form-check form-check-inline" style="align-items: center;">
+                            <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
+                            <label class="form-check-label" for="denganObatTidur">Dengan Obat</label>
+                        </div>
+                        <div class="col-md form-check form-check-inline" style="align-items: center;">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Tidak dengan Obat</label>
+                        </div>
+                        <div class="col-md">
+                            <label for="keluhanIstirahat">Keluhan</label>
+                            <input type="text" class="form-control form-control-sm" id="keluhanIstirahat" name="keluhanIstirahat">
+                        </div>
+                    </div>
+                    <hr color="gray">
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">
+                                    <div class="py-0.5 bg-gray-700 text-gray-300 rounded border border-secondary" style="display:flex; justify-content:center; font-size:14px; margin-bottom: -13px; margin-top: -10px; "><strong>OBJEKTIF</strong></div>
+                                </th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Keadaan Umum</strong></p>
+                    <div class="form-row mt-2">
+                        <div class="col-md">
+                            <label class="mb-0" for="kesadaran">Kesadaran</label>
+                            <input type="text" class="form-control form-control-sm" id="kesadaran" name="kesadaran">
+                        </div>
+                        <div class="col-md">
+                            <label class="mb-0" for="suami">BB</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Berat Badan..." aria-label="Berat Badan..." aria-describedby="beratBadan">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="beratBadan">kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label class="mb-0" for="suami">TB</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Tinggi Badan..." aria-label="Tinggi Badan..." aria-describedby="tinggiBadan">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="tinggiBadan">cm</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label class="mb-0" for="lla">LLA</label>
+                            <input type="text" class="form-control form-control-sm" id="lla" name="lla">
+                        </div>
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col-md">
+                            <label class="mb-0" for="suami">TD</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Tekanan Darah..." aria-label="Tekanan Darah..." aria-describedby="tekananDarah">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="tekananDarah">mmHg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label class="mb-0" for="suami">Nadi</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Denyut Nadi..." aria-label="Denyut Nadi..." aria-describedby="denyutNadi">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="denyutNadi">x/mnt</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label class="mb-0" for="suami">Suhu Badan</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Suhu Badan..." aria-label="Suhu Badan..." aria-describedby="suhuBadan">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="suhuBadan">℃</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label class="mb-0" for="suami">Respirasi</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Frekuensi Pernapasan..." aria-label="Frekuensi Pernapasan..." aria-describedby="respirasi">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="respirasi">x/mnt</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr color="gray">
+                    <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Pemeriksaan Fisik</strong></p>
                 </div>
                 <div class="modal-footer justify-content-between bg-gray-600">
                     <div>
