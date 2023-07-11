@@ -880,11 +880,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md form-check form-check-inline" style="align-items: center;">
+                        <div class="col-md form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
                             <label class="form-check-label" for="denganObatTidur">Dengan Obat</label>
                         </div>
-                        <div class="col-md form-check form-check-inline" style="align-items: center;">
+                        <div class="col-md form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
                             <label class="form-check-label" for="tanpaObatTidur">Tidak dengan Obat</label>
                         </div>
@@ -974,6 +974,298 @@
                     </div>
                     <hr color="gray">
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Pemeriksaan Fisik</strong></p>
+                    <div class="form-row mt-3">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Kepala</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="periksaKepala" name="periksaKepala">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Muka</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
+                            <label class="form-check-label" for="denganObatTidur">Ada Cloasma</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Tidak Ada Cloasma</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Mata</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
+                            <label class="form-check-label" for="denganObatTidur">Conjunctiva merah</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Conjunctiva Pucat</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
+                            <label class="form-check-label" for="denganObatTidur">Sklera ikteric</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Pandangan kabur</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Hidung</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
+                            <label class="form-check-label" for="denganObatTidur">Ada Polip</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Tidak Ada Polip</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Mulut</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md-4 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Bibir:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                        <div class="col-md-4 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Gigi:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Leher</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md-4 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Pembesaran venajugularis:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                        <div class="col-md-4 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Pembesaran kel. Tiroid:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Payudara</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
+                            <label class="form-check-label" for="denganObatTidur">Pengeluaran ASI</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Putting datar/tenggelam</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
+                            <label class="form-check-label" for="denganObatTidur">Puting susu menonjol</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Lain-lain</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-3">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <label class="form-check-label"><strong>Inspeksi : </strong></label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Pelebaran vena</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
+                            <label class="form-check-label" for="denganObatTidur">Linea Alba</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Linea Nigra</label>
+                        </div>
+                        <div class="col-md-4 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
+                            <label class="form-check-label" for="denganObatTidur">Membesar dengan arah memanjang / melebar</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Striae livide</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
+                            <label class="form-check-label" for="denganObatTidur">Striae albican</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Luka bekas operasi</label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Lain-lain:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <label class="form-check-label">Extremitas atas</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="extremitasAtas" name="extremitasAtas">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <label class="form-check-label">Extremitas bawah</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
+                            <label class="form-check-label" for="denganObatTidur">Tungkai oedema</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Tungkai normal</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-3">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md form-check form-check-inline">
+                            <label class="form-check-label"><strong>Palpasi (OBSTETRI) :</strong></label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Leopold 1</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldSatu" name="leopoldSatu">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Leopold 2</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldDua" name="leopoldDua">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Leopold 3</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldTiga" name="leopoldTiga">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Leopold 4</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldEmpat" name="leopoldEmpat">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Nyeri tekan</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="denganObatTidur" id="denganObatTidur" value="option2">
+                            <label class="form-check-label" for="denganObatTidur">Obsborn test</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="tanpaObatTidur" id="tanpaObatTidur" value="option2">
+                            <label class="form-check-label" for="tanpaObatTidur">Cekungan pada perut</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer justify-content-between bg-gray-600">
                     <div>
