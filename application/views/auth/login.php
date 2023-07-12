@@ -28,7 +28,7 @@
                                                                                                                                                                                                                         } ?>">
                                             <div class="input-group-append">
                                                 <div class="input-group-text bg-transparent border-0.5 border-dark shadow-lg" id="basic-addon2" style="border-top-left-radius: 0px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 0px;">
-                                                    <a href="#" id="show_password" class="text-decoration-none text-gray-500"><i class="fa-solid fa-eye" id="icon"></i></a>
+                                                    <a href="#" id="show_password" class="text-decoration-none text-gray-500"><i class="fa-solid fa-eye-slash" id="icon"></i></a>
                                                 </div>
                                             </div>
                                             <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>

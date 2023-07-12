@@ -82,7 +82,7 @@
  <script type="text/javascript">
      $(document).ready(function() {
          $('#show_password1').click(function() {
-             $('#icon').toggleClass('fa-eye-slash');
+             $('#icon1').toggleClass('fa-sholid fa-eye');
 
              var input = $('#password1');
              if (input.attr("type") === "password") {
@@ -97,7 +97,7 @@
  <script type="text/javascript">
      $(document).ready(function() {
          $('#show_password2').click(function() {
-             $('#icon').toggleClass('fa-eye-slash');
+             $('#icon2').toggleClass('fa-sholid fa-eye');
 
              var input = $('#password2');
              if (input.attr("type") === "password") {

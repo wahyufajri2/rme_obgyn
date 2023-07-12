@@ -11,7 +11,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#show_password').click(function() {
-            $('#icon').toggleClass('fa-sholid fa-eye-slash');
+            $('#icon').toggleClass('fa-sholid fa-eye');
 
             var input = $('#password');
             if (input.attr("type") === "password") {
@@ -24,4 +24,4 @@
 </script>
 </body>
 
-</html> 
+</html>
