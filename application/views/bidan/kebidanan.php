@@ -1640,6 +1640,217 @@
                     </div>
                     <hr color="gray">
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Pemeriksaan Penunjang</strong></p>
+                    <div class="form-row mt-3">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Darah</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Hb:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Gol Dar:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Leukosit:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                    </div>
+                    <div class="form-row mt-0.5">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Trombosit:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">HBsAG:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">GDS</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Urine</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Protein:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">PP Test - (min)</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">PP Test + (plus)</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">USG</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldSatu" name="leopoldSatu">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Ekg</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldSatu" name="leopoldSatu">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-1 form-check form-check-inline">
+                            <label class="form-check-label">Lain-lain</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldSatu" name="leopoldSatu">
+                        </div>
+                    </div>
+                    <hr color="gray">
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">
+                                    <div class="py-0.5 bg-gray-700 text-gray-300 rounded border border-secondary" style="display:flex; justify-content:center; font-size:14px; margin-bottom: -13px; margin-top: -10px; "><strong>ANALISA</strong></div>
+                                </th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="form-row mt-3">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">G ........ P ........ A ........ hamil .........mg dengan abortus ...............</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Ibu umur......th dengan ................</label>
+                        </div>
+                    </div>
+                    <hr color="gray">
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">
+                                    <div class="py-0.5 bg-gray-700 text-gray-300 rounded border border-secondary" style="display:flex; justify-content:center; font-size:14px; margin-bottom: -13px; margin-top: -10px; "><strong>PENATALAKSANAAN</strong></div>
+                                </th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="form-row mt-3">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Menginformasikan hasil pemeriksaan,orientasi ruangan,Bidan penanggung jawab dan dokter penanggung jawab</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Kolaborasi dengan dokter, advis&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Edukasi Pasien / Keluarga</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-4 form-check form-check-inline">
+                            <label class="form-check-label">a. Kesediaan Pasien / keluarga menerima informasi :</label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Tidak</label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Ya</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">Paraf:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldSatu" name="leopoldSatu">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-4 form-check form-check-inline">
+                            <label class="form-check-label">b. Terdapat hambatan dalam Edukasi :</label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Tidak</label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Ya</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-4 form-check form-check-inline">
+                            <label class="form-check-label">b. Terdapat hambatan dalam Edukasi :</label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Tidak</label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Ya</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer justify-content-between bg-gray-600">
                     <div>
