@@ -1961,6 +1961,260 @@
                             <label class="form-check-label" for="pendarahan">Penunggu pasien /pendampingan persalinan oleh suami /keluarga terdekat</label>
                         </div>
                     </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Pasien dianjurkan untuk puasa minimal 4 jam</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Manajemen Nyeri / relaksasi</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Jelaskan tentang KB pasca keguguran :</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-4 form-check form-check-inline">
+                            <label class="form-check-label">Pasien setuju KB pasca abortus?</label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Setuju</label>
+                        </div>
+                        <div class="col-md-1 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Tidak</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-2.5 form-check form-check-inline">
+                            <label class="form-check-label">Langsung informed consent :</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="..." aria-label="..." aria-describedby="pengeluaranVagina">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="pengeluaranVagina">ttd</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Persiapan alat set kuretage, SPo2, dan obat uterustonika</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Kolaborasi dokter anestesi</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Cuci tangan</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Persiapan pasien posisi litotomi dan diberikan O2 2-3 l/mnt</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Dilakukan pembiusan oleh dokter anestesi</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-2.5 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Jam:&nbsp&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                        </div>
+                        <label for="inputEmail3" class="col-md-2.5 col-form-label">dilakukan Tindakan kuretage hasil:</label>
+                        <div class="col-md-2.5 form-check form-check-inline">
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="..." aria-label="..." aria-describedby="pengeluaranVagina">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="pengeluaranVagina">cc</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1.5 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Jaringan di PA</label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Jaringan tidak di PA</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Memberikan injeksi metergin 1 amp ( 0,2 mg) / asam traneksamat 1mp secara IV</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Dilakukan incici</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-2.5 form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Dipasang tampon selama?</label>
+                        </div>
+                        <div class="col-md-3 form-check form-check-inline">
+                            <div class="input-group input-group-sm">
+                                <input type="number" class="form-control" placeholder="Durasi pasang tampon..." aria-label="Durasi pasang tampon..." aria-describedby="pengeluaranVagina">
+                                <div class="input-group-append">
+                                    <span class="input-group-text mr-3" id="pengeluaranVagina">Jam</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Dipasang cateter</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Melakukan Pemeriksaan v/s post curetage / post incici</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <label class="form-check-label">• Tekanan darah</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldSatu" name="leopoldSatu">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <label class="form-check-label">• Nadi</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldSatu" name="leopoldSatu">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <label class="form-check-label">• Respirasi</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldSatu" name="leopoldSatu">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <label class="form-check-label">• SB</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldSatu" name="leopoldSatu">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label"></label>
+                        </div>
+                        <div class="col-md-2 form-check form-check-inline">
+                            <label class="form-check-label">• Spo2</label>
+                        </div>
+                        <div class="col-md-0.5 form-check form-check-inline">
+                            <label class="form-check-label">:</label>
+                        </div>
+                        <div class="col-md">
+                            <input type="text" class="form-control form-control-sm" id="leopoldSatu" name="leopoldSatu">
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Dekontaminasi alat dan tempat</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Cuci tangan</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Memindahkan pasien diruang perawatan setelah Post kuretage / post incici keadaaan umum baik</label>
+                        </div>
+                    </div>
+                    <div class="form-row mt-1">
+                        <div class="col-md form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="pendarahan" id="hamilLain" value="option2">
+                            <label class="form-check-label" for="pendarahan">Dokumentasi</label>
+                        </div>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="dokter_id">Bidan jaga</label>
+                        <select name="id_dokter" id="id_dokter" class="form-control form-control-sm">
+                            <option value="">Pilih bidan</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="dokter_id">Bidan yang melakukan tindakan</label>
+                        <select name="id_dokter" id="id_dokter" class="form-control form-control-sm">
+                            <option value="">Pilih bidan</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="dokter_id">Dirujuk/ Konsul ke</label>
+                        <select name="id_dokter" id="id_dokter" class="form-control form-control-sm">
+                            <option value="">Pilih tempat pelayanan kesehatan</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer justify-content-between bg-gray-600">
                     <div>
