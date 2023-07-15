@@ -126,106 +126,108 @@
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat Kesehatan</strong></p>
                     <div class="form-row">
                         <div class="col form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Tidak pernah opname</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox1" value="option1">
+                            <label class="form-check-label" for="inlinecheckbox1">Tidak pernah opname</label>
                         </div>
                         <div class="col-md-5 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Pernah Opname dengan sakit :</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Pernah Opname dengan sakit :&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
                         </div>
                         <div class="col-md-4 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Di RS :</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Di RS :&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Pernah Operasi</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox1" value="option1">
+                            <label class="form-check-label" for="inlinecheckbox1">Pernah Operasi</label>
                         </div>
                         <div class="col-md-5 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Tidak</label>
                         </div>
                         <div class="col-md-4 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Pasca Operasi Hari Ke :</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Pasca Operasi Hari Ke :&nbsp</label>
+                            <input type="number" name="hamilLain" id="hamilLain" placeholder="Diisi dengan angka" aria-label="Text input with checkbox">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Obat yang di bawa :</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox1" value="option1">
+                            <label class="form-check-label" for="inlinecheckbox1">Obat yang di bawa :&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
                         </div>
                     </div>
                     <hr color="gray">
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat Alergi</strong></p>
                     <div class="form-row">
                         <div class="col form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Tidak ada</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox1" value="option1">
+                            <label class="form-check-label" for="inlinecheckbox1">Tidak ada</label>
                         </div>
                         <div class="col-md-9 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Ada, sebutkan! :</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Ada, sebutkan! :&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
                         </div>
                     </div>
                     <hr color="gray">
                     <p style="text-align:center; margin-bottom:10px; margin-top:-10px;"><strong>Nyeri</strong></p>
                     <div class="form-row">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">Nyeri :</label>
+                            <label class="form-check-label" for="inlinecheckbox1">Nyeri :</label>
                         </div>
                         <div class="col-md-3 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Tidak</label>
                         </div>
                         <div class="col-md-7 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Ya , bila ya lanjutkan dengan deskripsi:</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Ya , bila ya lanjutkan dengan deskripsi:</label>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">Provoke :</label>
+                            <label class="form-check-label" for="inlinecheckbox1">Provoke :</label>
                         </div>
                         <div class="col-md-3 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Ruda paksa</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Ruda paksa</label>
                         </div>
                         <div class="col-md-7 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Lainnya :</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Lainnya :&nbsp</label>
+                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">Quality :</label>
+                            <label class="form-check-label" for="inlinecheckbox1">Quality :</label>
                         </div>
                         <div class="col-md-3 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Seperti ditusuk-tusuk</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Seperti ditusuk-tusuk</label>
                         </div>
                         <div class="col-md-2 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Seperti terbakar</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Seperti terbakar</label>
                         </div>
                         <div class="col-md-3 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Seperti tertimpa beban</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Seperti tertimpa beban</label>
                         </div>
                         <div class="col-md-1 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Ngilu</label>
-                        </div>
-                        <div class="col-md-1 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2"></label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Ngilu</label>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">Region :</label>
+                            <label class="form-check-label" for="inlinecheckbox1">Region :</label>
                         </div>
                         <label for="inputEmail2" class="col-md-1 col-form-label">Lokasi nyeri</label>
                         <div class="col-md-4">
@@ -238,19 +240,19 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label" for="inlineRadio1">Time :</label>
+                            <label class="form-check-label" for="inlinecheckbox1">Time :</label>
                         </div>
                         <div class="col-md-3 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Kadang-kadang</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Kadang-kadang</label>
                         </div>
                         <div class="col-md-2 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Sering</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Sering</label>
                         </div>
                         <div class="col-md-3 form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Menetap</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox2">Menetap</label>
                         </div>
                     </div>
                     <table class="table table-bordered table-sm mt-3">
@@ -265,24 +267,24 @@
                                 <td>
                                     <div class="col-inline">
                                         <div class="col-md-2 form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                            <label class="form-check-label" for="inlineRadio2">2</label>
+                                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                                            <label class="form-check-label" for="inlinecheckbox2">2</label>
                                         </div>
                                         <div class="col-md-2 form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option2">
-                                            <label class="form-check-label" for="inlineRadio4">4</label>
+                                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox4" value="option2">
+                                            <label class="form-check-label" for="inlinecheckbox4">4</label>
                                         </div>
                                         <div class="col-md-2 form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option3">
-                                            <label class="form-check-label" for="inlineRadio6">6</label>
+                                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox6" value="option3">
+                                            <label class="form-check-label" for="inlinecheckbox6">6</label>
                                         </div>
                                         <div class="col-md-2 form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio8" value="option2">
-                                            <label class="form-check-label" for="inlineRadio8">8</label>
+                                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox8" value="option2">
+                                            <label class="form-check-label" for="inlinecheckbox8">8</label>
                                         </div>
                                         <div class="col-md-2 form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio20" value="option3">
-                                            <label class="form-check-label" for="inlineRadio10">10</label>
+                                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox20" value="option3">
+                                            <label class="form-check-label" for="inlinecheckbox10">10</label>
                                         </div>
                                     </div>
                                 </td>
@@ -301,12 +303,12 @@
                                 <td rowspan="2">Apakah Pasien mengalami penurunan BB dalam 6 bulan terakhir?</td>
                                 <td colspan="2">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">Tidak ada penurunan BB</label>
+                                        <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox1" value="option1">
+                                        <label class="form-check-label" for="inlinecheckbox1">Tidak ada penurunan BB</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">Tidak yakin /Tidak tahu/ Baju terasa longgar</label>
+                                        <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
+                                        <label class="form-check-label" for="inlinecheckbox2">Tidak yakin /Tidak tahu/ Baju terasa longgar</label>
                                     </div>
                                 </td>
                             </tr>
@@ -317,20 +319,20 @@
                                             <label class="form-check-label">Ya, penurunan BB tersebut</label>
                                         </div>
                                         <div class="col-md-2 form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio3" value="option2">
-                                            <label class="form-check-label" for="inlineRadio3">1-5 kg</label>
+                                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox3" value="option2">
+                                            <label class="form-check-label" for="inlinecheckbox3">1-5 kg</label>
                                         </div>
                                         <div class="col-md-2 form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio4" value="option2">
-                                            <label class="form-check-label" for="inlineRadio4">6-10 kg</label>
+                                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox4" value="option2">
+                                            <label class="form-check-label" for="inlinecheckbox4">6-10 kg</label>
                                         </div>
                                         <div class="col-md-2 form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio5" value="option2">
-                                            <label class="form-check-label" for="inlineRadio5">11-15 kg</label>
+                                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox5" value="option2">
+                                            <label class="form-check-label" for="inlinecheckbox5">11-15 kg</label>
                                         </div>
                                         <div class="col-md-2 form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio6" value="option2">
-                                            <label class="form-check-label" for="inlineRadio6"> >15 kg</label>
+                                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox6" value="option2">
+                                            <label class="form-check-label" for="inlinecheckbox6"> >15 kg</label>
                                         </div>
                                     </div>
                                 </td>
@@ -450,20 +452,20 @@
                     </div>
                     <div class="form-row mt-2">
                         <div class="col-md-2 form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio3" value="option2">
-                            <label class="form-check-label" for="inlineRadio3">Dismenorhoe</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox3" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox3">Dismenorhoe</label>
                         </div>
                         <div class="col-md-2 form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio4" value="option2">
-                            <label class="form-check-label" for="inlineRadio4">Spotting</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox4" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox4">Spotting</label>
                         </div>
                         <div class="col-md-2 form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio5" value="option2">
-                            <label class="form-check-label" for="inlineRadio5">Menorrhagia</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox5" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox5">Menorrhagia</label>
                         </div>
                         <div class="col-md-2 form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="inlineRadio6" value="option2">
-                            <label class="form-check-label" for="inlineRadio6">Metrorhagia</label>
+                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox6" value="option2">
+                            <label class="form-check-label" for="inlinecheckbox6">Metrorhagia</label>
                         </div>
                     </div>
                     <hr color="gray">

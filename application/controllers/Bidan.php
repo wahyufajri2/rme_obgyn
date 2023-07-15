@@ -31,6 +31,30 @@ class Bidan extends CI_Controller
 
     public function entriKebidanan()
     {
+        $data['title'] = 'Entri Asesmen Kebidanan';
+
+        $this->form_validation->set_rules('no_rg', 'No Rg', 'required|trim');
+        $this->form_validation->set_rules('no_rm', 'No Rm', 'required|trim');
+        $this->form_validation->set_rules('nama_pasien', 'Nama Pasien', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('status', 'Status', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('bidan/entri_kebidanan');
+        } else {
+            $data = [
+                'no_rg' => htmlspecialchars($this->input->post('no_rg', true)),
+                'no_rm' => htmlspecialchars($this->input->post('no_rm', true)),
+                'nama_pasien' => htmlspecialchars($this->input->post('nama_pasien', true)),
+                'alamat' => htmlspecialchars($this->input->post('alamat', true)),
+                'status' => htmlspecialchars($this->input->post('status', true)),
+            ];
+
+            $this->db->insert('kebidanan', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan!</div>');
+            redirect('bidan/kebidanan');
+        }
     }
 
     public function printKebidanan()
