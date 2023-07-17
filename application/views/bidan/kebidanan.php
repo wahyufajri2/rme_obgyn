@@ -94,72 +94,72 @@
                     <div class="form-row">
                         <div class="col">
                             <label for="nama_pasien">Nama Pasien</label>
-                            <input type="text" class="form-control form-control-sm" id="nama_pasien" name="nama_pasien">
+                            <input type="text" class="form-control form-control-sm" id="nama_pasien" name="nama_pasien" value="">
                         </div>
                         <div class="col">
                             <label for="no_rm">No. MR</label>
-                            <input type="number" class="form-control form-control-sm" id="no_rm" name="no_rm">
+                            <input type="number" class="form-control form-control-sm" id="no_rm" name="no_rm" value="">
                         </div>
                         <div class="col">
                             <label for="tgl_lahir">Tanggal Lahir</label>
-                            <input type="date" class="form-control form-control-sm" id="tgl_lahir" name="tgl_lahir">
+                            <input type="date" class="form-control form-control-sm" id="tgl_lahir" name="tgl_lahir" value="">
                         </div>
                     </div>
                     <div class="p-1 bg-gray-800 text-gray-200 text-center rounded" style="font-size:20px; margin-bottom: 15px; margin-top: 15px; "><strong>ASESMEN ASUHAN KEBIDANAN GINEKOLOGI</strong></div>
                     <div class="form-row">
                         <div class="col-md">
                             <label for="suami">Nama Suami</label>
-                            <input type="text" class="form-control form-control-sm" id="suami" name="suami">
+                            <input type="text" class="form-control form-control-sm" id="suami" name="suami" value="">
                         </div>
                         <div class="col-md">
                             <label for="alamat">Alamat</label>
-                            <input type="text" class="form-control form-control-sm" id="alamat" name="alamat">
+                            <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="">
                         </div>
                     </div>
                     <hr color="gray">
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Alasan Masuk</strong></p>
                     <div class="form-group">
-                        <label for="keluhanPasien">Keluhan Utama / Riwayat Keluhan saat ini</label>
-                        <textarea class="form-control form-control-sm" id="keluhanPasien" rows="1"></textarea>
+                        <label for="keluhan_pasien">Keluhan Utama / Riwayat Keluhan saat ini</label>
+                        <textarea class="form-control form-control-sm" id="keluhan_pasien" name="keluhan_pasien" value="" rows="1"></textarea>
                     </div>
                     <hr color="gray">
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat Kesehatan</strong></p>
                     <div class="form-row">
                         <div class="col form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox1" value="option1">
-                            <label class="form-check-label" for="inlinecheckbox1">Tidak pernah opname</label>
+                            <input class="form-check-input" type="checkbox" name="tdk_pernah_opname" id="tdk_pernah_opname" value="">
+                            <label class="form-check-label" for="tdk_pernah_opname">Tidak pernah opname</label>
                         </div>
                         <div class="col-md-5 form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
-                            <label class="form-check-label" for="inlinecheckbox2">Pernah Opname dengan sakit :&nbsp</label>
-                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                            <input class="form-check-input" type="checkbox" name="pernah_opname" id="pernah_opname" value="">
+                            <label class="form-check-label" for="pernah_opname">Pernah Opname dengan sakit :&nbsp</label>
+                            <input type="text" name="pernah_opname" id="pernah_opname" value="" aria-label="Text input with checkbox">
                         </div>
                         <div class="col-md-4 form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
-                            <label class="form-check-label" for="inlinecheckbox2">Di RS :&nbsp</label>
-                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                            <input class="form-check-input" type="checkbox" name="rs_opname" id="rs_opname" value="">
+                            <label class="form-check-label" for="rs_opname">Di RS :&nbsp</label>
+                            <input type="text" name="rs_opname" id="rs_opname" value="" aria-label="Text input with checkbox">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox1" value="option1">
-                            <label class="form-check-label" for="inlinecheckbox1">Pernah Operasi</label>
+                            <input class="form-check-input" type="checkbox" name="pernah_operasi" id="pernah_operasi" value="">
+                            <label class="form-check-label" for="pernah_operasi">Pernah Operasi</label>
                         </div>
                         <div class="col-md-5 form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
-                            <label class="form-check-label" for="inlinecheckbox2">Tidak</label>
+                            <input class="form-check-input" type="checkbox" name="tdk_pernah_operasi" id="tdk_pernah_operasi" value="">
+                            <label class="form-check-label" for="tdk_pernah_operasi">Tidak</label>
                         </div>
                         <div class="col-md-4 form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox2" value="option2">
-                            <label class="form-check-label" for="inlinecheckbox2">Pasca Operasi Hari Ke :&nbsp</label>
-                            <input type="number" name="hamilLain" id="hamilLain" placeholder="Diisi dengan angka" aria-label="Text input with checkbox">
+                            <input class="form-check-input" type="checkbox" name="pasca_operasi" id="pasca_operasi" value="">
+                            <label class="form-check-label" for="pasca_operasi">Pasca Operasi Hari Ke :&nbsp</label>
+                            <input type="number" name="pasca_operasi" id="pasca_operasi" value="" placeholder="Diisi dengan angka" aria-label="Text input with checkbox">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlinecheckboxOptions" id="inlinecheckbox1" value="option1">
-                            <label class="form-check-label" for="inlinecheckbox1">Obat yang di bawa :&nbsp</label>
-                            <input type="text" name="hamilLain" id="hamilLain" aria-label="Text input with checkbox">
+                            <input class="form-check-input" type="checkbox" name="bawa_obat" id="bawa_obat" value="">
+                            <label class="form-check-label" for="bawa_obat">Obat yang di bawa :&nbsp</label>
+                            <input type="text" name="bawa_obat" id="bawa_obat" value="" aria-label="Text input with checkbox">
                         </div>
                     </div>
                     <hr color="gray">
