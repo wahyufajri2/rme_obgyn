@@ -102,11 +102,11 @@
             <form action="<?= base_url('pendaftaran/createKunjungan'); ?>" method="post">
                 <div class="modal-body bg-gray-500">
                     <div class="form-group">
-                        <label for="id_kunjungan">ID Kunjungan</label>
+                        <label class="required" for="id_kunjungan">ID Kunjungan</label>
                         <input type="number" class="form-control form-control-sm" id="id_kunjungan" name='id_kunjungan'>
                     </div>
                     <div class="form-group">
-                        <label for="no_rm">No Rekam Medis</label>
+                        <label class="required" for="no_rm">No Rekam Medis</label>
                         <select name="no_rm" id="no_rm" class="form-control form-control-sm">
                             <option value="">Pilih No RM</option>
                             <?php foreach ($pasien as $psn) : ?>
@@ -115,11 +115,11 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="no_rg">No Registrasi</label>
+                        <label class="required" for="no_rg">No Registrasi</label>
                         <input type="number" class="form-control form-control-sm" id="no_rg" name='no_rg'>
                     </div>
                     <div class="form-group">
-                        <label for="nama_pasien">Nama Pasien</label>
+                        <label class="required" for="nama_pasien">Nama Pasien</label>
                         <select name="nama_pasien" id="nama_pasien" class="form-control form-control-sm">
                             <option value="">Pilih Pasien</option>
                             <?php foreach ($pasien as $psn) : ?>
@@ -128,7 +128,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="alamat">Alamat</label>
+                        <label class="required" for="alamat">Alamat</label>
                         <select name="alamat" id="alamat" class="form-control form-control-sm">
                             <option value="">Pilih Alamat</option>
                             <?php foreach ($pasien as $psn) : ?>
@@ -137,7 +137,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="dokter_id">Dokter</label>
+                        <label class="required" for="dokter_id">Dokter</label>
                         <select name="id_dokter" id="id_dokter" class="form-control form-control-sm">
                             <option value="">Pilih Dokter</option>
                             <?php foreach ($dokter as $dr) : ?>
@@ -146,7 +146,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="periksa_tgl">Tanggal Periksa</label>
+                        <label class="required" for="periksa_tgl">Tanggal Periksa</label>
                         <input type="date" class="form-control form-control-sm" id="periksa_tgl" name='periksa_tgl'>
                     </div>
                 </div>

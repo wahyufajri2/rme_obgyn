@@ -30,14 +30,17 @@
                     <?= $this->session->flashdata('message'); ?>
                     <!-- /.card -->
                     <form class="user" method="post" action="<?= base_url('admin/addAccount'); ?>">
+                        <label class="required ml-3 mb-1" for="name">Nama Lengkap</label>
                         <div class="form-group">
                             <input type="text" class="form-control form-control-user" id="name" name="name" placeholder="Full name" value="<?= set_value('name'); ?>">
                             <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
+                        <label class="required ml-3 mb-1" for="email">Alamat Email</label>
                         <div class="form-group">
                             <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Email Address" value="<?= set_value('email'); ?>">
                             <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
+                        <label class="required ml-3 mb-1" for="password1">Masukkan Password</label>
                         <div class="form-group input-group">
                             <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Password">
                             <div class="input-group-append">
@@ -47,6 +50,7 @@
                             </div>
                             <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
+                        <label class="required ml-3 mb-1" for="password2">Ulangi Password</label>
                         <div class="form-group input-group">
                             <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Repeat Password">
                             <div class="input-group-append">

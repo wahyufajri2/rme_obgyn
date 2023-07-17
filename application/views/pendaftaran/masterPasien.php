@@ -75,23 +75,23 @@
                                 <div class="modal-body bg-gray-500">
                                   <input type="hidden" name="id_pasien" value="<?php echo $dpd['id_pasien']; ?>">
                                   <div class="form-group">
-                                    <label for="id_pasien">ID Pasien</label>
+                                    <label class="required" for="id_pasien">ID Pasien</label>
                                     <input type="number" class="form-control form-control-sm" id="id_pasien" name="id_pasien" value="<?php echo $dpd['id_pasien']; ?>">
                                   </div>
                                   <div class="form-group">
-                                    <label for="no_rm">No Rekam Medis</label>
+                                    <label class="required" for="no_rm">No Rekam Medis</label>
                                     <input type="number" class="form-control form-control-sm" id="no_rm" name="no_rm" value="<?php echo $dpd['no_rm']; ?>">
                                   </div>
                                   <div class="form-group">
-                                    <label for="nama_pasien">Nama Pasien</label>
+                                    <label class="required" for="nama_pasien">Nama Pasien</label>
                                     <input type="text" class="form-control form-control-sm" id="nama_pasien" name="nama_pasien" value="<?php echo $dpd['nama_pasien']; ?>">
                                   </div>
                                   <div class="form-group">
-                                    <label for="tgl_lahir">Tanggal Lahir</label>
+                                    <label class="required" for="tgl_lahir">Tanggal Lahir</label>
                                     <input type="date" class="form-control form-control-sm" id="tgl_lahir" name="tgl_lahir" value="<?php echo $dpd['tgl_lahir']; ?>">
                                   </div>
                                   <div class="form-group">
-                                    <label for="alamat">Alamat</label>
+                                    <label class="required" for="alamat">Alamat</label>
                                     <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="<?php echo $dpd['alamat']; ?>">
                                   </div>
                                 </div>
@@ -141,23 +141,23 @@
       <form action="<?= base_url('pendaftaran/createMasterPasien'); ?>" method="post">
         <div class="modal-body bg-gray-500">
           <div class="form-group">
-            <label for="id_pasien">ID Pasien</label>
+            <label class="required" for="id_pasien">ID Pasien</label>
             <input type="number" class="form-control form-control-sm" id="id_pasien" name='id_pasien'>
           </div>
           <div class="form-group">
-            <label for="no_rm">No Rekam Medis</label>
+            <label class="required" for="no_rm">No Rekam Medis</label>
             <input type="number" class="form-control form-control-sm" id="no_rm" name='no_rm'>
           </div>
           <div class="form-group">
-            <label for="nama_pasien">Nama Pasien</label>
+            <label class="required" for="nama_pasien">Nama Pasien</label>
             <input type="text" class="form-control form-control-sm" id="nama_pasien" name='nama_pasien'>
           </div>
           <div class="form-group">
-            <label for="tgl_lahir">Tanggal Lahir</label>
+            <label class="required" for="tgl_lahir">Tanggal Lahir</label>
             <input type="date" class="form-control form-control-sm" id="tgl_lahir" name='tgl_lahir'>
           </div>
           <div class="form-group">
-            <label for="alamat">Alamat</label>
+            <label class="required" for="alamat">Alamat</label>
             <input type="text" class="form-control form-control-sm" id="alamat" name='alamat'>
           </div>
         </div>
