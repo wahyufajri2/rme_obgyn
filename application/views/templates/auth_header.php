@@ -7,6 +7,11 @@
             background-image: url("assets/img/rs-pku-gamping.jpg");
             height: 10vh;
         }
+
+        .required:after {
+            content: "*";
+            color: red;
+        }
     </style>
 
 

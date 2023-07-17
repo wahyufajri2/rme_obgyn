@@ -9,6 +9,13 @@
 
     <title>RS PKU Gamping | <?= $title; ?></title>
 
+    <style type="text/css">
+        .required:after {
+            content: "*";
+            color: red;
+        }
+    </style>
+
     <!-- Icon -->
     <link rel="shortcut icon" href="<?= base_url('assets/'); ?>img/pku.png">
 
