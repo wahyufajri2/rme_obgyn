@@ -18,9 +18,9 @@ class Bidan extends CI_Controller
     {
         $data['title'] = 'Asesment Kebidanan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('Kasus_model', 'kasus');
+        $this->load->model('Bidan_model', 'bidan');
 
-        $data['Kebidanan'] = $this->kasus->getKebidanan();
+        $data['Kebidanan'] = $this->bidan->getKebidanan();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -48,7 +48,7 @@ class Bidan extends CI_Controller
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Asesment Kebidanan';
             $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-            $this->load->model('Kasus_model', 'detailKunjungan');
+            $this->load->model('Bidan_model', 'detailKunjungan');
 
             $data['Kebidanan'] = $this->detailKunjungan->getKunjunganDetail();
 
@@ -82,7 +82,7 @@ class Bidan extends CI_Controller
     {
         $data['title'] = 'Print Laporan Asesmen Kebidanan';
 
-        $this->load->model('Kasus_model', 'print');
+        $this->load->model('Bidan_model', 'print');
 
         $data['Kebidanan'] = $this->print->getKebidanan();
         $this->load->view('templates/header', $data);
@@ -94,7 +94,7 @@ class Bidan extends CI_Controller
         $data['title'] = 'Export Laporan Asesmen Kebidanan';
 
         $this->load->library('dompdf_gen');
-        $this->load->model('Kasus_model', 'pdf');
+        $this->load->model('Bidan_model', 'pdf');
 
         $data['Kebidanan'] = $this->pdf->getKebidanan();
 
@@ -114,7 +114,7 @@ class Bidan extends CI_Controller
     {
         $data['title'] = 'Export Laporan Asesmen Kebidanan';
 
-        $this->load->model('Kasus_model', 'excel');
+        $this->load->model('Bidan_model', 'excel');
 
         $Kebidanan = $this->excel->getKebidanan();
 
@@ -161,7 +161,7 @@ class Bidan extends CI_Controller
     {
         $data['title'] = 'Catatan Persalinan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('Kasus_model', 'kasus');
+        $this->load->model('Bidan_model', 'kasus');
 
 
         $data['Persalinan'] = $this->kasus->getPersalinan();
