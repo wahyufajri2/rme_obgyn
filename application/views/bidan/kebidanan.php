@@ -93,33 +93,33 @@
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Kop Surat</strong></p>
                     <div class="form-row">
                         <div class="col">
-                            <label for="nama_pasien">Nama Pasien</label>
+                            <label class="required mb-0" for="nama_pasien">Nama Pasien</label>
                             <input type="text" class="form-control form-control-sm" id="nama_pasien" name="nama_pasien" value="">
                         </div>
                         <div class="col">
-                            <label for="no_rm">No. MR</label>
+                            <label class="required mb-0" for="no_rm">No. MR</label>
                             <input type="number" class="form-control form-control-sm" id="no_rm" name="no_rm" value="">
                         </div>
                         <div class="col">
-                            <label for="tgl_lahir">Tanggal Lahir</label>
+                            <label class="required mb-0" for="tgl_lahir">Tanggal Lahir</label>
                             <input type="date" class="form-control form-control-sm" id="tgl_lahir" name="tgl_lahir" value="">
                         </div>
                     </div>
                     <div class="p-1 bg-gray-800 text-gray-200 text-center rounded" style="font-size:20px; margin-bottom: 15px; margin-top: 15px; "><strong>ASESMEN ASUHAN KEBIDANAN GINEKOLOGI</strong></div>
                     <div class="form-row">
                         <div class="col-md">
-                            <label for="suami">Nama Suami</label>
+                            <label class="required mb-0" for="suami">Nama Suami</label>
                             <input type="text" class="form-control form-control-sm" id="suami" name="suami" value="">
                         </div>
                         <div class="col-md">
-                            <label for="alamat">Alamat</label>
+                            <label class="required mb-0" for="alamat">Alamat</label>
                             <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="">
                         </div>
                     </div>
                     <hr color="gray">
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Alasan Masuk</strong></p>
                     <div class="form-group">
-                        <label for="keluhan_pasien">Keluhan Utama / Riwayat Keluhan saat ini</label>
+                        <label class="required mb-0" for="keluhan_pasien">Keluhan Utama / Riwayat Keluhan saat ini</label>
                         <textarea class="form-control form-control-sm" id="keluhan_pasien" name="keluhan_pasien" value="" rows="1"></textarea>
                     </div>
                     <hr color="gray">
@@ -403,7 +403,7 @@
                     <p style="text-align:center;"><strong>Riwayat Menstruasi</strong></p>
                     <div class="row">
                         <div class="col">
-                            <label class="form-control-label" for="basic-addon1">Umur menarche</label>
+                            <label class="form-control-label required mb-0" for="basic-addon1">Umur menarche</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Umur menarche..." aria-label="Umur menarche..." aria-describedby="basic-addon1">
                                 <div class="input-group-append">
@@ -412,7 +412,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <label class="form-control-label" for="basic-addon1">Umur menarche</label>
+                            <label class="form-control-label required mb-0" for="basic-addon1">Umur menarche</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Lamanya Haid..." aria-label="Lamanya Haid..." aria-describedby="basic-addon2">
                                 <div class="input-group-append">
@@ -421,7 +421,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <label class="form-control-label" for="basic-addon1">Umur menarche</label>
+                            <label class="form-control-label required mb-0" for="basic-addon1">Umur menarche</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Ganti pembalut..." aria-label="Ganti pembalut..." aria-describedby="basic-addon3">
                                 <div class="input-group-append">
@@ -432,7 +432,7 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col">
-                            <label class="form-control-label" for="basic-addon1">HPHT</label>
+                            <label class="form-control-label required mb-0" for="basic-addon1">HPHT</label>
                             <div class="input-group input-group-sm">
                                 <input type="date" class="form-control" placeholder="Hari Pertama Haid Terakhir..." aria-label="Hari Pertama Haid Terakhir..." aria-describedby="basic-addon1">
                                 <div class="input-group-append">
@@ -441,7 +441,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <label class="form-control-label" for="basic-addon1">HPL</label>
+                            <label class="form-control-label required mb-0" for="basic-addon1">HPL</label>
                             <div class="input-group input-group-sm">
                                 <input type="date" class="form-control" placeholder="Hari Perkiraan Lahir..." aria-label="Hari Perkiraan Lahir..." aria-describedby="basic-addon2">
                                 <div class="input-group-append">
@@ -472,7 +472,7 @@
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat Perkawinan</strong></p>
                     <div class="form-row mt-3">
                         <div class="col-md-2 form-check form-check-inline">
-                            <label class="form-check-label">Status Perkawinan</label>
+                            <label class="form-check-label required mb-0">Status Perkawinan</label>
                         </div>
                         <div class="col-md-0.5 form-check form-check-inline">
                             <label class="form-check-label">:</label>
@@ -492,7 +492,7 @@
                     </div>
                     <div class="form-row mt-2">
                         <div class="col-md-2 form-check form-check-inline">
-                            <label class="form-check-label">Jumlah Perkawinan</label>
+                            <label class="form-check-label required mb-0">Jumlah Perkawinan</label>
                         </div>
                         <div class="col-md-0.5 form-check form-check-inline">
                             <label class="form-check-label">:</label>
@@ -538,7 +538,7 @@
                     </div>
                     <div class="form-row mt-2">
                         <div class="col-md-2 form-check form-check-inline">
-                            <label class="form-check-label">Usia Perkawinan</label>
+                            <label class="form-check-label required mb-0">Usia Perkawinan</label>
                         </div>
                         <div class="col-md-0.5 form-check form-check-inline">
                             <label class="form-check-label">:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
@@ -772,13 +772,13 @@
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Riwayat KB</strong></p>
                     <div class="form-row mt-3">
                         <div class="col">
-                            <label class="form-control-label" for="basic-addon1">Metode KB yang pernah dipakai</label>
+                            <label class="form-control-label required mb-0" for="basic-addon1">Metode KB yang pernah dipakai</label>
                             <div class="input-group input-group-sm">
                                 <input type="text" class="form-control" placeholder="Nama metode KB yang pernah dipakai..." aria-label="Nama metode KB yang pernah dipakai..." aria-describedby="basic-addon1">
                             </div>
                         </div>
                         <div class="col">
-                            <label class="form-control-label" for="basic-addon1">Lama</label>
+                            <label class="form-control-label required mb-0" for="basic-addon1">Lama</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Lama pemakaian..." aria-label="Lama pemakaian..." aria-describedby="basic-addon1">
                                 <div class="input-group-append">
@@ -817,7 +817,7 @@
                     </div>
                     <div class="form-row mt-2">
                         <div class="col-md">
-                            <label for="suami">BAK</label>
+                            <label class="required mb-0" for="suami">BAK</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Buang Air Kecil..." aria-label="Buang Air Kecil..." aria-describedby="bak">
                                 <div class="input-group-append">
@@ -826,13 +826,13 @@
                             </div>
                         </div>
                         <div class="col-md">
-                            <label for="warnaBAK">Warna</label>
+                            <label class="required mb-0" for="warnaBAK">Warna</label>
                             <input type="text" class="form-control form-control-sm" id="warnaBAK" name="warnaBAK">
                         </div>
                     </div>
                     <div class="form-row mt-1">
                         <div class="col-md">
-                            <label for="suami">BAB</label>
+                            <label class="required mb-0" for="suami">BAB</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Buang Air Besar..." aria-label="Buang Air Besar..." aria-describedby="bab">
                                 <div class="input-group-append">
@@ -841,13 +841,13 @@
                             </div>
                         </div>
                         <div class="col-md">
-                            <label for="karaktekBAB">Karakteristik</label>
+                            <label class="required mb-0" for="karaktekBAB">Karakteristik</label>
                             <input type="text" class="form-control form-control-sm" id="karaktekBAB" name="karaktekBAB">
                         </div>
                     </div>
                     <div class="form-row mt-1">
                         <div class="col-md">
-                            <label for="keluhanEliminasi">Keluhan</label>
+                            <label class="required mb-0" for="keluhanEliminasi">Keluhan</label>
                             <input type="text" class="form-control form-control-sm" id="keluhanEliminasi" name="keluhanEliminasi">
                         </div>
                     </div>
@@ -861,7 +861,7 @@
                     </div>
                     <div class="form-row mt-1">
                         <div class="col-md-3">
-                            <label for="suami">Tidur Malam</label>
+                            <label class="required mb-0" for="suami">Tidur Malam</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Durasi tidur malam..." aria-label="Durasi tidur malam..." aria-describedby="durasiTidurMalam">
                                 <div class="input-group-append">
@@ -870,7 +870,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <label for="suami">Tidur Siang</label>
+                            <label class="required mb-0" for="suami">Tidur Siang</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Durasi tidur siang..." aria-label="Durasi tidur siang..." aria-describedby="durasiTidurSiang">
                                 <div class="input-group-append">
@@ -887,7 +887,7 @@
                             <label class="form-check-label" for="tanpaObatTidur">Tidak dengan Obat</label>
                         </div>
                         <div class="col-md">
-                            <label for="keluhanIstirahat">Keluhan</label>
+                            <label class="required mb-0" for="keluhanIstirahat">Keluhan</label>
                             <input type="text" class="form-control form-control-sm" id="keluhanIstirahat" name="keluhanIstirahat">
                         </div>
                     </div>
@@ -906,11 +906,11 @@
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Keadaan Umum</strong></p>
                     <div class="form-row mt-2">
                         <div class="col-md">
-                            <label class="mb-0" for="kesadaran">Kesadaran</label>
+                            <label class="required mb-0" for="kesadaran">Kesadaran</label>
                             <input type="text" class="form-control form-control-sm" id="kesadaran" name="kesadaran">
                         </div>
                         <div class="col-md">
-                            <label class="mb-0" for="suami">BB</label>
+                            <label class="required mb-0" for="suami">BB</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Berat Badan..." aria-label="Berat Badan..." aria-describedby="beratBadan">
                                 <div class="input-group-append">
@@ -919,7 +919,7 @@
                             </div>
                         </div>
                         <div class="col-md">
-                            <label class="mb-0" for="suami">TB</label>
+                            <label class="required mb-0" for="suami">TB</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Tinggi Badan..." aria-label="Tinggi Badan..." aria-describedby="tinggiBadan">
                                 <div class="input-group-append">
@@ -928,13 +928,13 @@
                             </div>
                         </div>
                         <div class="col-md">
-                            <label class="mb-0" for="lla">LLA</label>
+                            <label class="required mb-0" for="lla">LLA</label>
                             <input type="text" class="form-control form-control-sm" id="lla" name="lla">
                         </div>
                     </div>
                     <div class="form-row mt-2">
                         <div class="col-md">
-                            <label class="mb-0" for="suami">TD</label>
+                            <label class="required mb-0" for="suami">TD</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Tekanan Darah..." aria-label="Tekanan Darah..." aria-describedby="tekananDarah">
                                 <div class="input-group-append">
@@ -943,7 +943,7 @@
                             </div>
                         </div>
                         <div class="col-md">
-                            <label class="mb-0" for="suami">Nadi</label>
+                            <label class="required mb-0" for="suami">Nadi</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Denyut Nadi..." aria-label="Denyut Nadi..." aria-describedby="denyutNadi">
                                 <div class="input-group-append">
@@ -952,7 +952,7 @@
                             </div>
                         </div>
                         <div class="col-md">
-                            <label class="mb-0" for="suami">Suhu Badan</label>
+                            <label class="required mb-0" for="suami">Suhu Badan</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Suhu Badan..." aria-label="Suhu Badan..." aria-describedby="suhuBadan">
                                 <div class="input-group-append">
@@ -961,7 +961,7 @@
                             </div>
                         </div>
                         <div class="col-md">
-                            <label class="mb-0" for="suami">Respirasi</label>
+                            <label class="required mb-0" for="suami">Respirasi</label>
                             <div class="input-group input-group-sm">
                                 <input type="number" class="form-control" placeholder="Frekuensi Pernapasan..." aria-label="Frekuensi Pernapasan..." aria-describedby="respirasi">
                                 <div class="input-group-append">
@@ -974,7 +974,7 @@
                     <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Pemeriksaan Fisik</strong></p>
                     <div class="form-row mt-3">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label">Kepala</label>
+                            <label class="form-check-label required">Kepala</label>
                         </div>
                         <div class="col-md-0.5 form-check form-check-inline">
                             <label class="form-check-label">:</label>
@@ -985,7 +985,7 @@
                     </div>
                     <div class="form-row mt-1">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label">Muka</label>
+                            <label class="form-check-label required">Muka</label>
                         </div>
                         <div class="col-md-0.5 form-check form-check-inline">
                             <label class="form-check-label">:</label>
@@ -1001,7 +1001,7 @@
                     </div>
                     <div class="form-row mt-1">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label">Mata</label>
+                            <label class="form-check-label required">Mata</label>
                         </div>
                         <div class="col-md-0.5 form-check form-check-inline">
                             <label class="form-check-label">:</label>
@@ -1025,7 +1025,7 @@
                     </div>
                     <div class="form-row mt-1">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label">Hidung</label>
+                            <label class="form-check-label required">Hidung</label>
                         </div>
                         <div class="col-md-0.5 form-check form-check-inline">
                             <label class="form-check-label">:</label>
@@ -1041,7 +1041,7 @@
                     </div>
                     <div class="form-row mt-1">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label">Mulut</label>
+                            <label class="form-check-label required">Mulut</label>
                         </div>
                         <div class="col-md-0.5 form-check form-check-inline">
                             <label class="form-check-label">:</label>
@@ -1059,7 +1059,7 @@
                     </div>
                     <div class="form-row mt-1">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label">Leher</label>
+                            <label class="form-check-label required">Leher</label>
                         </div>
                         <div class="col-md-0.5 form-check form-check-inline">
                             <label class="form-check-label">:</label>
@@ -1077,7 +1077,7 @@
                     </div>
                     <div class="form-row mt-1">
                         <div class="col-md-1 form-check form-check-inline">
-                            <label class="form-check-label">Payudara</label>
+                            <label class="form-check-label required">Payudara</label>
                         </div>
                         <div class="col-md-0.5 form-check form-check-inline">
                             <label class="form-check-label">:</label>
