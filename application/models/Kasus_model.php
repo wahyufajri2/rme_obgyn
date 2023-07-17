@@ -13,6 +13,13 @@ class Kasus_model extends CI_Model
         return $query->result_array();
     }
 
+    public function getKunjunganDetail()
+    {
+        $query = $this->db->get('tb_kunjungan_dtl');
+
+        return $query->result_array();
+    }
+
     public function getPersalinan()
     {
         $this->db->select('a.no_rm, b.no_rg, b.status, a.nama_pasien, a.alamat');
