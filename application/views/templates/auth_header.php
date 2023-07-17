@@ -10,7 +10,7 @@
 
         .required:after {
             content: "*";
-            color: red;
+            color: brown;
         }
     </style>
 
