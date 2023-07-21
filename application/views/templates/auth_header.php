@@ -5,7 +5,10 @@
     <style>
         #intro {
             background-image: url("assets/img/rs-pku-gamping.jpg");
-            height: 10vh;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .required:after {
@@ -36,5 +39,5 @@
 
 </head>
 
-<body id="intro" class="bg-image shadow-2" style="overflow-y: hidden;">
+<body id="intro" class="bg-image shadow-5" style="overflow-y: hidden;">
     <div class="mask-fluid" style="background-color: rgba(0, 0, 0, 0.7);">
