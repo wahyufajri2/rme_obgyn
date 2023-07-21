@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <div class="card o-hidden border-0.5 border-dark shadow-lg py-4 my-5 bg-transparent">
-                    <div class="card-body py-4 my-5">
+                <div class="card o-hidden border-0.5 border-dark shadow-lg py-5 my-5 bg-transparent">
+                    <div class="card-body py-5 my-5">
                         <div class="row">
                             <div class="col-lg">
                                 <div class="pt-0 pl-0 pr-0 pb-5 mt-5">

@@ -94,11 +94,11 @@
                     <div class="form-row">
                         <div class="col">
                             <label class="required mb-0" for="nama_pasien">Nama Pasien</label>
-                            <input type="text" class="form-control form-control-sm" id="nama_pasien" name="nama_pasien" value="">
+                            <input type="text" class="form-control form-control-sm" id="nama_pasien" name="nama_pasien" value="" required>
                         </div>
                         <div class="col">
                             <label class="required mb-0" for="no_rm">No. MR</label>
-                            <input type="number" class="form-control form-control-sm" id="no_rm" name="no_rm" value="">
+                            <input type="number" class="form-control form-control-sm" id="no_rm" name="no_rm" value="" required>
                         </div>
                         <div class="col">
                             <label class="required mb-0" for="tgl_lahir">Tanggal Lahir</label>
