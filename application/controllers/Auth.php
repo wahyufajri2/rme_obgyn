@@ -7,10 +7,6 @@ class Auth extends CI_Controller
     {
         parent::__construct();
 
-        // Load form helper library
-        // $this->load->helper('form');
-
-        // Load form validation library
         $this->load->library('form_validation');
     }
 
@@ -35,7 +31,6 @@ class Auth extends CI_Controller
             $this->load->view('auth/login');
             $this->load->view('templates/auth_footer');
         } else {
-            // succesful validation
             $this->_login();
         }
     }

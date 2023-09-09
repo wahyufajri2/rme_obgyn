@@ -31,52 +31,64 @@ class Bidan extends CI_Controller
 
     public function entriKebidanan()
     {
-        // $this->form_validation->set_rules('nama_pasien', 'Nama Pasien', 'required|trim');
-        // $this->form_validation->set_rules('no_rm', 'No Rm', 'required|trim');
-        // $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required|trim');
-        // $this->form_validation->set_rules('suami', 'Nama Suami', 'required|trim');
-        // $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
-        // $this->form_validation->set_rules('keluhan_pasien', 'Keluhan Utama / Riwayat Keluhan saat ini', 'required|trim');
-        // $this->form_validation->set_rules('tdk_pernah_opname', 'Tidak pernah opname', 'required|trim');
-        // $this->form_validation->set_rules('pernah_opname', 'Pernah Opname dengan sakit', 'required|trim');
-        // $this->form_validation->set_rules('rs_opname', 'Di RS', 'required|trim');
-        // $this->form_validation->set_rules('pernah_operasi', 'Pernah Operasi', 'required|trim');
-        // $this->form_validation->set_rules('tdk_pernah_operasi', 'Tidak', 'required|trim');
-        // $this->form_validation->set_rules('pasca_operasi', 'Pasca Operasi Hari Ke', 'required|trim');
-        // $this->form_validation->set_rules('bawa_obat', 'Obat yang di bawa', 'required|trim');
+        $this->load->model('Bidan_model', 'entri');
 
-        if ($this->form_validation->run() == false) {
-            $data['title'] = 'Asesment Kebidanan';
-            $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-            $this->load->model('Bidan_model', 'detailKunjungan');
+        $data['detail'] = $this->entri->getKunjunganDetail();
+        // if ($this->form_validation->run() == false) {
+        //     $data['title'] = 'Asesment Kebidanan';
+        //     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        //     $this->load->model('Bidan_model', 'detailKunjungan');
 
-            $data['Kebidanan'] = $this->detailKunjungan->getKunjunganDetail();
+        //     $data['Kebidanan'] = $this->detailKunjungan->getKunjunganDetail();
 
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('bidan/kebidanan', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $this->db->insert('tb_kunjungan_dtl', [
-                'nama_pasien' => htmlspecialchars($this->input->post('nama_pasien', true)),
-                'no_rm' => htmlspecialchars($this->input->post('no_rm', true)),
-                'tgl_lahir' => htmlspecialchars($this->input->post('tgl_lahir', true)),
-                'suami' => htmlspecialchars($this->input->post('suami', true)),
-                'alamat' => htmlspecialchars($this->input->post('alamat', true)),
-                'keluhan_pasien' => htmlspecialchars($this->input->post('keluhan_pasien', true)),
-                'tdk_pernah_opname' => htmlspecialchars($this->input->post('tdk_pernah_opname', true)),
-                'pernah_opname' => htmlspecialchars($this->input->post('pernah_opname', true)),
-                'rs_opname' => htmlspecialchars($this->input->post('rs_opname', true)),
-                'pernah_operasi' => htmlspecialchars($this->input->post('pernah_operasi', true)),
-                'tdk_pernah_operasi' => htmlspecialchars($this->input->post('tdk_pernah_operasi', true)),
-                'pasca_operasi' => htmlspecialchars($this->input->post('pasca_operasi', true)),
-                'bawa_obat' => htmlspecialchars($this->input->post('bawa_obat', true)),
-            ]);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan!</div>');
-            redirect('bidan/kebidanan');
-        }
+        //     $this->load->view('templates/header', $data);
+        //     $this->load->view('templates/sidebar', $data);
+        //     $this->load->view('templates/topbar', $data);
+        //     $this->load->view('bidan/kebidanan', $data);
+        //     $this->load->view('templates/footer');
+        // } else {
+        //     $this->db->insert('tb_kunjungan_dtl', [
+        //         'id_dtl_kunjungan' => htmlspecialchars($this->input->post('id_dtl_kunjungan', true)),
+        //         'nama_pasien' => htmlspecialchars($this->input->post('nama_pasien', true)),
+        //         'no_rm' => htmlspecialchars($this->input->post('no_rm', true)),
+        //         'tgl_lahir' => htmlspecialchars($this->input->post('tgl_lahir', true)),
+        //         'suami' => htmlspecialchars($this->input->post('suami', true)),
+        //         'alamat' => htmlspecialchars($this->input->post('alamat', true)),
+        //         'keluhan_pasien' => htmlspecialchars($this->input->post('keluhan_pasien', true)),
+        //         'tdk_pernah_opname' => htmlspecialchars($this->input->post('tdk_pernah_opname', true)),
+        //         'pernah_opname' => htmlspecialchars($this->input->post('pernah_opname', true)),
+        //         'rs_opname' => htmlspecialchars($this->input->post('rs_opname', true)),
+        //         'pernah_operasi' => htmlspecialchars($this->input->post('pernah_operasi', true)),
+        //         'tdk_pernah_operasi' => htmlspecialchars($this->input->post('tdk_pernah_operasi', true)),
+        //         'pasca_operasi' => htmlspecialchars($this->input->post('pasca_operasi', true)),
+        //         'bawa_obat' => htmlspecialchars($this->input->post('bawa_obat', true)),
+        //     ]);
+        //     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan!</div>');
+        //     redirect('bidan/kebidanan');
+        // }
+        $data = array(
+            'id_dtl_kunjungan' => htmlspecialchars($this->input->post('id_dtl_kunjungan', true)),
+            'nama_pasien' => htmlspecialchars($this->input->post('nama_pasien', true)),
+            'no_rm' => htmlspecialchars($this->input->post('no_rm', true)),
+            'tgl_lahir' => htmlspecialchars($this->input->post('tgl_lahir', true)),
+            'suami' => htmlspecialchars($this->input->post('suami', true)),
+            'alamat' => htmlspecialchars($this->input->post('alamat', true)),
+            'keluhan_pasien' => htmlspecialchars($this->input->post('keluhan_pasien', true)),
+            'tdk_pernah_opname' => htmlspecialchars($this->input->post('tdk_pernah_opname', true)),
+            'pernah_opname' => htmlspecialchars($this->input->post('pernah_opname', true)),
+            'rs_opname' => htmlspecialchars($this->input->post('rs_opname', true)),
+            'pernah_operasi' => htmlspecialchars($this->input->post('pernah_operasi', true)),
+            'tdk_pernah_operasi' => htmlspecialchars($this->input->post('tdk_pernah_operasi', true)),
+            'pasca_operasi' => htmlspecialchars($this->input->post('pasca_operasi', true)),
+            'bawa_obat' => htmlspecialchars($this->input->post('bawa_obat', true)),
+        );
+        $this->entri->getEntriKebidanan($data, 'tb_kunjungan_dtl');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan!</div>');
+
+        redirect('bidan/kebidanan');
     }
+
 
     public function printKebidanan()
     {
@@ -97,6 +109,7 @@ class Bidan extends CI_Controller
         $this->load->model('Bidan_model', 'pdf');
 
         $data['Kebidanan'] = $this->pdf->getKebidanan();
+        // $data['Detail'] = $this->pdf->getKunjunganDetail();
 
         $this->load->view('bidan/pdf_kebidanan', $data);
 
