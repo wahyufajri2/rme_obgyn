@@ -16,7 +16,7 @@
                                     <form class="user" method="post" action="<?= base_url('auth'); ?>">
                                         <label class="required ml-3 mb-0" for="email">Alamat Email</label>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user border-0.5 border-dark shadow-lg bg-transparent" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." value="<?php if (isset($_COOKIE["email"])) {
+                                            <input type="email" class="form-control form-control-user border-0.5 border-dark shadow-lg bg-transparent" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." value="<?php if (isset($_COOKIE["email"])) {
                                                                                                                                                                                                                                                             echo $_COOKIE["email"];
                                                                                                                                                                                                                                                         } else {
                                                                                                                                                                                                                                                             echo set_value('email');
