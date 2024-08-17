@@ -36,7 +36,7 @@
          <?php
             $menuId = $m['id'];
             $querySubMenu = "SELECT *
-                           FROM `user_sub_menu`
+                           FROM `user_submenu`
                           WHERE `menu_id` = $menuId
                             AND `is_active` = 1
                         ";
