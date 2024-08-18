@@ -71,7 +71,7 @@ class Admin extends CI_Controller
                 'icon'      => $this->input->post('icon'),
                 'is_active' => $this->input->post('is_active')
             ];
-            $this->db->insert('user_sub_menu', $data);
+            $this->db->insert('user_submenu', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New submenu added!</div>');
             redirect('admin/submenu');
         }

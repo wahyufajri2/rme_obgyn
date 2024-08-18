@@ -1,60 +1,99 @@
-<div class="container-fluid">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-7">
-                <div class="card o-hidden border-0.5 border-dark shadow-lg py-5 my-5 bg-transparent">
-                    <div class="card-body py-5 my-5">
-                        <div class="row">
-                            <div class="col-lg">
-                                <div class="pt-0 pl-0 pr-0 pb-5 mt-5">
-                                    <div class="text-center mt-5 mb-5">
-                                        <h1 class="h3 text-gray-500 font-weight-bold mb-1">Login</h1>
-                                        <h1 class="h4 text-gray-500 mb-4 mt-0">RS PKU Gamping</h1>
-                                    </div>
+<div class="background-custom"></div>
+<div class="container-custom">
+    <div class="content-custom">
+        <h2 class="logo-custom"><img src="<?= base_url('assets/'); ?>img/pku.png" alt="">UNISA Yogyakarta</h2>
+        <div class="text-sci-custom">
+            <h2>Selamat Datang!<br><span>Di Sistem Generate Password WiFi <br> Universitas 'Aisyiyah Yogyakarta</span></h2>
+            <p>Ini adalah sistem generate password WiFi</p>
 
-                                    <?= $this->session->flashdata('message') ?>
-                                    <form class="user" method="post" action="<?= base_url('auth'); ?>">
-                                        <label class="required ml-3 mb-0" for="email">Alamat Email</label>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control form-control-user border-0.5 border-dark shadow-lg bg-transparent" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." value="<?php if (isset($_COOKIE["email"])) {
-                                                                                                                                                                                                                                                            echo $_COOKIE["email"];
-                                                                                                                                                                                                                                                        } else {
-                                                                                                                                                                                                                                                            echo set_value('email');
-                                                                                                                                                                                                                                                        }  ?>">
-                                            <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                                        </div>
-                                        <label class="required ml-3 mb-0" for="password">Masukkan Password</label>
-                                        <div class="form-group input-group">
-                                            <input type="password" class="form-control form-control-user border-0.5 border-dark shadow-lg bg-transparent" id="password" name="password" placeholder="Password" value="<?php if (isset($_COOKIE["password"])) {
-                                                                                                                                                                                                                            echo $_COOKIE["password"];
-                                                                                                                                                                                                                        } ?>">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text bg-transparent border-0.5 border-dark shadow-lg" id="basic-addon2" style="border-top-left-radius: 0px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 0px;">
-                                                    <a href="#" id="show_password" class="text-decoration-none text-gray-500"><i class="fa-solid fa-eye-slash" id="icon"></i></a>
-                                                </div>
-                                            </div>
-                                            <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="save_id" name="save_id" <?php if (isset($_COOKIE["email"])) {
-                                                                                                                                    echo "checked";
-                                                                                                                                } ?>>
-                                                <label class="custom-control-label text-gray-500" for="save_id">
-                                                    Remember Me</label>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-outline-primary btn-user btn-block fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;">
-                                            <i class="fa-solid fa-right-to-bracket"></i> Masuk
-                                        </button>
-                                        <hr>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="social-icons-custom">
+                <a href="https://www.facebook.com/UniversitasAisyiyahYogyakarta/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://youtu.be/BAB4N_t9lh0?si=YBw6lRzGidFQ3I6e" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.instagram.com/unisa_yogya/" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
+        </div>
+
+        <div class="logreg-box">
+            <?= $this->session->flashdata('message'); ?>
+            <div class="form-box-custom login-custom">
+                <form class="user" method="post" action="<?= base_url('auth'); ?>">
+                    <h2>Masuk</h2>
+
+                    <div class="input-box-custom">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="text" inputmode="email" name="email" id="email" aria-describedby="emailHelp" value="<?php if (isset($_COOKIE["email"])) {
+                                                                                                                                echo $_COOKIE["email"];
+                                                                                                                            } else {
+                                                                                                                                echo set_value('email');
+                                                                                                                            } ?>">
+                        <?= form_error('email', '<small class="text-warning pl-3">', '</small>'); ?>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-box-custom">
+                        <span href="#" id="showPassword" class="icon"><i class="fa-solid fa-eye-slash" id="icon"></i></span>
+                        <input type="password" id="password" name="password" value="<?php if (isset($_COOKIE["password"])) {
+                                                                                        echo $_COOKIE["password"];
+                                                                                    } ?>">
+                        <?= form_error('password', '<small class="text-warning pl-3">', '</small>'); ?>
+                        <label for="password">Kata Sandi</label>
+                    </div>
+
+                    <div class="remember-forgot">
+                        <label for="save_id"><input type="checkbox" id="save_id" name="save_id" <?php if (isset($_COOKIE['email'])) {
+                                                                                                    echo "checked";
+                                                                                                } ?>>
+                            Ingatkan Saya!</label>
+                        <a href="<?= base_url('auth/forgotPassword') ?>">Lupa Kata Sandi?</a>
+                    </div>
+
+                    <button type="submit" class="btn-custom">
+                        <i class="fa-solid fa-right-to-bracket"></i> Masuk
+                    </button>
+
+                    <!-- <div class="login-register">
+                        <p>Belum punya akun? <a href="#" class="register-link">Daftar</a></p>
+                    </div> -->
+                </form>
+            </div>
+
+            <!-- <div class="form-box-custom register-custom">
+                <form class="user" method="post" action="<?= base_url('auth/registration'); ?>">
+                    <h2>Daftar Akun</h2>
+
+                    <div class="input-box-custom">
+                        <span class="icon"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="name" name="name" value="<?= set_value('name'); ?>">
+                        <?= form_error('name', '<small class="text-warning pl-3">', '</small>'); ?>
+                        <label for="name">Nama Lengkap</label>
+                    </div>
+                    <div class="input-box-custom">
+                        <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="text" inputmode="email" id="email" name="email" value="<?= set_value('email'); ?>">
+                        <?= form_error('email', '<small class="text-warning pl-3">', '</small>'); ?>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-box-custom">
+                        <span href="#" id="showPassword1" class="icon"><i class="fa-solid fa-eye-slash" id="icon"></i></span>
+                        <input type="password" id="password1" name="password1" value="">
+                        <?= form_error('password1', '<small class="text-warning pl-3">', '</small>'); ?>
+                        <label for="password">Kata Sandi</label>
+                    </div>
+                    <div class="input-box-custom">
+                        <span href="#" id="showPassword2" class="icon"><i class="fa-solid fa-eye-slash" id="icon"></i></span>
+                        <input type="password" id="password2" name="password2">
+                        <label for="password">Ulangi Kata Sandi</label>
+                    </div>
+
+                    <button type="submit" class="btn-custom">
+                        <i class="fas fa-solid fa-arrow-right"></i> Daftar
+                    </button>
+
+                    <div class="login-register">
+                        <p>Sudah punya akun? <a href="#" class="login-link">Masuk</a></p>
+                    </div>
+                </form>
+            </div> -->
+
         </div>
     </div>
 </div>

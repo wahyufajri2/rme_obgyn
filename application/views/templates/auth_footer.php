@@ -1,27 +1,7 @@
-<!-- Bootstrap core JavaScript-->
-<script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
-<script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#show_password').click(function() {
-            $('#icon').toggleClass('fa-sholid fa-eye');
-
-            var input = $('#password');
-            if (input.attr("type") === "password") {
-                input.attr("type", "text");
-            } else {
-                input.attr("type", "password");
-            }
-        });
-    });
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="<?= base_url('assets/'); ?>js/script-log.js"></script>
+<script src="https://kit.fontawesome.com/4cb062cd87.js" crossorigin="anonymous"></script>
+<script src="<?= base_url('assets/'); ?>js/script-password.js"></script>
 </body>
 
 </html>
