@@ -1,11 +1,11 @@
-# Deskripsi README.md - Proyek Generate Password Kampus UNISA Yogyakarta
-# generate-password
+# Rekam Medis Elektronik Asesmen Obstetri dab Gynekologi RS PKU Muhammadiyah Gamping
+# Proyek Skripsi
 
-Ini adalah file README untuk proyek website portofolio. File ini berisi informasi tentang proyek, cara menginstal dan menjalankannya, serta panduan penggunaan.
+Ini adalah file README untuk proyek skripsiku. File ini berisi informasi tentang proyek, cara menginstal dan menjalankannya, serta panduan penggunaan.
 
 ## Deskripsi Proyek
 
-Proyek ini adalah implementasi sistem generate password WiFi kampus untuk Universitas 'Aisyiyah Yogyakarta. Sistem ini memanfaatkan framework Codeigniter 3 untuk sisi server dan Bootstrap 5 untuk antarmuka pengguna (UI). Tujuan utama dari proyek ini adalah memudahkan proses penggunaan WiFi kampus dengan memberikan password yang di-generate secara dinamis.
+Proyek ini adalah aplikasi luaran dari skripsiku untuk mendapatkan gelar S.Kom di Universitas 'Aisyiyah Yogyakarta. Sistem ini memanfaatkan framework Codeigniter 3 untuk sisi server dan Bootstrap 5 untuk antarmuka pengguna (UI). Tujuan utama dari proyek ini adalah untuk digitalisasi rekam medis di asesmen kebidanan RS PKU Muhammadiyah Gamping.
 
 ## Cara Menginstal
 
@@ -13,29 +13,29 @@ Berikut adalah langkah-langkah untuk menginstal proyek ini secara lokal:
 
 1. Clone repositori ini ke dalam direktori lokal:
    ```
-   git clone [https://github.com/wahyufajri2/generate-password.git]
+   git clone [https://github.com/wahyufajri2/rme_obgyn.git]
    ```
 
 2. Buka direktori proyek:
    ```
-   cd generate-password
+   cd rme_obgyn
    ```
 
 3. Jalankan server web yang kalian punya.
 
-4. Buka url `http://localhost/generate-password/` menggunakan browser web.
+4. Buka url `http://localhost/rme_obgyn/` menggunakan browser web.
 
 ## Panduan Penggunaan
 
 Setelah menginstal proyek, Anda dapat menggunakan website generate-password dengan cara berikut:
 
-1. Buka url `http://localhost/generate-password/` menggunakan browser web pilihan Anda.
+1. Buka url `http://localhost/rme_obgyn/` menggunakan browser web pilihan Anda.
 
-2. Jelajahi berbagai bagian generate password seperti dashboard, data pengguna, dan generator.
+2. Jelajahi berbagai bagian RME seperti dashboard dan lain-lain.
 
 3. Klik pada proyek-proyek untuk melihat detailnya dan informasi lebih lanjut.
 
-4. Gunakan informasi kontak yang disediakan untuk menghubungi pemilik portofolio.
+4. Gunakan informasi kontak yang disediakan untuk menghubungi pemilik proyek.
 
 ## Kontribusi
 
