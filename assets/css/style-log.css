@@ -11,16 +11,16 @@ body {
 	background: #020410;
 }
 
-.background-custom {
+.background {
 	width: 100%;
 	height: 100vh;
-	background: url("../img/rs-pku-gamping.jpg") no-repeat;
+	background: url("../img/rs-pku-gamping1.jpg") no-repeat;
 	background-size: cover;
 	background-position: center;
 	filter: blur(10px);
 }
 
-.container-custom {
+.container {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -31,69 +31,47 @@ body {
 	background-size: cover;
 	background-position: center;
 	border-radius: 10px;
-	margin-top: 20px;
 }
 
-.container-custom .content-custom {
+.container .content {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 42%;
+	width: 58%;
 	height: 100%;
 	background: transparent;
-	padding: 80px;
 	color: #e4e4e4;
+	padding: 20px;
 	display: flex;
-	justify-content: space-between;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
 
-.content-custom .logo-custom {
-	font-size: 30px;
+.container h2 {
+	font-size: 35px;
+	margin: 0px 0px 30px 0px;
+	line-height: 1.2;
 }
 
-.content-custom .logo-custom img {
-	width: 28px;
-	height: 28px;
-	margin-right: 10px;
+.text-sci h3 {
+	font-size: 20px;
 }
 
-.text-sci-custom h2 {
-	font-size: 40px;
-	line-height: 1;
+.text-sci h3 span {
+	color: #2eb127;
 }
 
-.text-sci-custom h2 span {
-	font-size: 25px;
-}
-
-.text-sci-custom p {
-	font-size: 16px;
-	margin: 20px 0;
-}
-
-.social-icons-custom a i {
-	font-size: 22px;
-	color: #e4e4e4;
-	margin-right: 10px;
-	transition: 0.5s ease;
-}
-
-.social-icons-custom a:hover i {
-	transform: scale(1.2);
-}
-
-.container-custom .logreg-box {
-	position: fixed;
+.container .login-box {
+	position: absolute;
 	top: 0;
 	right: 0;
-	width: calc(100% - 42%);
+	width: calc(100% - 58%);
 	height: 100%;
-	overflow: hidden;
 }
 
-.logreg-box .form-box-custom {
-	position: absolute;
+.login-box .form-box {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -106,131 +84,171 @@ body {
 	color: #e4e4e4;
 }
 
-.logreg-box .form-box-custom.login-custom {
-	transform: translateX(0);
-	transition: transform 0.6s ease;
-	transition-delay: 0.7s;
-}
-
-.logreg-box.active .form-box-custom.login-custom {
-	transform: translateX(460px);
-	transition-delay: 0s;
-}
-
-.logreg-box .form-box-custom.register-custom {
-	transform: translateX(460px);
-	transition: transform 0.6s ease;
-	transition-delay: 0s;
-}
-
-.logreg-box.active .form-box-custom.register-custom {
-	transform: translateX(0);
-	transition-delay: 0.7s;
-}
-
-.form-box-custom h2 {
+.form-box h2 {
 	font-size: 32px;
 	text-align: center;
 }
 
-.form-box-custom .input-box-custom {
-	position: relative;
-	width: 370px;
-	height: 50px;
-	border-bottom: 2px solid #e4e4e4;
-	margin: 40px 0;
+.form-box h3 {
+	font-size: 16px;
+	text-align: center;
+	margin-bottom: 40px;
 }
 
-.input-box-custom input {
+.form-box .input-box {
+	position: relative;
+	width: 400px;
+	height: 50px;
+	margin: 30px 0;
+}
+
+.input-box input {
 	width: 100%;
 	height: 100%;
 	background: transparent;
-	border: none;
+	border: 1px solid #e4e4e4;
 	outline: none;
-	font-size: 16px;
+	border-radius: 40px;
+	font-size: 1em;
 	color: #e4e4e4;
-	font-weight: 500;
-	padding-right: 28px;
+	padding: 0 25px 0 45px;
 }
 
-.input-box-custom label {
+.eye-icon-container {
 	position: absolute;
 	top: 50%;
-	left: 0;
+	right: 15px;
 	transform: translateY(-50%);
-	font-size: 16px;
-	font-weight: 500;
+	display: flex; 
+	align-items: center; 
+}
+
+.separator {
+	width: 1px;
+	height: 50px;
+	background-color: #e4e4e4;
+	margin-right: 10px; 
+}
+
+.eye-icon {
+	cursor: pointer;
+}
+
+.input-box label {
+	position: absolute;
+	top: 50%;
+	left: 45px;
+	transform: translateY(-50%);
+	font-size: 1em;
+	color: #e4e4e4;
 	pointer-events: none;
 	transition: 0.5s ease;
 }
 
-.input-box-custom input:focus ~ label,
-.input-box-custom input:valid ~ label {
-	top: -5px;
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+	font-size: 0.8em;
+	top: -14px;
+	left: 17px;
 }
 
-.input-box-custom .icon {
+.input-box .icon {
 	position: absolute;
-	top: 13px;
-	right: 0;
-	font-size: 19px;
-	margin: 0 5px 0 0;
+	top: 14px;
+	left: 15px;
+	font-size: 1.2em;
+	color: #e4e4e4;
 }
 
-.form-box-custom .remember-forgot {
+.form-box .remember-me {
 	font-size: 14.5px;
 	font-weight: 500;
-	margin: -15px 0 15px;
+	margin: -15px 0 15px 0;
 	display: flex;
 	justify-content: space-between;
 }
 
-.remember-forgot label input {
-	accent-color: #e4e4e4;
+.remember-me label input {
+	accent-color: #2eb127;
 	margin-right: 3px;
 }
 
-.remember-forgot a {
-	color: #e4e4e4;
-	text-decoration: none;
-}
-
-.remember-forgot a:hover {
-	text-decoration: underline;
-}
-
-.btn-custom {
+.btn {
 	width: 100%;
-	height: 45px;
-	background: rgb(65, 97, 0);
+	height: 50px;
 	border: none;
 	outline: none;
-	border-radius: 5px;
+	border-radius: 40px;
+	background: linear-gradient(80deg, #13290d, #0abb01);
+	box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.5);
 	cursor: pointer;
-	font-size: 16px;
+	font-size: 1em;
 	color: #e4e4e4;
 	font-weight: 500;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.btn-custom:hover {
-	background: rgb(170, 254, 0);
-	color: #000000;
-}
-
-.form-box-custom .login-register {
-	font-size: 14.5px;
-	font-weight: 500;
-	text-align: center;
-	margin-top: 25px;
-}
-
-.login-register p a {
-	color: #e4e4e4;
+.btn:hover {
+	background: #2eb127;
+	color: #020410;
 	font-weight: 600;
-	text-decoration: none;
 }
 
-.login-register p a:hover {
-	text-decoration: underline;
+/* Media query untuk tablet */
+@media (max-width: 768px) {
+	.container {
+		width: 90%;
+		height: auto;
+		flex-direction: column;
+	}
+
+	.container .content,
+	.container .login-box {
+		width: 100%;
+		position: static;
+	}
+
+	.container .login-box {
+		margin-top: 20px;
+	}
+
+	.form-box {
+		border-radius: 10px;
+	}
+
+	.input-box {
+		width: 80%;
+		margin: 20px auto;
+	}
+}
+
+/* Media query untuk ponsel */
+@media (max-width: 480px) {
+	.container {
+		padding: 20px;
+	}
+
+	.container h2 {
+		font-size: 24px;
+	}
+
+	.text-sci h3 {
+		font-size: 14px;
+	}
+
+	.form-box h2 {
+		font-size: 20px;
+	}
+
+	.input-box {
+		width: 90%;
+	}
+
+	.form-box .remember-me {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.remember-me label {
+		margin-bottom: 5px;
+	}
 }

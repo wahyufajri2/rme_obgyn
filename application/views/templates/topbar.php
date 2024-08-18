@@ -1,132 +1,22 @@
- <!-- Content Wrapper -->
- <div id="content-wrapper" class="d-flex flex-column">
-
-     <!-- Main Content -->
-     <div id="content">
-
-         <!-- Topbar -->
-         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-             <!-- Sidebar Toggle (Topbar) -->
-             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                 <i class="fa fa-bars"></i>
-             </button>
-
-             <!-- Topbar Search -->
-             <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                 <div class="input-group">
-                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                     <div class="input-group-append">
-                         <button class="btn btn-primary" type="button">
-                             <i class="fas fa-search fa-sm"></i>
-                         </button>
-                     </div>
-                 </div>
-             </form> -->
-
-             <!-- Topbar Navbar -->
-             <ul class="navbar-nav ml-auto">
-
-                 <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                 <li class="nav-item dropdown no-arrow d-sm-none">
-                     <!-- <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         <i class="fas fa-search fa-fw"></i>
-                     </a> -->
-                     <!-- Dropdown - Messages -->
-                     <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                         <form class="form-inline mr-auto w-100 navbar-search">
-                             <div class="input-group">
-                                 <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                 <div class="input-group-append">
-                                     <button class="btn btn-primary" type="button">
-                                         <i class="fas fa-search fa-sm"></i>
-                                     </button>
-                                 </div>
-                             </div>
-                         </form>
-                     </div>
-                 </li>
-
-                 <!-- Nav Item - Alerts -->
-                 <li class="nav-item dropdown no-arrow mx-1">
-                     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         <i class="fas fa-bell fa-fw fa-shake"></i>
-                         <!-- Counter - Alerts -->
-                         <span class="badge badge-danger badge-counter">3+</span>
-                     </a>
-                     <!-- Dropdown - Alerts -->
-                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                         <h6 class="dropdown-header">
-                             Notification
-                         </h6>
-                         <a class="dropdown-item d-flex align-items-center" href="#">
-                             <div class="mr-3">
-                                 <div class="icon-circle bg-primary">
-                                     <i class="fas fa-file-alt text-white"></i>
-                                 </div>
-                             </div>
-                             <div>
-                                 <div class="small text-gray-500">April 30, 2023</div>
-                                 <span class="font-weight-bold">"Laut yang tenang tak pernah membuat pelaut yang handal."</span>
-                             </div>
-                         </a>
-                         <a class="dropdown-item d-flex align-items-center" href="#">
-                             <div class="mr-3">
-                                 <div class="icon-circle bg-success">
-                                     <i class="fas fa-donate text-white"></i>
-                                 </div>
-                             </div>
-                             <div>
-                                 <div class="small text-gray-500">April 30, 2023</div>
-                                 "Jadilah orang baik, tapi jangan buang waktu untuk membuktikannya!"
-                             </div>
-                         </a>
-                         <a class="dropdown-item d-flex align-items-center" href="#">
-                             <div class="mr-3">
-                                 <div class="icon-circle bg-warning">
-                                     <i class="fas fa-exclamation-triangle text-white"></i>
-                                 </div>
-                             </div>
-                             <div>
-                                 <div class="small text-gray-500">April 30, 2023</div>
-                                 "Jadilah pelangi di awan orang lain!"
-                             </div>
-                         </a>
-                         <a class="dropdown-item text-center small text-gray-500" href="https://quran.com/id" target="_blank">Tampilkan semua notivikasi!</a>
-                     </div>
-                 </li>
-
-                 <div class="topbar-divider d-none d-sm-block"></div>
-
-                 <!-- Nav Item - User Information -->
-                 <li class="nav-item dropdown no-arrow">
-                     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                         <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $user['name']; ?></span>
-                         <img class="img-profile rounded-circle fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6;" src="<?= base_url('assets/img/profile/') . $user['image']; ?>">
-                     </a>
-                     <!-- Dropdown - User Information -->
-                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                         <a class="dropdown-item" href="#">
-                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                             Profile
-                         </a>
-                         <a class="dropdown-item" href="#">
-                             <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                             Tambah Akun Baru
-                         </a>
-                         <a class="dropdown-item" href="#">
-                             <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                             Aktivitas Masuk
-                         </a>
-                         <div class="dropdown-divider"></div>
-                         <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
-                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                             Keluar
-                         </a>
-                     </div>
-                 </li>
-
-             </ul>
-
-         </nav>
-         <!-- End of Topbar -->
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="https://www.unisayogya.ac.id/" target="_blank"> <img src="<?= base_url('assets/'); ?>assets/img/logo-unisa.png" width="35px" style=" margin: 0 10px 7px 0;">UNISA Yogya</a>
+    <!-- Sidebar Toggle-->
+    <button class=" btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+    </form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-900 small"><?= $user['name']; ?> </span>
+                <img width="20px" src="<?= base_url('assets/assets/img/profile/') . $user['image']; ?>">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="<?= base_url('anggota'); ?>">Profil Saya</a></li>
+                <li><a class="dropdown-item" href="<?= base_url('auth/logout'); ?>" data-bs-toggle="modal" data-bs-target="#logoutModal">Keluar</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>

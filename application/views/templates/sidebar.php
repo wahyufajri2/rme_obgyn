@@ -1,81 +1,70 @@
- <!-- Sidebar -->
- <ul class="navbar-nav sb-sidenav-dark bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">
 
-     <!-- Sidebar - Brand -->
-     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="https://pkugamping.com/" target="_blank">
-         <div class="sidebar-brand-icon">
-             <img class="img-profile rounded-circle fa-fade" style="--fa-animation-duration: 2s; --fa-fade-opacity: 0.6;" width="45 px" src="<?= base_url('assets/img/pku.png') ?>" alt="RS PKU Gamping ">
-         </div>
-         <div class="sidebar-brand-text mx-3">RS PKU Gamping</div>
-     </a>
+                        <!-- Melakukan query menu -->
+                        <?php
+                        $roleId = $this->session->userdata('role_id');
+                        $queryMenu = "SELECT `user_menu`.`id`, `menu`
+                                    FROM `user_menu` JOIN `user_access_menu`
+                                    ON `user_menu`.`id` = `user_access_menu`.`menu_id`
+                                    WHERE `user_access_menu`.`role_id` = $roleId
+                                    ORDER BY `user_access_menu`.`menu_id` ASC
+                                    ";
+                        $menu = $this->db->query($queryMenu)->result_array();
+                        ?>
 
-     <!-- Divider -->
-     <hr class="sidebar-divider mb-2">
+                        <!-- Looping menu -->
+                        <?php foreach ($menu as $m) : ?>
+                            <?= $m['menu']; ?>
 
-     <!-- Query Menu -->
-     <?php
-        $role_id = $this->session->userdata('role_id');
-        $queryMenu = "SELECT `user_menu`.`id`, `menu`
-                        FROM `user_menu` JOIN `user_access_menu`
-                          ON `user_menu`.`id` = `user_access_menu`.`menu_id`
-                       WHERE `user_access_menu`.`role_id` = $role_id
-                    ORDER BY `user_access_menu`.`menu_id` ASC
-                    ";
+                            <!-- Melakukan query submenu -->
+                            <?php
+                            $menuId = $m['id'];
+                            $querySubMenu = "SELECT *
+                                            FROM `user_sub_menu` JOIN `user_menu`
+                                            ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
+                                            WHERE `user_sub_menu`.`menu_id` = $menuId
+                                            AND `user_sub_menu`.`is_active` = 1
+                                            ";
+                            $subMenu = $this->db->query($querySubMenu)->result_array();
+                            ?>
 
-        $menu = $this->db->query($queryMenu)->result_array();
-        ?>
+                            <?php foreach ($subMenu as $sm) : ?>
+                                <?php if ($title == $sm['title']) : ?>
+                                    <a class="nav-link active" href="<?= base_url($sm['url']); ?>">
+                                    <?php else : ?>
+                                        <a class="nav-link" href="<?= base_url($sm['url']); ?>">
+                                        <?php endif; ?>
+                                        <div class="sb-nav-link-icon"><i class="<?= $sm['icon']; ?>"></i></div>
+                                        <?= $sm['title']; ?>
+                                        </a>
+                                    <?php endforeach; ?>
+                                    <hr>
+                                <?php endforeach; ?>
+                    </div>
 
-     <!-- Looping Menu -->
-     <?php foreach ($menu as $m) : ?>
-         <div class="sidebar-heading">
-             <?= $m['menu']; ?>
-         </div>
+                    <a class="nav-link" href="<?= base_url('auth/logout'); ?>" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                        <div class="sb-nav-link-icon"><i class="fas fa-fw fa-solid fa-right-from-bracket"></i></div>
+                        Keluar
+                    </a>
+                </div>
+            </div>
+            <div class="sb-sidenav-footer">
+                <div class="small">Masuk sebagai:</div>
+                <?php
+                $loggedInRoleId = isset($_SESSION['role_id']) ? $_SESSION['role_id'] : null;
 
-
-         <!-- looping Sub-Menus According to the Menu -->
-         <?php
-            $menuId = $m['id'];
-            $querySubMenu = "SELECT *
-                           FROM `user_submenu`
-                          WHERE `menu_id` = $menuId
-                            AND `is_active` = 1
-                        ";
-            $subMenu = $this->db->query($querySubMenu)->result_array();
-            ?>
-
-         <?php foreach ($subMenu as $sm) : ?>
-             <!-- Nav Item - Dashboard -->
-             <?php if ($title == $sm['title']) : ?>
-                 <li class="nav-item active">
-                 <?php else : ?>
-                 <li class="nav-item">
-                 <?php endif; ?>
-                 <a class="nav-link pb-0" href="<?= base_url($sm['url']); ?>">
-                     <i class="<?= $sm['icon']; ?>"></i>
-                     <span><?= $sm['title']; ?></span>
-                 </a>
-                 </li>
-             <?php endforeach; ?>
-
-             <!-- Divider -->
-             <hr class="sidebar-divider">
-
-         <?php endforeach; ?>
-
-         <!-- Nav Item - Logout -->
-         <li class="nav-item">
-             <a class="nav-link" href="<?= base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
-                 <i class="fas fa-fw fa-sign-out-alt"></i>
-                 <span>Keluar</span>
-             </a>
-         </li>
-         <!-- Divider -->
-         <hr class="sidebar-divider d-none d-md-block">
-
-         <!-- Sidebar Toggler (Sidebar) -->
-         <div class="text-center d-none d-md-inline">
-             <button class="rounded-circle border-0" id="sidebarToggle"></button>
-         </div>
-
- </ul>
- <!-- End of Sidebar -->
+                foreach ($role as $rl) {
+                    if ($rl['id'] == $loggedInRoleId) {
+                        echo '<span value="' . $rl['id'] . '">' . $rl['role'] . '</span>';
+                    };
+                };
+                ?>
+            </div>
+        </nav>
+    </div>
+    <div id="layoutSidenav_content">
