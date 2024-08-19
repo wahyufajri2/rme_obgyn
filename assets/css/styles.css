@@ -68,8 +68,8 @@
 	--bs-body-font-size: 1rem;
 	--bs-body-font-weight: 400;
 	--bs-body-line-height: 1.5;
-	--bs-body-color: #fff;
-	--bs-body-bg: #121212;
+	--bs-body-color: #212529;
+	--bs-body-bg: #d3d3d3;
 	--bs-border-width: 1px;
 	--bs-border-style: solid;
 	--bs-border-color: #dee2e6;
@@ -112,7 +112,7 @@ body {
 }
 
 hr {
-	margin: 1rem 0;
+	margin: 0.5rem 0;
 	color: inherit;
 	border: 0;
 	border-top: 1px solid;
@@ -11430,16 +11430,16 @@ body {
 	flex-wrap: nowrap;
 }
 .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading {
-	padding: 1.75rem 1rem 0.75rem;
-	font-size: 0.75rem;
-	font-weight: bold;
-	text-transform: uppercase;
+	padding: 0 0.5rem 0.5rem;
+	font-size: 0.9rem;
+	font-weight: 400;
+	text-transform: capitalize;
 }
 .sb-sidenav .sb-sidenav-menu .nav .nav-link {
 	display: flex;
 	align-items: center;
-	padding-top: 0.75rem;
-	padding-bottom: 0.75rem;
+	padding-top: 0.3rem;
+	padding-bottom: 0.3rem;
 	position: relative;
 }
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
@@ -11713,4 +11713,3 @@ body {
 		transform: translateX(-25%);
 	}
 }
-

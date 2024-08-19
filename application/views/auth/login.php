@@ -27,22 +27,21 @@
                                                                                                                             echo set_value('email');
                                                                                                                         } ?>">
                     <?= form_error('email', '<small class="text-warning pl-3">', '</small>'); ?>
-                    <label for="email">Masukan email</label>
+                    <label class="required" for="email">Masukan email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-key"></i></span>
-                    <input type="password" id="password" name="password" value="<?php if (isset($_COOKIE["password"])) {
-                                                                                    echo $_COOKIE["password"];
-                                                                                } ?>">
-                    <?= form_error('password', '<small class="text-warning pl-3">', '</small>'); ?>
-                    <label for="password">Masukan kata sandi</label>
+                    <input type="kata_sandi" id="kata_sandi" name="kata_sandi" value="<?php if (isset($_COOKIE["kata_sandi"])) {
+                                                                                            echo $_COOKIE["kata_sandi"];
+                                                                                        } ?>">
+                    <?= form_error('kata_sandi', '<small class="text-warning pl-3">', '</small>'); ?>
+                    <label class="required" for="kata_sandi">Masukan kata sandi</label>
                     <div class="eye-icon-container">
                         <span class="separator"></span>
                         <span id="show_password" class="eye-icon">
                             <i class="fa-solid fa-eye-slash" id="icon"></i>
                         </span>
                     </div>
-                    <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="remember-me">
                     <label><input type="checkbox" class="custom-control-input" id="save_id" name="save_id" <?php if (isset($_COOKIE["email"])) {

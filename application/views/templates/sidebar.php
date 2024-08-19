@@ -3,16 +3,23 @@
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
-                    <div class="sb-sidenav-menu-heading">
+                    <div class="sb-sidenav-menu-heading"><br>
+                        <?php $current_uri = $this->uri->segment(1); ?>
+
+                        <a class="nav-link <?= ($current_uri == 'admin') ? 'active' : ''; ?>" href="<?= base_url('admin'); ?>">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-table-columns"></i></div>
+                            Dashboard
+                        </a>
+                        <hr>
 
                         <!-- Melakukan query menu -->
                         <?php
-                        $roleId = $this->session->userdata('role_id');
-                        $queryMenu = "SELECT `user_menu`.`id`, `menu`
-                                    FROM `user_menu` JOIN `user_access_menu`
-                                    ON `user_menu`.`id` = `user_access_menu`.`menu_id`
-                                    WHERE `user_access_menu`.`role_id` = $roleId
-                                    ORDER BY `user_access_menu`.`menu_id` ASC
+                        $roleId = $this->session->userdata('id_peran');
+                        $queryMenu = "SELECT `menu_pengguna`.`id`, `menu`
+                                    FROM `menu_pengguna` JOIN `menu_akses_pengguna`
+                                    ON `menu_pengguna`.`id` = `menu_akses_pengguna`.`id_menu`
+                                    WHERE `menu_akses_pengguna`.`id_peran` = $roleId
+                                    ORDER BY `menu_akses_pengguna`.`id_menu` ASC
                                     ";
                         $menu = $this->db->query($queryMenu)->result_array();
                         ?>
@@ -25,22 +32,22 @@
                             <?php
                             $menuId = $m['id'];
                             $querySubMenu = "SELECT *
-                                            FROM `user_sub_menu` JOIN `user_menu`
-                                            ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
-                                            WHERE `user_sub_menu`.`menu_id` = $menuId
-                                            AND `user_sub_menu`.`is_active` = 1
+                                            FROM `submenu_pengguna` JOIN `menu_pengguna`
+                                            ON `submenu_pengguna`.`id_menu` = `menu_pengguna`.`id`
+                                            WHERE `submenu_pengguna`.`id_menu` = $menuId
+                                            AND `submenu_pengguna`.`apakah_aktif` = 1
                                             ";
                             $subMenu = $this->db->query($querySubMenu)->result_array();
                             ?>
 
                             <?php foreach ($subMenu as $sm) : ?>
-                                <?php if ($title == $sm['title']) : ?>
+                                <?php if ($title == $sm['judul']) : ?>
                                     <a class="nav-link active" href="<?= base_url($sm['url']); ?>">
                                     <?php else : ?>
                                         <a class="nav-link" href="<?= base_url($sm['url']); ?>">
                                         <?php endif; ?>
-                                        <div class="sb-nav-link-icon"><i class="<?= $sm['icon']; ?>"></i></div>
-                                        <?= $sm['title']; ?>
+                                        <div class="sb-nav-link-icon"><i class="<?= $sm['ikon']; ?>"></i></div>
+                                        <?= $sm['judul']; ?>
                                         </a>
                                     <?php endforeach; ?>
                                     <hr>
@@ -56,11 +63,11 @@
             <div class="sb-sidenav-footer">
                 <div class="small">Masuk sebagai:</div>
                 <?php
-                $loggedInRoleId = isset($_SESSION['role_id']) ? $_SESSION['role_id'] : null;
+                $loggedInRoleId = isset($_SESSION['id_peran']) ? $_SESSION['id_peran'] : null;
 
                 foreach ($role as $rl) {
                     if ($rl['id'] == $loggedInRoleId) {
-                        echo '<span value="' . $rl['id'] . '">' . $rl['role'] . '</span>';
+                        echo '<span value="' . $rl['id'] . '">' . $rl['peran'] . '</span>';
                     };
                 };
                 ?>
