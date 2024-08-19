@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 17 Agu 2024 pada 11.39
+-- Waktu pembuatan: 19 Agu 2024 pada 07.51
 -- Versi server: 8.0.30
 -- Versi PHP: 8.2.10
 
@@ -31,8 +31,53 @@ CREATE TABLE `inti_rekam_medis` (
   `no_rm` int NOT NULL,
   `keluhan_utama` text NOT NULL,
   `nik` int NOT NULL,
-  `id_user` int NOT NULL
+  `id_pengguna` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `menu_akses_pengguna`
+--
+
+CREATE TABLE `menu_akses_pengguna` (
+  `id` int NOT NULL,
+  `id_peran` int NOT NULL,
+  `id_menu` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data untuk tabel `menu_akses_pengguna`
+--
+
+INSERT INTO `menu_akses_pengguna` (`id`, `id_peran`, `id_menu`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 2, 2),
+(6, 2, 3),
+(8, 1, 3),
+(9, 1, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `menu_pengguna`
+--
+
+CREATE TABLE `menu_pengguna` (
+  `id` int NOT NULL,
+  `menu` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data untuk tabel `menu_pengguna`
+--
+
+INSERT INTO `menu_pengguna` (`id`, `menu`) VALUES
+(1, 'Admin'),
+(2, 'Pendaftaran'),
+(3, 'Bidan'),
+(4, 'Dokter');
 
 -- --------------------------------------------------------
 
@@ -68,136 +113,97 @@ INSERT INTO `pasien` (`nik`, `nama_pasien`, `tgl_lahir`, `jenis_kelamin`, `no_te
 
 CREATE TABLE `pendaftaran` (
   `no_rg` int NOT NULL,
-  `tgl_periksa` date DEFAULT NULL,
+  `tgl_periksa` int NOT NULL,
   `status` enum('Belum','Sedang','Selesai') NOT NULL,
   `nik` int NOT NULL,
-  `id_user` int NOT NULL
+  `id_pengguna` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data untuk tabel `pendaftaran`
 --
 
-INSERT INTO `pendaftaran` (`no_rg`, `tgl_periksa`, `status`, `nik`, `id_user`) VALUES
-(1, '2023-05-10', 'Belum', 1, 21),
-(2, '2023-05-09', 'Belum', 2, 2);
+INSERT INTO `pendaftaran` (`no_rg`, `tgl_periksa`, `status`, `nik`, `id_pengguna`) VALUES
+(1, 20230510, 'Belum', 1, 21),
+(2, 20230509, 'Belum', 2, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Struktur dari tabel `pengguna`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `pengguna` (
   `id` int NOT NULL,
-  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nama` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `email` varchar(128) NOT NULL,
-  `image` varchar(128) NOT NULL,
-  `password` varchar(256) NOT NULL,
-  `role_id` int NOT NULL,
-  `is_active` int NOT NULL
+  `gambar` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `kata_sandi` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id_peran` int NOT NULL,
+  `apakah_aktif` int NOT NULL,
+  `tgl_dibuat` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data untuk tabel `pengguna`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`) VALUES
-(2, 'Wahyu Fajri', 'whybaik2@gmail.com', 'default.jpg', '$2y$10$AmIMfLNANbKBNwp4LS4yXu83HDDr.C2YQ2ntSGcXx/udsh8QPq9am', 1, 1),
-(4, 'Al-Fajri', 'wahyufjr02@gmail.com', 'default.jpg', '$2y$10$52pQ13GxgQ/8x9Z2GrwbdOtkoqIFyYYV.6VVjxEab8u5xmYxek.9K', 2, 1),
-(5, 'Dummy', 'dummy@gmail.com', 'default.jpg', '$2y$10$xV423yz04uUlgladULuyf.PRI9pImM24VDJG2k/ae3yweEXA2VPse', 2, 1),
-(6, 'ikhsanfahri', 'ikhsanfahri112@gmail.com', 'default.jpg', '$2y$10$aPm4X6CcY7jrB/4B5n6WoeHG/j8zJv7BHVRCg92L4fShBgdMT4WTa', 1, 1);
+INSERT INTO `pengguna` (`id`, `nama`, `email`, `gambar`, `kata_sandi`, `id_peran`, `apakah_aktif`, `tgl_dibuat`) VALUES
+(2, 'Wahyu Fajri', 'whybaik2@gmail.com', 'default.jpg', '$2y$10$AmIMfLNANbKBNwp4LS4yXu83HDDr.C2YQ2ntSGcXx/udsh8QPq9am', 1, 1, 0),
+(4, 'Al-Fajri', 'wahyufjr02@gmail.com', 'default.jpg', '$2y$10$52pQ13GxgQ/8x9Z2GrwbdOtkoqIFyYYV.6VVjxEab8u5xmYxek.9K', 2, 1, 0),
+(5, 'Dummy', 'dummy@gmail.com', 'default.jpg', '$2y$10$xV423yz04uUlgladULuyf.PRI9pImM24VDJG2k/ae3yweEXA2VPse', 2, 1, 0),
+(6, 'ikhsanfahri', 'ikhsanfahri112@gmail.com', 'default.jpg', '$2y$10$aPm4X6CcY7jrB/4B5n6WoeHG/j8zJv7BHVRCg92L4fShBgdMT4WTa', 1, 1, 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_access_menu`
+-- Struktur dari tabel `peran_pengguna`
 --
 
-CREATE TABLE `user_access_menu` (
+CREATE TABLE `peran_pengguna` (
   `id` int NOT NULL,
-  `role_id` int NOT NULL,
-  `menu_id` int NOT NULL
+  `peran` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `user_access_menu`
+-- Dumping data untuk tabel `peran_pengguna`
 --
 
-INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(3, 2, 2),
-(6, 2, 3),
-(8, 1, 3);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user_menu`
---
-
-CREATE TABLE `user_menu` (
-  `id` int NOT NULL,
-  `menu` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data untuk tabel `user_menu`
---
-
-INSERT INTO `user_menu` (`id`, `menu`) VALUES
+INSERT INTO `peran_pengguna` (`id`, `peran`) VALUES
 (1, 'Admin'),
-(2, 'User'),
-(3, 'Menu'),
-(4, 'Test');
+(2, 'Bidan'),
+(3, 'Petugas Pendaftaran'),
+(4, 'Dokter');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_role`
+-- Struktur dari tabel `submenu_pengguna`
 --
 
-CREATE TABLE `user_role` (
+CREATE TABLE `submenu_pengguna` (
   `id` int NOT NULL,
-  `role` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data untuk tabel `user_role`
---
-
-INSERT INTO `user_role` (`id`, `role`) VALUES
-(1, 'Administrator'),
-(2, 'Member');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user_submenu`
---
-
-CREATE TABLE `user_submenu` (
-  `id` int NOT NULL,
-  `menu_id` int NOT NULL,
-  `title` varchar(128) NOT NULL,
+  `id_menu` int NOT NULL,
+  `judul` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `url` varchar(128) NOT NULL,
-  `icon` varchar(128) NOT NULL,
-  `is_active` int NOT NULL
+  `ikon` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `apakah_aktif` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `user_submenu`
+-- Dumping data untuk tabel `submenu_pengguna`
 --
 
-INSERT INTO `user_submenu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
-(1, 1, 'Dashboard', 'admin', 'fas fa-fw fa-tachometer-alt', 1),
-(2, 2, 'User Data', 'user', 'fas fa-fw fa-user-check', 1),
-(3, 2, 'Asesmen Kebidanan', 'user/kebidanan', 'fas fa-fw fa-user-nurse', 1),
-(4, 3, 'Menu Management', 'menu', 'fas fa-fw fa-folder', 1),
-(5, 3, 'Submenu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1),
-(6, 1, 'Baru', 'baru/baru', 'fas fa-fw fa-plus', 1),
-(7, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1);
+INSERT INTO `submenu_pengguna` (`id`, `id_menu`, `judul`, `url`, `ikon`, `apakah_aktif`) VALUES
+(2, 2, 'Data Pendaftaran', 'pendaftaran', 'fas fa-fw fa-solid fa-folder', 1),
+(3, 2, 'Master Data Pasien', 'pendaftaran/masterPasien', 'fas fa-fw fa-solid fa-database', 1),
+(4, 3, 'Data Rekam Medis', 'bidan/rekamMedis', 'fas fa-fw fa-solid fa-table-cells-row-lock', 1),
+(6, 1, 'Tambah Akun', 'admin/addAccount', 'fas fa-fw fa-solid fa-user-plus', 1),
+(7, 1, 'Kelola Akun', 'admin/role', 'fas fa-fw fa-solid fa-user-gear', 1),
+(8, 1, 'Data Pendaftaran', 'admin/pendaftaran', 'fas fa-fw fa-solid fa-folder', 1),
+(9, 1, 'Master Data Pasien', 'admin/masterData', 'fas fa-fw fa-solid fa-database', 1),
+(10, 1, 'Data Rekam Medis', 'admin/rekamMedis', 'fas fa-fw fa-solid fa-table-cells-row-lock', 1),
+(11, 4, 'Data Rekam Medis', 'dokter/rekamMedis', 'fas fa-fw fa-solid fa-table-cells-row-lock', 1);
 
 --
 -- Indexes for dumped tables
@@ -209,7 +215,21 @@ INSERT INTO `user_submenu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`
 ALTER TABLE `inti_rekam_medis`
   ADD PRIMARY KEY (`no_rm`),
   ADD KEY `nik` (`nik`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_pengguna` (`id_pengguna`);
+
+--
+-- Indeks untuk tabel `menu_akses_pengguna`
+--
+ALTER TABLE `menu_akses_pengguna`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_menu` (`id_menu`),
+  ADD KEY `id_peran` (`id_peran`);
+
+--
+-- Indeks untuk tabel `menu_pengguna`
+--
+ALTER TABLE `menu_pengguna`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `pasien`
@@ -223,41 +243,27 @@ ALTER TABLE `pasien`
 ALTER TABLE `pendaftaran`
   ADD PRIMARY KEY (`no_rg`),
   ADD KEY `nik` (`nik`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_pengguna` (`id_pengguna`);
 
 --
--- Indeks untuk tabel `user`
+-- Indeks untuk tabel `pengguna`
 --
-ALTER TABLE `user`
+ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `role_id` (`role_id`);
+  ADD KEY `id_peran` (`id_peran`);
 
 --
--- Indeks untuk tabel `user_access_menu`
+-- Indeks untuk tabel `peran_pengguna`
 --
-ALTER TABLE `user_access_menu`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `menu_id` (`menu_id`),
-  ADD KEY `role_id` (`role_id`);
-
---
--- Indeks untuk tabel `user_menu`
---
-ALTER TABLE `user_menu`
+ALTER TABLE `peran_pengguna`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_role`
+-- Indeks untuk tabel `submenu_pengguna`
 --
-ALTER TABLE `user_role`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `user_submenu`
---
-ALTER TABLE `user_submenu`
+ALTER TABLE `submenu_pengguna`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `menu_id` (`menu_id`);
+  ADD KEY `id_menu` (`id_menu`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -268,6 +274,18 @@ ALTER TABLE `user_submenu`
 --
 ALTER TABLE `inti_rekam_medis`
   MODIFY `no_rm` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `menu_akses_pengguna`
+--
+ALTER TABLE `menu_akses_pengguna`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT untuk tabel `menu_pengguna`
+--
+ALTER TABLE `menu_pengguna`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `pasien`
@@ -282,34 +300,22 @@ ALTER TABLE `pendaftaran`
   MODIFY `no_rg` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT untuk tabel `pengguna`
 --
-ALTER TABLE `user`
+ALTER TABLE `pengguna`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `user_access_menu`
+-- AUTO_INCREMENT untuk tabel `peran_pengguna`
 --
-ALTER TABLE `user_access_menu`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT untuk tabel `user_menu`
---
-ALTER TABLE `user_menu`
+ALTER TABLE `peran_pengguna`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `user_role`
+-- AUTO_INCREMENT untuk tabel `submenu_pengguna`
 --
-ALTER TABLE `user_role`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `user_submenu`
---
-ALTER TABLE `user_submenu`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `submenu_pengguna`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
