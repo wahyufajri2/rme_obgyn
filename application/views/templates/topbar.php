@@ -20,7 +20,7 @@
                 <img width="20px" src="<?= base_url('assets/img/profile/') . $user['gambar']; ?>">
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="<?= base_url('anggota'); ?>">Profil Saya</a></li>
+                <li><a class="dropdown-item" href="<?= base_url('dashboard'); ?>">Dashboard</a></li>
                 <li><a class="dropdown-item" href="<?= base_url('auth/logout'); ?>" data-bs-toggle="modal" data-bs-target="#logoutModal">Keluar</a></li>
             </ul>
         </li>
