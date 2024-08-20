@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link rel="shortcut icon" href="<?= base_url('assets/'); ?>img/logo-unisa.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= base_url('assets/'); ?>img/pku.png" type="image/x-icon">
 
     <title><?= $title; ?></title>
 
