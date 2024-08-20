@@ -10,13 +10,15 @@ class Pendaftaran extends CI_Controller
         is_logged_in();
     }
 
-    public function index() //Untuk menampilkan data kunjungan di menu pendaftaran
+    public function index() //Untuk menampilkan data pasien di menu pendaftaran
     {
-        $data['title'] = 'Pendaftaran pasien';
+        $data['title'] = 'Pendaftaran Pasien';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('Pendaftaran_model', 'daftar');
+        $data['role'] = $this->db->get('peran_pengguna')->result_array();
+        
+        // $this->load->model('Pendaftaran_model', 'daftar');
 
-        $data['Kunjungan'] = $this->daftar->getDataKunjungan();
+        //$data['Kunjungan'] = $this->daftar->getDataKunjungan();
         $data['pasien'] = $this->db->get('pasien')->result_array();
 
         $this->load->view('templates/header', $data);
@@ -81,9 +83,10 @@ class Pendaftaran extends CI_Controller
     {
         $data['title'] = 'Master Data Pasien';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('Pendaftaran_model', 'dpd');
+        $data['role'] = $this->db->get('peran_pengguna')->result_array();
+        // $this->load->model('Pendaftaran_model', 'dpd');
 
-        $data['DataPasienDaftar'] = $this->dpd->getMasterPasien();
+        // $data['DataPasienDaftar'] = $this->dpd->getMasterPasien();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);

@@ -1,14 +1,8 @@
 <main>
-    <div class="container-fluid px-4">
-        <h1 class="mt-4"><?= $title; ?></h1>
+    <div class="container-fluid px-3">
+        <h1 class="mt-2"><?= $title; ?></h1>
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="<?= base_url('admin'); ?>">
-                    <?php foreach ($role as $rl) : ?>
-                        <?php if ($rl['id'] == 1) : ?>
-                            <span value="<?= $rl['id']; ?>"><?= $rl['peran']; ?></span>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Beranda</a></li>
             <li class="breadcrumb-item active"><?= $title; ?></li>
         </ol>
         <hr>

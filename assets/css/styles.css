@@ -73,7 +73,7 @@
 	--bs-border-width: 1px;
 	--bs-border-style: solid;
 	--bs-border-color: #dee2e6;
-	--bs-border-color-translucent: rgba(250, 250, 250, 0.2);
+	--bs-border-color-translucent: rgba(250, 250, 250, 0.7);
 	--bs-border-radius: 0.375rem;
 	--bs-border-radius-sm: 0.25rem;
 	--bs-border-radius-lg: 0.5rem;
@@ -2054,8 +2054,8 @@ progress {
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.5;
-	color: #fff;
-	background-color: #121212;
+	color: #212529;
+	background-color: #f2f2f2;
 	background-clip: padding-box;
 	border: 1px solid #ced4da;
 	-webkit-appearance: none;
@@ -2080,8 +2080,8 @@ progress {
 }
 .form-control:focus,
 .datatable-input:focus {
-	color: #fff;
-	background-color: #121212;
+	color: #212529;
+	background-color: #fffff0;
 	border-color: #86b7fe;
 	outline: 0;
 	box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
@@ -4404,7 +4404,7 @@ fieldset:disabled .btn {
 	--bs-card-cap-color: ;
 	--bs-card-height: ;
 	--bs-card-color: ;
-	--bs-card-bg: #121212;
+	--bs-card-bg: #c0c0c0;
 	--bs-card-img-overlay-padding: 1rem;
 	--bs-card-group-margin: 0.75rem;
 	position: relative;
@@ -11616,13 +11616,13 @@ body {
 
 .datatable-table > thead > tr > th {
 	vertical-align: bottom;
-	text-align: left;
+	text-align: center;
 	border-bottom: none;
 }
 
 .datatable-table > tfoot > tr > th {
 	vertical-align: bottom;
-	text-align: left;
+	text-align: center;
 }
 
 .datatable-table th {

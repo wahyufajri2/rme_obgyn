@@ -9,16 +9,152 @@ class Admin extends CI_Controller
         is_logged_in();
     }
 
-    public function index()
+    public function addAccount()
     {
-        $data['title'] = 'Dashboard';
+        $this->form_validation->set_rules('nama', 'Name', 'required|trim');
+        $this->form_validation->set_rules(
+            'email',
+            'Email',
+            'required|trim|valid_email|is_unique[user.email]',
+            [
+                'is_unique' => 'Email ini sudah terdaftar!'
+            ]
+        );
+        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
+            'matches' => 'Kata sandi tidak cocok!',
+            'min_length' => 'Kata sandi terlalu pendek!'
+        ]);
+        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]', [
+            'matches' => 'Kata sandi tidak cocok!',
+        ]);
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['title'] = 'Tambah Akun';
+            $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+            $data['role'] = $this->db->get('peran_pengguna')->result_array();
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('admin/addAccount', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'nama' => htmlspecialchars($this->input->post('nama', true)),
+                'email' => htmlspecialchars($this->input->post('email', true)),
+                'gambar' => 'default.jpg',
+                'kata_sandi' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                'id_peran' => 2,
+                'apakah_aktif' => 1,
+                'tgl_dibuat' => time()
+            ];
+
+            $this->db->insert('pengguna', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun telah ditambahkan, harap beri tahu pengguna!</div>');
+            redirect('admin/index');
+        }
+    }
+
+    public function kelolaAkun()
+    {
+        $data['title'] = 'Kelola Akun';
+        $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['role'] = $this->db->get('peran_pengguna')->result_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/kelolaAkun', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function roleAccess($role_id)
+    {
+        $data['title'] = 'Ubah Akses Akun';
+        $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['role'] = $this->db->get_where('peran_pengguna', ['id' => $role_id])->row_array();
+
+        //Show all menus
+        $this->db->where('id !=', 1);
+        $data['menu'] = $this->db->get('menu_pengguna')->result_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/role-access', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function changeAccess()
+    {
+        $menu_id = $this->input->post('menuId');
+        $role_id = $this->input->post('roleId');
+
+        $data = [
+            'id_peran' => $role_id,
+            'id_menu' => $menu_id
+        ];
+
+        // Periksa apakah datanya sudah ada
+        $result = $this->db->get_where('menu_akses_pengguna', $data);
+
+        if ($result->num_rows() < 1) {
+            // Masukkan data
+            $this->db->insert('menu_akses_pengguna', $data);
+        } else {
+            // Hapus data
+            $this->db->delete('menu_akses_pengguna', $data);
+        }
+
+        // Buat flashdata
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akses diberubah!</div>');
+    }
+
+    public function lihatPendaftaran() //Untuk menampilkan data pasien di menu pendaftaran
+    {
+        $data['title'] = 'Pendaftaran Pasien*';
+        $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = $this->db->get('peran_pengguna')->result_array();
+
+        // $this->load->model('Pendaftaran_model', 'daftar');
+
+        //$data['Kunjungan'] = $this->daftar->getDataKunjungan();
+        $data['pasien'] = $this->db->get('pasien')->result_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/lihatPendaftaran', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function lihatMasterPasien() //Untuk menampilkan data master pasien di menu Pendaftaran
+    {
+        $data['title'] = 'Master Data Pasien*';
+        $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = $this->db->get('peran_pengguna')->result_array();
+        // $this->load->model('Pendaftaran_model', 'dpd');
+
+        // $data['DataPasienDaftar'] = $this->dpd->getMasterPasien();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/lihatMasterPasien', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function lihatRekamMedis()
+    {
+        $data['title'] = 'Data Rekam Medis*';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/index', $data);
+        $this->load->view('admin/lihatRekamMedis', $data);
         $this->load->view('templates/footer');
     }
 
@@ -76,109 +212,5 @@ class Admin extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Submenu baru ditambahkan!</div>');
             redirect('admin/submenu');
         }
-    }
-
-    public function role()
-    {
-        $data['title'] = 'Role';
-        $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
-
-        $data['role'] = $this->db->get('peran_pengguna')->result_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/role', $data);
-        $this->load->view('templates/footer');
-    }
-
-    public function roleAccess($role_id)
-    {
-        $data['title'] = 'Role Access';
-        $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
-
-        $data['role'] = $this->db->get_where('peran_pengguna', ['id' => $role_id])->row_array();
-
-        //Show all menus
-        $this->db->where('id !=', 1);
-        $data['menu'] = $this->db->get('menu_pengguna')->result_array();
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/role-access', $data);
-        $this->load->view('templates/footer');
-    }
-
-    public function addAccount()
-    {
-        $this->form_validation->set_rules('nama', 'Name', 'required|trim');
-        $this->form_validation->set_rules(
-            'email',
-            'Email',
-            'required|trim|valid_email|is_unique[user.email]',
-            [
-                'is_unique' => 'Email ini sudah terdaftar!'
-            ]
-        );
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
-            'matches' => 'Kata sandi tidak cocok!',
-            'min_length' => 'Kata sandi terlalu pendek!'
-        ]);
-        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]', [
-            'matches' => 'Kata sandi tidak cocok!',
-        ]);
-
-        if ($this->form_validation->run() == FALSE) {
-            $data['title'] = 'Tambah Akun Baru';
-            $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
-            $data['role'] = $this->db->get('peran_pengguna')->result_array();
-
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('admin/addAccount', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $data = [
-                'nama' => htmlspecialchars($this->input->post('nama', true)),
-                'email' => htmlspecialchars($this->input->post('email', true)),
-                'gambar' => 'default.jpg',
-                'kata_sandi' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'id_peran' => 2,
-                'apakah_aktif' => 1,
-                'tgl_dibuat' => time()
-            ];
-
-            $this->db->insert('pengguna', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun telah ditambahkan, harap beri tahu pengguna!</div>');
-            redirect('admin/addAccount');
-        }
-    }
-
-
-    public function changeAccess()
-    {
-        $menu_id = $this->input->post('menuId');
-        $role_id = $this->input->post('roleId');
-
-        $data = [
-            'id_peran' => $role_id,
-            'id_menu' => $menu_id
-        ];
-
-        // Periksa apakah datanya sudah ada
-        $result = $this->db->get_where('menu_akses_pengguna', $data);
-
-        if ($result->num_rows() < 1) {
-            // Masukkan data
-            $this->db->insert('menu_akses_pengguna', $data);
-        } else {
-            // Hapus data
-            $this->db->delete('menu_akses_pengguna', $data);
-        }
-
-        // Buat flashdata
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akses diberubah!</div>');
     }
 }

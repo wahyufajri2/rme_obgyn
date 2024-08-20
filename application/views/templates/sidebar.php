@@ -6,10 +6,9 @@
                     <div class="sb-sidenav-menu-heading"><br>
                         <?php
                         $current_uri = $this->uri->segment(1);
-                        $total_segments = $this->uri->total_segments();
                         ?>
 
-                        <a class="nav-link <?= ($current_uri == 'admin' && $total_segments == 1) ? 'active' : ''; ?>" href="<?= base_url('admin'); ?>">
+                        <a class="nav-link <?= ($current_uri == 'dashboard') ? 'active' : ''; ?>" href="<?= base_url('dashboard'); ?>">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-table-columns"></i></div>
                             Dashboard
                         </a>

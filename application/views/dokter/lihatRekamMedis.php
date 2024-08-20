@@ -2,7 +2,7 @@
     <div class="container-fluid px-3">
         <h1 class="mt-2"><?= $title; ?></h1>
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="<?= base_url('pendaftaran'); ?>">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('dokter/lihatRekamMedis'); ?>">Beranda</a></li>
             <li class="breadcrumb-item active"><?= $title; ?></li>
         </ol>
         <hr>

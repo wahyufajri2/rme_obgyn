@@ -2,18 +2,11 @@
     <div class="container-fluid px-3">
         <h1 class="mt-2"><?= $title; ?></h1>
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="<?= base_url('pendaftaran'); ?>">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('admin/lihatMasterPasien'); ?>">Beranda</a></li>
             <li class="breadcrumb-item active"><?= $title; ?></li>
         </ol>
         <hr>
         <div class="card mb-4">
-            <div class="card-header">
-                <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary">
-                        <i class="fa-solid fa-person-circle-plus"></i> Daftarkan pasien
-                    </button>
-                </div>
-            </div>
             <div class="card-body">
                 <table class="text-center" id="datatablesSimple">
                     <thead>

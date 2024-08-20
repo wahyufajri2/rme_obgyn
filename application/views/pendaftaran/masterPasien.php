@@ -1,175 +1,213 @@
-<div class="content-wrapper bg-gray-200">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-6">
-          <h1 class="h3 text-gray-800"><?= $title; ?></h1>
-        </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active"><?= $title; ?></li>
-          </ol>
+<main>
+  <div class="container-fluid px-3">
+    <h1 class="mt-2"><?= $title; ?></h1>
+    <ol class="breadcrumb mb-0">
+      <li class="breadcrumb-item"><a href="<?= base_url('pendaftaran/masterPasien'); ?>">Beranda</a></li>
+      <li class="breadcrumb-item active"><?= $title; ?></li>
+    </ol>
+    <hr>
+    <div class="card mb-4">
+      <div class="card-header">
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-primary">
+            <i class="fa-solid fa-person-circle-plus"></i> Daftarkan pasien
+          </button>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Main content -->
-  <section class="content">
-    <div class="row">
-      <div class="col-12">
-        <?php if (validation_errors()) : ?>
-          <div class="alert alert-danger" role="alert">
-            <?= validation_errors(); ?>
-          </div>
-        <?php endif; ?>
-
-        <?= $this->session->flashdata('message'); ?>
-        <div class="card shadow mb-4">
-          <div class="card-header">
-            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#TambahPasienModal"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Master Data Pasien</button>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered table-hover table-sm" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr class="table-active text-center">
-                    <th>No</th>
-                    <th>NIK</th>
-                    <th>No RM</th>
-                    <th>Nama Pasien</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Alamat</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php $i = 1; ?>
-                  <?php foreach ($DataPasienDaftar as $dpd) : ?>
-                    <tr>
-                      <td class="text-center" scope="row"><?= $i; ?></td>
-                      <td class="text-center"><?= $dpd['nik']; ?></td>
-                      <td class="text-center"><?= $dpd['no_rm']; ?></td>
-                      <td class="text-center"><?= $dpd['nama_pasien']; ?></td>
-                      <td class="text-center"><?= $dpd['tgl_lahir']; ?></td>
-                      <td class="text-center"><?= $dpd['alamat']; ?></td>
-                      <td>
-                        <div class="text-center">
-                          <a href="" alt="Detail data" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#newModal"><i class="fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Detail</a>
-                          <a href="#" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#EditPasienModal<?php echo $dpd['nik']; ?>"><i class="fas fa-solid fa-clock-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Riwayat</a>
-                          <a href="<?= base_url(); ?>pendaftaran/deleteMasterPasien/<?= $dpd['nik']; ?>" class="btn btn-outline-danger btn-sm text-center" onclick="return confirm('Apakah yakin menghapus data dari <?php echo $dpd['nama_pasien'] ?>?');"><i class="fas fa-solid fa-trash-can fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Hapus</a>
-                        </div>
-                        <!-- Edit Modal -->
-                        <div class="modal fade" id="EditPasienModal<?php echo $dpd['nik']; ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="EditPasienModal" aria-hidden="true">
-                          <div class="modal-dialog modal-lg">
-                            <form action="<?php echo base_url(); ?>pendaftaran/editMasterPasien/<?php echo $dpd['nik']; ?>" method="post">
-                              <div class="modal-content">
-                                <div class="modal-header bg-gradient-secondary">
-                                  <h5 class="modal-title" id="EditPasienModal">Edit Master Data Pasien <strong><?php echo $dpd['nama_pasien']; ?></strong></h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div class="modal-body bg-gray-500">
-                                  <input type="hidden" name="nik" value="<?php echo $dpd['nik']; ?>">
-                                  <div class="form-group">
-                                    <label class="required" for="nik">ID Pasien</label>
-                                    <input type="number" class="form-control form-control-sm" id="nik" name="nik" value="<?php echo $dpd['nik']; ?>">
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="required" for="no_rm">No Rekam Medis</label>
-                                    <input type="number" class="form-control form-control-sm" id="no_rm" name="no_rm" value="<?php echo $dpd['no_rm']; ?>">
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="required" for="nama_pasien">Nama Pasien</label>
-                                    <input type="text" class="form-control form-control-sm" id="nama_pasien" name="nama_pasien" value="<?php echo $dpd['nama_pasien']; ?>">
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="required" for="tgl_lahir">Tanggal Lahir</label>
-                                    <input type="date" class="form-control form-control-sm" id="tgl_lahir" name="tgl_lahir" value="<?php echo $dpd['tgl_lahir']; ?>">
-                                  </div>
-                                  <div class="form-group">
-                                    <label class="required" for="alamat">Alamat</label>
-                                    <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="<?php echo $dpd['alamat']; ?>">
-                                  </div>
-                                </div>
-                                <div class="modal-footer justify-content-between bg-gray-600">
-                                  <div>
-                                    <button type="button" class="btn btn-dark" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
-                                    <button type="reset" class="btn btn-warning"><i class="fas fa-solid fa-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Atur ulang</button>
-                                  </div>
-                                  <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-circle-plus"></i> Simpan</button>
-                                </div>
-                            </form>
-                          </div>
-                        </div>
-                        <!-- End of Edit Modal -->
-
-                      </td>
-                    </tr>
-                    <?php $i++; ?>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-        <!-- /.col -->
+      <div class="card-body">
+        <table class="text-center" id="datatablesSimple">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr>
+              <td>Tiger Nixon</td>
+              <td>System Architect</td>
+              <td>Edinburgh</td>
+              <td>61</td>
+              <td>2011/04/25</td>
+              <td>$320,800</td>
+            </tr>
+            <tr>
+              <td>Garrett Winters</td>
+              <td>Accountant</td>
+              <td>Tokyo</td>
+              <td>63</td>
+              <td>2011/07/25</td>
+              <td>$170,750</td>
+            </tr>
+            <tr>
+              <td>Ashton Cox</td>
+              <td>Junior Technical Author</td>
+              <td>San Francisco</td>
+              <td>66</td>
+              <td>2009/01/12</td>
+              <td>$86,000</td>
+            </tr>
+            <tr>
+              <td>Cedric Kelly</td>
+              <td>Senior Javascript Developer</td>
+              <td>Edinburgh</td>
+              <td>22</td>
+              <td>2012/03/29</td>
+              <td>$433,060</td>
+            </tr>
+            <tr>
+              <td>Airi Satou</td>
+              <td>Accountant</td>
+              <td>Tokyo</td>
+              <td>33</td>
+              <td>2008/11/28</td>
+              <td>$162,700</td>
+            </tr>
+            <tr>
+              <td>Brielle Williamson</td>
+              <td>Integration Specialist</td>
+              <td>New York</td>
+              <td>61</td>
+              <td>2012/12/02</td>
+              <td>$372,000</td>
+            </tr>
+            <tr>
+              <td>Herrod Chandler</td>
+              <td>Sales Assistant</td>
+              <td>San Francisco</td>
+              <td>59</td>
+              <td>2012/08/06</td>
+              <td>$137,500</td>
+            </tr>
+            <tr>
+              <td>Rhona Davidson</td>
+              <td>Integration Specialist</td>
+              <td>Tokyo</td>
+              <td>55</td>
+              <td>2010/10/14</td>
+              <td>$327,900</td>
+            </tr>
+            <tr>
+              <td>Colleen Hurst</td>
+              <td>Javascript Developer</td>
+              <td>San Francisco</td>
+              <td>39</td>
+              <td>2009/09/15</td>
+              <td>$205,500</td>
+            </tr>
+            <tr>
+              <td>Sonya Frost</td>
+              <td>Software Engineer</td>
+              <td>Edinburgh</td>
+              <td>23</td>
+              <td>2008/12/13</td>
+              <td>$103,600</td>
+            </tr>
+            <tr>
+              <td>Jena Gaines</td>
+              <td>Office Manager</td>
+              <td>London</td>
+              <td>30</td>
+              <td>2008/12/19</td>
+              <td>$90,560</td>
+            </tr>
+            <tr>
+              <td>Quinn Flynn</td>
+              <td>Support Lead</td>
+              <td>Edinburgh</td>
+              <td>22</td>
+              <td>2013/03/03</td>
+              <td>$342,000</td>
+            </tr>
+            <tr>
+              <td>Charde Marshall</td>
+              <td>Regional Director</td>
+              <td>San Francisco</td>
+              <td>36</td>
+              <td>2008/10/16</td>
+              <td>$470,600</td>
+            </tr>
+            <tr>
+              <td>Haley Kennedy</td>
+              <td>Senior Marketing Designer</td>
+              <td>London</td>
+              <td>43</td>
+              <td>2012/12/18</td>
+              <td>$313,500</td>
+            </tr>
+            <tr>
+              <td>Tatyana Fitzpatrick</td>
+              <td>Regional Director</td>
+              <td>London</td>
+              <td>19</td>
+              <td>2010/03/17</td>
+              <td>$385,750</td>
+            </tr>
+            <tr>
+              <td>Michael Silva</td>
+              <td>Marketing Designer</td>
+              <td>London</td>
+              <td>66</td>
+              <td>2012/11/27</td>
+              <td>$198,500</td>
+            </tr>
+            <tr>
+              <td>Paul Byrd</td>
+              <td>Chief Financial Officer (CFO)</td>
+              <td>New York</td>
+              <td>64</td>
+              <td>2010/06/09</td>
+              <td>$725,000</td>
+            </tr>
+            <tr>
+              <td>Gloria Little</td>
+              <td>Systems Administrator</td>
+              <td>New York</td>
+              <td>59</td>
+              <td>2009/04/10</td>
+              <td>$237,500</td>
+            </tr>
+            <tr>
+              <td>Bradley Greer</td>
+              <td>Software Engineer</td>
+              <td>London</td>
+              <td>41</td>
+              <td>2012/10/13</td>
+              <td>$132,000</td>
+            </tr>
+            <tr>
+              <td>Dai Rios</td>
+              <td>Personnel Lead</td>
+              <td>Edinburgh</td>
+              <td>35</td>
+              <td>2012/09/26</td>
+              <td>$217,500</td>
+            </tr>
+            <tr>
+              <td>Jenette Caldwell</td>
+              <td>Development Lead</td>
+              <td>New York</td>
+              <td>30</td>
+              <td>2011/09/03</td>
+              <td>$345,000</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
-  </section>
-
-</div>
-<!-- End of Main Content -->
-
-<!-- Create Modal -->
-<div class="modal fade" id="TambahPasienModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="TambahPasienModal" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header bg-gradient-secondary">
-        <h5 class="modal-title" id="TambahPasienModal">Tambah data pasien</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form action="<?= base_url('pendaftaran/createMasterPasien'); ?>" method="post">
-        <div class="modal-body bg-gray-500">
-          <div class="form-group">
-            <label class="required" for="nik">ID Pasien</label>
-            <input type="number" class="form-control form-control-sm" id="nik" name='nik'>
-          </div>
-          <div class="form-group">
-            <label class="required" for="no_rm">No Rekam Medis</label>
-            <input type="number" class="form-control form-control-sm" id="no_rm" name='no_rm'>
-          </div>
-          <div class="form-group">
-            <label class="required" for="nama_pasien">Nama Pasien</label>
-            <input type="text" class="form-control form-control-sm" id="nama_pasien" name='nama_pasien'>
-          </div>
-          <div class="form-group">
-            <label class="required" for="tgl_lahir">Tanggal Lahir</label>
-            <input type="date" class="form-control form-control-sm" id="tgl_lahir" name='tgl_lahir'>
-          </div>
-          <div class="form-group">
-            <label class="required" for="alamat">Alamat</label>
-            <input type="text" class="form-control form-control-sm" id="alamat" name='alamat'>
-          </div>
-        </div>
-        <div class="modal-footer justify-content-between bg-gray-600">
-          <div>
-            <button type="button" class="btn btn-dark" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
-            <button type="reset" class="btn btn-warning"><i class="fas fa-solid fa-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Atur ulang</button>
-          </div>
-          <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-circle-plus"></i> Simpan</button>
-        </div>
-      </form>
     </div>
   </div>
-</div>
-<!-- End of Create Modal -->
+</main>

@@ -1,25 +1,17 @@
-<div class="content-wrapper bg-gray-200">
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active"><?= $title; ?></li>
-                </ol>
-            </div>
-        </div>
+<main>
+    <div class="container-fluid px-3">
+        <h1 class="mt-2"><?= $title; ?></h1>
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="<?= base_url('admin/addAccount'); ?>">Beranda</a></li>
+            <li class="breadcrumb-item active"><?= $title; ?></li>
+        </ol>
+        <hr>
 
         <div class="row">
             <div class="col-lg">
                 <?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
                 <!-- <?= $this->session->flashdata('message'); ?> -->
-
-                <a href="" class="btn btn-outline-primary mb-3" data-toggle="modal" data-target="#newRoleModal"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Role Baru</a>
 
                 <table class="table table-hover">
                     <thead>
@@ -46,16 +38,13 @@
                     </tbody>
                 </table>
 
+                <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newRoleModal"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Role Baru</a>
+
 
             </div>
         </div>
-
     </div>
-    <!-- /.container-fluid -->
-</div>
-
-</div>
-<!-- End of Main Content -->
+</main>
 
 <!-- Modal -->
 <div class="modal fade" id="newRoleModal" tabindex="-1" aria-labelledby="newRoleModalLabel" aria-hidden="true">

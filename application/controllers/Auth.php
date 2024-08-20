@@ -13,7 +13,7 @@ class Auth extends CI_Controller
     public function index()
     {
         if ($this->session->userdata('email')) {
-            redirect('user');
+            redirect('dashboard');
         }
 
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
@@ -67,7 +67,7 @@ class Auth extends CI_Controller
                             setcookie('email', '');
                             setcookie('kata_sandi', '');
                         }
-                        redirect('admin');
+                        redirect('dashboard');
                     } elseif ($user['id_peran'] == 2) {
                         if ($this->input->post('save_id')) {
                             setcookie('email', $email, time() + 60 * 60 * 24 * 30);
@@ -76,7 +76,7 @@ class Auth extends CI_Controller
                             setcookie('email', '');
                             setcookie('kata_sandi', '');
                         }
-                        redirect('rekam_medis');
+                        redirect('dashboard');
                     } elseif ($user['id_peran'] == 3) {
                         if ($this->input->post('save_id')) {
                             setcookie('email', $email, time() + 60 * 60 * 24 * 30);
@@ -85,16 +85,7 @@ class Auth extends CI_Controller
                             setcookie('email', '');
                             setcookie('kata_sandi', '');
                         }
-                        redirect('pendaftaran');
-                    } elseif ($user['id_peran'] == 4) {
-                        if ($this->input->post('save_id')) {
-                            setcookie('email', $email, time() + 60 * 60 * 24 * 30);
-                            setcookie('kata_sandi', $password, time() + 60 * 60 * 24 * 30);
-                        } else {
-                            setcookie('email', '');
-                            setcookie('kata_sandi', '');
-                        }
-                        redirect('bidan/kebidanan');
+                        redirect('bidan');
                     } else {
                         if ($this->input->post('save_id')) {
                             setcookie('email', $email, time() + 60 * 60 * 24 * 30);
@@ -103,7 +94,7 @@ class Auth extends CI_Controller
                             setcookie('email', '');
                             setcookie('kata_sandi', '');
                         }
-                        redirect('perawat/tranfusi');
+                        redirect('bidan/kebidanan');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kata sandi salah!</div>');
