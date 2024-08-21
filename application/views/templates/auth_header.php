@@ -12,6 +12,7 @@
 
     <!-- style css -->
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/style-log.css" />
+    <link href="<?= base_url('assets/'); ?>css/styles.css" rel="stylesheet" />
 
     <!-- fontawesome kit -->
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>vendor/fontawesome/css/all.min.css" />

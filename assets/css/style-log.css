@@ -20,7 +20,7 @@ body {
 	filter: blur(10px);
 }
 
-.container {
+.container-log {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -33,7 +33,7 @@ body {
 	border-radius: 10px;
 }
 
-.container .content {
+.container-log .content {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -49,7 +49,7 @@ body {
 	text-align: center;
 }
 
-.container h2 {
+.container-log h2 {
 	font-size: 35px;
 	margin: 0px 0px 30px 0px;
 	line-height: 1.2;
@@ -63,7 +63,7 @@ body {
 	color: #2eb127;
 }
 
-.container .login-box {
+.container-log .login-box {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -173,7 +173,7 @@ body {
 	margin-right: 3px;
 }
 
-.btn {
+.btn-log {
 	width: 100%;
 	height: 50px;
 	border: none;
@@ -187,7 +187,7 @@ body {
 	font-weight: 500;
 }
 
-.btn:hover {
+.btn-log:hover {
 	background: #2eb127;
 	color: #020410;
 	font-weight: 600;
@@ -195,19 +195,19 @@ body {
 
 /* Media query untuk tablet */
 @media (max-width: 768px) {
-	.container {
+	.container-log {
 		width: 90%;
 		height: auto;
 		flex-direction: column;
 	}
 
-	.container .content,
-	.container .login-box {
+	.container-log .content,
+	.container-log .login-box {
 		width: 100%;
 		position: static;
 	}
 
-	.container .login-box {
+	.container-log .login-box {
 		margin-top: 20px;
 	}
 
@@ -223,11 +223,11 @@ body {
 
 /* Media query untuk ponsel */
 @media (max-width: 480px) {
-	.container {
+	.container-log {
 		padding: 20px;
 	}
 
-	.container h2 {
+	.container-log h2 {
 		font-size: 24px;
 	}
 
@@ -256,8 +256,4 @@ body {
 .required:after {
 	content: "*";
 	color: brown;
-}
-
-.text-warning {
-	color: rgba(255, 193, 7)
 }

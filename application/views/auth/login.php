@@ -1,5 +1,5 @@
 <div class="background"></div>
-<div class="container">
+<div class="container-log">
     <div class="content">
         <h2>Selamat Datang</h2>
 
@@ -13,9 +13,9 @@
     </div>
 
     <div class="login-box">
-        <?= $this->session->flashdata('mesaage'); ?>
+        <?= $this->session->flashdata('message'); ?>
         <div class="form-box">
-            <form class="user" method="post" action="<?= base_url('auth'); ?>">
+            <form method="post" action="<?= base_url('auth'); ?>">
                 <h2>Masuk</h2>
                 <h3>Masuk untuk memulai sesi Anda</h3>
 
@@ -31,9 +31,9 @@
                 </div>
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-key"></i></span>
-                    <input type="kata_sandi" id="kata_sandi" name="kata_sandi" value="<?php if (isset($_COOKIE["kata_sandi"])) {
-                                                                                            echo $_COOKIE["kata_sandi"];
-                                                                                        } ?>">
+                    <input type="password" id="kata_sandi" name="kata_sandi" value="<?php if (isset($_COOKIE["kata_sandi"])) {
+                                                                                        echo $_COOKIE["kata_sandi"];
+                                                                                    } ?>">
                     <?= form_error('kata_sandi', '<small class="text-warning pl-3">', '</small>'); ?>
                     <label class="required" for="kata_sandi">Masukan kata sandi</label>
                     <div class="eye-icon-container">
@@ -49,7 +49,7 @@
                                                                                                             } ?>>Ingatkan saya!</label>
                 </div>
 
-                <button type="submit" class="btn">
+                <button type="submit" class="btn-log">
                     <i class="fa-solid fa-right-to-bracket"></i> Masuk
                 </button>
             </form>

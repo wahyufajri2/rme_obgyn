@@ -1,20 +1,24 @@
 // Script untuk menampilkan password di halaman login
 document.addEventListener("DOMContentLoaded", function () {
-	const showPasswordButton = document.getElementById("show_password");
 	const icon = document.getElementById("icon");
-	const passwordInput = document.getElementById("password");
+	const passwordInput = document.getElementById("kata_sandi");
 
-	showPasswordButton.addEventListener("click", function () {
-		console.log("Icon clicked!");
-		icon.classList.toggle("fa-eye-slash");
-		icon.classList.toggle("fa-eye");
+	if (icon && passwordInput) {
+		icon.addEventListener("click", function () {
+			// Toggle ikon mata
+			this.classList.toggle("fa-eye-slash");
+			this.classList.toggle("fa-eye");
 
-		if (passwordInput.type === "password") {
-			passwordInput.type = "text";
-		} else {
-			passwordInput.type = "password";
-		}
-	});
+			// Toggle tipe input
+			if (passwordInput.type === "password") {
+				passwordInput.type = "text";
+			} else {
+				passwordInput.type = "password";
+			}
+		});
+	} else {
+		console.error("Elemen icon atau passwordInput tidak ditemukan!");
+	}
 });
 
 // Script untuk menampilkan password di halaman registrasi oleh admin
