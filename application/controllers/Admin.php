@@ -7,26 +7,48 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        $this->load->library('form_validation');
     }
 
-    public function addAccount()
+    public function tambahAkun()
     {
-        $this->form_validation->set_rules('nama', 'Name', 'required|trim');
+        $this->form_validation->set_rules(
+            'nama',
+            'Name',
+            'required|trim',
+            [
+                'required' => 'Nama diperlukan!',
+            ]
+        );
         $this->form_validation->set_rules(
             'email',
             'Email',
-            'required|trim|valid_email|is_unique[user.email]',
+            'required|trim|valid_email|is_unique[pengguna.email]',
             [
-                'is_unique' => 'Email ini sudah terdaftar!'
+                'is_unique' => 'Email ini sudah terdaftar!',
+                'valid_email' => 'Email tidak valid!',
+                'required' => 'Email diperlukan!',
             ]
         );
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
-            'matches' => 'Kata sandi tidak cocok!',
-            'min_length' => 'Kata sandi terlalu pendek!'
-        ]);
-        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]', [
-            'matches' => 'Kata sandi tidak cocok!',
-        ]);
+        $this->form_validation->set_rules(
+            'kata_sandi1',
+            'Password',
+            'required|trim|min_length[8]|matches[kata_sandi2]',
+            [
+                'matches' => 'Kata sandi tidak cocok!',
+                'min_length' => 'Kata sandi terlalu pendek!',
+                'required' => 'Kata sandi diperlukan!',
+            ]
+        );
+        $this->form_validation->set_rules(
+            'kata_sandi2',
+            'Password',
+            'required|trim|matches[kata_sandi1]',
+            [
+                'matches' => 'Kata sandi tidak cocok!',
+                'required' => 'Ulangi kata sandi wajib diisi!',
+            ]
+        );
 
         if ($this->form_validation->run() == FALSE) {
             $data['title'] = 'Tambah Akun';
@@ -36,22 +58,29 @@ class Admin extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('admin/addAccount', $data);
+            $this->load->view('admin/tambahAkun', $data);
             $this->load->view('templates/footer');
         } else {
             $data = [
                 'nama' => htmlspecialchars($this->input->post('nama', true)),
                 'email' => htmlspecialchars($this->input->post('email', true)),
                 'gambar' => 'default.jpg',
-                'kata_sandi' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                'kata_sandi' => password_hash($this->input->post('kata_sandi1'), PASSWORD_DEFAULT),
                 'id_peran' => 2,
                 'apakah_aktif' => 1,
                 'tgl_dibuat' => time()
             ];
 
-            $this->db->insert('pengguna', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun telah ditambahkan, harap beri tahu pengguna!</div>');
-            redirect('admin/index');
+            if ($this->db->insert('pengguna', $data)) {
+                // Redirect ke halaman kelola akun setelah berhasil
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun telah ditambahkan, harap beri tahu pengguna!</div>');
+                redirect('admin/kelolaAkun');
+            } else {
+                // Penanganan Error Database
+                $error = $this->db->error();
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal menambahkan akun. Error: ' . $error['message'] . '</div>');
+                redirect('admin/tambahAkun');
+            }
         }
     }
 
@@ -69,25 +98,25 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function roleAccess($role_id)
+    public function aksesAkun($role_id)
     {
-        $data['title'] = 'Ubah Akses Akun';
+        $data['title'] = 'Kelola Akun';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = $this->db->get('peran_pengguna')->result_array();
+        $data['satuRole'] = $this->db->get_where('peran_pengguna', ['id' => $role_id])->row_array();
 
-        $data['role'] = $this->db->get_where('peran_pengguna', ['id' => $role_id])->row_array();
-
-        //Show all menus
-        $this->db->where('id !=', 1);
+        //Tampilkan semua menu kecuali menu pengaturan
+        $this->db->where('id !=', 5);
         $data['menu'] = $this->db->get('menu_pengguna')->result_array();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/role-access', $data);
+        $this->load->view('admin/aksesAkun', $data);
         $this->load->view('templates/footer');
     }
 
-    public function changeAccess()
+    public function ubahAkses()
     {
         $menu_id = $this->input->post('menuId');
         $role_id = $this->input->post('roleId');
@@ -101,10 +130,10 @@ class Admin extends CI_Controller
         $result = $this->db->get_where('menu_akses_pengguna', $data);
 
         if ($result->num_rows() < 1) {
-            // Masukkan data
+            // Masukkan data kalau belum ada
             $this->db->insert('menu_akses_pengguna', $data);
         } else {
-            // Hapus data
+            // Hapus data jika sudah ada
             $this->db->delete('menu_akses_pengguna', $data);
         }
 
@@ -114,7 +143,7 @@ class Admin extends CI_Controller
 
     public function lihatPendaftaran() //Untuk menampilkan data pasien di menu pendaftaran
     {
-        $data['title'] = 'Pendaftaran Pasien*';
+        $data['title'] = 'Pendaftaran Pasien';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
 
@@ -132,7 +161,7 @@ class Admin extends CI_Controller
 
     public function lihatMasterPasien() //Untuk menampilkan data master pasien di menu Pendaftaran
     {
-        $data['title'] = 'Master Data Pasien*';
+        $data['title'] = 'Master Data Pasien';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
         // $this->load->model('Pendaftaran_model', 'dpd');
@@ -147,7 +176,7 @@ class Admin extends CI_Controller
 
     public function lihatRekamMedis()
     {
-        $data['title'] = 'Data Rekam Medis*';
+        $data['title'] = 'Data Rekam Medis';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
 
@@ -158,11 +187,11 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function menu()
+    public function kelolaMenu()
     {
-        $data['title'] = 'Menu Management';
+        $data['title'] = 'Kelola Menu';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
-
+        $data['role'] = $this->db->get('peran_pengguna')->result_array();
         $data['menu'] = $this->db->get('menu_pengguna')->result_array();
 
         $this->form_validation->set_rules('menu', 'Menu', 'required');
@@ -171,7 +200,7 @@ class Admin extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('admin/menu', $data);
+            $this->load->view('admin/kelolaMenu', $data);
             $this->load->view('templates/footer');
         } else {
             $this->db->insert('menu_pengguna', ['menu' => $this->input->post('menu')]);
@@ -180,10 +209,11 @@ class Admin extends CI_Controller
         }
     }
 
-    public function submenu()
+    public function kelolaSubmenu()
     {
-        $data['title'] = 'Submenu Management';
+        $data['title'] = 'Kelola Submenu';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = $this->db->get('peran_pengguna')->result_array();
         $this->load->model('Menu_model', 'menu');
 
         $data['subMenu'] = $this->menu->getSubMenu();
@@ -198,7 +228,7 @@ class Admin extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('admin/submenu', $data);
+            $this->load->view('admin/kelolaSubmenu', $data);
             $this->load->view('templates/footer');
         } else {
             $data = [

@@ -125,7 +125,7 @@ class Auth extends CI_Controller
                 'is_unique' => 'Email ini sudah terdaftar!'
             ]
         );
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
+        $this->form_validation->set_rules('kata_sandi1', 'Password', 'required|trim|min_length[8]|matches[password2]', [
             'matches' => 'Kata sandi tidak cocok!',
             'min_length' => 'Kata sandi terlalu pendek!'
         ]);

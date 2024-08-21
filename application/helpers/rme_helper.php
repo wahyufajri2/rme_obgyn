@@ -28,11 +28,16 @@ function check_access($role_id, $menu_id)
 {
     $ci = get_instance();
 
-    $ci->db->where('id_peran', $role_id);
-    $ci->db->where('id_menu', $menu_id);
-    $result = $ci->db->get('menu_akses_pengguna');
+    // Simpan hasil query ke dalam variabel result
+    $result = $ci->db->get_where('menu_akses_pengguna', [
+        'id_peran' => $role_id,
+        'id_menu' => $menu_id
+    ]);
 
+    // Periksa apakah ada baris yang ditemukan
     if ($result->num_rows() > 0) {
         return "checked='checked'";
+    } else {
+        return ""; // Mengembalikan string kosong jika tidak ada baris yang ditemukan
     }
 }

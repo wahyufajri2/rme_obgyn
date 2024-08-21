@@ -3880,12 +3880,12 @@ fieldset:disabled .btn {
 
 .nav-tabs {
 	--bs-nav-tabs-border-width: 1px;
-	--bs-nav-tabs-border-color: #dee2e6;
+	--bs-nav-tabs-border-color: #878787;
 	--bs-nav-tabs-border-radius: 0.375rem;
-	--bs-nav-tabs-link-hover-border-color: #e9ecef #e9ecef #dee2e600;
-	--bs-nav-tabs-link-active-color: #ffffff;
-	--bs-nav-tabs-link-active-bg: #121212;
-	--bs-nav-tabs-link-active-border-color: #dee2e6 #dee2e6 #ffffff00;
+	--bs-nav-tabs-link-hover-border-color: #878787 #878787 #dee2e600;
+	--bs-nav-tabs-link-active-color: #212529;
+	--bs-nav-tabs-link-active-bg: #d3d3d3;
+	--bs-nav-tabs-link-active-border-color: #878787 #878787 #ffffff00;
 	border-bottom: var(--bs-nav-tabs-border-width) solid
 		var(--bs-nav-tabs-border-color);
 }
@@ -3898,6 +3898,7 @@ fieldset:disabled .btn {
 }
 .nav-tabs .nav-link:hover,
 .nav-tabs .nav-link:focus {
+	font-weight: 500;
 	isolation: isolate;
 	border-color: var(--bs-nav-tabs-link-hover-border-color);
 }
@@ -11712,4 +11713,9 @@ body {
 	100% {
 		transform: translateX(-25%);
 	}
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+	display: none;
 }

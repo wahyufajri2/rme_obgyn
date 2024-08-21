@@ -16,7 +16,7 @@ class Bidan extends CI_Controller
 
     public function catatRekamMedis()
     {
-        $data['title'] = 'Data Rekam Medis!';
+        $data['title'] = 'Data Rekam Medis';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
         // $this->load->model('Bidan_model', 'bidan');
