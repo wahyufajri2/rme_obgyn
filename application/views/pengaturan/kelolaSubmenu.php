@@ -35,7 +35,7 @@
                                 <td><?= $sm['url']; ?></td>
                                 <td><?= $sm['ikon']; ?></td>
                                 <td class="text-center">
-                                    <span class="badge rounded-pill text-bg-<?= ($sm['apakah_aktif'] == 1) ? 'success' : 'secondary'; ?>"><?= ($sm['apakah_aktif'] == 1) ? 'Aktif' : 'Nonaktif'; ?></span>
+                                    <span class="badge rounded-pill text-bg-<?= ($sm['apakah_aktif'] == 1) ? 'warning' : 'secondary'; ?>"><?= ($sm['apakah_aktif'] == 1) ? 'Aktif' : 'Nonaktif'; ?></span>
                                 </td>
                                 <td class="text-center">
                                     <button type="button" class="btn btn-success btn-sm">
