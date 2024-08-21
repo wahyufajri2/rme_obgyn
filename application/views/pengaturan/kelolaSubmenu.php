@@ -22,25 +22,27 @@
                             <th scope="col">Menu</th>
                             <th scope="col">Url</th>
                             <th scope="col">Ikon</th>
-                            <th scope="col" class="text-center">Aktif</th>
+                            <th scope="col" class="text-center">Status</th>
                             <th scope="col" class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $i = 1; ?>
-                        <?php foreach ($subMenu as $sm) : ?>
+                        <?php foreach ($subMenu as $i => $sm) : ?>
                             <tr>
-                                <th scope="row" class="text-center"><?= $i; ?></th>
+                                <th scope="row" class="text-center"><?= $i + 1; ?></th>
                                 <td><?= $sm['judul']; ?></td>
                                 <td><?= $sm['menu']; ?></td>
                                 <td><?= $sm['url']; ?></td>
                                 <td><?= $sm['ikon']; ?></td>
-                                <td class="text-center"><?= $sm['apakah_aktif']; ?></td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-success btn-sm"><i class=" fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Edit</button>
+                                    <span class="badge rounded-pill text-bg-<?= ($sm['apakah_aktif'] == 1) ? 'success' : 'secondary'; ?>"><?= ($sm['apakah_aktif'] == 1) ? 'Aktif' : 'Nonaktif'; ?></span>
+                                </td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-success btn-sm">
+                                        <i class="fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Edit
+                                    </button>
                                 </td>
                             </tr>
-                            <?php $i++; ?>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
