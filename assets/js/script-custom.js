@@ -54,37 +54,4 @@ togglePasswordConfirm.addEventListener("click", function () {
 });
 
 // Script untuk checkbox di akses akun
-document.addEventListener("DOMContentLoaded", function () {
-	const checkboxes = document.querySelectorAll(".form-check-input");
 
-	checkboxes.forEach((checkbox) => {
-		checkbox.addEventListener("click", function () {
-			const menuId = this.dataset.menu;
-			const roleId = this.dataset.role;
-
-			fetch("<?= base_url('admin/ubahAkses'); ?>", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded",
-				},
-				body: new URLSearchParams({
-					menuId: menuId,
-					roleId: roleId,
-				}),
-			})
-				.then((response) => {
-					if (response.ok) {
-						window.location.href =
-							"<?= base_url('admin/aksesAkun/'); ?>" + roleId;
-					} else {
-						// Tangani jika ada error dari server (misalnya, tampilkan pesan error)
-						console.error("Error:", response.status);
-					}
-				})
-				.catch((error) => {
-					// Tangani jika ada error jaringan
-					console.error("Error:", error);
-				});
-		});
-	});
-});

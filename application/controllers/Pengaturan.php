@@ -86,7 +86,7 @@ class Pengaturan extends CI_Controller
 
     public function kelolaAkun()
     {
-        $data['title'] = 'Kelola Akun';
+        $data['title'] = 'Kelola Peran Akun';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
@@ -100,7 +100,7 @@ class Pengaturan extends CI_Controller
 
     public function aksesAkun($role_id)
     {
-        $data['title'] = 'Kelola Akun';
+        $data['title'] = 'Kelola Peran Akun';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
         $data['satuRole'] = $this->db->get_where('peran_pengguna', ['id' => $role_id])->row_array();
@@ -118,27 +118,23 @@ class Pengaturan extends CI_Controller
 
     public function ubahAkses()
     {
-        $menu_id = $this->input->post('menuId');
-        $role_id = $this->input->post('roleId');
+        $menuId = $this->input->post('menuId');
+        $roleId = $this->input->post('roleId');
 
         $data = [
-            'id_peran' => $role_id,
-            'id_menu' => $menu_id
+            'id_peran' => $roleId,
+            'id_menu' => $menuId
         ];
 
-        // Periksa apakah datanya sudah ada
         $result = $this->db->get_where('menu_akses_pengguna', $data);
 
         if ($result->num_rows() < 1) {
-            // Masukkan data kalau belum ada
             $this->db->insert('menu_akses_pengguna', $data);
         } else {
-            // Hapus data jika sudah ada
             $this->db->delete('menu_akses_pengguna', $data);
         }
 
-        // Buat flashdata
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akses berhasil diberubah!</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akses telah diubah!</div>');
     }
 
     public function kelolaMenu()

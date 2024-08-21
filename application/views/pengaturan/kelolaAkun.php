@@ -2,7 +2,7 @@
     <div class="container-fluid px-3">
         <h1 class="mt-2"><?= $title; ?></h1>
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="<?= base_url('admin/addAccount'); ?>">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('pengaturan/addAccount'); ?>">Beranda</a></li>
             <li class="breadcrumb-item active"><?= $title; ?></li>
         </ol>
         <hr>
@@ -17,8 +17,8 @@
                     <thead>
                         <tr class="table-active">
                             <th scope="col" class="text-center">No</th>
-                            <th scope="col">Role</th>
-                            <th scope="col" class="text-center">Action</th>
+                            <th scope="col">Peran</th>
+                            <th scope="col" class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,7 +28,7 @@
                                 <th scope="row" class="text-center"><?= $i; ?></th>
                                 <td><?= $r['peran']; ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('admin/aksesAkun/') . $r['id']; ?>" class="btn btn-warning btn-sm"><i class="fas fa-solid fa-arrows-turn-to-dots fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Akses</a>
+                                    <a href="<?= base_url('pengaturan/aksesAkun/') . $r['id']; ?>" class="btn btn-warning btn-sm"><i class="fas fa-solid fa-arrows-turn-to-dots fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Akses</a>
                                     <a class="btn btn-success btn-sm"><i class=" fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Edit</a>
                                     <a class="btn btn-danger btn-sm"><i class=" fas fa-solid fa-trash-can fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Hapus</a>
                                 </td>
@@ -53,7 +53,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('admin/kelolaAkun'); ?>" method="post">
+            <form action="<?= base_url('pengaturan/kelolaAkun'); ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
                         <input type="text" class="form-control" id="peran" name='peran' placeholder="Nama peran">

@@ -37,7 +37,5 @@ function check_access($role_id, $menu_id)
     // Periksa apakah ada baris yang ditemukan
     if ($result->num_rows() > 0) {
         return "checked='checked'";
-    } else {
-        return ""; // Mengembalikan string kosong jika tidak ada baris yang ditemukan
     }
 }
