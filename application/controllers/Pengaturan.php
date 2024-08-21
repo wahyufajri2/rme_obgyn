@@ -148,7 +148,14 @@ class Pengaturan extends CI_Controller
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
         $data['menu'] = $this->db->get('menu_pengguna')->result_array();
 
-        $this->form_validation->set_rules('menu', 'Menu', 'required');
+        $this->form_validation->set_rules(
+            'menu',
+            'Menu',
+            'required',
+            [
+                'required' => 'Nama menu diperlukan!'
+            ]
+        );
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('templates/header', $data);
@@ -161,6 +168,46 @@ class Pengaturan extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Menu baru berhasil ditambahkan!</div>');
             redirect('pengaturan/kelolaMenu');
         }
+    }
+
+    public function ubahMenu($id)
+    {
+        // Ambil data menu berdasarkan ID
+        $data['menu'] = $this->db->get_where('menu_pengguna', ['id' => $id])->row_array();
+
+        // Validasi form
+        $this->form_validation->set_rules('menu', 'Menu', 'required', [
+            'required' => 'Nama menu diperlukan!'
+        ]);
+
+        if ($this->form_validation->run() == FALSE) {
+            // Jika validasi gagal, tampilkan form ubah menu dengan data yang sudah ada
+            $data['title'] = 'Ubah Menu';
+            $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pengaturan/ubahMenu', $data); // View untuk form ubah menu
+            $this->load->view('templates/footer');
+        } else {
+            // Jika validasi berhasil, update data menu di database
+            $this->db->where('id', $id);
+            $this->db->update('menu_pengguna', ['menu' => $this->input->post('menu')]);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Menu berhasil diubah!</div>');
+            redirect('pengaturan/kelolaMenu');
+        }
+    }
+
+    public function hapusMenu($id)
+    {
+        // Hapus menu dari database berdasarkan ID
+        $this->db->where('id', $id);
+        $this->db->delete('menu_pengguna');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Menu berhasil dihapus!</div>');
+        redirect('pengaturan/kelolaMenu');
     }
 
     public function kelolaSubmenu()

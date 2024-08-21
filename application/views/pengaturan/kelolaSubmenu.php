@@ -2,7 +2,7 @@
     <div class="container-fluid px-3">
         <h1 class="mt-2"><?= $title; ?></h1>
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="<?= base_url('admin/tambahAkun'); ?>">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('pengaturan/kelolaSubmenu'); ?>">Beranda</a></li>
             <li class="breadcrumb-item active"><?= $title; ?></li>
         </ol>
         <hr>
@@ -62,7 +62,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url('menu/submenu'); ?>" method="post">
+            <form action="<?= base_url('pengaturan/kelolaSubmenu'); ?>" method="post">
                 <div class="modal-body bg-gray-500">
                     <div class="form-group">
                         <input type="text" class="form-control" id="judul" name='judul' placeholder="Judul submenu">
