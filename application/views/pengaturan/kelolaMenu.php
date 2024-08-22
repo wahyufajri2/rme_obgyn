@@ -83,7 +83,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="<?= base_url('pengaturan/ubahMenu/') . $m['id']; ?>" method="post">
-                    <div class="modal-body bg-gray-500">
+                    <div class="modal-body">
                         <div class="form-group">
                             <input type="hidden" name="menu_id" value="<?= $m['id']; ?>">
                             <input type="text" class="form-control" id="namaMenu_<?= $m['id']; ?>" name='menu' placeholder="Nama menu" value="<?= $m['menu']; ?>">
@@ -111,10 +111,10 @@
                     <h1 class="modal-title fs-5" id="hapusMenuModalLabel_<?= $m['id']; ?>">Konfirmasi Hapus Menu</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body bg-gray-500">
+                <div class="modal-body">
                     Apakah Anda yakin ingin menghapus menu <strong><?= $m['menu']; ?></strong>?
                 </div>
-                <div class="modal-footer justify-content-between bg-gray-600">
+                <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Batal</button>
                     <form action="<?= base_url('pengaturan/hapusMenu/' . $m['id']); ?>" method="post">
                         <input type="hidden" name="menu_id" id="menuIdToDelete">

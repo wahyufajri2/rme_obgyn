@@ -88,14 +88,36 @@ class Pengaturan extends CI_Controller
     {
         $data['title'] = 'Kelola Peran Akun';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
-
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('pengaturan/kelolaAkun', $data);
-        $this->load->view('templates/footer');
+        // Tambahkan validasi untuk input 'peran' (nama peran baru)
+        $this->form_validation->set_rules(
+            'peran',
+            'Peran',
+            'required|trim',
+            [
+                'required' => 'Nama peran diperlukan!'
+            ]
+        );
+
+        if ($this->form_validation->run() == false) {
+            // Jika validasi gagal atau tidak ada data POST, tampilkan view seperti biasa
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pengaturan/kelolaAkun', $data);
+            $this->load->view('templates/footer');
+        } else {
+            // Jika validasi berhasil dan ada data POST, simpan peran baru ke database
+            $data = [
+                'peran' => $this->input->post('peran')
+            ];
+            $this->db->insert('peran_pengguna', $data);
+
+            // Set flashdata dan redirect
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Peran baru berhasil ditambahkan!</div>');
+            redirect('pengaturan/kelolaAkun'); // Atau redirect ke halaman yang sama
+        }
     }
 
     public function aksesAkun($role_id)
@@ -165,6 +187,16 @@ class Pengaturan extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Peran berhasil diubah!</div>');
             redirect('pengaturan/kelolaAkun');
         }
+    }
+
+    public function hapusPeran($role_id)
+    {
+        // Hapus peran dari database berdasarkan ID
+        $this->db->where('id', $role_id);
+        $this->db->delete('peran_pengguna');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Nama peran berhasil dihapus!</div>');
+        redirect('pengaturan/kelolaAkun');
     }
 
 
