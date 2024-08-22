@@ -202,6 +202,7 @@ class Pengaturan extends CI_Controller
 
 
     // Fungsi untuk mengelola menu
+
     public function kelolaMenu()
     {
         $data['title'] = 'Kelola Menu';
@@ -271,6 +272,9 @@ class Pengaturan extends CI_Controller
         redirect('pengaturan/kelolaMenu');
     }
 
+
+    // Fungsi untuk mengelola submenu
+
     public function kelolaSubmenu()
     {
         $data['title'] = 'Kelola Submenu';
@@ -284,10 +288,38 @@ class Pengaturan extends CI_Controller
         });
         $data['menu'] = $this->db->get('menu_pengguna')->result_array();
 
-        $this->form_validation->set_rules('judul', 'Judul', 'required');
-        $this->form_validation->set_rules('id_menu', 'Menu', 'required');
-        $this->form_validation->set_rules('url', 'URL', 'required');
-        $this->form_validation->set_rules('ikon', 'Ikon', 'required');
+        $this->form_validation->set_rules(
+            'judul',
+            'Judul',
+            'required',
+            [
+                'required' => 'Judul submenu diperlukan!'
+            ]
+        );
+        $this->form_validation->set_rules(
+            'id_menu',
+            'Menu',
+            'required',
+            [
+                'required' => 'Menu diperlukan!'
+            ]
+        );
+        $this->form_validation->set_rules(
+            'url',
+            'URL',
+            'required',
+            [
+                'required' => 'URL diperlukan!'
+            ]
+        );
+        $this->form_validation->set_rules(
+            'ikon',
+            'Ikon',
+            'required',
+            [
+                'required' => 'Ikon diperlukan!'
+            ]
+        );
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('templates/header', $data);

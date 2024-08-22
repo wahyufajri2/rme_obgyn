@@ -46,51 +46,58 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#newSubMenuModal"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Submenu Baru</a>
+                <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newSubMenuModal"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Submenu Baru</a>
             </div>
         </div>
     </div>
 </main>
 
 <!-- Modal -->
-<div class="modal fade" id="newSubMenuModal" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
+<div class="modal fade" id="newSubMenuModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="newSubMenuModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-gradient-secondary">
                 <h5 class="modal-title" id="newSubMenuModalLabel">Tambah Submenu Baru</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('pengaturan/kelolaSubmenu'); ?>" method="post">
-                <div class="modal-body bg-gray-500">
-                    <div class="form-group">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="judul" class="form-label">Judul submenu</label>
                         <input type="text" class="form-control" id="judul" name='judul' placeholder="Judul submenu">
                     </div>
-                    <div class="form-group">
-                        <select name="id_menu" id="id_menu" class="form_control">
-                            <option value="">Select Menu</option>
-                            <?php foreach ($menu as $m) : ?>
-                                <option value="<?= $m['id']; ?>"><?= $m['menu']; ?></option>
-                            <?php endforeach; ?>
+                    <div class="mb-3">
+                        <label for="id_menu" class="form-label">Pilih Menu</label>
+                        <select name="id_menu" id="id_menu" class="form-select">
+                            <option value="">Pilih Menu</option>
+                            <?php
+                            $allowedMenus = ['Admin', 'Pendaftaran', 'Bidan', 'Dokter', 'Pengaturan']; // Daftar menu yang diizinkan
+                            foreach ($menu as $m) :
+                                if (in_array($m['menu'], $allowedMenus)) : // Hanya tampilkan jika menu ada dalam daftar
+                            ?>
+                                    <option value="<?= $m['id']; ?>"><?= $m['menu']; ?></option>
+                            <?php
+                                endif;
+                            endforeach;
+                            ?>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3">
+                        <label for="url" class="form-label">Url submenu</label>
                         <input type="text" class="form-control" id="url" name='url' placeholder="Url submenu">
                     </div>
-                    <div class="form-group">
+                    <div class="mb-3">
+                        <label for="ikon" class="form-label">Ikon submenu</label>
                         <input type="text" class="form-control" id="ikon" name='ikon' placeholder="Ikon submenu">
                     </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" value="1" name='apakah_aktif' id="apakah_aktif" checked>
-                            <label for="apakah_aktif" class="form-check-label">Aktif?</label>
-                        </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" value="1" name='apakah_aktif' id="apakah_aktif" checked>
+                        <label for="apakah_aktif" class="form-check-label">Aktif?</label>
                     </div>
                 </div>
-                <div class="modal-footer justify-content-between bg-gray-600">
+                <div class="modal-footer justify-content-between">
                     <div>
-                        <button type="button" class="btn btn-dark" data-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
                         <button type="reset" class="btn btn-warning"><i class="fas fa-solid fa-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Atur ulang</button>
                     </div>
                     <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-circle-plus"></i> Tambah</button>

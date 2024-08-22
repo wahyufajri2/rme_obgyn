@@ -9,7 +9,11 @@
 
         <div class="row">
             <div class="col-lg">
-                <?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
+                <?php if (validation_errors()) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= validation_errors(); ?>
+                    </div>
+                <?php endif; ?>
 
                 <?= $this->session->flashdata('message'); ?>
 
