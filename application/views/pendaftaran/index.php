@@ -8,7 +8,8 @@
         <hr>
         <div class="card mb-4">
             <div class="card-header">
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-between">
+                    <p class="fw-semibold">*Jika NIK belum ada, <strong><a href="<?= base_url('pendaftaran'); ?>">daftarkan pasein!</a></strong>. Jika sudah ada, <strong><a href="<?= base_url('pendaftaran/masterPasien'); ?>">daftarkan periksa!</a></strong></p>
                     <button type="button" class="btn btn-primary">
                         <i class="fa-solid fa-person-circle-plus"></i> Daftarkan pasien
                     </button>

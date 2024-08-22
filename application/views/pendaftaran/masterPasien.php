@@ -8,11 +8,7 @@
     <hr>
     <div class="card mb-4">
       <div class="card-header">
-        <div class="d-flex justify-content-end">
-          <button type="button" class="btn btn-primary">
-            <i class="fa-solid fa-person-circle-plus"></i> Daftarkan pasien
-          </button>
-        </div>
+        <p class="fw-semibold">*Jika NIK sudah ada, daftarkan periksa. Jika belum ada, daftarkan NIK di menu <strong><a href="<?= base_url('pendaftaran'); ?>">Pendaftaran Pasien</a></strong></p>
       </div>
       <div class="card-body">
         <table class="text-center" id="datatablesSimple">
