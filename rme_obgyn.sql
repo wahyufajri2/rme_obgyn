@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 22 Agu 2024 pada 00.13
+-- Waktu pembuatan: 22 Agu 2024 pada 02.40
 -- Versi server: 8.0.30
 -- Versi PHP: 8.2.10
 
@@ -289,7 +289,7 @@ ALTER TABLE `menu_akses_pengguna`
 -- AUTO_INCREMENT untuk tabel `menu_pengguna`
 --
 ALTER TABLE `menu_pengguna`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `pasien`
@@ -313,13 +313,13 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT untuk tabel `peran_pengguna`
 --
 ALTER TABLE `peran_pengguna`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `submenu_pengguna`
 --
 ALTER TABLE `submenu_pengguna`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
