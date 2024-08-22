@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 19 Agu 2024 pada 07.51
+-- Waktu pembuatan: 22 Agu 2024 pada 00.13
 -- Versi server: 8.0.30
 -- Versi PHP: 8.2.10
 
@@ -54,9 +54,11 @@ INSERT INTO `menu_akses_pengguna` (`id`, `id_peran`, `id_menu`) VALUES
 (1, 1, 1),
 (2, 1, 2),
 (3, 2, 2),
-(6, 2, 3),
-(8, 1, 3),
-(9, 1, 4);
+(9, 1, 4),
+(10, 1, 5),
+(13, 3, 3),
+(14, 4, 4),
+(15, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -77,7 +79,8 @@ INSERT INTO `menu_pengguna` (`id`, `menu`) VALUES
 (1, 'Admin'),
 (2, 'Pendaftaran'),
 (3, 'Bidan'),
-(4, 'Dokter');
+(4, 'Dokter'),
+(5, 'Pengaturan');
 
 -- --------------------------------------------------------
 
@@ -151,8 +154,7 @@ CREATE TABLE `pengguna` (
 INSERT INTO `pengguna` (`id`, `nama`, `email`, `gambar`, `kata_sandi`, `id_peran`, `apakah_aktif`, `tgl_dibuat`) VALUES
 (2, 'Wahyu Fajri', 'whybaik2@gmail.com', 'default.jpg', '$2y$10$AmIMfLNANbKBNwp4LS4yXu83HDDr.C2YQ2ntSGcXx/udsh8QPq9am', 1, 1, 0),
 (4, 'Al-Fajri', 'wahyufjr02@gmail.com', 'default.jpg', '$2y$10$52pQ13GxgQ/8x9Z2GrwbdOtkoqIFyYYV.6VVjxEab8u5xmYxek.9K', 2, 1, 0),
-(5, 'Dummy', 'dummy@gmail.com', 'default.jpg', '$2y$10$xV423yz04uUlgladULuyf.PRI9pImM24VDJG2k/ae3yweEXA2VPse', 2, 1, 0),
-(6, 'ikhsanfahri', 'ikhsanfahri112@gmail.com', 'default.jpg', '$2y$10$aPm4X6CcY7jrB/4B5n6WoeHG/j8zJv7BHVRCg92L4fShBgdMT4WTa', 1, 1, 0);
+(7, 'Muhammad', 'muhammad@gmail.com', 'default.jpg', '$2y$10$Nva.QHfx8PVUOzaj4XdMlOfDBQaNg9gOlK84YpHZU8nBnrKUn1Ryy', 3, 1, 1724212062);
 
 -- --------------------------------------------------------
 
@@ -171,8 +173,8 @@ CREATE TABLE `peran_pengguna` (
 
 INSERT INTO `peran_pengguna` (`id`, `peran`) VALUES
 (1, 'Admin'),
-(2, 'Bidan'),
-(3, 'Petugas Pendaftaran'),
+(2, 'Pendaftaran'),
+(3, 'Bidan'),
 (4, 'Dokter');
 
 -- --------------------------------------------------------
@@ -195,15 +197,17 @@ CREATE TABLE `submenu_pengguna` (
 --
 
 INSERT INTO `submenu_pengguna` (`id`, `id_menu`, `judul`, `url`, `ikon`, `apakah_aktif`) VALUES
-(2, 2, 'Data Pendaftaran', 'pendaftaran', 'fas fa-fw fa-solid fa-folder', 1),
+(2, 2, 'Pendaftaran Pasien', 'pendaftaran', 'fas fa-fw fa-solid fa-folder', 1),
 (3, 2, 'Master Data Pasien', 'pendaftaran/masterPasien', 'fas fa-fw fa-solid fa-database', 1),
-(4, 3, 'Data Rekam Medis', 'bidan/rekamMedis', 'fas fa-fw fa-solid fa-table-cells-row-lock', 1),
-(6, 1, 'Tambah Akun', 'admin/addAccount', 'fas fa-fw fa-solid fa-user-plus', 1),
-(7, 1, 'Kelola Akun', 'admin/role', 'fas fa-fw fa-solid fa-user-gear', 1),
-(8, 1, 'Data Pendaftaran', 'admin/pendaftaran', 'fas fa-fw fa-solid fa-folder', 1),
-(9, 1, 'Master Data Pasien', 'admin/masterData', 'fas fa-fw fa-solid fa-database', 1),
-(10, 1, 'Data Rekam Medis', 'admin/rekamMedis', 'fas fa-fw fa-solid fa-table-cells-row-lock', 1),
-(11, 4, 'Data Rekam Medis', 'dokter/rekamMedis', 'fas fa-fw fa-solid fa-table-cells-row-lock', 1);
+(4, 3, 'Data Rekam Medis', 'bidan/catatRekamMedis', 'fas fa-fw fa-solid fa-table-cells-row-lock', 1),
+(7, 5, 'Tambah Akun', 'pengaturan/tambahAkun', 'fas fa-fw fa-solid fa-user-plus', 1),
+(8, 1, 'Pendaftaran Pasien', 'admin/lihatPendaftaran', 'fas fa-fw fa-solid fa-folder', 1),
+(9, 1, 'Master Data Pasien', 'admin/lihatMasterPasien', 'fas fa-fw fa-solid fa-database', 1),
+(10, 1, 'Data Rekam Medis', 'admin/lihatRekamMedis', 'fas fa-fw fa-solid fa-table-cells-row-lock', 1),
+(11, 4, 'Data Rekam Medis', 'dokter/lihatRekamMedis', 'fas fa-fw fa-solid fa-table-cells-row-lock', 1),
+(12, 5, 'Kelola Peran Akun', 'pengaturan/kelolaAkun', 'fas fa-fw fa-solid fa-user-gear', 1),
+(13, 5, 'Kelola Menu', 'pengaturan/kelolaMenu', 'fas fa-fw fa-solid fa-list-check', 1),
+(14, 5, 'Kelola Submenu', 'pengaturan/kelolaSubmenu', 'fas fa-fw fa-solid fa-sliders', 1);
 
 --
 -- Indexes for dumped tables
@@ -279,13 +283,13 @@ ALTER TABLE `inti_rekam_medis`
 -- AUTO_INCREMENT untuk tabel `menu_akses_pengguna`
 --
 ALTER TABLE `menu_akses_pengguna`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `menu_pengguna`
 --
 ALTER TABLE `menu_pengguna`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `pasien`
@@ -303,7 +307,7 @@ ALTER TABLE `pendaftaran`
 -- AUTO_INCREMENT untuk tabel `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `peran_pengguna`
@@ -315,7 +319,7 @@ ALTER TABLE `peran_pengguna`
 -- AUTO_INCREMENT untuk tabel `submenu_pengguna`
 --
 ALTER TABLE `submenu_pengguna`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
