@@ -340,4 +340,65 @@ class Pengaturan extends CI_Controller
             redirect('pengaturan/kelolaSubmenu');
         }
     }
+
+    public function ubahSubmenu($id)
+    {
+        // 1. Ambil data dari permintaan POST
+        $submenuId = $this->input->post('menu_id');
+        $newJudul = $this->input->post('judul');
+        $newMenuId = $this->input->post('id_menu');
+        $newUrl = $this->input->post('url');
+        $newIkon = $this->input->post('ikon');
+        $newApakahAktif = $this->input->post('apakah_aktif') ? 1 : 0;
+
+        // 2. Validasi form
+        $this->form_validation->set_rules('judul', 'Judul', 'required', [
+            'required' => 'Judul submenu diperlukan!'
+        ]);
+        $this->form_validation->set_rules('id_menu', 'Menu', 'required', [
+            'required' => 'Menu diperlukan!'
+        ]);
+        $this->form_validation->set_rules('url', 'URL', 'required', [
+            'required' => 'URL diperlukan!'
+        ]);
+        $this->form_validation->set_rules('ikon', 'Ikon', 'required', [
+            'required' => 'Ikon diperlukan!'
+        ]);
+
+        if ($this->form_validation->run() == FALSE) {
+            // 3. Jika validasi gagal, kirim respons error (Anda bisa menggunakan AJAX di sini jika diperlukan)
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . validation_errors() . '</div>');
+            redirect('pengaturan/kelolaSubmenu');
+        } else {
+            // 4. Jika validasi berhasil, update data submenu di database
+            $data_to_update = [
+                'judul'       => $newJudul,
+                'id_menu'     => $newMenuId,
+                'url'         => $newUrl,
+                'ikon'        => $newIkon,
+                'apakah_aktif' => $newApakahAktif
+            ];
+
+            $this->db->where('id', $id); // Pastikan Anda menggunakan $submenuId di sini, bukan $id
+            $updateResult = $this->db->update('submenu_pengguna', $data_to_update);
+
+            // 5. Berikan respons (redirect)
+            if ($updateResult) {
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Submenu berhasil diubah!</div>');
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal mengubah submenu.</div>');
+            }
+            redirect('pengaturan/kelolaSubmenu');
+        }
+    }
+
+    public function hapusSubmenu($id)
+    {
+        // Hapus submenu dari database berdasarkan ID
+        $this->db->where('id', $id);
+        $this->db->delete('submenu_pengguna');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Submenu berhasil dihapus!</div>');
+        redirect('pengaturan/kelolaSubmenu');
+    }
 }
