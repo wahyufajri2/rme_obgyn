@@ -52,6 +52,3 @@ togglePasswordConfirm.addEventListener("click", function () {
 	this.classList.toggle("fa-eye");
 	this.classList.toggle("fa-eye-slash");
 });
-
-// Script untuk checkbox di akses akun
-

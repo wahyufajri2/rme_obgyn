@@ -62,7 +62,8 @@
                 roleId: roleId,
             },
             success: function() {
-                document.location.href = "<?= base_url('pengaturan/aksesAkun/'); ?>" + roleId;
+                document.location.href =
+                    "<?= base_url('pengaturan/aksesAkun/'); ?>" + roleId;
             },
         });
     });

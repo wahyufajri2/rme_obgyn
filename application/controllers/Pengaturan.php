@@ -137,6 +137,39 @@ class Pengaturan extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akses telah diubah!</div>');
     }
 
+    public function ubahPeran($role_id)
+    {
+        // Ambil data peran berdasarkan ID
+        $data['role'] = $this->db->get_where('peran_pengguna', ['id' => $role_id])->row_array();
+
+        // Validasi form
+        $this->form_validation->set_rules('peran', 'Peran', 'required', [
+            'required' => 'Nama peran diperlukan!'
+        ]);
+
+        if ($this->form_validation->run() == FALSE) {
+            // Jika validasi gagal, tampilkan form ubah peran dengan data yang sudah ada
+            $data['title'] = 'Kelola Peran Akun';
+            $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pengaturan/kelolaAkun', $data); // View untuk form ubah peran
+            $this->load->view('templates/footer');
+        } else {
+            // Jika validasi berhasil, update data menu di database
+            $this->db->where('id', $role_id);
+            $this->db->update('peran_pengguna', ['peran' => $this->input->post('peran')]);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Peran berhasil diubah!</div>');
+            redirect('pengaturan/kelolaAkun');
+        }
+    }
+
+
+
+    // Fungsi untuk mengelola menu
     public function kelolaMenu()
     {
         $data['title'] = 'Kelola Menu';
@@ -178,13 +211,13 @@ class Pengaturan extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
             // Jika validasi gagal, tampilkan form ubah menu dengan data yang sudah ada
-            $data['title'] = 'Ubah Menu';
+            $data['title'] = 'Kelola Menu';
             $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('pengaturan/ubahMenu', $data); // View untuk form ubah menu
+            $this->load->view('pengaturan/kelolaMenu', $data); // View untuk form ubah menu
             $this->load->view('templates/footer');
         } else {
             // Jika validasi berhasil, update data menu di database
