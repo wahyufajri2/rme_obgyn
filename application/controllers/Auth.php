@@ -85,7 +85,7 @@ class Auth extends CI_Controller
                             setcookie('email', '');
                             setcookie('kata_sandi', '');
                         }
-                        redirect('bidan');
+                        redirect('dashboard');
                     } else {
                         if ($this->input->post('save_id')) {
                             setcookie('email', $email, time() + 60 * 60 * 24 * 30);
@@ -94,7 +94,7 @@ class Auth extends CI_Controller
                             setcookie('email', '');
                             setcookie('kata_sandi', '');
                         }
-                        redirect('bidan/kebidanan');
+                        redirect('dashboard');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kata sandi salah!</div>');

@@ -17,7 +17,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-900 small"><?= $user['nama']; ?> </span>
-                <img width="20px" src="<?= base_url('assets/img/profile/') . $user['gambar']; ?>">
+                <img width="20px" src="<?= base_url('assets/img/profile/') . $user['gambar']; ?>" style="border-radius: 50%;">
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="<?= base_url('dashboard'); ?>">Dashboard</a></li>

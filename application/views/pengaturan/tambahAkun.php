@@ -8,13 +8,13 @@
         <hr>
         <div class="card mb-4">
             <div class="card-body">
-                <?php if (validation_errors()) : ?>
+                <!-- <?php if (validation_errors()) : ?>
                     <div class="alert alert-danger" role="alert">
                         <?= validation_errors(); ?>
                     </div>
-                <?php endif; ?>
+                <?php endif; ?> -->
                 <?= $this->session->flashdata('message'); ?>
-                <form method="post" action="<?= base_url('admin/tambahAkun'); ?>">
+                <form method="post" action="<?= base_url('pengaturan/tambahAkun'); ?>">
                     <div class="row mb-3">
                         <div class="col-md">
                             <div class="form-floating mb-3 mb-md-0">
@@ -24,14 +24,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input class="form-control" inputmode="email" id="email" name="email" type="email" placeholder="Alamat Email" value="<?= set_value('email'); ?>" />
-                        <label for="email">Alamat Email</label>
-                        <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" inputmode="email" id="email" name="email" type="email" placeholder="Alamat Email" value="<?= set_value('email'); ?>" />
+                            <label for="email">Alamat Email</label>
+                            <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="id_peran" name="id_peran">
+                                <option value="">Pilih salah satu peran</option>
+                                <?php foreach ($role as $r) : ?>
+                                    <option value="<?= $r['id']; ?>"><?= $r['peran']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <label for="id_peran">Pilih peran</label>
+                            <?= form_error('id_peran', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
                     </div>
                     <div class="row mb-3">
+                        <p class="mb-0">*Harus mengandung huruf besar, huruf kecil, angka, dan simbol (Kata%$^%Sandi1234)</p>
                         <div class="col-md-6">
-                            <div class="form-floating position-relative">
+                            <div class="form-floating mb-3 mb-md-0">
                                 <input class="form-control" id="kata_sandi1" name="kata_sandi1" type="password" placeholder="Masukan Kata Sandi" />
                                 <label for="kata_sandi1">Masukan Kata Sandi</label>
                                 <i class="fa-solid fa-eye position-absolute top-50 end-0 translate-middle-y me-3" id="togglePassword" style="display: none; cursor: pointer;"></i>
@@ -39,7 +54,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-floating position-relative">
+                            <div class="form-floating mb-3 mb-md-0">
                                 <input class="form-control" id="kata_sandi2" name="kata_sandi2" type="password" placeholder="Ulangi Kata Sandi" />
                                 <label for="kata_sandi2">Ulangi Kata Sandi</label>
                                 <i class="fa-solid fa-eye position-absolute top-50 end-0 translate-middle-y me-3" id="togglePasswordConfirm" style="display: none; cursor: pointer;"></i>

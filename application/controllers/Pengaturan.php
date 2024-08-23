@@ -31,12 +31,19 @@ class Pengaturan extends CI_Controller
             ]
         );
         $this->form_validation->set_rules(
+            'id_peran',
+            'Role',
+            'required',
+            [
+                'required' => 'Peran harus dipilih!'
+            ]
+        );
+        $this->form_validation->set_rules(
             'kata_sandi1',
             'Password',
-            'required|trim|min_length[8]|matches[kata_sandi2]',
+            'required|trim|min_length[12]|callback_password_check', // Minimal 12 karakter dan callback function
             [
-                'matches' => 'Kata sandi tidak cocok!',
-                'min_length' => 'Kata sandi terlalu pendek!',
+                'min_length' => 'Kata sandi terlalu pendek!, min-12 karakter',
                 'required' => 'Kata sandi diperlukan!',
             ]
         );
@@ -66,7 +73,7 @@ class Pengaturan extends CI_Controller
                 'email' => htmlspecialchars($this->input->post('email', true)),
                 'gambar' => 'default.jpg',
                 'kata_sandi' => password_hash($this->input->post('kata_sandi1'), PASSWORD_DEFAULT),
-                'id_peran' => 2,
+                'id_peran' => htmlspecialchars($this->input->post('id_peran')),
                 'apakah_aktif' => 1,
                 'tgl_dibuat' => time()
             ];
@@ -74,7 +81,7 @@ class Pengaturan extends CI_Controller
             if ($this->db->insert('pengguna', $data)) {
                 // Redirect ke halaman kelola akun setelah berhasil
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun telah ditambahkan, harap beri tahu pengguna!</div>');
-                redirect('pengaturan/kelolaAkun');
+                redirect('pengaturan/tambahAkun');
             } else {
                 // Penanganan Error Database
                 $error = $this->db->error();
@@ -82,6 +89,19 @@ class Pengaturan extends CI_Controller
                 redirect('pengaturan/tambahAkun');
             }
         }
+    }
+
+    // Callback function untuk validasi password
+    public function password_check($password)
+    {
+        $password = trim($password); // Hilangkan spasi di awal dan akhir kata
+        $regex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\#\^\(\)~\-])[\w@$!%*?&\#\^\(\)~\-]{12,}$/i'; // Memastikan setidaknya ada huruf kecil, huruf besar, angka, simbol, dan panjang minimal 12 karakter  
+
+        if (!preg_match($regex, $password)) {
+            $this->form_validation->set_message('password_check', 'Kata sandi harus mengandung huruf besar, huruf kecil, angka, dan simbol.');
+            return FALSE;
+        }
+        return TRUE; // Tidak perlu else di sini
     }
 
     public function kelolaAkun()
