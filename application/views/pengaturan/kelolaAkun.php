@@ -103,9 +103,9 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="mb-3">
-                                <span>No HP</span>
+                                <span>Nomor Handphone</span>
                                 <div class="card p-1">
-                                    <?= $ak['no_tlp']; ?>
+                                    <?= $ak['no_hp']; ?>
                                 </div>
                             </div>
                         </div>
@@ -180,6 +180,14 @@
                     <div class="mb-3">
                         <label for="email" class="form-label">Alamat email</label>
                         <input type="text" class="form-control" id="email_<?= $ak['id']; ?>" name="email" value="<?= $ak['email']; ?>" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nik" class="form-label">Nomor NIK</label>
+                        <input type="number" class="form-control" id="nik_<?= $ak['id']; ?>" name="nik" value="<?= $ak['nik']; ?>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="no_hp" class="form-label">Nomor Handphone</label>
+                        <input type="number" class="form-control" id="no_hp_<?= $ak['id']; ?>" name="no_hp" value="<?= $ak['no_hp']; ?>">
                     </div>
                     <div class="mb-3">
                         <label for="gambar" class="form-label">Gambar profil</label>

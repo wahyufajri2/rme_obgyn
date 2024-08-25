@@ -28,6 +28,20 @@
                     </div>
                     <div class="col-md">
                         <div class="form-floating mb-3">
+                            <input class="form-control" id="nik" name="nik" type="text" placeholder="Nomor NIK" value="<?= set_value('nik'); ?>" />
+                            <label for="nik">Nomor NIK</label>
+                            <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="no_hp" name="no_hp" type="text" placeholder="No Handphone" value="<?= set_value('no_hp'); ?>" />
+                            <label for="no_hp">Nomor HP</label>
+                            <?= form_error('no_hp', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-3">
                             <select class="form-select" id="id_peran" name="id_peran">
                                 <option value="">Pilih salah satu peran</option>
                                 <?php foreach ($role as $r) : ?>

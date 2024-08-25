@@ -32,6 +32,25 @@ class Pengaturan extends CI_Controller
             ]
         );
         $this->form_validation->set_rules(
+            'nik',
+            'Diisi NIK',
+            'required|trim|integer|is_unique|exact_length[16]',
+            [
+                'integer' => 'NIK harus berupa angka!',
+                'required' => 'NIK diperlukan!',
+                'exact_length' => 'NIK harus 16 karakter!',
+            ]
+        );
+        $this->form_validation->set_rules(
+            'no_hp',
+            'Diisi No. Handphone',
+            'required|trim|integer',
+            [
+                'integer' => 'No. Handphone,harus berupa angka!',
+                'required' => 'No. Handphone, diperlukan!',
+            ]
+        );
+        $this->form_validation->set_rules(
             'id_peran',
             'Role',
             'required',
@@ -136,6 +155,25 @@ class Pengaturan extends CI_Controller
             'required' => 'Email diperlukan!',
             'valid_email' => 'Email tidak valid!'
         ]);
+        $this->form_validation->set_rules(
+            'nik',
+            'Diisi NIK',
+            'required|trim|integer|is_unique|exact_length[16]',
+            [
+                'integer' => 'NIK harus berupa angka!',
+                'required' => 'NIK diperlukan!',
+                'exact_length' => 'NIK harus 16 karakter!',
+            ]
+        );
+        $this->form_validation->set_rules(
+            'no_hp',
+            'Diisi No. Handphone',
+            'required|trim|integer',
+            [
+                'integer' => 'No. Handphone, harus berupa angka!',
+                'required' => 'No. Handphone, diperlukan!',
+            ]
+        );
 
         if ($this->form_validation->run() == FALSE) {
             // Jika validasi gagal, tampilkan form ubah peran dengan data yang sudah ada
