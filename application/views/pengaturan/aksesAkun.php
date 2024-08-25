@@ -10,13 +10,11 @@
         <div class="card mb-4">
             <div class="card-body">
                 <?= $this->session->flashdata('message'); ?>
-
                 <h5>Peran : <?= $satuRole['peran']; ?></h5>
-
-                <table class="table table-hover">
+                <table class="text-center" id="datatablesSimple">
                     <thead>
                         <tr class="table-active">
-                            <th scope="col" class="text-center">No</th>
+                            <th scope="col">No</th>
                             <th scope="col">Menu</th>
                             <th scope="col">Aksi</th>
                         </tr>
@@ -25,7 +23,7 @@
                         <?php $i = 1; ?>
                         <?php foreach ($menu as $m) : ?>
                             <tr>
-                                <th scope="row" class="text-center"><?= $i; ?></th>
+                                <th scope="row"><?= $i; ?></th>
                                 <td><?= $m['menu']; ?></td>
                                 <td>
                                     <input class="form-check-input" type="checkbox" <?= check_access($satuRole['id'], $m['id']); ?> data-peran="<?= $satuRole['id']; ?>" data-menu="<?= $m['id']; ?>">
@@ -38,7 +36,7 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <a href="<?= base_url('pengaturan/kelolaAkun'); ?>" class="btn btn-primary btn-sm  fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-arrow-left"></i> Kembali</a>
+                <a href="<?= base_url('pengaturan/kelolaPeranAkun'); ?>" class="btn btn-primary btn-sm  fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-arrow-left"></i> Kembali</a>
             </div>
         </div>
     </div>

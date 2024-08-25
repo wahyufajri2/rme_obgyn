@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-md">
                         <div class="form-floating mb-3">
-                            <input class="form-control" inputmode="email" id="email" name="email" type="email" placeholder="Alamat Email" value="<?= set_value('email'); ?>" />
+                            <input class="form-control" inputmode="email" id="email" name="email" type="text" placeholder="Alamat Email" value="<?= set_value('email'); ?>" />
                             <label for="email">Alamat Email</label>
                             <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>

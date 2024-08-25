@@ -14,30 +14,30 @@
                     </div>
                 <?php endif; ?>
                 <?= $this->session->flashdata('message'); ?>
-                <table class="table table-hover">
+                <table class="text-center" id="datatablesSimple">
                     <thead>
                         <tr class="table-active">
-                            <th scope="col" class="text-center">No</th>
+                            <th scope="col">No</th>
                             <th scope="col">Judul</th>
                             <th scope="col">Menu</th>
                             <th scope="col">Url</th>
                             <th scope="col">Ikon</th>
-                            <th scope="col" class="text-center">Status</th>
-                            <th scope="col" class="text-center">Aksi</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($subMenu as $i => $sm) : ?>
                             <tr>
-                                <th scope="row" class="text-center"><?= $i + 1; ?></th>
+                                <th scope="row"><?= $i + 1; ?></th>
                                 <td><?= $sm['judul']; ?></td>
                                 <td><?= $sm['menu']; ?></td>
                                 <td><?= $sm['url']; ?></td>
                                 <td><?= $sm['ikon']; ?></td>
-                                <td class="text-center">
+                                <td>
                                     <span class="badge rounded-pill text-bg-<?= ($sm['apakah_aktif'] == 1) ? 'warning' : 'secondary'; ?>"><?= ($sm['apakah_aktif'] == 1) ? 'Aktif' : 'Nonaktif'; ?></span>
                                 </td>
-                                <td class="text-center">
+                                <td>
                                     <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#ubahSubmenuModal_<?= $sm['id']; ?>">
                                         <i class="fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Ubah
                                     </button>
@@ -68,6 +68,7 @@
                     <div class="mb-3">
                         <label for="judul" class="form-label">Judul submenu</label>
                         <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul submenu">
+                        <?= form_error('judul', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="mb-3">
                         <label for="id_menu" class="form-label">Pilih Menu</label>
@@ -88,10 +89,12 @@
                     <div class="mb-3">
                         <label for="url" class="form-label">Url submenu</label>
                         <input type="text" class="form-control" id="url" name="url" placeholder="Url submenu">
+                        <?= form_error('url', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="mb-3">
                         <label for="ikon" class="form-label">Ikon submenu</label>
                         <input type="text" class="form-control" id="ikon" name="ikon" placeholder="Ikon submenu">
+                        <?= form_error('ikon', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" value="1" name='apakah_aktif' id="apakah_aktif" checked>

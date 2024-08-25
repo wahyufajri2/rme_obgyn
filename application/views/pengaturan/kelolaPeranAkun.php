@@ -2,7 +2,7 @@
     <div class="container-fluid px-3">
         <h1 class="mt-2"><?= $title; ?></h1>
         <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="<?= base_url('pengaturan/tambahAkun'); ?>">Beranda</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('pengaturan/kelolaPeranAkun'); ?>">Beranda</a></li>
             <li class="breadcrumb-item active"><?= $title; ?></li>
         </ol>
         <hr>
@@ -16,23 +16,24 @@
                 <?= $this->session->flashdata('message'); ?>
                 <table class="text-center" id="datatablesSimple">
                     <thead>
-                        <tr class="table-active">
+                        <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Menu</th>
+                            <th scope="col">Peran</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                        <?php foreach ($menu as $m) : ?>
+                        <?php foreach ($role as $r) : ?>
                             <tr>
-                                <th scope="row"><?= $i; ?></th>
-                                <td><?= $m['menu']; ?></td>
+                                <td><?= $i; ?></td>
+                                <td><?= $r['peran']; ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#ubahMenuModal_<?= $m['id']; ?>">
+                                    <a href="<?= base_url('pengaturan/aksesAkun/') . $r['id']; ?>" class="btn btn-warning btn-sm"><i class="fas fa-solid fa-arrows-turn-to-dots fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Akses</a>
+                                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#ubahRoleModal_<?= $r['id']; ?>">
                                         <i class="fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Ubah
                                     </button>
-                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusMenuModal_<?= $m['id']; ?>">
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusRoleModal_<?= $r['id']; ?>">
                                         <i class="fas fa-solid fa-trash-can fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Hapus
                                     </button>
                                 </td>
@@ -41,32 +42,28 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newMenuModal"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Menu Baru</a>
+                <a href="" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#newRoleModal"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Role Baru</a>
             </div>
         </div>
     </div>
 </main>
 
-<!-- Modal untuk menambah nama menu -->
-<div class="modal fade" id="newMenuModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="newMenuModalLabel" aria-hidden="true">
+<!-- Modal untuk tambah peran-->
+<div class="modal fade" id="newRoleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="newRoleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header bg-gradient-secondary">
-                <h5 class="modal-title" id="newMenuModalLabel">Tambah Menu Baru</h5>
+            <div class="modal-header">
+                <h5 class="modal-title" id="newRoleModalLabel">Tambah peran baru</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="<?= base_url('pengaturan/kelolaMenu'); ?>" method="post">
-                <div class="modal-body bg-gray-500">
+            <form action="<?= base_url('pengaturan/kelolaPeranAkun'); ?>" method="post">
+                <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="menu" name='menu' placeholder="Nama menu">
-                        <?= form_error('menu', '<small class="text-danger pl-3">', '</small>'); ?>
+                        <input type="text" class="form-control" id="peran" name='peran' placeholder="Nama peran">
                     </div>
                 </div>
-                <div class="modal-footer justify-content-between bg-gray-600">
-                    <div>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
-                        <button type="reset" class="btn btn-warning"><i class="fas fa-solid fa-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Reset</button>
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
                     <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-circle-plus"></i> Tambah</button>
                 </div>
             </form>
@@ -74,23 +71,23 @@
     </div>
 </div>
 
-<!-- Modal untuk mengubah nama menu -->
-<?php foreach ($menu as $m) : ?>
-    <div class="modal fade" id="ubahMenuModal_<?= $m['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ubahMenuModalLabel_<?= $m['id']; ?>" aria-hidden="true">
+<!-- Modal untuk mengubah nama peran -->
+<?php foreach ($role as $r) : ?>
+    <div class="modal fade" id="ubahRoleModal_<?= $r['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ubahRoleModalLabel_<?= $r['id']; ?>" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ubahMenuModalLabel_<?= $m['id']; ?>">Ubah Menu</h5>
+                    <h5 class="modal-title" id="ubahRoleModalLabel_<?= $r['id']; ?>">Ubah Role</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="<?= base_url('pengaturan/ubahMenu/') . $m['id']; ?>" method="post">
+                <form action="<?= base_url('pengaturan/ubahPeran/') . $r['id']; ?>" method="post">
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="hidden" name="menu_id" value="<?= $m['id']; ?>">
-                            <input type="text" class="form-control" id="namaMenu_<?= $m['id']; ?>" name='menu' placeholder="Nama menu" value="<?= $m['menu']; ?>">
+                            <input type="hidden" name="peran_id" value="<?= $r['id']; ?>">
+                            <input type="text" class="form-control" id="namaPeran_<?= $r['id']; ?>" name='peran' placeholder="Nama peran" value="<?= $r['peran']; ?>">
                         </div>
                     </div>
-                    <div class="modal-footer justify-content-between bg-gray-600">
+                    <div class="modal-footer justify-content-between">
                         <div>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
                             <button type="reset" class="btn btn-warning"><i class="fas fa-solid fa-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Reset</button>
@@ -103,21 +100,21 @@
     </div>
 <?php endforeach; ?>
 
-<!-- Modal untuk menghapus nama menu -->
-<?php foreach ($menu as $m) : ?>
-    <div class="modal fade" id="hapusMenuModal_<?= $m['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="hapusMenuModalLabel_<?= $m['id']; ?>" aria-hidden="true">
+<!-- Modal untuk menghapus nama peran -->
+<?php foreach ($role as $r) : ?>
+    <div class="modal fade" id="hapusRoleModal_<?= $r['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="hapusRoleModalLabel_<?= $r['id']; ?>" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header bg-gradient-secondary">
-                    <h1 class="modal-title fs-5" id="hapusMenuModalLabel_<?= $m['id']; ?>">Konfirmasi Hapus Menu</h1>
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="hapusRoleModalLabel_<?= $r['id']; ?>">Konfirmasi Hapus Menu</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Apakah Anda yakin ingin menghapus menu <strong><?= $m['menu']; ?></strong>?
+                    Apakah Anda yakin ingin menghapus menu <strong><?= $r['peran']; ?></strong>?
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Batal</button>
-                    <form action="<?= base_url('pengaturan/hapusMenu/' . $m['id']); ?>" method="post">
+                    <form action="<?= base_url('pengaturan/hapusPeran/' . $r['id']); ?>" method="post">
                         <input type="hidden" name="menu_id" id="menuIdToDelete">
                         <button type="submit" class="btn btn-danger fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fa-solid fa-trash-can"></i> Hapus</button>
                     </form>

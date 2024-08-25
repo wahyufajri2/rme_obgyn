@@ -10,6 +10,7 @@ class Pengaturan extends CI_Controller
         $this->load->library('form_validation');
     }
 
+    // Awal dari fungsi-fungsi di menu tambah akun
     public function tambahAkun()
     {
         $this->form_validation->set_rules(
@@ -41,10 +42,10 @@ class Pengaturan extends CI_Controller
         $this->form_validation->set_rules(
             'kata_sandi1',
             'Password',
-            'required|trim|min_length[12]|callback_password_check', // Minimal 12 karakter dan callback function
+            'required|trim|min_length[12]|callback_password_check', // Callback function di urutan terakhir
             [
-                'min_length' => 'Kata sandi terlalu pendek!, min-12 karakter',
                 'required' => 'Kata sandi diperlukan!',
+                'min_length' => 'Kata sandi terlalu pendek!, min-12 karakter',
             ]
         );
         $this->form_validation->set_rules(
@@ -91,7 +92,6 @@ class Pengaturan extends CI_Controller
         }
     }
 
-    // Callback function untuk validasi password
     public function password_check($password)
     {
         $password = trim($password); // Hilangkan spasi di awal dan akhir kata
@@ -99,12 +99,121 @@ class Pengaturan extends CI_Controller
 
         if (!preg_match($regex, $password)) {
             $this->form_validation->set_message('password_check', 'Kata sandi harus mengandung huruf besar, huruf kecil, angka, dan simbol.');
-            return FALSE;
+            return FALSE; // Kata sandi tidak lolos validasi
         }
-        return TRUE; // Tidak perlu else di sini
+        return TRUE; // Kata sandi lolos validasi
+    }
+    // Akhir dari fungsi-fungsi di menu tambah akun
+
+
+    // Awal dari fungsi-fungsi di menu kelola akun
+    public function kelolaAkun()
+    {
+        $data['title'] = 'Kelola Akun';
+        $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = $this->db->get('peran_pengguna')->result_array();
+
+        $this->load->model('Akun_model', 'akun');
+        $data['akun'] = $this->akun->getAkun();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('pengaturan/kelolaAkun', $data);
+        $this->load->view('templates/footer',);
     }
 
-    public function kelolaAkun()
+    public function ubahDataAkun($id)
+    {
+        // Ambil data akun berdasarkan ID
+        $data['role'] = $this->db->get_where('peran_pengguna', ['id' => $id])->row_array();
+
+        // Validasi formulir ubah data akun
+        $this->form_validation->set_rules('nama', 'Nama', 'required', [
+            'required' => 'Nama akun diperlukan!'
+        ]);
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email', [
+            'required' => 'Email diperlukan!',
+            'valid_email' => 'Email tidak valid!'
+        ]);
+
+        if ($this->form_validation->run() == FALSE) {
+            // Jika validasi gagal, tampilkan form ubah peran dengan data yang sudah ada
+            $data['title'] = 'Kelola Akun';
+            $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+            $this->load->model('Akun_model', 'akun');
+            $data['akun'] = $this->akun->getAkun();
+            $data['role'] = $this->db->get('peran_pengguna')->result_array();
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pengaturan/kelolaAkun', $data);
+            $this->load->view('templates/footer',);
+        } else {
+            // Jika validasi berhasil, update data akun di database (tabel 'pengguna')
+            $nama = $this->input->post('nama');
+            $email =  $this->input->post('email');
+            $id_peran = $this->input->post('id_peran');
+            $apakah_aktif = $this->input->post('apakah_aktif');
+
+            // Handle upload gambar jika ada
+            $upload_image = $_FILES['gambar']['name'];
+
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png|jpeg';
+                $config['max_size'] = 1024; // KB
+                $config['upload_path'] = './assets/img/profile/';
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('gambar')) {
+                    $old_image = $data['user']['gambar'];
+                    if ($old_image != 'default.jpg') {
+                        if (!unlink(FCPATH . '/assets/img/profile/' . $old_image)) {
+                            echo "Error deleting $old_image"; // Atau log error ini
+                        }
+                    }
+
+                    $new_image = $this->upload->data('file_name');
+                    $this->db->set('gambar', $new_image);
+                } else {
+                    $error = $this->upload->display_errors();
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $error . '</div>');
+                    redirect('pengaturan/kelolaAkun');
+                }
+            }
+
+            $this->db->set('nama', $nama);
+            $this->db->set('email', $email);
+            $this->db->set('id_peran', $id_peran);
+            $this->db->set('apakah_aktif', $apakah_aktif);
+            $this->db->where('id', $id);
+            $this->db->update('pengguna');
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data akun berhasil diubah!</div>');
+            redirect('pengaturan/kelolaAkun');
+        }
+    }
+
+    public function email_check($email, $id) // Callback untuk validasi email, memastikan email unik kecuali untuk ID yang sedang diedit
+    {
+        $this->db->where('email', $email);
+        $this->db->where('id !=', $id);
+        $user = $this->db->get('pengguna')->row_array();
+
+        if ($user) {
+            $this->form_validation->set_message('email_check', 'Email ini sudah terdaftar!');
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
+    // Akhir dari fungsi-fungsi di menu kelola akun
+
+
+    // Awal dari fungsi-fungsi di menu kelola peran akun
+    public function kelolaPeranAkun()
     {
         $data['title'] = 'Kelola Peran Akun';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
@@ -125,7 +234,7 @@ class Pengaturan extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('pengaturan/kelolaAkun', $data);
+            $this->load->view('pengaturan/kelolaPeranAkun', $data);
             $this->load->view('templates/footer');
         } else {
             // Jika validasi berhasil dan ada data POST, simpan peran baru ke database
@@ -136,7 +245,7 @@ class Pengaturan extends CI_Controller
 
             // Set flashdata dan redirect
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Peran baru berhasil ditambahkan!</div>');
-            redirect('pengaturan/kelolaAkun'); // Atau redirect ke halaman yang sama
+            redirect('pengaturan/kelolaPeranAkun'); // Atau redirect ke halaman yang sama
         }
     }
 
@@ -197,7 +306,7 @@ class Pengaturan extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('pengaturan/kelolaAkun', $data); // View untuk form ubah peran
+            $this->load->view('pengaturan/kelolaPeranAkun', $data); // View untuk form ubah peran
             $this->load->view('templates/footer');
         } else {
             // Jika validasi berhasil, update data menu di database
@@ -205,7 +314,7 @@ class Pengaturan extends CI_Controller
             $this->db->update('peran_pengguna', ['peran' => $this->input->post('peran')]);
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Peran berhasil diubah!</div>');
-            redirect('pengaturan/kelolaAkun');
+            redirect('pengaturan/kelolaPeranAkun');
         }
     }
 
@@ -216,13 +325,13 @@ class Pengaturan extends CI_Controller
         $this->db->delete('peran_pengguna');
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Nama peran berhasil dihapus!</div>');
-        redirect('pengaturan/kelolaAkun');
+        redirect('pengaturan/kelolaPeranAkun');
     }
+    // Akhir dari fungsi-fungsi di menu kelola peran akun
 
 
 
-    // Fungsi untuk mengelola menu
-
+    // Awal dari fungsi-fungsi di menu kelola menu
     public function kelolaMenu()
     {
         $data['title'] = 'Kelola Menu';
@@ -266,6 +375,8 @@ class Pengaturan extends CI_Controller
             // Jika validasi gagal, tampilkan form ubah menu dengan data yang sudah ada
             $data['title'] = 'Kelola Menu';
             $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+            $data['role'] = $this->db->get('peran_pengguna')->result_array();
+            $data['menu'] = $this->db->get('menu_pengguna')->result_array();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
@@ -291,10 +402,10 @@ class Pengaturan extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Menu berhasil dihapus!</div>');
         redirect('pengaturan/kelolaMenu');
     }
+    // Akhir dari fungsi-fungsi di menu kelola menu
 
 
-    // Fungsi untuk mengelola submenu
-
+    // Awal dari fungsi-fungsi di menu kelola submenu
     public function kelolaSubmenu()
     {
         $data['title'] = 'Kelola Submenu';
@@ -363,15 +474,14 @@ class Pengaturan extends CI_Controller
 
     public function ubahSubmenu($id)
     {
-        // 1. Ambil data dari permintaan POST
-        $submenuId = $this->input->post('menu_id');
+        // Ambil data dari permintaan POST
         $newJudul = $this->input->post('judul');
         $newMenuId = $this->input->post('id_menu');
         $newUrl = $this->input->post('url');
         $newIkon = $this->input->post('ikon');
         $newApakahAktif = $this->input->post('apakah_aktif') ? 1 : 0;
 
-        // 2. Validasi form
+        // Validasi form
         $this->form_validation->set_rules('judul', 'Judul', 'required', [
             'required' => 'Judul submenu diperlukan!'
         ]);
@@ -386,11 +496,11 @@ class Pengaturan extends CI_Controller
         ]);
 
         if ($this->form_validation->run() == FALSE) {
-            // 3. Jika validasi gagal, kirim respons error (Anda bisa menggunakan AJAX di sini jika diperlukan)
+            // Jika validasi gagal, kirim respons error (Anda bisa menggunakan AJAX di sini jika diperlukan)
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . validation_errors() . '</div>');
             redirect('pengaturan/kelolaSubmenu');
         } else {
-            // 4. Jika validasi berhasil, update data submenu di database
+            // Jika validasi berhasil, update data submenu di database
             $data_to_update = [
                 'judul'       => $newJudul,
                 'id_menu'     => $newMenuId,
@@ -402,7 +512,7 @@ class Pengaturan extends CI_Controller
             $this->db->where('id', $id); // Pastikan Anda menggunakan $submenuId di sini, bukan $id
             $updateResult = $this->db->update('submenu_pengguna', $data_to_update);
 
-            // 5. Berikan respons (redirect)
+            // Berikan respons (redirect)
             if ($updateResult) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Submenu berhasil diubah!</div>');
             } else {
@@ -421,4 +531,5 @@ class Pengaturan extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Submenu berhasil dihapus!</div>');
         redirect('pengaturan/kelolaSubmenu');
     }
+    // Akhir dari fungsi-fungsi di menu kelola submenu
 }
