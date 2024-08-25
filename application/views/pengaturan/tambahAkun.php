@@ -8,11 +8,6 @@
         <hr>
         <div class="card mb-4">
             <div class="card-body">
-                <!-- <?php if (validation_errors()) : ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?= validation_errors(); ?>
-                    </div>
-                <?php endif; ?> -->
                 <?= $this->session->flashdata('message'); ?>
                 <form method="post" action="<?= base_url('pengaturan/tambahAkun'); ?>">
                     <div class="row mb-3">

@@ -28,10 +28,7 @@
 </div>
 
 <script>
-    flatpickr('.flatpickr', {
-        dateFormat: 'Y-m-d',
-        theme: 'material_blue'
-    });
+    $('.alert').alert().delay(3000).slideUp('slow');
 </script>
 <script src="<?= base_url('assets/'); ?>js/jquery.min.js"></script>
 <script type="text/javascript" src="<?= base_url('assets/'); ?>js/script-custom.js"></script>

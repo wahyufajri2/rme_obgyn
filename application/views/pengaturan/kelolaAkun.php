@@ -23,7 +23,6 @@
                             <th scope="col">Gambar profil</th>
                             <th scope="col">Peran</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Daftar sejak</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -39,6 +38,83 @@
                                     <span class="badge rounded-pill text-bg-<?= ($ak['apakah_aktif'] == 1) ? 'warning' : 'secondary'; ?>"><?= ($ak['apakah_aktif'] == 1) ? 'Aktif' : 'Nonaktif'; ?></span>
                                 </td>
                                 <td>
+                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailDataAkun_<?= $ak['id']; ?>">
+                                        <i class="fas fa-solid fa-file-lines fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Detail
+                                    </button>
+                                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#ubahDataAkun_<?= $ak['id']; ?>">
+                                        <i class="fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Ubah
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#lupaKataSandi_<?= $ak['id']; ?>">
+                                        <i class="fas fa-solid fa-key fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Lupa kata sandi
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <a href="<?= base_url('pengaturan/tambahAkun'); ?>" class="btn btn-primary" aria-describedby="Pindah ke halaman tambah akun"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Akun </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Modal untuk melihat detail data akun -->
+<?php foreach ($akun as $ak) : ?>
+    <div class="modal fade" id="detailDataAkun_<?= $ak['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailDataAkunLabel_<?= $ak['id']; ?>" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailDataAkunLabel_<?= $ak['id']; ?>">Detail Data Akun</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <span>Nama pengguna</span>
+                                <div class="card p-1">
+                                    <?= $ak['nama']; ?>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <span>Alamat email</span>
+                                <div class="card p-1">
+                                    <?= $ak['email']; ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <span>Gambar profil</span>
+                                <div class="card p-1">
+                                    <img width="100px" src="<?= base_url('assets/img/profile/') . $ak['gambar']; ?>" alt="Gambar Profil" style="border-radius: 50%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 d-flex flex-column">
+                            <div class="mb-3">
+                                <span>Peran pengguna</span>
+                                <div class="card p-1">
+                                    <?= $ak['peran']; ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <span>No HP</span>
+                                <div class="card p-1">
+                                    <?= $ak['no_tlp']; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 d-flex flex-column">
+                            <div class="mb-3">
+                                <span>Daftar sejak</span>
+                                <div class="card p-1">
                                     <?php
                                     $bulan_indo = array(
                                         1 => 'Januari',
@@ -60,23 +136,30 @@
                                     $tahun = date('Y', $ak['tgl_dibuat']);
                                     $jam = date('H:i', $ak['tgl_dibuat']); // Mendapatkan jam dan menit
 
-                                    echo $tanggal . ' ' . $bulan . ' ' . $tahun . ', jam ' . $jam;
+                                    echo $tanggal . ' ' . $bulan . ' ' . $tahun . ', pukul ' . $jam;
                                     ?>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#ubahDataAkun_<?= $ak['id']; ?>">
-                                        <i class="fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Ubah
-                                    </button>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-                <a href="<?= base_url('pengaturan/tambahAkun'); ?>" class="btn btn-primary" aria-describedby="Pindah ke halaman tambah akun"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Akun </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <span>Apakah aktif</span>
+                                <div class="card p-1">
+                                    <?= ($ak['apakah_aktif'] == 1) ? 'Aktif' : 'Tidak aktif'; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</main>
+<?php endforeach; ?>
 
 <!-- Modal untuk mengubah data akun -->
 <?php foreach ($akun as $ak) : ?>
@@ -127,6 +210,35 @@
                     </div>
                     <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-floppy-disk"></i> Simpan</button>
                 </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+<!-- Modal untuk lupa kata sandi -->
+<?php foreach ($akun as $ak) : ?>
+    <div class="modal fade" id="lupaKataSandi_<?= $ak['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="lupaKataSandiLabel_<?= $ak['id']; ?>" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="lupaKataSandiLabel_<?= $ak['id']; ?>">Masukan email yang akan diganti kata sandi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?= base_url('pengaturan/lupaKataSandi'); ?>" method="post">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Alamat email</label>
+                            <input type="text" class="form-control" id="email_<?= $ak['id']; ?>" name="email" value="<?= $ak['email']; ?>">
+                            <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <div>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+                        </div>
+                        <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-arrow-up-right-from-square"></i> Reset Kata Sandi</button>
+                    </div>
                 </form>
             </div>
         </div>

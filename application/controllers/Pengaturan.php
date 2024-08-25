@@ -41,7 +41,7 @@ class Pengaturan extends CI_Controller
         );
         $this->form_validation->set_rules(
             'kata_sandi1',
-            'Password',
+            'Kata Sandi',
             'required|trim|min_length[12]|callback_password_check', // Callback function di urutan terakhir
             [
                 'required' => 'Kata sandi diperlukan!',
@@ -50,7 +50,7 @@ class Pengaturan extends CI_Controller
         );
         $this->form_validation->set_rules(
             'kata_sandi2',
-            'Password',
+            'Ulangi Kata Sandi',
             'required|trim|matches[kata_sandi1]',
             [
                 'matches' => 'Kata sandi tidak cocok!',
@@ -207,6 +207,160 @@ class Pengaturan extends CI_Controller
             return FALSE;
         } else {
             return TRUE;
+        }
+    }
+
+    private function _kirimEmail($token, $type)
+    {
+        $name = $this->input->post('nama', true);
+        $email = $this->input->post('email', true);
+        $config = [
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_user' => 'whybaik2@gmail.com',
+            'smtp_pass' => 'vwrt meio qatm vrsn',
+            'smtp_port' => 465,
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'newline' => "\r\n"
+        ];
+
+        $this->load->library('email', $config);
+        $this->email->initialize($config);
+
+        $this->email->from('whybaik2@gmail.com', 'Admin RS PKU Muhammadiyah Gamping');
+        $this->email->to('whybaik2@gmail.com');
+        if ($type == 'lupa') {
+            $this->email->subject('Atur Ulang Kata Sandi');
+            $this->email->message('<h2>Atur Ulang Kata Sandi Anda</h2>
+            <p>Baru saja ada akun baru atas nama <strong>' . $name . '</strong> dengan alamat email ' . $email . '.</p>
+            <p>Jika Anda ingin mengatur ulang kata sandi akun tersebut, harap klik tautan di bawah ini:</p>
+            <a href="' . base_url() . 'pengaturan/resetKataSandi?email=' . $this->input->post('email') . '& token=' . urlencode($token) . '">Atur Ulang Kata Sandi</a>
+            <p>Terima kasih atas tanggapan yang Anda berikan!</p>
+            <p>Salam,<br>Tim Website Kami</p>');
+        }
+
+        if ($this->email->send()) {
+            return TRUE;
+        } else {
+            echo $this->email->print_debugger();
+            die;
+        }
+    }
+
+    public function lupaKataSandi()
+    {
+        $data['title'] = 'Kelola Akun';
+        $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->model('Akun_model', 'akun');
+        $data['akun'] = $this->akun->getAkun();
+        $data['role'] = $this->db->get('peran_pengguna')->result_array();
+
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
+            'required' => 'Email diperlukan!',
+            'valid_email' => 'Email tidak valid!'
+        ]);
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pengaturan/kelolaAkun', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $email = $this->input->post('email');
+            $user = $this->db->get_where('pengguna', ['email' => $email])->row_array();
+
+            if ($user) {
+                $token = base64_encode(random_bytes(32));
+                $user_token = [
+                    'email' => $email,
+                    'token' => $token,
+                    'tgl_dibuat' => time()
+                ];
+
+                $this->db->insert('token_pengguna', $user_token);
+                $this->_kirimEmail($token, 'lupa');
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Silakan cek email Anda untuk mengatur ulang kata sandi!</div>');
+                redirect('pengaturan/lupaKataSandi');
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email tidak terdaftar!</div>');
+                redirect('pengaturan/kelolaAkun');
+            }
+        }
+    }
+
+    public function resetKataSandi()
+    {
+        $email = $this->input->get('email');
+        $token = $this->input->get('token');
+
+        $user = $this->db->get_where('pengguna', ['email' => $email])->row_array();
+
+        if ($user) {
+            $user_token = $this->db->get_where('token_pengguna', ['token' => $token])->row_array();
+
+            if ($user_token) {
+                $this->session->set_userdata('reset_email', $email);
+                $this->ubahKataSandi();
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal mengatur ulang kata sandi! Token tidak valid.</div>');
+                redirect('pengaturan/lupaKataSandi');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal mengatur ulang kata sandi! Email tidak valid.</div>');
+            redirect('pengaturan/lupaKataSandi');
+        }
+    }
+
+    public function ubahKataSandi()
+    {
+        if (!$this->session->userdata('reset_email')) {
+            redirect('auth/blocked');
+        }
+
+        $this->form_validation->set_rules(
+            'kata_sandi1',
+            'Kata Sandi',
+            'required|trim|min_length[12]|callback_password_check',
+            [
+                'required' => 'Kata sandi diperlukan!',
+                'min_length' => 'Kata sandi terlalu pendek!, min-12 karakter',
+            ]
+        );
+        $this->form_validation->set_rules(
+            'kata_sandi2',
+            'Ulangi Kata Sandi',
+            'required|trim|matches[kata_sandi1]',
+            [
+                'matches' => 'Kata sandi tidak cocok!',
+                'required' => 'Ulangi kata sandi wajib diisi!',
+            ]
+        );
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['title'] = 'Kelola Akun';
+            $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+            $this->load->model('Akun_model', 'akun');
+            $data['akun'] = $this->akun->getAkun();
+            $data['role'] = $this->db->get('peran_pengguna')->result_array();
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pengaturan/ubahKataSandi', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $email = $this->session->userdata('reset_email');
+            $kata_sandi = password_hash($this->input->post('kata_sandi1'), PASSWORD_DEFAULT);
+
+            $this->db->set('kata_sandi', $kata_sandi);
+            $this->db->where('email', $email);
+            $this->db->update('pengguna');
+
+            $this->session->unset_userdata('reset_email');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kata sandi telah diubah! Silakan beritahu pengguna.</div>');
+            redirect('pengaturan/kelolaAkun');
         }
     }
     // Akhir dari fungsi-fungsi di menu kelola akun
