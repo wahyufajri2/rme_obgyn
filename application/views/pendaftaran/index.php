@@ -28,17 +28,20 @@
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                        <?php foreach ($daftar as $i => $daftar): ?>
+                        <?php foreach ($daftar as $dft) : ?>
                             <tr>
-                                <th scope="row"><?= $i + 1; ?></th>
-                                <td><?= $daftar['nama_pasien']; ?></td>
-                                <td><?= $daftar['no_rg']; ?></td>
-                                <td><?= $daftar['tgl_periksa']; ?></td>
-                                <td><?= $daftar['tgl_pendaftaran']; ?></td>
-                                <td><?= $daftar['nama']; ?></td>
-                                <td><?= $daftar['status']; ?></td>
+                                <th scope="row"><?= $i; ?></th>
+                                <td><?= $dft['nama_pasien']; ?></td>
+                                <td><?= $dft['no_rg']; ?></td>
+                                <?php
+                                // Mengatur lokal ke bahasa Indonesia
+                                $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                                ?>
+                                <td><?= $formatter->format($dft['tgl_periksa']); ?></td>
+                                <td><?= $dft['nama']; ?></td>
+                                <td><?= $dft['status']; ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailDataPasien_<?= $daftar['nik']; ?>">
+                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailDataPasien_<?= $dft['nik']; ?>">
                                         <i class="fas fa-solid fa-file-lines fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Detail
                                     </button>
                                     <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#ubahPeriksaPasien">
@@ -46,6 +49,7 @@
                                     </button>
                                 </td>
                             </tr>
+                            <?php $i++; ?>
                         <?php endforeach; ?>
                     </tbody>
                 </table>

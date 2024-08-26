@@ -8,28 +8,41 @@
         <hr>
         <div class="card mb-4">
             <div class="card-body">
+                <?= $this->session->flashdata('message'); ?>
                 <table class="text-center" id="datatablesSimple">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
+                            <th scope="col">Nama</th>
                             <th scope="col">Nomor pendaftaran</th>
                             <th scope="col">Tanggal periksa</th>
-                            <th scope="col">Tanggal dibuat</th>
+                            <th scope="col">Dokter</th>
                             <th scope="col">Status</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                        <tr>
-                            <th scope="row"><?= $i; ?></th>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                        </tr>
-                        <?php $i++; ?>
+                        <?php foreach ($daftar as $dft) : ?>
+                            <tr>
+                                <th scope="row"><?= $i; ?></th>
+                                <td><?= $dft['nama_pasien']; ?></td>
+                                <td><?= $dft['no_rg']; ?></td>
+                                <?php
+                                // Mengatur lokal ke bahasa Indonesia
+                                $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                                ?>
+                                <td><?= $formatter->format($dft['tgl_periksa']); ?></td>
+                                <td><?= $dft['nama']; ?></td>
+                                <td><?= $dft['status']; ?></td>
+                                <td>
+                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailDataPasien_<?= $dft['nik']; ?>">
+                                        <i class="fas fa-solid fa-file-lines fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Detail
+                                    </button>
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

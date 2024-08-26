@@ -12,22 +12,55 @@ class Bidan extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        $this->load->model('Bidan_model', 'bidan');
     }
 
-    public function catatRekamMedis()
+    public function bidanRekamMedis()
     {
         $data['title'] = 'Data Rekam Medis';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
-        // $this->load->model('Bidan_model', 'bidan');
-
-        // $data['Kebidanan'] = $this->bidan->getKebidanan();
+        $data['Kebidanan'] = $this->bidan->getKebidanan();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('bidan/catatRekamMedis', $data);
+        $this->load->view('bidan/bidanRekamMedis', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function catatRekamMedis()
+    {
+        $data['title'] = 'Catat Rekam Medis';
+        $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
+        $data['role'] = $this->db->get('peran_pengguna')->result_array();
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('bidan/catatRekamMedis', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = array(
+                'no_rm' => htmlspecialchars($this->input->post('no_rm', true)),
+                'nama_pasien' => htmlspecialchars($this->input->post('nama_pasien', true)),
+                'tgl_lahir' => htmlspecialchars($this->input->post('tgl_lahir', true)),
+                'suami' => htmlspecialchars($this->input->post('suami', true)),
+                'alamat' => htmlspecialchars($this->input->post('alamat', true)),
+                'keluhan_pasien' => htmlspecialchars($this->input->post('keluhan_pasien', true)),
+                'tdk_pernah_opname' => htmlspecialchars($this->input->post('tdk_pernah_opname', true)),
+                'pernah_opname' => htmlspecialchars($this->input->post('pernah_opname', true)),
+                'rs_opname' => htmlspecialchars($this->input->post('rs_opname', true)),
+                'pernah_operasi' => htmlspecialchars($this->input->post('pernah_operasi', true)),
+                'tdk_pernah_operasi' => htmlspecialchars($this->input->post('tdk_pernah_operasi', true)),
+                'pasca_operasi' => htmlspecialchars($this->input->post('pasca_operasi', true)),
+                'bawa_obat' => htmlspecialchars($this->input->post('bawa_obat', true)),
+            );
+            $this->db->insert('tb_kunjungan_dtl', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambahkan!</div>');
+            redirect('bidan/bidanRekamMedis');
+        }
     }
 
     // public function entriKebidanan()

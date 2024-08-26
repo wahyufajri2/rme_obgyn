@@ -7,7 +7,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
-        $this->load->library('form_validation');
+        $this->load->model('Pendaftaran_model', 'daftar'); // Load model pendaftaran
     }
 
     public function lihatPendaftaran() //Untuk menampilkan data pasien di menu pendaftaran
@@ -16,9 +16,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
 
-        // $this->load->model('Pendaftaran_model', 'daftar');
-
-        //$data['Kunjungan'] = $this->daftar->getDataKunjungan();
+        $data['daftar'] = $this->daftar->getDataPendaftaran();
         $data['pasien'] = $this->db->get('pasien')->result_array();
 
         $this->load->view('templates/header', $data);
@@ -33,6 +31,7 @@ class Admin extends CI_Controller
         $data['title'] = 'Master Data Pasien';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
+        $data['DataPasienDaftar'] = $this->db->get('pasien')->result_array();
         // $this->load->model('Pendaftaran_model', 'dpd');
 
         // $data['DataPasienDaftar'] = $this->dpd->getMasterPasien();
