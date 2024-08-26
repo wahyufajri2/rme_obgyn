@@ -30,6 +30,12 @@
 <script>
     $('.alert').alert().delay(3000).slideUp('slow');
 </script>
+<script>
+    flatpickr('.flatpickr', {
+        dateFormat: 'Y-m-d',
+        theme: 'material_blue'
+    });
+</script>
 <script src="<?= base_url('assets/'); ?>js/jquery.min.js"></script>
 <script type="text/javascript" src="<?= base_url('assets/'); ?>js/script-custom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

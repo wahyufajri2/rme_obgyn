@@ -12,7 +12,7 @@ class Admin extends CI_Controller
 
     public function lihatPendaftaran() //Untuk menampilkan data pasien di menu pendaftaran
     {
-        $data['title'] = 'Pendaftaran Pasien';
+        $data['title'] = 'Daftar Periksa Pasien';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
 

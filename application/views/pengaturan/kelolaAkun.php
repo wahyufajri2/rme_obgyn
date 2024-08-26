@@ -116,28 +116,11 @@
                                 <span>Daftar sejak</span>
                                 <div class="card p-1">
                                     <?php
-                                    $bulan_indo = array(
-                                        1 => 'Januari',
-                                        2 => 'Februari',
-                                        3 => 'Maret',
-                                        4 => 'April',
-                                        5 => 'Mei',
-                                        6 => 'Juni',
-                                        7 => 'Juli',
-                                        8 => 'Agustus',
-                                        9 => 'September',
-                                        10 => 'Oktober',
-                                        11 => 'November',
-                                        12 => 'Desember'
-                                    );
-
-                                    $tanggal = date('d', $ak['tgl_dibuat']);
-                                    $bulan = $bulan_indo[date('n', $ak['tgl_dibuat'])];
-                                    $tahun = date('Y', $ak['tgl_dibuat']);
-                                    $jam = date('H:i', $ak['tgl_dibuat']); // Mendapatkan jam dan menit
-
-                                    echo $tanggal . ' ' . $bulan . ' ' . $tahun . ', pukul ' . $jam;
+                                    // Mengatur lokal ke bahasa Indonesia
+                                    $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
                                     ?>
+
+                                    <td><?= $formatter->format($ak['tgl_dibuat']); ?>, pukul <?= date('H:i', $ak['tgl_dibuat']); ?></td>
                                 </div>
                             </div>
                         </div>
@@ -184,10 +167,12 @@
                     <div class="mb-3">
                         <label for="nik" class="form-label">Nomor NIK</label>
                         <input type="number" class="form-control" id="nik_<?= $ak['id']; ?>" name="nik" value="<?= $ak['nik']; ?>">
+                        <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="mb-3">
                         <label for="no_hp" class="form-label">Nomor Handphone</label>
                         <input type="number" class="form-control" id="no_hp_<?= $ak['id']; ?>" name="no_hp" value="<?= $ak['no_hp']; ?>">
+                        <?= form_error('no_hp', '<small class="text-danger pl-3">', '</small>'); ?>
                     </div>
                     <div class="mb-3">
                         <label for="gambar" class="form-label">Gambar profil</label>

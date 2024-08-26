@@ -15,6 +15,9 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="<?= base_url('assets/'); ?>css/styles.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <!-- fontawesome kit -->
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>vendor/fontawesome/css/all.min.css" />
 </head>
