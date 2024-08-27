@@ -8,6 +8,7 @@ class Dokter extends CI_Controller
     {
         parent::__construct();
         is_logged_in();
+        $this->load->model('Bidan_model', 'bidan'); // Load model bidan
     }
 
     public function lihatRekamMedis()
@@ -15,6 +16,7 @@ class Dokter extends CI_Controller
         $data['title'] = 'Data Rekam Medis';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
+        $data['Kebidanan'] = $this->bidan->getKebidanan();
         // $this->load->model('Dokter_model', 'dokter');
 
         // $data['RekamMedis'] = $this->dokter->getRekamMedis();

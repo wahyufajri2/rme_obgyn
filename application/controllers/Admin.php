@@ -8,6 +8,7 @@ class Admin extends CI_Controller
         parent::__construct();
         is_logged_in();
         $this->load->model('Pendaftaran_model', 'daftar'); // Load model pendaftaran
+        $this->load->model('Bidan_model', 'bidan'); // Load model bidan
     }
 
     public function lihatPendaftaran() //Untuk menampilkan data pasien di menu pendaftaran
@@ -47,6 +48,7 @@ class Admin extends CI_Controller
         $data['title'] = 'Data Rekam Medis';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
+        $data['Kebidanan'] = $this->bidan->getKebidanan();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

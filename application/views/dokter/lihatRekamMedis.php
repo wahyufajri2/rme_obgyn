@@ -13,23 +13,29 @@
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">Tanggal periksa</th>
-                            <th scope="col">Dokter</th>
+                            <th scope="col">No RM</th>
+                            <th scope="col">Bidan</th>
                             <th scope="col">Status</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                        <tr>
-                            <th scope="row"><?= $i; ?></th>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                        </tr>
-                        <?php $i++; ?>
+                        <?php foreach ($Kebidanan as $kbd) : ?>
+                            <tr>
+                                <th scope="row"><?= $i; ?></th>
+                                <td><?= $kbd['nama_pasien']; ?></td>
+                                <td><?= $kbd['no_rm']; ?></td>
+                                <td><?= $kbd['nama_bidan']; ?></td>
+                                <td><?= $kbd['status']; ?></td>
+                                <td>
+                                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#detailRekamMedis">
+                                        <i class="fas fa-solid fa-file-lines fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Detail
+                                    </button>
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
