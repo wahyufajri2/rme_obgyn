@@ -9,7 +9,7 @@
     <div class="card mb-4">
       <div class="card-header">
         <div class="d-flex justify-content-between">
-          <p class="fw-semibold">*Jika NIK sudah ada, <strong><a href="<?= base_url('pendaftaran'); ?>">daftarkan periksa</a></strong>. Jika belum ada, daftarkan NIK di menu <strong><a href="<?= base_url('pendaftaran/masterPasien'); ?>">Master Data Pasien</a></strong></p>
+          <p class="fw-semibold">*Jika NIK sudah ada, <strong><a type="button" data-bs-toggle="modal" data-bs-target="#daftarPeriksaPasien">daftarkan periksa</a></strong>. Jika belum ada, bisa <strong><a type="button" data-bs-toggle="modal" data-bs-target="#daftarMasterPasien">daftarkan pasien!</a></strong></p>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#daftarMasterPasien">
             <i class="fa-solid fa-person-circle-plus"></i> Daftarkan pasien
           </button>
@@ -34,32 +34,30 @@
             </tr>
           </thead>
           <tbody>
-            <?php $i = 1; ?>
-            <?php foreach ($DataPasienDaftar as $dpd) : ?>
+            <?php foreach ($dataMasterPasien as $i => $dmp) : ?>
               <tr>
-                <th scope="row"><?= $i; ?></th>
-                <td><?= $dpd['nama_pasien']; ?></td>
-                <td><?= $dpd['nik']; ?></td>
+                <th scope="row"><?= $i + 1; ?></th>
+                <td><?= $dmp['nama_pasien']; ?></td>
+                <td><?= $dmp['nik']; ?></td>
                 <?php
                 // Mengatur lokal ke bahasa Indonesia
                 $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
                 ?>
 
-                <td><?= $formatter->format($dpd['tgl_lahir']); ?></td>
-                <td><?= $dpd['alamat']; ?></td>
+                <td><?= $formatter->format($dmp['tgl_lahir']); ?></td>
+                <td><?= $dmp['alamat']; ?></td>
                 <td>
-                  <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailDataPasien_<?= $dpd['nik']; ?>">
+                  <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailDataPasien_<?= $dmp['nik']; ?>">
                     <i class="fas fa-solid fa-file-lines fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Detail
                   </button>
-                  <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#ubahDataPasien_<?= $dpd['nik']; ?>">
+                  <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#ubahDataPasien_<?= $dmp['nik']; ?>">
                     <i class="fas fa-solid fa-pen-to-square fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Ubah
                   </button>
-                  <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#daftarPeriksaPasien">
+                  <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#daftarPeriksaPasien">
                     <i class="fas fa-solid fa-bed fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Daftar periksa
                   </button>
                 </td>
               </tr>
-              <?php $i++; ?>
             <?php endforeach; ?>
           </tbody>
         </table>
@@ -68,7 +66,8 @@
   </div>
 </main>
 
-<!-- Modal tambah data pasien di master data pasien -->
+<!-- AWAL MODAL -->
+<!-- Awal modal tambah data pasien di master data pasien -->
 <div class="modal fade" id="daftarMasterPasien" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="daftarMasterPasienLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -77,7 +76,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="<?= base_url('pendaftaran/tambahPasien'); ?>" method="post">
+        <form action="<?= base_url('pendaftaran/tambahMasterPasien'); ?>" method="post">
           <div class="mb-3">
             <label for="nik" class="form-label">NIK</label>
             <input type="number" class="form-control" id="nik" name="nik" value="<?= set_value('nik'); ?>">
@@ -101,8 +100,8 @@
                 <label for="jenis_kelamin" class="form-label">Jenis kelamin</label>
                 <select class="form-select" id="jenis_kelamin" name="jenis_kelamin">
                   <option selected>Pilih jenis kelamin</option>
-                  <option value="L">Laki-laki</option>
-                  <option value="P">Perempuan</option>
+                  <option value="Laki-laki">Laki-laki</option>
+                  <option value="Perempuan">Perempuan</option>
                 </select>
                 <?= form_error('jenis_kelamin', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
@@ -138,9 +137,155 @@
     </div>
   </div>
 </div>
+<!-- Akhir modal tambah data pasien di master data pasien -->
 
-<!-- Modal tambah periksa pasien di pendaftaran -->
-<?php foreach ($DataPasienDaftar as $dpd) : ?>
+<!-- Awal modal untuk melihat detail master data pasien -->
+<?php foreach ($dataMasterPasien as $dmp) : ?>
+  <div class="modal fade" id="detailDataPasien_<?= $dmp['nik']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailDataPasienLabel_<?= $dmp['nik']; ?>" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detailDataPasienLabel_<?= $dmp['nik']; ?>">Detail Master Data Pasien</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="mb-3">
+              <span>Nomor NIK</span>
+              <div class="card p-1">
+                <?= $dmp['nik']; ?>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <span>Nama pasien</span>
+                <div class="card p-1">
+                  <?= $dmp['nama_pasien']; ?>
+                </div>
+              </div>
+              <div class="mb-3">
+                <span>Tanggal lahir</span>
+                <div class="card p-1">
+                  <?php
+                  // Mengatur lokal ke bahasa Indonesia
+                  $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                  ?>
+                  <?= $formatter->format($dmp['tgl_lahir']); ?>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <span>Jenis kelamin</span>
+                <div class="card p-1">
+                  <?= $dmp['jenis_kelamin']; ?>
+                </div>
+              </div>
+              <div class="mb-3">
+                <span>Nomor handphone</span>
+                <div class="card p-1">
+                  <?= $dmp['no_hp']; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <span>Alamat</span>
+                <div class="card p-1">
+                  <?= $dmp['alamat']; ?>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <span>Nama suami</span>
+                <div class="card p-1">
+                  <?= $dmp['suami']; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-end">
+          <div>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Akhir modal untuk melihat detail master data pasien -->
+
+  <!-- Awal modal ubah data master pasien -->
+  <div class="modal fade" id="ubahDataPasien_<?= $dmp['nik']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ubahDataPasienLabel_<?= $dmp['nik']; ?>" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ubahDataPasienLabel_<?= $dmp['nik']; ?>">Ubah Data Master Pasien</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="<?= base_url('pendaftaran/ubahMasterPasien/' . $dmp['nik']); ?>" method="post">
+            <div class="mb-3">
+              <label for="nik" class="form-label">NIK</label>
+              <input type="number" class="form-control" id="nik" name="nik" value="<?= isset($dmp['nik']) ? $dmp['nik'] : ''; ?>">
+              <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="nama_pasien" class="form-label">Nama pasien</label>
+                  <input type="text" class="form-control" id="nama_pasien" name="nama_pasien" value="<?= isset($dmp['nama_pasien']) ? $dmp['nama_pasien'] : ''; ?>">
+                  <?= form_error('nama_pasien', '<small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+                <div class="mb-3">
+                  <label for="tgl_lahir" class="form-label">Tanggal lahir</label>
+                  <input type="text" class="form-control" id="tgl_lahir" name="tgl_lahir" value="<?php
+                                                                                                  $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                                                                                                  ?>
+
+<?= isset($dmp['tgl_lahir']) ? $formatter->format($dmp['tgl_lahir']) : ''; ?>">
+                  <?= form_error('tgl_lahir', '<small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+                <div class="mb-3">
+                  <label for="alamat" class="form-label">Alamat</label>
+                  <input type="text" class="form-control" id="alamat" name="alamat" value="<?= isset($dmp['alamat']) ? $dmp['alamat'] : ''; ?>">
+                  <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="jenis_kelamin" class="form-label">Jenis kelamin</label>
+                  <input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin" value="<?= isset($dmp['jenis_kelamin']) ? $dmp['jenis_kelamin'] : ''; ?>">
+                  <?= form_error('jenis_kelamin', '<small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+                <div class="mb-3">
+                  <label for="no_hp" class="form-label">Nomor handphone</label>
+                  <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?= isset($dmp['no_hp']) ? $dmp['no_hp'] : ''; ?>">
+                  <?= form_error('no_hp', '<small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+                <div class="mb-3">
+                  <label for="suami" class="form-label">Nama suami</label>
+                  <input type="text" class="form-control" id="suami" name="suami" value="<?= isset($dmp['suami']) ? $dmp['suami'] : ''; ?>">
+                  <?= form_error('suami', '<small class="text-danger pl-3">', '</small>'); ?>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+          <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-floppy-disk"></i> Simpan</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- Akhir modal ubah data master pasien -->
+
+  <!-- Awal modal tambah periksa pasien di pendaftaran -->
   <div class="modal fade" id="daftarPeriksaPasien" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="daftarPeriksaPasienLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -149,42 +294,39 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="<?= base_url('pendaftaran/tambahPasien'); ?>" method="post">
+          <form action="<?= base_url('pendaftaran/tambahPeriksaPasien/' . $dmp['nik']); ?>" method="post">
             <div class="row">
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="nik" class="form-label">NIK</label>
-                  <input type="number" class="form-control" id="nik" name="nik" value="<?= isset($dpd['nik']) ? $dpd['nik'] : ''; ?>" readonly>
+                  <input type="number" class="form-control" id="nik" name="nik" value="<?= isset($dmp['nik']) ? $dmp['nik'] : ''; ?>" readonly>
                   <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
                 </div>
                 <div class="mb-3">
                   <label for="nama_pasien" class="form-label">Nama pasien</label>
-                  <input type="text" class="form-control" id="nama_pasien" name="nama_pasien" value="<?= isset($dpd['nama_pasien']) ? $dpd['nama_pasien'] : ''; ?>" readonly>
-                  <?= form_error('nama_pasien', '<small class="text-danger pl-3">', '</small>'); ?>
+                  <input type="text" class="form-control" id="nama_pasien" name="nama_pasien" value="<?= isset($dmp['nama_pasien']) ? $dmp['nama_pasien'] : ''; ?>" readonly>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="suami" class="form-label">Nama suami</label>
-                  <input type="text" class="form-control" id="suami" name="suami" value="<?= isset($dpd['suami']) ? $dpd['suami'] : ''; ?>" readonly>
-                  <?= form_error('suami', '<small class="text-danger pl-3">', '</small>'); ?>
+                  <input type="text" class="form-control" id="suami" name="suami" value="<?= isset($dmp['suami']) ? $dmp['suami'] : ''; ?>" readonly>
                 </div>
                 <div class="mb-3">
                   <label for="alamat" class="form-label">Alamat</label>
-                  <input type="text" class="form-control" id="alamat" name="alamat" value="<?= isset($dpd['alamat']) ? $dpd['alamat'] : ''; ?>" readonly>
-                  <?= form_error('alamat', '<small class="text-danger pl-3">', '</small>'); ?>
+                  <input type="text" class="form-control" id="alamat" name="alamat" value="<?= isset($dmp['alamat']) ? $dmp['alamat'] : ''; ?>" readonly>
                 </div>
               </div>
             </div>
             <div class="mb-3">
-              <label for="id_dokter" class="form-label">Nama Dokter</label>
-              <select name="id_dokter" id="id_dokter" class="form-select">
+              <label for="id" class="form-label">Nama Dokter</label>
+              <select name="id" id="id" class="form-select">
                 <option value="">Pilih Dokter</option>
-                <?php foreach ($daftar as $df) : ?>
-                  <option value="<?= $df['id_pengguna']; ?>"><?= $df['nama']; ?></option>
+                <?php foreach ($daftar_dokter as $dk) : ?>
+                  <option value="<?= $dk['id']; ?>"><?= $dk['nama']; ?></option>
                 <?php endforeach; ?>
               </select>
-              <?= form_error('id_dokter', '<small class="text-danger pl-3">', '</small>'); ?>
+              <?= form_error('id', '<small class="text-danger pl-3">', '</small>'); ?>
             </div>
             <div class="mb-3">
               <label for="tgl_periksa" class="form-label">Tanggal periksa</label>
@@ -201,3 +343,5 @@
     </div>
   </div>
 <?php endforeach; ?>
+<!-- Akhir modal tambah periksa pasien di pendaftaran -->
+<!-- AKHIR MODAL -->

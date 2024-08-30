@@ -55,47 +55,18 @@ class Auth extends CI_Controller
                         'email' => $user['email'],
                         'id_peran' => $user['id_peran']
                     ];
-
                     //mengatur sesi
                     $this->session->set_userdata($data);
-                    //periksa peran pengguna
-                    if ($user['id_peran'] == 1) {
-                        if ($this->input->post('save_id')) {
-                            setcookie('email', $email, time() + 60 * 60 * 24 * 30);
-                            setcookie('kata_sandi', $password, time() + 60 * 60 * 24 * 30);
-                        } else {
-                            setcookie('email', '');
-                            setcookie('kata_sandi', '');
-                        }
-                        redirect('dashboard');
-                    } elseif ($user['id_peran'] == 2) {
-                        if ($this->input->post('save_id')) {
-                            setcookie('email', $email, time() + 60 * 60 * 24 * 30);
-                            setcookie('kata_sandi', $password, time() + 60 * 60 * 24 * 30);
-                        } else {
-                            setcookie('email', '');
-                            setcookie('kata_sandi', '');
-                        }
-                        redirect('dashboard');
-                    } elseif ($user['id_peran'] == 3) {
-                        if ($this->input->post('save_id')) {
-                            setcookie('email', $email, time() + 60 * 60 * 24 * 30);
-                            setcookie('kata_sandi', $password, time() + 60 * 60 * 24 * 30);
-                        } else {
-                            setcookie('email', '');
-                            setcookie('kata_sandi', '');
-                        }
-                        redirect('dashboard');
+
+                    // Handle cookie (jika diperlukan)
+                    if ($this->input->post('save_id')) {
+                        setcookie('email', $email, time() + 60 * 60 * 24 * 7);
+                        setcookie('kata_sandi', $password, time() + 60 * 60 * 24 * 7);
                     } else {
-                        if ($this->input->post('save_id')) {
-                            setcookie('email', $email, time() + 60 * 60 * 24 * 30);
-                            setcookie('kata_sandi', $password, time() + 60 * 60 * 24 * 30);
-                        } else {
-                            setcookie('email', '');
-                            setcookie('kata_sandi', '');
-                        }
-                        redirect('dashboard');
+                        setcookie('email', '');
+                        setcookie('kata_sandi', '');
                     }
+                    redirect('dashboard'); // Redirect setelah login berhasil
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Kata sandi salah!</div>');
                     redirect('auth');

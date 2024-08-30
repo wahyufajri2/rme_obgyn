@@ -33,7 +33,7 @@
                                 $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
                                 ?>
                                 <td><?= $formatter->format($dft['tgl_periksa']); ?></td>
-                                <td><?= $dft['nama']; ?></td>
+                                <td><?= $dft['nama_dokter']; ?></td>
                                 <td><?= $dft['status']; ?></td>
                                 <td>
                                     <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailDataPasien_<?= $dft['nik']; ?>">

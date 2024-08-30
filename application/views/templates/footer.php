@@ -53,16 +53,16 @@
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
 <script src="<?= base_url('assets/'); ?>js/datatables-simple-demo.js"></script>
 <script>
-    $(".form-check-input").on("click", function() {
-        const menuId = $(this).data("menu");
-        const roleId = $(this).data("peran");
+    $('.form-check-input').on('click', function() {
+        const menuId = $(this).data('menu');
+        const roleId = $(this).data('peran');
 
         $.ajax({
             url: "<?= base_url('pengaturan/ubahAkses'); ?>",
-            type: "post",
+            type: 'post',
             data: {
                 menuId: menuId,
-                roleId: roleId,
+                roleId: roleId
             },
             success: function() {
                 document.location.href =

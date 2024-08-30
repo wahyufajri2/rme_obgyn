@@ -32,25 +32,6 @@ class Pengaturan extends CI_Controller
             ]
         );
         $this->form_validation->set_rules(
-            'nik',
-            'Diisi NIK',
-            'required|trim|integer|is_unique|exact_length[16]',
-            [
-                'integer' => 'NIK harus berupa angka!',
-                'required' => 'NIK diperlukan!',
-                'exact_length' => 'NIK harus 16 karakter!',
-            ]
-        );
-        $this->form_validation->set_rules(
-            'no_hp',
-            'Diisi No. Handphone',
-            'required|trim|integer',
-            [
-                'integer' => 'No. Handphone,harus berupa angka!',
-                'required' => 'No. Handphone, diperlukan!',
-            ]
-        );
-        $this->form_validation->set_rules(
             'id_peran',
             'Role',
             'required',
@@ -93,21 +74,15 @@ class Pengaturan extends CI_Controller
                 'email' => htmlspecialchars($this->input->post('email', true)),
                 'gambar' => 'default.jpg',
                 'kata_sandi' => password_hash($this->input->post('kata_sandi1'), PASSWORD_DEFAULT),
-                'id_peran' => htmlspecialchars($this->input->post('id_peran')),
+                'id_peran' => htmlspecialchars($this->input->post('id_peran', true)),
                 'apakah_aktif' => 1,
                 'tgl_dibuat' => time()
             ];
 
-            if ($this->db->insert('pengguna', $data)) {
-                // Redirect ke halaman kelola akun setelah berhasil
-                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun telah ditambahkan, harap beri tahu pengguna!</div>');
-                redirect('pengaturan/tambahAkun');
-            } else {
-                // Penanganan Error Database
-                $error = $this->db->error();
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal menambahkan akun. Error: ' . $error['message'] . '</div>');
-                redirect('pengaturan/tambahAkun');
-            }
+            $this->db->insert('pengguna', $data);
+            // Redirect ke halaman kelola akun setelah berhasil
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Akun telah ditambahkan, harap beri tahu pengguna!</div>');
+            redirect('pengaturan/tambahAkun');
         }
     }
 
@@ -461,12 +436,12 @@ class Pengaturan extends CI_Controller
 
     public function ubahAkses()
     {
-        $menuId = $this->input->post('menuId');
-        $roleId = $this->input->post('roleId');
+        $menu_id = $this->input->post('menuId');
+        $role_id = $this->input->post('roleId');
 
         $data = [
-            'id_peran' => $roleId,
-            'id_menu' => $menuId
+            'id_peran' => $role_id,
+            'id_menu' => $menu_id
         ];
 
         $result = $this->db->get_where('menu_akses_pengguna', $data);

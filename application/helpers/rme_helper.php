@@ -29,10 +29,9 @@ function check_access($role_id, $menu_id)
     $ci = get_instance();
 
     // Simpan hasil query ke dalam variabel result
-    $result = $ci->db->get_where('menu_akses_pengguna', [
-        'id_peran' => $role_id,
-        'id_menu' => $menu_id
-    ]);
+    $ci->db->where('id_peran', $role_id);
+    $ci->db->where('id_menu', $menu_id);
+    $result = $ci->db->get('menu_akses_pengguna');
 
     // Periksa apakah ada baris yang ditemukan
     if ($result->num_rows() > 0) {
