@@ -8,7 +8,7 @@ class Pendaftaran_model extends CI_Model
     {
         $this->db->select('a.*, b.no_rg, b.tgl_periksa, b.status, b.tgl_pendaftaran, b.id_pengguna, c.nama AS nama_dokter');
         $this->db->from('pasien AS a');
-        $this->db->join('pendaftaran AS b', 'a.nik = b.nik');
+        $this->db->join('pendaftaran AS b', 'a.no_rm = b.no_rm');
         $this->db->join('pengguna AS c', 'b.id_pengguna = c.id');
         $this->db->join('peran_pengguna AS d', 'c.id_peran = d.id');
 

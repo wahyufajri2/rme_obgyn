@@ -5,13 +5,14 @@ class Bidan_model extends CI_Model
 {
     public function getKebidanan()
     {
-        $this->db->select('a.nama_pasien, b.no_rm, c.status, d.nama AS nama_bidan');
+        $this->db->select('a.nama_pasien, a.no_rm, a.suami, a.alamat, a.tgl_lahir, b.no_rg, b.tgl_periksa, b.status, b.id_pengguna, c.nama AS nama_bidan');
         $this->db->from('pasien AS a');
-        $this->db->join('inti_rekam_medis AS b', 'a.nik = b.nik');
-        $this->db->join('pendaftaran AS c', 'a.nik = c.nik');
-        $this->db->join('pengguna AS d', 'b.id_pengguna = d.id');
-        $this->db->join('peran_pengguna AS e', 'd.id_peran = e.id');
-        $this->db->where('e.peran', 'Bidan');
+        $this->db->join('pendaftaran AS b', 'a.no_rm = b.no_rm');
+        $this->db->join('pengguna AS c', 'b.id_pengguna = c.id');
+        $this->db->join('peran_pengguna AS d', 'c.id_peran = d.id');
+
+        // Tambahkan pengurutan berdasarkan status
+        $this->db->order_by('FIELD(b.status, "Belum periksa", "Sedang periksa", "Selesai periksa")');
 
         $query = $this->db->get();
         return $query->result_array();

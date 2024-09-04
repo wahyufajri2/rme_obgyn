@@ -1,120 +1,43 @@
 <!DOCTYPE html>
 <html lang="en"><head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Export PDF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title><?= $title; ?></title>
+    <link rel="shortcut icon" href="<?= base_url('assets/'); ?>img/pku.png" type="image/x-icon">
+    <!-- <link href="<?= base_url('assets/'); ?>css/styles.css" rel="stylesheet" /> -->
 
-    <style>
-        /* .table {
-            border-collapse: collapse;
-            width: 100%;
-            font-size: 12px;
-        }
 
-        .table th {
-            border: 1px solid #000;
-            padding: 3px;
-            font-weight: bold;
-        }
-
-        .table td {
-            border: 1px solid #000;
-            padding: 3px;
-            vertical-align: top;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-right {
-            text-align: right;
-        }
-
-        .table-sm th,
-        .table-sm td {
-            padding: 1px;
-        }
-
-        .table-bordered th,
-        .table-bordered td {
-            border: 1px solid #000;
-        }
-
-        .table-bordered th {
-            background-color: #f0f0f0;
-        } */
-
-        .bg-gray-500 {
-            background-color: #d2d6de;
-        }
-
-        .table {
-            border-collapse: collapse;
-            width: 100%;
-            font-size: 12px;
-        }
-
-        .table th {
-            border: 1px solid #000;
-            padding: 3px;
-            font-weight: bold;
-        }
-
-        .table td {
-            border: 1px solid #000;
-            padding: 3px;
-            vertical-align: top;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-right {
-            text-align: right;
-        }
-
-        .table-sm th,
-        .table-sm td {
-            padding: 1px;
-        }
-
-        .table-bordered th,
-        .table-bordered td {
-            border: 1px solid #000;
-        }
-
-        .table-bordered th {
-            background-color: #f0f0f0;
-        }
-    </style>
 </head><body>
+<?php foreach ($Kebidanan as $kbd) : ?>
         <div style="font-size:14px;" class="bg-gray-500">
             <p style="text-align:center; margin-bottom:auto; margin-top:-10px;"><strong>Kop Surat</strong></p>
             <div class="form-row">
                 <div class="col">
                     <label class="required mb-0" for="nama_pasien">Nama Pasien</label>
-                    <input type="text" class="form-control form-control-sm" id="nama_pasien" name="nama_pasien" value="">
+                    <input type="text" class="form-control form-control-sm" id="nama_pasien" name="nama_pasien" value="<?= $kbd['nama_pasien']; ?>">
                 </div>
                 <div class="col">
                     <label class="required mb-0" for="no_rm">No. MR</label>
-                    <input type="number" class="form-control form-control-sm" id="no_rm" name="no_rm" value="">
+                    <input type="number" class="form-control form-control-sm" id="no_rm" name="no_rm" value="<?= $kbd['no_rm']; ?>">
                 </div>
                 <div class="col">
                     <label class="required mb-0" for="tgl_lahir">Tanggal Lahir</label>
-                    <input type="date" class="form-control form-control-sm" id="tgl_lahir" name="tgl_lahir" value="">
+                    <input type="date" class="form-control form-control-sm" id="tgl_lahir" name="tgl_lahir" value="<?php
+                  // Mengatur lokal ke bahasa Indonesia
+                  $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                  ?>
+                  <?= $formatter->format($kbd['tgl_lahir']); ?>">
                 </div>
             </div>
-            <div class="p-1 bg-gray-800 text-gray-200 text-center rounded" style="font-size:20px; margin-bottom: 15px; margin-top: 15px; "><strong>ASESMEN ASUHAN KEBIDANAN GINEKOLOGI</strong></div>
+            <div class="p-3 bg-dark text-light text-center rounded" style="font-size:20px; margin-bottom: 15px; margin-top: 15px; "><strong>ASESMEN ASUHAN KEBIDANAN GINEKOLOGI</strong></div>
             <div class="form-row">
                 <div class="col-md">
                     <label class="required mb-0" for="suami">Nama Suami</label>
-                    <input type="text" class="form-control form-control-sm" id="suami" name="suami" value="">
+                    <input type="text" class="form-control form-control-sm" id="suami" name="suami" value="<?= $kbd['suami']; ?>">
                 </div>
                 <div class="col-md">
                     <label class="required mb-0" for="alamat">Alamat</label>
-                    <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="">
+                    <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="<?= $kbd['alamat']; ?>">
                 </div>
             </div>
             <hr color="gray">
@@ -2219,5 +2142,5 @@
                 </select>
             </div>
         </div>
-
-</body></html>
+    <?php endforeach; ?>
+    </body></html>

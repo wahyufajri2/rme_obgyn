@@ -17,9 +17,6 @@ class Dokter extends CI_Controller
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
         $data['Kebidanan'] = $this->bidan->getKebidanan();
-        // $this->load->model('Dokter_model', 'dokter');
-
-        // $data['RekamMedis'] = $this->dokter->getRekamMedis();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);

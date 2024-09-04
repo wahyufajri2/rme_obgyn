@@ -153,7 +153,9 @@
                     <h5 class="modal-title" id="ubahDataAkunLabel_<?= $ak['id']; ?>">Ubah Data Akun</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <!-- <form method="post" action="<?= base_url('pengaturan/ubahDataAkun/' . $ak['id']); ?>" enctype="multipart/form-data" /> -->
                 <?= form_open_multipart('pengaturan/ubahDataAkun/' . $ak['id']); ?>
+                <!-- <form action="<?= base_url('pengaturan/ubahDataAkun/' . $ak['id']); ?>" method="post"> -->
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama akun</label>
@@ -222,7 +224,7 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="email" class="form-label">Alamat email</label>
-                            <input type="text" class="form-control" id="email_<?= $ak['id']; ?>" name="email" value="<?= $ak['email']; ?>">
+                            <input type="text" class="form-control" id="email_<?= $ak['id']; ?>" name="email" value="<?= $ak['email']; ?>" readonly>
                             <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                     </div>

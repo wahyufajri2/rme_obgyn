@@ -32,10 +32,8 @@ class Admin extends CI_Controller
         $data['title'] = 'Master Data Pasien';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
-        $data['DataPasienDaftar'] = $this->db->get('pasien')->result_array();
-        // $this->load->model('Pendaftaran_model', 'dpd');
+        $data['dataMasterPasien'] = $this->db->get('pasien')->result_array();
 
-        // $data['DataPasienDaftar'] = $this->dpd->getMasterPasien();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);

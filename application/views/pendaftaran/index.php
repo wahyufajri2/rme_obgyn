@@ -24,9 +24,9 @@
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama</th>
+                            <th scope="col">Nomor daftar</th>
                             <th scope="col">NIK</th>
                             <th scope="col">Tanggal daftar</th>
-                            <th scope="col">Nomor daftar</th>
                             <th scope="col">Tanggal periksa</th>
                             <th scope="col">Dokter</th>
                             <th scope="col">Status</th>
@@ -39,13 +39,13 @@
                             <tr>
                                 <th scope="row"><?= $i; ?></th>
                                 <td><?= $dft['nama_pasien']; ?></td>
+                                <td><?= $dft['no_rg']; ?></td>
                                 <td><?= $dft['nik']; ?></td>
                                 <?php
                                 // Mengatur lokal ke bahasa Indonesia
                                 $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
                                 ?>
                                 <td><?= $formatter->format($dft['tgl_pendaftaran']); ?></td>
-                                <td><?= $dft['no_rg']; ?></td>
                                 <?php
                                 // Mengatur lokal ke bahasa Indonesia
                                 $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);

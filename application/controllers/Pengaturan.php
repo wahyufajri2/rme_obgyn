@@ -8,6 +8,7 @@ class Pengaturan extends CI_Controller
         parent::__construct();
         is_logged_in();
         $this->load->library('form_validation');
+        $this->load->model('Akun_model', 'akun');
     }
 
     // Awal dari fungsi-fungsi di menu tambah akun
@@ -107,8 +108,7 @@ class Pengaturan extends CI_Controller
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
 
-        $this->load->model('Akun_model', 'akun');
-        $data['akun'] = $this->akun->getAkun();
+        $data['akun'] = $this->akun->getAkun(); // load ke model Akun_model
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -167,6 +167,8 @@ class Pengaturan extends CI_Controller
             // Jika validasi berhasil, update data akun di database (tabel 'pengguna')
             $nama = $this->input->post('nama');
             $email =  $this->input->post('email');
+            $nik = $this->input->post('nik');
+            $no_hp = $this->input->post('no_hp');
             $id_peran = $this->input->post('id_peran');
             $apakah_aktif = $this->input->post('apakah_aktif');
 
@@ -197,8 +199,11 @@ class Pengaturan extends CI_Controller
                 }
             }
 
+
             $this->db->set('nama', $nama);
             $this->db->set('email', $email);
+            $this->db->set('nik', $nik);
+            $this->db->set('no_hp', $no_hp);
             $this->db->set('id_peran', $id_peran);
             $this->db->set('apakah_aktif', $apakah_aktif);
             $this->db->where('id', $id);
@@ -208,6 +213,7 @@ class Pengaturan extends CI_Controller
             redirect('pengaturan/kelolaAkun');
         }
     }
+
 
     public function email_check($email, $id) // Callback untuk validasi email, memastikan email unik kecuali untuk ID yang sedang diedit
     {
@@ -248,7 +254,7 @@ class Pengaturan extends CI_Controller
             $this->email->message('<h2>Atur Ulang Kata Sandi Anda</h2>
             <p>Baru saja ada akun baru atas nama <strong>' . $name . '</strong> dengan alamat email ' . $email . '.</p>
             <p>Jika Anda ingin mengatur ulang kata sandi akun tersebut, harap klik tautan di bawah ini:</p>
-            <a href="' . base_url() . 'pengaturan/resetKataSandi?email=' . $this->input->post('email') . '& token=' . urlencode($token) . '">Atur Ulang Kata Sandi</a>
+            <a type="button" class="btn btn-primary" href="' . base_url() . 'pengaturan/resetKataSandi?email=' . $this->input->post('email') . '& token=' . urlencode($token) . '">Atur Ulang Kata Sandi</a>
             <p>Terima kasih atas tanggapan yang Anda berikan!</p>
             <p>Salam,<br>Tim Website Kami</p>');
         }

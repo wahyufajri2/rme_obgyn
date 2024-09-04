@@ -38,3 +38,99 @@ function check_access($role_id, $menu_id)
         return "checked='checked'";
     }
 }
+
+function generate_no_rm()
+{
+    $CI = &get_instance();
+    $CI->load->database();
+
+    // Maksimum percobaan pembuatan nomor rekam medis
+    $max_retries = 3;
+    $retry_count = 0;
+
+    do {
+        // Mulai transaksi
+        $CI->db->trans_start();
+
+        // Dapatkan tanggal hari ini dalam format yang diinginkan
+        $tanggal = date('dmY');
+
+        // Query untuk mendapatkan nomor urut terakhir (dengan kunci FOR UPDATE)
+        $CI->db->select_max('no_rm');
+        $CI->db->like('no_rm', "RM-{$tanggal}-", 'after');
+        $query = $CI->db->get('pasien', 1, 0, FALSE, TRUE); // Menggunakan get() dengan kunci FOR UPDATE
+        $result = $query->row_array();
+
+        // Ekstrak nomor urut dari hasil query
+        $last_number = 0;
+        if ($result && $result['no_rm']) {
+            $last_number = (int) substr($result['no_rm'], -4);
+        }
+
+        // Increment nomor urut
+        $new_number = $last_number + 1;
+
+        // Format nomor rekam medis baru
+        $no_rm = "RM-{$tanggal}-" . str_pad($new_number, 4, '0', STR_PAD_LEFT);
+
+        // Selesaikan transaksi
+        $CI->db->trans_complete();
+
+        $retry_count++;
+    } while ($CI->db->trans_status() === FALSE && $retry_count < $max_retries);
+
+    if ($CI->db->trans_status() === FALSE) {
+        // Jika semua percobaan gagal, tampilkan pesan error atau lakukan tindakan lain
+        log_message('error', 'Gagal membuat nomor rekam medis unik setelah beberapa percobaan.');
+        return FALSE;
+    }
+    return $no_rm;
+}
+
+function generate_no_rg()
+{
+    $CI = &get_instance();
+    $CI->load->database();
+
+    // Maksimum percobaan pembuatan nomor registrasi
+    $max_retries = 3;
+    $retry_count = 0;
+
+    do {
+        // Mulai transaksi
+        $CI->db->trans_start();
+
+        // Dapatkan tanggal hari ini dalam format yang diinginkan
+        $tanggal = date('dmY');
+
+        // Query untuk mendapatkan nomor urut terakhir (dengan kunci FOR UPDATE)
+        $CI->db->select_max('no_rg');
+        $CI->db->like('no_rg', "RG-{$tanggal}-", 'after');
+        $query = $CI->db->get('pendaftaran', 1, 0, FALSE, TRUE); // Menggunakan get() dengan kunci FOR UPDATE
+        $result = $query->row_array();
+
+        // Ekstrak nomor urut dari hasil query
+        $last_number = 0;
+        if ($result && $result['no_rg']) {
+            $last_number = (int) substr($result['no_rg'], -4);
+        }
+
+        // Increment nomor urut
+        $new_number = $last_number + 1;
+
+        // Format nomor registrasi baru
+        $no_rg = "RG-{$tanggal}-" . str_pad($new_number, 4, '0', STR_PAD_LEFT);
+
+        // Selesaikan transaksi
+        $CI->db->trans_complete();
+
+        $retry_count++;
+    } while ($CI->db->trans_status() === FALSE && $retry_count < $max_retries);
+
+    if ($CI->db->trans_status() === FALSE) {
+        // Jika semua percobaan gagal, tampilkan pesan error atau lakukan tindakan lain
+        log_message('error', 'Gagal membuat nomor registrasi unik setelah beberapa percobaan.');
+        return FALSE;
+    }
+    return $no_rg;
+}

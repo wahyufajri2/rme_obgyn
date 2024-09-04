@@ -17,6 +17,7 @@ class Bidan extends CI_Controller
 
     public function bidanRekamMedis()
     {
+        //Menyimpan data judul, data pengguna, data peran, dan data kebidanan ke variabel data
         $data['title'] = 'Data Rekam Medis';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
@@ -42,6 +43,7 @@ class Bidan extends CI_Controller
             $this->load->view('bidan/catatRekamMedis', $data);
             $this->load->view('templates/footer');
         } else {
+            //Menyimpan data catat rekam medis ke dalam database
             $data = array(
                 'no_rm' => htmlspecialchars($this->input->post('no_rm', true)),
                 'nama_pasien' => htmlspecialchars($this->input->post('nama_pasien', true)),
@@ -135,27 +137,28 @@ class Bidan extends CI_Controller
     //     $this->load->view('bidan/print_kebidanan', $data);
     // }
 
-    // public function pdfKebidanan()
-    // {
-    //     $data['title'] = 'Export Laporan Asesmen Kebidanan';
+    public function pdfRekamMedis()
+    {
+        $this->data['title'] = 'Cetak Laporan Asesmen Kebidanan';
 
-    //     $this->load->library('dompdf_gen');
-    //     // $this->load->model('Bidan_model', 'pdf');
+        // panggil model yang kita buat sebelumnya yang bernama Bidan_model
+        $this->data['Kebidanan'] = $this->bidan->getKebidanan();
 
-    //     $data['Kebidanan'] = $this->pdf->getKebidanan();
-    //     // $data['Detail'] = $this->pdf->getKunjunganDetail();
+        // panggil library yang kita buat sebelumnya yang bernama pdfgenerator
+        $this->load->library('pdfgenerator');
+        // judul dari pdf
+        $this->data['title_pdf'] = 'Laporan Asesmen Kebidanan';
+        // filename dari pdf ketika didownload
+        $file_pdf = 'laporan_asesmen_kebidanan';
+        // setting paper
+        $paper = 'A4';
+        //orientasi paper potrait / landscape
+        $orientation = "portrait";
+        $html = $this->load->view('bidan/pdf_kebidanan', $this->data, true);
 
-    //     $this->load->view('bidan/pdf_kebidanan', $data);
-
-    //     $paper_size = 'A4';
-    //     $orientation = 'portrait';
-    //     $html = $this->output->get_output();
-
-    //     $this->dompdf->set_paper($paper_size, $orientation);
-    //     $this->dompdf->load_html($html);
-    //     $this->dompdf->render();
-    //     $this->dompdf->stream('Laporan Asesmen Kebidanan.pdf', array('Attachment' => 0));
-    // }
+        // run dompdf
+        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    }
 
     // public function excelKebidanan()
     // {

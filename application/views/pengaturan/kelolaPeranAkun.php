@@ -42,7 +42,7 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <a href="" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#newRoleModal"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Role Baru</a>
+                <a href="" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#newRoleModal"><i class="fas fa-solid fa-circle-plus fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tambah Peran Baru</a>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newRoleModalLabel">Tambah peran baru</h5>
+                <h5 class="modal-title" id="newRoleModalLabel">Tambah Nama Peran</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="<?= base_url('pengaturan/kelolaPeranAkun'); ?>" method="post">
@@ -77,7 +77,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ubahRoleModalLabel_<?= $r['id']; ?>">Ubah Role</h5>
+                    <h5 class="modal-title" id="ubahRoleModalLabel_<?= $r['id']; ?>">Ubah Nama Peran</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="<?= base_url('pengaturan/ubahPeran/') . $r['id']; ?>" method="post">

@@ -14,6 +14,7 @@ class Pendaftaran extends CI_Controller
     //Awal fungsi untuk mengelola submenu pendaftaran periksa pasien
     public function index() //Untuk menampilkan tabel awal data pasien di menu pendaftaran
     {
+        //Menyimpan data judul, data user, data role, dan data master pasien
         $data['title'] = 'Daftar Periksa Pasien';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
@@ -45,12 +46,16 @@ class Pendaftaran extends CI_Controller
             $this->load->view('pendaftaran/index', $data);
             $this->load->view('templates/footer');
         } else {
+            // Generate nomor registrasi dari helper rme_helper.php
+            $no_rg = generate_no_rg();
             // Ambil data dari formulir
             $dataPeriksaPasien = [
-                'nik' => $this->input->post('nik'), // Asumsikan 'nik' ada di formulir
-                'id_pengguna' => $this->input->post('id'), // Asumsikan 'id' adalah ID dokter dari formulir
-                'tgl_periksa' => strtotime($this->input->post('tgl_periksa')),
+                'no_rg' => $no_rg, // Tambahkan no_rg ke data yang akan disimpan
+                'no_rm' => $this->input->post('no_rm', true), // Asumsikan 'no_rm' ada di formulir
+                'id_pengguna' => $this->input->post('id', true), // Asumsikan 'id' adalah ID dokter dari formulir
+                'tgl_periksa' => strtotime($this->input->post('tgl_periksa', true)),
                 'status' => 'Belum periksa',
+                'no_kamar' => $this->input->post('no_kamar', true),
                 'tgl_pendaftaran' => time()
             ];
             //Simpan ke tabel pendaftaran
@@ -102,6 +107,7 @@ class Pendaftaran extends CI_Controller
     //Awal fungsi untuk mengelola submenu Master Data Pasien
     public function masterPasien() //Untuk menampilkan data master pasien di menu Pendaftaran
     {
+        //Menyimpan data judul, data user, data role, dan data master pasien
         $data['title'] = 'Master Data Pasien';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
@@ -148,11 +154,14 @@ class Pendaftaran extends CI_Controller
             $this->load->view('pendaftaran/masterPasien', $data);
             $this->load->view('templates/footer');
         } else {
+            // Generate nomor rekam medis dari helper rme_helper.php
+            $no_rm = generate_no_rm();
             // Ambil data dari formulir
             $dataMasterPasien = [
+                'no_rm' => $no_rm, // Tambahkan no_rm ke data yang akan disimpan
                 'nik' => htmlspecialchars($this->input->post('nik'), ENT_QUOTES, 'UTF-8'),
                 'nama_pasien' => htmlspecialchars($this->input->post('nama_pasien'), ENT_QUOTES, 'UTF-8'),
-                'tgl_lahir' => strtotime(htmlspecialchars($this->input->post('tgl_lahir'), ENT_QUOTES, 'UTF-8')),
+                'tgl_lahir' => htmlspecialchars(strtotime($this->input->post('tgl_lahir')), ENT_QUOTES, 'UTF-8'),
                 'jenis_kelamin' => htmlspecialchars($this->input->post('jenis_kelamin'), ENT_QUOTES, 'UTF-8'),
                 'no_hp' => htmlspecialchars($this->input->post('no_hp'), ENT_QUOTES, 'UTF-8'),
                 'alamat' => htmlspecialchars($this->input->post('alamat'), ENT_QUOTES, 'UTF-8'),
@@ -166,7 +175,7 @@ class Pendaftaran extends CI_Controller
         }
     }
 
-    public function ubahMasterPasien($nik) //Untuk mengubah data master pasien berdasarkan nik yang dipilih di menu pendaftaran
+    public function ubahMasterPasien($no_rm) //Untuk mengubah data master pasien berdasarkan nik yang dipilih di menu pendaftaran
     {
         $this->form_validation->set_rules('nik', 'NIK Pasien', 'required|trim', ['required' => 'NIK Pasien harus diisi!']);
         $this->form_validation->set_rules('nama_pasien', 'Nama Pasien', 'required|trim', ['required' => 'Nama pasien harus diisi!']);
@@ -195,7 +204,7 @@ class Pendaftaran extends CI_Controller
             $dataMasterPasien = [
                 'nik' => htmlspecialchars($this->input->post('nik'), ENT_QUOTES, 'UTF-8'),
                 'nama_pasien' => htmlspecialchars($this->input->post('nama_pasien'), ENT_QUOTES, 'UTF-8'),
-                'tgl_lahir' => strtotime(htmlspecialchars($this->input->post('tgl_lahir'), ENT_QUOTES, 'UTF-8')),
+                'tgl_lahir' => htmlspecialchars(strtotime($this->input->post('tgl_lahir')), ENT_QUOTES, 'UTF-8'),
                 'jenis_kelamin' => htmlspecialchars($this->input->post('jenis_kelamin'), ENT_QUOTES, 'UTF-8'),
                 'no_hp' => htmlspecialchars($this->input->post('no_hp'), ENT_QUOTES, 'UTF-8'),
                 'alamat' => htmlspecialchars($this->input->post('alamat'), ENT_QUOTES, 'UTF-8'),
@@ -203,7 +212,7 @@ class Pendaftaran extends CI_Controller
                 'tgl_dibuat' => time()
             ];
             //Update ke tabel pasien
-            $this->db->where('nik', $nik);
+            $this->db->where('no_rm', $no_rm);
             $this->db->update('pasien', $dataMasterPasien);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data master pasien berhasil diubah!</div>');
             redirect('pendaftaran/masterPasien');
