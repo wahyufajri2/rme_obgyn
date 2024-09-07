@@ -334,11 +334,6 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="no_kamar" class="form-label">Nomor Kamar</label>
-              <input type="text" class="form-control" id="no_kamar" name="no_kamar" value="<?= set_value('no_kamar'); ?>">
-              <?= form_error('no_kamar', '<small class="text-danger pl-3">', '</small>'); ?>
-            </div>
-            <div class="mb-3">
               <label for="id" class="form-label">Nama Dokter</label>
               <select name="id" id="id" class="form-select">
                 <option value="">Pilih Dokter</option>
@@ -349,12 +344,34 @@
               <?= form_error('id', '<small class="text-danger pl-3">', '</small>'); ?>
             </div>
             <div class="mb-3">
+              <label for="bangsal" class="form-label">Bangsal</label>
+              <select class="form-select" id="bangsal" name="bangsal">
+                <option selected>Pilih bangsal</option>
+                <option value="IGD">IGD</option>
+                <option value="Rawat Jalan">Rawat Jalan</option>
+                <option value="Rawat Inap">Rawat Inap</option>
+              </select>
+              <?= form_error('bangsal', '<small class="text-danger pl-3">', '</small>'); ?>
+            </div>
+            <div class="mb-3">
+              <label for="asuransi" class="form-label">Asuransi</label>
+              <select class="form-select" id="asuransi" name="asuransi">
+                <option selected>Pilih asuransi</option>
+                <option value="BPJS">BPJS</option>
+                <option value="Umum">Umum</option>
+              </select>
+              <?= form_error('asuransi', '<small class="text-danger pl-3">', '</small>'); ?>
+            </div>
+            <div class="mb-3">
               <label for="tgl_periksa" class="form-label">Tanggal periksa</label>
               <input type="date" class="form-control flatpickr" id="tgl_periksa" name="tgl_periksa" value="<?= set_value('tgl_periksa'); ?>">
               <?= form_error('tgl_periksa', '<small class="text-danger pl-3">', '</small>'); ?>
             </div>
             <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+              <div>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>
+                <button type="reset" class="btn btn-warning"><i class="fas fa-solid fa-rotate-left fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Reset</button>
+              </div>
               <button type="submit" class="btn btn-primary fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.020;"><i class="fas fa-solid fa-floppy-disk"></i> Simpan</button>
             </div>
           </form>

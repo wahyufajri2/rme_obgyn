@@ -77,6 +77,8 @@ class Pengaturan extends CI_Controller
                 'kata_sandi' => password_hash($this->input->post('kata_sandi1'), PASSWORD_DEFAULT),
                 'id_peran' => htmlspecialchars($this->input->post('id_peran', true)),
                 'apakah_aktif' => 1,
+                'no_hp' => '089123456789',
+                'qr_code' => 'default.jpg',
                 'tgl_dibuat' => time()
             ];
 
@@ -131,16 +133,6 @@ class Pengaturan extends CI_Controller
             'valid_email' => 'Email tidak valid!'
         ]);
         $this->form_validation->set_rules(
-            'nik',
-            'Diisi NIK',
-            'required|trim|integer|is_unique|exact_length[16]',
-            [
-                'integer' => 'NIK harus berupa angka!',
-                'required' => 'NIK diperlukan!',
-                'exact_length' => 'NIK harus 16 karakter!',
-            ]
-        );
-        $this->form_validation->set_rules(
             'no_hp',
             'Diisi No. Handphone',
             'required|trim|integer',
@@ -167,7 +159,6 @@ class Pengaturan extends CI_Controller
             // Jika validasi berhasil, update data akun di database (tabel 'pengguna')
             $nama = $this->input->post('nama');
             $email =  $this->input->post('email');
-            $nik = $this->input->post('nik');
             $no_hp = $this->input->post('no_hp');
             $id_peran = $this->input->post('id_peran');
             $apakah_aktif = $this->input->post('apakah_aktif');
@@ -202,7 +193,6 @@ class Pengaturan extends CI_Controller
 
             $this->db->set('nama', $nama);
             $this->db->set('email', $email);
-            $this->db->set('nik', $nik);
             $this->db->set('no_hp', $no_hp);
             $this->db->set('id_peran', $id_peran);
             $this->db->set('apakah_aktif', $apakah_aktif);
@@ -271,7 +261,6 @@ class Pengaturan extends CI_Controller
     {
         $data['title'] = 'Kelola Akun';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
-        $this->load->model('Akun_model', 'akun');
         $data['akun'] = $this->akun->getAkun();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
 

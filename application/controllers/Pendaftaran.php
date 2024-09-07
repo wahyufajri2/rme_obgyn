@@ -33,6 +33,8 @@ class Pendaftaran extends CI_Controller
     {
         $this->form_validation->set_rules('id', 'Nama dokter', 'required|trim', ['required' => 'Nama dokter harus diisi!']);
         $this->form_validation->set_rules('tgl_periksa', 'Tanggal Periksa', 'required|trim', ['required' => 'Tanggal periksa harus diisi!']);
+        $this->form_validation->set_rules('bangsal', 'Bangsal', 'required|trim', ['required' => 'Bangsal harus diisi!']);
+        $this->form_validation->set_rules('asuransi', 'Asuransi', 'required|trim', ['required' => 'Asuransi harus diisi!']);
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Daftar Periksa Pasien';
@@ -55,7 +57,8 @@ class Pendaftaran extends CI_Controller
                 'id_pengguna' => $this->input->post('id', true), // Asumsikan 'id' adalah ID dokter dari formulir
                 'tgl_periksa' => strtotime($this->input->post('tgl_periksa', true)),
                 'status' => 'Belum periksa',
-                'no_kamar' => $this->input->post('no_kamar', true),
+                'bangsal' => $this->input->post('bangsal', true),
+                'asuransi' => $this->input->post('asuransi', true),
                 'tgl_pendaftaran' => time()
             ];
             //Simpan ke tabel pendaftaran
@@ -65,7 +68,7 @@ class Pendaftaran extends CI_Controller
         }
     }
 
-    public function ubahPeriksaPasien($nik) //Untuk mengubah data periksa pasien beradasarkan nik yang dipilih di menu pendaftaran
+    public function ubahPeriksaPasien($no_rg) //Untuk mengubah data periksa pasien beradasarkan no_rg yang dipilih di menu pendaftaran
     {
         $this->form_validation->set_rules('id', 'Nama dokter', 'required|trim', ['required' => 'Nama dokter harus diisi!']);
         $this->form_validation->set_rules('tgl_periksa', 'Tanggal Periksa', 'required|trim', ['required' => 'Tanggal periksa harus diisi!']);
@@ -94,7 +97,7 @@ class Pendaftaran extends CI_Controller
                 'tgl_pendaftaran' => time()
             ];
             //Update ke tabel pendaftaran
-            $this->db->where('nik', $nik);
+            $this->db->where('no_rg', $no_rg);
             $this->db->update('pendaftaran', $dataPeriksaPasien);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data periksa pasien berhasil diubah!</div>');
             redirect('pendaftaran');
@@ -111,7 +114,7 @@ class Pendaftaran extends CI_Controller
         $data['title'] = 'Master Data Pasien';
         $data['user'] = $this->db->get_where('pengguna', ['email' => $this->session->userdata('email')])->row_array();
         $data['role'] = $this->db->get('peran_pengguna')->result_array();
-        $data['dataMasterPasien'] = $this->db->get('pasien')->result_array();
+        $data['dataMasterPasien'] = $this->daftar->getDataMasterPasien();
 
         //Ambil data dari model pendafataran_model
         $data['daftar'] = $this->daftar->getDataPendaftaran();

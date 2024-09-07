@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <title><?= $title; ?></title>
     <link rel="shortcut icon" href="<?= base_url('assets/'); ?>img/pku.png" type="image/x-icon">
-    <!-- <link href="<?= base_url('assets/'); ?>css/styles.css" rel="stylesheet" /> -->
+    <link href="<?= base_url('assets/'); ?>css/styles.css" rel="stylesheet" />
 
 
 </head><body>

@@ -40,7 +40,7 @@
                                 <td><?= $formatter->format($dmp['tgl_lahir']); ?></td>
                                 <td><?= $dmp['alamat']; ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailDataPasien_<?= $dmp['nik']; ?>">
+                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#detailDataPasien_<?= $dmp['no_rm']; ?>">
                                         <i class="fas fa-solid fa-file-lines fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Detail
                                     </button>
                                 </td>

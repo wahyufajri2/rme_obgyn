@@ -172,11 +172,11 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ubahDataPeriksaPasienLabel_<?= $dft['no_rg']; ?>">Daftarkan periksa pasien</h5>
+                    <h5 class="modal-title" id="ubahDataPeriksaPasienLabel_<?= $dft['no_rg']; ?>">Ubah data periksa pasien</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url('pendaftaran/tambahPasien'); ?>" method="post">
+                    <form action="<?= base_url('pendaftaran/ubahPeriksaPasien/' . $dft['no_rg']); ?>" method="post">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -204,15 +204,17 @@
                             <select name="id" id="id" class="form-select">
                                 <option value="">Pilih Dokter</option>
                                 <?php foreach ($daftar_dokter as $dk) : ?>
-                                    <option value="<?= $dk['id']; ?>"><?= $dk['nama']; ?></option>
+                                    <option value="<?= $dk['id']; ?>" <?= ($dk['id'] == $dk['nama']) ? 'selected' : ''; ?>><?= $dk['peran']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <?= form_error('id', '<small class="text-danger pl-3">', '</small>'); ?>
                         </div>
                         <div class="mb-3">
-                            <label for="tgl_periksa" class="form-label">Tanggal periksa</label>
-                            <input type="date" class="form-control flatpickr" id="tgl_periksa" name="tgl_periksa" value="<?= set_value('tgl_periksa'); ?>">
-                            <?= form_error('tgl_periksa', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="tgl_periksa" class="form-label mb-0">Tanggal periksa</label>
+                            <input type="text" class="form-control flatpickr" id="tgl_periksa" name="tgl_periksa" value="<?php
+                                                                                                                            $formatter = new IntlDateFormatter('id_ID', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                                                                                                                            ?>
+<?= isset($dft['tgl_periksa']) ? $formatter->format($dft['tgl_periksa']) : ''; ?>">
                         </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-solid fa-circle-xmark fa-beat-fade" style="--fa-beat-fade-opacity: 0.67; --fa-beat-fade-scale: 1.075;"></i> Tutup</button>

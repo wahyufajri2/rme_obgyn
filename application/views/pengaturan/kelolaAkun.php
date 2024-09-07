@@ -167,9 +167,12 @@
                         <input type="text" class="form-control" id="email_<?= $ak['id']; ?>" name="email" value="<?= $ak['email']; ?>" readonly>
                     </div>
                     <div class="mb-3">
-                        <label for="nik" class="form-label">Nomor NIK</label>
-                        <input type="number" class="form-control" id="nik_<?= $ak['id']; ?>" name="nik" value="<?= $ak['nik']; ?>">
-                        <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
+                        <label for="qr_code" class="form-label">Kode QR</label>
+                        <input type="file" class="form-control" id="qr_code_<?= $ak['id']; ?>" name="qr_code">
+
+                        <?php if (!empty($ak['qr_code'])): ?>
+                            <small class="form-text text-muted">File saat ini: <?= $ak['qr_code']; ?></small>
+                        <?php endif; ?>
                     </div>
                     <div class="mb-3">
                         <label for="no_hp" class="form-label">Nomor Handphone</label>
